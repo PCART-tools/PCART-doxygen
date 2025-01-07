@@ -1,0 +1,14 @@
+<map id="repairTask" name="repairTask">
+<area shape="rect" id="node2" href="$namespacetool.html#a163a1af85c967f70b1495290735321aa" title="tool.getAst" alt="" coords="147,56,232,83"/>
+<area shape="rect" id="node3" href="$namespacerepair.html#a77d5ab0ffc52fdb84b2063d48952bf07" title="fix" alt="" coords="170,107,209,133"/>
+<area shape="rect" id="node7" href="$namespacerepair.html#aaf441b3a0f89d081e50ad51ac510eb1c" title="validateByStr" alt="" coords="139,157,239,184"/>
+<area shape="rect" id="node12" href="$namespacerepair.html#a8b2a9e10672bdfd180a0fa6d98d48851" title="validateByRun" alt="" coords="136,233,243,260"/>
+<area shape="rect" id="node4" href="$namespacerepair.html#a3f486f899c41567be3240f65443acf12" title="mapPos" alt="" coords="363,5,434,32"/>
+<area shape="rect" id="node5" href="$namespacerepair.html#a78d633fe3bd2b3c6f18d9a95904617ae" title="findName" alt="" coords="359,56,438,83"/>
+<area shape="rect" id="node6" href="$namespacerepair.html#ac9c91801547e5577cd1845cf6ed134dc" title="mapName" alt="" coords="357,107,440,133"/>
+<area shape="rect" id="node8" href="$namespacerepair.html#a13c0f10cec0074c6fd20914a93586ea0" title="mirrorAPI" alt="" coords="360,157,437,184"/>
+<area shape="rect" id="node11" href="$namespaceChange_1_1changeAnalyze.html#ad11dba59f30a8135133f75a7c0555dd4" title="Change.changeAnalyze.para2Obj" alt="" coords="291,208,507,235"/>
+<area shape="rect" id="node9" href="$namespaceaddValueForAPI.html#a175f16e6e241e02ffda997ed33cb5556" title="addValueForAPI.getLastAPIParameter" alt="" coords="555,149,801,176"/>
+<area shape="rect" id="node10" href="$namespaceaddValueForAPI.html#a15167f1b171f069e6edcb9f41d207c6c" title="addValueForAPI.get\l_parameter" alt="" coords="609,201,747,242"/>
+<area shape="rect" id="node13" href="$namespacedynamicMatch.html#a415d1a21906afceb0347ec4da3efdbe2" title="dynamicMatch.getFileName" alt="" coords="306,259,491,285"/>
+</map>
