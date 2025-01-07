@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node2" href="$classextractCall_1_1AssignVisitor.html" title="AssignVisitor" alt="" coords="160,5,259,32"/>
+<area shape="rect" id="node3" href="$classextractCall_1_1Import.html" title="Import" alt="" coords="180,56,239,83"/>
+<area shape="rect" id="node4" href="$classextractDef_1_1FromImport.html" title="FromImport" alt="" coords="165,107,254,133"/>
+<area shape="rect" id="node5" href="$classextractDef_1_1FunctionDefVisitor.html" title="FunctionDefVisitor" alt="" coords="144,157,275,184"/>
+</map>
