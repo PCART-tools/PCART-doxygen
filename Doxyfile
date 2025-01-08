@@ -874,7 +874,9 @@ RECURSIVE              = YES
 # run.
 
 EXCLUDE                = ../PCART/Example \ 
-                         ../PCART/Results_of_PCART_Paper
+                         ../PCART/Results_of_PCART_Paper \
+                         ../PCART/Script \
+                         ../PCART/Tool/fixTool.py
 
 # The EXCLUDE_SYMLINKS tag can be used to select whether or not files or
 # directories that are symbolic links (a Unix file system feature) are excluded

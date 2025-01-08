@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['extractcall',['extractCall',['../namespaceextractCall.html',1,'']]],
-  ['extractdef',['extractDef',['../namespaceextractDef.html',1,'']]],
-  ['extractlibapi',['extractLibAPI',['../namespaceextractLibAPI.html',1,'']]]
+  ['getcall',['getCall',['../namespacegetCall.html',1,'']]],
+  ['getdef',['getDef',['../namespacegetDef.html',1,'']]],
+  ['getpath',['getPath',['../namespacegetPath.html',1,'']]]
 ];

@@ -3,14 +3,15 @@
 <area shape="rect" id="node3" href="$namespaceChange_1_1changeAnalyze.html#a58be6a08842211c0f99dc56ce16d2344" title="Change.changeAnalyze.isDifferType" alt="" coords="159,56,393,83"/>
 <area shape="rect" id="node8" href="$namespaceChange_1_1changeAnalyze.html#ad11dba59f30a8135133f75a7c0555dd4" title="Change.changeAnalyze.para2Obj" alt="" coords="168,107,384,133"/>
 <area shape="rect" id="node11" href="$namespacepreprocess.html#a7de1c86e6c3f3d8a09c5f8f93e59f7b4" title="preprocess.addDictSingle" alt="" coords="191,208,361,235"/>
-<area shape="rect" id="node13" href="$namespacepreprocess.html#aeb5178b512f242c05329f1137c0b208c" title="preprocess.addDictAll" alt="" coords="201,259,351,285"/>
-<area shape="rect" id="node15" href="$namespacerepair.html#a13c0f10cec0074c6fd20914a93586ea0" title="repair.mirrorAPI" alt="" coords="219,157,333,184"/>
+<area shape="rect" id="node14" href="$namespacepreprocess.html#aeb5178b512f242c05329f1137c0b208c" title="preprocess.addDictAll" alt="" coords="201,259,351,285"/>
+<area shape="rect" id="node16" href="$namespacerepair.html#a13c0f10cec0074c6fd20914a93586ea0" title="repair.mirrorAPI" alt="" coords="219,157,333,184"/>
 <area shape="rect" id="node4" href="$namespaceChange_1_1changeAnalyze.html#a36b10a1513855a481269e984c8dbd8b1" title="Change.changeAnalyze.find\lDiffer" alt="" coords="453,26,639,67"/>
 <area shape="rect" id="node7" href="$namespaceChange_1_1changeAnalyze.html#aad2fa9fad01d521f8b2a363ab4292f02" title="Change.changeAnalyze.analyze\lCompatibility" alt="" coords="441,91,651,133"/>
 <area shape="rect" id="node5" href="$namespaceChange_1_1changeAnalyze.html#a00df51f2504b27b64e7045d6d017810a" title="Change.changeAnalyze.isCompatible" alt="" coords="699,99,939,125"/>
-<area shape="rect" id="node6" href="$namespacemain.html#a052341442960b76f576383f354689bc5" title="main.backwardTask" alt="" coords="987,128,1125,155"/>
+<area shape="rect" id="node6" href="$namespacemain.html#a052341442960b76f576383f354689bc5" title="main.backwardTask" alt="" coords="987,157,1125,184"/>
 <area shape="rect" id="node9" href="$namespacerepair.html#aaf441b3a0f89d081e50ad51ac510eb1c" title="repair.validateByStr" alt="" coords="478,157,614,184"/>
-<area shape="rect" id="node10" href="$namespacerepair.html#afdcb02b6e3ba6de73363c7254596a8b1" title="repair.repairTask" alt="" coords="759,153,878,180"/>
+<area shape="rect" id="node10" href="$namespacerepair.html#afdcb02b6e3ba6de73363c7254596a8b1" title="repair.repairTask" alt="" coords="759,157,878,184"/>
 <area shape="rect" id="node12" href="$namespacemap.html#ad69df3164e43211b92bd1edcb1c7db9b" title="map.dynamicMatch" alt="" coords="478,208,614,235"/>
-<area shape="rect" id="node14" href="$namespacepreprocess.html#a0b52460f33415186cee80896a65d8530" title="preprocess.codeProcess" alt="" coords="463,259,629,285"/>
+<area shape="rect" id="node13" href="$namespacemap.html#a5f1be2d0cbe3184aaf86a65cf54e00de" title="map.mapAPI" alt="" coords="769,208,868,235"/>
+<area shape="rect" id="node15" href="$namespacepreprocess.html#a0b52460f33415186cee80896a65d8530" title="preprocess.codeProcess" alt="" coords="463,259,629,285"/>
 </map>

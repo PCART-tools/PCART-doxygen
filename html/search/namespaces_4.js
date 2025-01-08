@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['fixtool',['fixTool',['../namespacefixTool.html',1,'']]],
-  ['fuzzymatch',['fuzzyMatch',['../namespacefuzzyMatch.html',1,'']]]
+  ['libapi',['LibApi',['../namespaceLibApi.html',1,'']]],
+  ['loaddata',['loadData',['../namespaceloadData.html',1,'']]]
 ];

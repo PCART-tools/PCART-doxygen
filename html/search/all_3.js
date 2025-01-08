@@ -1,13 +1,12 @@
 var searchData=
 [
   ['api',['API',['../namespaceChange_1_1API.html',1,'Change']]],
-  ['callapi',['callAPI',['../namespaceaddValueForAPI.html#ac105efe3e4d6787a996d60334f17a75e',1,'addValueForAPI.callAPI()'],['../namespacedynamicMatch.html#ac105efe3e4d6787a996d60334f17a75e',1,'dynamicMatch.callAPI()'],['../namespaceverifySingle.html#ac105efe3e4d6787a996d60334f17a75e',1,'verifySingle.callAPI()']]],
+  ['callapi',['callAPI',['../namespaceverifySingle.html#ac105efe3e4d6787a996d60334f17a75e',1,'verifySingle']]],
   ['change',['Change',['../namespaceChange.html',1,'']]],
   ['changeanalyze',['changeAnalyze',['../namespaceChange_1_1changeAnalyze.html',1,'Change']]],
   ['changeanalyze_2epy',['changeAnalyze.py',['../changeAnalyze_8py.html',1,'']]],
   ['clc',['clc',['../classgetPath_1_1Path.html#a0f204f973d26537c7fbea3b1fb4e37dc',1,'getPath::Path']]],
   ['cmp',['cmp',['../namespacetool.html#a51b7d0e90dbf25c2596e98cee7912634',1,'tool']]],
-  ['cnt',['cnt',['../namespaceaddValueForAPI.html#a9cfbb269728dc4185236d28be58d9eab',1,'addValueForAPI']]],
   ['codeprocess',['codeProcess',['../namespacepreprocess.html#a0b52460f33415186cee80896a65d8530',1,'preprocess']]],
   ['config',['config',['../namespaceextractLibAPI.html#ad2256458892609d0533df5d72a7257ad',1,'extractLibAPI.config()'],['../namespacemain.html#ad2256458892609d0533df5d72a7257ad',1,'main.config()']]],
   ['convertlocalvar',['convertLocalVar',['../namespacepreprocess.html#a1be44b4612b83c96456034d7eef3a376',1,'preprocess']]],

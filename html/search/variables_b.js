@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['objlst',['objLst',['../classLibApi_1_1APIOBJ.html#ace6014a2590bde8fbd38d951a7b03516',1,'LibApi.APIOBJ.objLst()'],['../classChange_1_1API_1_1APIOBJ.html#ace6014a2590bde8fbd38d951a7b03516',1,'Change.API.APIOBJ.objLst()']]]
+  ['star_5fposition',['star_position',['../classLibApi_1_1Parameter.html#aaf4d4b955624734af60406a80a732f7d',1,'LibApi::Parameter']]],
+  ['start',['start',['../namespacemain.html#a550769bbd4e7537ff90a656f5b0c23b2',1,'main']]]
 ];

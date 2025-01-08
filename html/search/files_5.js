@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['fixtool_2epy',['fixTool.py',['../fixTool_8py.html',1,'']]],
-  ['fuzzymatch_2epy',['fuzzyMatch.py',['../fuzzyMatch_8py.html',1,'']]]
+  ['getcall_2epy',['getCall.py',['../getCall_8py.html',1,'']]],
+  ['getdef_2epy',['getDef.py',['../getDef_8py.html',1,'']]],
+  ['getpath_2epy',['getPath.py',['../getPath_8py.html',1,'']]]
 ];

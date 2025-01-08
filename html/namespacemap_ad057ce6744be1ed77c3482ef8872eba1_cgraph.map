@@ -1,5 +1,5 @@
 <map id="fuzzymatch" name="fuzzymatch">
-<area shape="rect" id="node2" href="$namespaceloadData.html#a534ad5385c0d9ba94804d73e99241c3e" title="loadData.loadLib" alt="" coords="197,5,315,32"/>
-<area shape="rect" id="node3" href="$namespacemap.html#aaac6f97b9ceb2143a696d52df84f0a21" title="isAlias" alt="" coords="225,56,287,83"/>
-<area shape="rect" id="node4" href="$namespaceaddValueForAPI.html#ab9cb3d8f9f456153fdd4b3a372bd44a4" title="addValueForAPI.removeParameter" alt="" coords="144,107,368,133"/>
+<area shape="rect" id="node2" href="$namespaceloadData.html#a534ad5385c0d9ba94804d73e99241c3e" title="loadData.loadLib" alt="" coords="160,5,279,32"/>
+<area shape="rect" id="node3" href="$namespacemap.html#aaac6f97b9ceb2143a696d52df84f0a21" title="isAlias" alt="" coords="189,56,250,83"/>
+<area shape="rect" id="node4" href="$namespacetool.html#a06b0d4848192999bfb9a11895ba277dc" title="tool.removeParameter" alt="" coords="144,107,295,133"/>
 </map>

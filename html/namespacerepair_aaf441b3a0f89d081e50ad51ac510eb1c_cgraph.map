@@ -1,6 +1,6 @@
 <map id="validateByStr" name="validateByStr">
-<area shape="rect" id="node2" href="$namespacerepair.html#a13c0f10cec0074c6fd20914a93586ea0" title="mirrorAPI" alt="" coords="223,13,300,40"/>
-<area shape="rect" id="node5" href="$namespaceChange_1_1changeAnalyze.html#ad11dba59f30a8135133f75a7c0555dd4" title="Change.changeAnalyze.para2Obj" alt="" coords="153,64,369,91"/>
-<area shape="rect" id="node3" href="$namespaceaddValueForAPI.html#a175f16e6e241e02ffda997ed33cb5556" title="addValueForAPI.getLastAPIParameter" alt="" coords="417,5,664,32"/>
-<area shape="rect" id="node4" href="$namespaceaddValueForAPI.html#a15167f1b171f069e6edcb9f41d207c6c" title="addValueForAPI.get\l_parameter" alt="" coords="471,57,610,98"/>
+<area shape="rect" id="node2" href="$namespacerepair.html#a13c0f10cec0074c6fd20914a93586ea0" title="mirrorAPI" alt="" coords="223,5,300,32"/>
+<area shape="rect" id="node5" href="$namespaceChange_1_1changeAnalyze.html#ad11dba59f30a8135133f75a7c0555dd4" title="Change.changeAnalyze.para2Obj" alt="" coords="153,56,369,83"/>
+<area shape="rect" id="node3" href="$namespacetool.html#aeb791b1ae890adfbcdf37ee06053021e" title="tool.getLastAPIParameter" alt="" coords="417,5,589,32"/>
+<area shape="rect" id="node4" href="$namespacetool.html#a396cdc600a56de60c51858cb6af5bdf7" title="tool.get_parameter" alt="" coords="438,56,569,83"/>
 </map>

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['k',['k',['../namespaceaddValueForAPI.html#a2dff58dafa135c30464d5e72c837fc86',1,'addValueForAPI.k()'],['../namespacedynamicMatch.html#a2dff58dafa135c30464d5e72c837fc86',1,'dynamicMatch.k()']]],
-  ['key2pos',['key2pos',['../classChange_1_1changeAnalyze_1_1Update.html#a4cc84068225dca6fc0cd5a6c918682eb',1,'Change::changeAnalyze::Update']]]
+  ['name',['name',['../classLibApi_1_1Parameter.html#ab74e6bf80237ddc4109968cedc58c151',1,'LibApi.Parameter.name()'],['../classLibApi_1_1Api.html#ab74e6bf80237ddc4109968cedc58c151',1,'LibApi.Api.name()'],['../classChange_1_1API_1_1Parameter.html#ab74e6bf80237ddc4109968cedc58c151',1,'Change.API.Parameter.name()'],['../classChange_1_1API_1_1Api.html#ab74e6bf80237ddc4109968cedc58c151',1,'Change.API.Api.name()']]]
 ];
