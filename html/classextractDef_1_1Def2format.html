@@ -102,7 +102,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00045">45</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
-
+<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">def </span>__init__(self):</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        self._prefix=<span class="stringliteral">&#39;&#39;</span></div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        self._relativePath=<span class="stringliteral">&#39;&#39;</span> <span class="comment">#记录包的相对路径，例如numpy/core/func.py</span></div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    </div></div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -123,7 +123,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00050">50</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
-
+<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">def </span>prefix(self):</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">return</span> self._prefix</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    </div></div><!-- fragment -->
 </div>
 </div>
 <a id="a7a5c0acb2f581955eb9b5d87694c4dbd"></a>
@@ -143,7 +143,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00054">54</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
-
+<div class="fragment"><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">def </span>relativePath(self):</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">return</span> self._relativePath</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    </div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    </div></div><!-- fragment -->
 </div>
 </div>
 <a id="a34a8e7b7f3c46ee365f4574778376f9f"></a>
@@ -173,7 +173,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00058">58</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
-
+<div class="fragment"><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">def </span>toFormat(self,filePath):</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        s=filePath.split(f<span class="stringliteral">&quot;site-packages/&quot;</span>)[-1]</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        self._relativePath=s</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        s=s.replace(<span class="stringliteral">&#39;/&#39;</span>,<span class="stringliteral">&#39;.&#39;</span>)</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        pos=s.rfind(<span class="stringliteral">&#39;.&#39;</span>)</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        s=s[0:pos]</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        self._prefix=s.replace(<span class="stringliteral">&#39;/&#39;</span>, <span class="stringliteral">&#39;.&#39;</span>)</div></div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
