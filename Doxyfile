@@ -874,7 +874,6 @@ RECURSIVE              = YES
 # run.
 
 EXCLUDE                = ../PCART/Example \ 
-                         ../PCART/Results_of_PCART_Paper \
                          ../PCART/Script \
                          ../PCART/Tool/fixTool.py
 
