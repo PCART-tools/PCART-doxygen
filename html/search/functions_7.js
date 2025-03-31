@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['get_5fdef_5ffunction',['get_def_function',['../namespacegetDef.html#ac6c3292179606e8768e97eb421269587',1,'getDef']]],
   ['get_5fmd_5fname',['get_md_name',['../classextractCall_1_1Import.html#a527daeae5ae37c175b62ecd2b53cf352',1,'extractCall::Import']]],
   ['get_5fparameter',['get_parameter',['../namespacetool.html#a396cdc600a56de60c51858cb6af5bdf7',1,'tool']]],
   ['get_5fresult',['get_result',['../classgetDef_1_1RegexMatch.html#ad58623e6201bdcbab5abb2dd0536c5a5',1,'getDef::RegexMatch']]],
@@ -10,6 +9,7 @@ var searchData=
   ['getast',['getAst',['../namespacetool.html#a163a1af85c967f70b1495290735321aa',1,'tool']]],
   ['getcallfunction',['getCallFunction',['../namespacegetCall.html#a09df38fef33a1a5a38b769e150b35cb8',1,'getCall']]],
   ['getclass',['getClass',['../namespacegetDef.html#a3f3b88c223a5bfa2254c656418dc9910',1,'getDef']]],
+  ['getdeffunction',['getDefFunction',['../namespacegetDef.html#ad6f70c11131f697c5bce20d6ef27608d',1,'getDef']]],
   ['getdictvar',['getDictVar',['../namespacepreprocess.html#a45a426d44e2e19441f98e0def6cc2d67',1,'preprocess']]],
   ['getfilename',['getFileName',['../namespacetool.html#a738ffb440e1ecdd990c95702ed30da31',1,'tool']]],
   ['getimportline',['getImportLine',['../namespacepreprocess.html#a638e9a6cb8c8f3b7752dc458a3846d9d',1,'preprocess']]],
