@@ -66,14 +66,20 @@ $(function() {
 <img src="overview.png" alt="image"/>
 </div>
 <h2>What is PCART?</h2>
-<p>PCART is an automated tool designed to detect and repair Python API parameter compatibility issues. It is the first to achieve a fully automated process that includes <code>API extraction</code>, <code>code instrumentation</code>, <code>mapping</code>, <code>compatibility analysis</code>, and <code>repair and validation</code>. PCART specializes in addressing API compatibility issues arising from parameter <code>addition</code>, <code>removal</code>, <code>renaming</code>, <code>reordering</code>, and the <code>conversion of positional parameters to keyword parameters</code>. For detailed descriptions of PCART, please refer to our <a href="https://doi.org/10.48550/arXiv.2406.03839">ArXiv paper</a>.</p>
-<h2>Prerequisites</h2>
+<p>PCART is an automated tool designed to detect and repair Python API parameter compatibility issues. It is the first to achieve a fully automated process (end-to-end) that includes <code>API extraction</code>, <code>code instrumentation</code>, <code>mapping</code>, <code>compatibility analysis</code>, and <code>repair and validation</code>. PCART specializes in addressing API compatibility issues arising from parameter <code>addition</code>, <code>removal</code>, <code>renaming</code>, <code>reordering</code>, and the <code>conversion of positional parameters to keyword parameters</code>.</p>
+<h2>Documentation</h2>
+<p>PCART's doxygen document is available <a href="https://pcart-tools.github.io/PCART-doxygen/html">here</a>.</p>
+<p>For PCART's design and implementation details, please refer to our <a href="https://doi.org/10.48550/arXiv.2406.03839">paper</a>.</p>
+<h2>Evaluation</h2>
+<p><a href="https://github.com/PCART-tools/PCBench">PCBench</a> Benchmark for Python API Parameter Compatibility Issues</p>
+<p>PCART's evaluation results are available <a href="https://github.com/PCART-tools/PCART-evaluation">here</a>.</p>
+<h2>Usage</h2>
+<h3>Prerequisites</h3>
 <ul>
 <li>Linux (tested on Ubuntu 18.04.1)</li>
 <li>Python 3.9.12</li>
 <li>dill 0.3.7</li>
 </ul>
-<h2>Usage</h2>
 <h3>Step1: Create a virtual environment</h3>
 <p>First, determine the current version and target version of the third-party library that needs to be upgraded for your project. Then, create virtual environments for the project with both the current version and the target version locally. Ensure that each virtual environment includes the corresponding version of the library. Additionally, install the <code>dill</code> library in both virtual environments by running <code>pip install dill</code>.</p>
 <h3>Step2: Write the configuration file</h3>
