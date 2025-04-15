@@ -1,5 +1,5 @@
 <map id="getSelfAPI" name="getSelfAPI">
-<area shape="rect" id="node2" href="$namespacegetCall.html#a09df38fef33a1a5a38b769e150b35cb8" title="getCallFunction" alt="" coords="139,81,252,108"/>
+<area shape="rect" id="node2" href="$namespacegetCall.html#a09df38fef33a1a5a38b769e150b35cb8" title="Extract all API calls from a given .py file 每次传进来一个.py文件，抽取所有的调用API. " alt="" coords="139,81,252,108"/>
 <area shape="rect" id="node3" href="$namespacemain.html#a052341442960b76f576383f354689bc5" title="main.backwardTask" alt="" coords="323,5,461,32"/>
 <area shape="rect" id="node4" href="$namespacepreprocess.html#a1be44b4612b83c96456034d7eef3a376" title="preprocess.convertLocalVar" alt="" coords="300,56,484,83"/>
 <area shape="rect" id="node6" href="$namespacepreprocess.html#aeb5178b512f242c05329f1137c0b208c" title="preprocess.addDictAll" alt="" coords="317,107,467,133"/>

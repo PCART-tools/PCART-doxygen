@@ -1,12 +1,12 @@
 <map id="getAst" name="getAst">
-<area shape="rect" id="node2" href="$namespacegetDef.html#a2b7a86e5e82c89da0c05d0a2659bd1c1" title="getDef.shortenPath" alt="" coords="131,56,266,83"/>
+<area shape="rect" id="node2" href="$namespacegetDef.html#a2b7a86e5e82c89da0c05d0a2659bd1c1" title="Shorten the API path based on init.py and import alias 通过解析__init__.py和import别名,把源码中的部分API路径缩短 " alt="" coords="131,56,266,83"/>
 <area shape="rect" id="node7" href="$namespacemain.html#a052341442960b76f576383f354689bc5" title="main.backwardTask" alt="" coords="721,208,860,235"/>
 <area shape="rect" id="node8" href="$namespacepreprocess.html#a4c00e7633e0fd15cfaba6731cf8fe9b6" title="preprocess.oneLine" alt="" coords="131,157,266,184"/>
 <area shape="rect" id="node10" href="$namespacepreprocess.html#a7de1c86e6c3f3d8a09c5f8f93e59f7b4" title="preprocess.addDictSingle" alt="" coords="113,208,284,235"/>
 <area shape="rect" id="node13" href="$namespacerepair.html#afdcb02b6e3ba6de73363c7254596a8b1" title="repair.repairTask" alt="" coords="547,259,665,285"/>
-<area shape="rect" id="node3" href="$namespacegetDef.html#a3f3b88c223a5bfa2254c656418dc9910" title="getDef.getClass" alt="" coords="357,5,474,32"/>
-<area shape="rect" id="node4" href="$namespacegetDef.html#ae4b9d54a594ab6bbeed1c617a15cbb4a" title="getDef.task" alt="" coords="561,31,651,57"/>
-<area shape="rect" id="node5" href="$namespacegetDef.html#ad6f70c11131f697c5bce20d6ef27608d" title="getDef.getDefFunction" alt="" coords="713,31,868,57"/>
+<area shape="rect" id="node3" href="$namespacegetDef.html#a3f3b88c223a5bfa2254c656418dc9910" title="Extract class method definitions from a give class. " alt="" coords="357,5,474,32"/>
+<area shape="rect" id="node4" href="$namespacegetDef.html#ae4b9d54a594ab6bbeed1c617a15cbb4a" title="Extract all lib API definitions from a source file. " alt="" coords="561,31,651,57"/>
+<area shape="rect" id="node5" href="$namespacegetDef.html#ad6f70c11131f697c5bce20d6ef27608d" title="Extract all lib API definitions from a specified version. " alt="" coords="713,31,868,57"/>
 <area shape="rect" id="node6" href="$namespaceextractLibAPI.html#abcb90666177fd8ad4f29d6042e113e69" title="This function extracts APIs for a given library version. " alt="" coords="916,31,1100,57"/>
 <area shape="rect" id="node9" href="$namespacepreprocess.html#a0b52460f33415186cee80896a65d8530" title="preprocess.codeProcess" alt="" coords="332,157,499,184"/>
 <area shape="rect" id="node11" href="$namespacemap.html#ad69df3164e43211b92bd1edcb1c7db9b" title="map.dynamicMatch" alt="" coords="347,208,483,235"/>

@@ -1,5 +1,5 @@
 <map id="getClass" name="getClass">
-<area shape="rect" id="node2" href="$namespacegetDef.html#ae4b9d54a594ab6bbeed1c617a15cbb4a" title="task" alt="" coords="128,5,175,32"/>
-<area shape="rect" id="node3" href="$namespacegetDef.html#ad6f70c11131f697c5bce20d6ef27608d" title="getDefFunction" alt="" coords="223,5,333,32"/>
+<area shape="rect" id="node2" href="$namespacegetDef.html#ae4b9d54a594ab6bbeed1c617a15cbb4a" title="Extract all lib API definitions from a source file. " alt="" coords="128,5,175,32"/>
+<area shape="rect" id="node3" href="$namespacegetDef.html#ad6f70c11131f697c5bce20d6ef27608d" title="Extract all lib API definitions from a specified version. " alt="" coords="223,5,333,32"/>
 <area shape="rect" id="node4" href="$namespaceextractLibAPI.html#abcb90666177fd8ad4f29d6042e113e69" title="This function extracts APIs for a given library version. " alt="" coords="381,5,565,32"/>
 </map>
