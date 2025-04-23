@@ -184,8 +184,8 @@ Here is the caller graph for this function:</div>
   <table class="params">
     <tr><td class="paramname">lst</td><td>List of lib API definitions extracted from a lib source file </td></tr>
     <tr><td class="paramname">root</td><td>The class type ast node </td></tr>
-    <tr><td class="paramname">prefix</td><td>The related path of a source file. The related path begins with the lib name </td></tr>
-    <tr><td class="paramname">fileDict</td><td>A file with a dictionary format {absolute path of the file: relative path of the file}. The relative path begins with the lib name. </td></tr>
+    <tr><td class="paramname">prefix</td><td>The fully qualified name of a source file. For example, the prefix for lib/a/b/c.py is lib.a.b.c. </td></tr>
+    <tr><td class="paramname">fileDict</td><td>A file with a dictionary format {absolute path of the file: relative path of the file}. The relative path begins with the lib name, separated by "/", e.g., lib/a/b/c.py </td></tr>
     <tr><td class="paramname">pyiFlag</td><td>A flag denotes whether the Python source file is .pyi file. </td></tr>
   </table>
   </dd>
@@ -297,7 +297,7 @@ Here is the caller graph for this function:</div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">lst</td><td>An API path. Initially, lst is the fully qualified API name. </td></tr>
-    <tr><td class="paramname">fileDict</td><td>A file with a dictionary format {absolute path of the file: relative path of the file}. The relative path begins with the lib name. 缩短API路径可能会将不同文件中的API还原成相同的形式，比如A.b.f,A.c.f都还原成A.f </td></tr>
+    <tr><td class="paramname">fileDict</td><td>A file with a dictionary format {absolute path of the file: relative path of the file}. The relative path begins with the lib name, separated by "/", e.g., lib/a/b/c.py 缩短API路径可能会将不同文件中的API还原成相同的形式，比如A.b.f,A.c.f都还原成A.f </td></tr>
   </table>
   </dd>
 </dl>
@@ -376,8 +376,8 @@ Here is the caller graph for this function:</div>
   <table class="params">
     <tr><td class="paramname">codeText</td><td>The code text of a source file, read by f.read() </td></tr>
     <tr><td class="paramname">libApi</td><td>List of lib API definitions extracted from a lib source file </td></tr>
-    <tr><td class="paramname">prefix</td><td>The related path of a source file. The related path begins with the lib name </td></tr>
-    <tr><td class="paramname">fileDict</td><td>A file with a dictionary format {absolute path of the file: relative path of the file}. The relative path begins with the lib name. </td></tr>
+    <tr><td class="paramname">prefix</td><td>The fully qualified name of a source file. For example, the prefix for lib/a/b/c.py is lib.a.b.c. </td></tr>
+    <tr><td class="paramname">fileDict</td><td>A file with a dictionary format {absolute path of the file: relative path of the file}. The relative path begins with the lib name, separated by "/", e.g., lib/a/b/c.py </td></tr>
     <tr><td class="paramname">pyiFlag</td><td>A flag denotes whether the Python source file is .pyi file. </td></tr>
   </table>
   </dd>
