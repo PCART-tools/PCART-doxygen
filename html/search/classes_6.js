@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['regexmatch',['RegexMatch',['../classgetDef_1_1RegexMatch.html',1,'getDef']]]
+  ['parameter',['Parameter',['../classLibApi_1_1Parameter.html',1,'Parameter'],['../classChange_1_1API_1_1Parameter.html',1,'Parameter']]],
+  ['path',['Path',['../classgetPath_1_1Path.html',1,'getPath']]]
 ];
