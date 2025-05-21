@@ -5,5 +5,6 @@ var searchData=
   ['mappos',['mapPos',['../namespacerepair.html#a3f486f899c41567be3240f65443acf12',1,'repair']]],
   ['mirrorapi',['mirrorAPI',['../namespacerepair.html#a13c0f10cec0074c6fd20914a93586ea0',1,'repair']]],
   ['modifyfirstname',['modifyFirstName',['../namespacegetCall.html#af3f5b1dd17766d8a46358385b8ed528b',1,'getCall']]],
-  ['modifyfromimport',['modifyFromImport',['../namespacepreprocess.html#ac314c05ac2de819eb7e15c9a091beb5d',1,'preprocess']]]
+  ['modifyfromimport',['modifyFromImport',['../namespacepreprocess.html#ac314c05ac2de819eb7e15c9a091beb5d',1,'preprocess']]],
+  ['modifywithname',['modifyWithName',['../namespacegetCall.html#ab6c9cca192f7cba9dd7a4ec6764cdf03',1,'getCall']]]
 ];

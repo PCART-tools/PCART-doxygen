@@ -1,7 +1,7 @@
 var searchData=
 [
   ['para2obj',['para2Obj',['../namespaceChange_1_1changeAnalyze.html#ad11dba59f30a8135133f75a7c0555dd4',1,'Change::changeAnalyze']]],
-  ['parameter',['Parameter',['../classLibApi_1_1Parameter.html',1,'Parameter'],['../classChange_1_1API_1_1Parameter.html',1,'Parameter']]],
+  ['parameter',['Parameter',['../classChange_1_1API_1_1Parameter.html',1,'Parameter'],['../classLibApi_1_1Parameter.html',1,'Parameter']]],
   ['parameters',['parameters',['../classLibApi_1_1Api.html#ad827090038061f4a04a789ab61df8c1d',1,'LibApi.Api.parameters()'],['../classChange_1_1API_1_1Api.html#ad827090038061f4a04a789ab61df8c1d',1,'Change.API.Api.parameters()']]],
   ['parameters_5fstring',['parameters_string',['../classLibApi_1_1Api.html#a45bcdcd0c26cb6b337f72e86ba987a3f',1,'LibApi.Api.parameters_string()'],['../classChange_1_1API_1_1Api.html#a45bcdcd0c26cb6b337f72e86ba987a3f',1,'Change.API.Api.parameters_string()']]],
   ['paravaluedict',['paraValueDict',['../namespaceverifySingle.html#a7efad26e05ee3fc25538a1553128100f',1,'verifySingle']]],
