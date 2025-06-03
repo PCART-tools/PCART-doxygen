@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['api',['API',['../namespaceChange_1_1API.html',1,'Change']]],
   ['callapi',['callAPI',['../namespaceverifySingle.html#ac105efe3e4d6787a996d60334f17a75e',1,'verifySingle']]],
   ['change',['Change',['../namespaceChange.html',1,'']]],
-  ['changeanalyze',['changeAnalyze',['../namespaceChange_1_1changeAnalyze.html',1,'Change']]],
+  ['changeanalyze',['changeAnalyze',['../namespaceChange_1_1changeAnalyze.html',1,'Change.changeAnalyze'],['../namespacechangeAnalyze.html',1,'changeAnalyze']]],
   ['changeanalyze_2epy',['changeAnalyze.py',['../changeAnalyze_8py.html',1,'']]],
   ['clc',['clc',['../classgetPath_1_1Path.html#a0f204f973d26537c7fbea3b1fb4e37dc',1,'getPath::Path']]],
   ['cmp',['cmp',['../namespacetool.html#a51b7d0e90dbf25c2596e98cee7912634',1,'tool']]],

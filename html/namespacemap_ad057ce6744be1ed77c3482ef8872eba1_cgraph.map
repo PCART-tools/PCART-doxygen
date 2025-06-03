@@ -1,5 +1,5 @@
 <map id="fuzzymatch" name="fuzzymatch">
-<area shape="rect" id="node2" href="$namespaceloadData.html#a534ad5385c0d9ba94804d73e99241c3e" title="loadData.loadLib" alt="" coords="160,5,279,32"/>
-<area shape="rect" id="node3" href="$namespacemap.html#aaac6f97b9ceb2143a696d52df84f0a21" title="isAlias" alt="" coords="189,56,250,83"/>
+<area shape="rect" id="node2" href="$namespaceloadData.html#a534ad5385c0d9ba94804d73e99241c3e" title="Load the extracted definitions of lib APIs for static signature mapping 把之前抽取出来的库API加载到字..." alt="" coords="160,5,279,32"/>
+<area shape="rect" id="node3" href="$namespacemap.html#aaac6f97b9ceb2143a696d52df84f0a21" title="Check the last name in an API call is an alias or not 判断一个callAPI最后一个名字是否为库中的别名 ..." alt="" coords="189,56,250,83"/>
 <area shape="rect" id="node4" href="$namespacetool.html#a06b0d4848192999bfb9a11895ba277dc" title="tool.removeParameter" alt="" coords="144,107,295,133"/>
 </map>

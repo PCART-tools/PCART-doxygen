@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['libapi',['LibApi',['../namespaceLibApi.html',1,'']]],
-  ['loaddata',['loadData',['../namespaceloadData.html',1,'']]]
+  ['getcall',['getCall',['../namespacegetCall.html',1,'']]],
+  ['getdef',['getDef',['../namespacegetDef.html',1,'']]],
+  ['getpath',['getPath',['../namespacegetPath.html',1,'']]]
 ];

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['extractcall',['extractCall',['../namespaceextractCall.html',1,'']]],
-  ['extractdef',['extractDef',['../namespaceextractDef.html',1,'']]],
-  ['extractlibapi',['extractLibAPI',['../namespaceextractLibAPI.html',1,'']]]
+  ['change',['Change',['../namespaceChange.html',1,'']]],
+  ['changeanalyze',['changeAnalyze',['../namespaceChange_1_1changeAnalyze.html',1,'Change.changeAnalyze'],['../namespacechangeAnalyze.html',1,'changeAnalyze']]]
 ];

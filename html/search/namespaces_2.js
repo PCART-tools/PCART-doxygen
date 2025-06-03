@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['fuzzymatch',['fuzzyMatch',['../namespacefuzzyMatch.html',1,'']]]
+  ['extractcall',['extractCall',['../namespaceextractCall.html',1,'']]],
+  ['extractdef',['extractDef',['../namespaceextractDef.html',1,'']]],
+  ['extractlibapi',['extractLibAPI',['../namespaceextractLibAPI.html',1,'']]]
 ];
