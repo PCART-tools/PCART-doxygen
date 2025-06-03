@@ -7,7 +7,7 @@ var searchData=
   ['addvalueforapi',['addValueForAPI',['../namespaceChange_1_1changeAnalyze.html#a926c611781e93382aad5ac2f957cf810',1,'Change::changeAnalyze']]],
   ['alias',['alias',['../classfuzzyMatch_1_1fuzzyMatch.html#ae67d6c6e342775a03bd935d100b5b8fa',1,'fuzzyMatch::fuzzyMatch']]],
   ['analyzecompatibility',['analyzeCompatibility',['../namespaceChange_1_1changeAnalyze.html#aad2fa9fad01d521f8b2a363ab4292f02',1,'Change::changeAnalyze']]],
-  ['api',['Api',['../classLibApi_1_1Api.html',1,'Api'],['../namespaceAPI.html',1,'API']]],
+  ['api',['Api',['../classLibApi_1_1Api.html',1,'LibApi']]],
   ['apiobj',['APIOBJ',['../classLibApi_1_1APIOBJ.html',1,'LibApi']]],
   ['assignvisitor',['AssignVisitor',['../classextractCall_1_1AssignVisitor.html',1,'extractCall']]]
 ];
