@@ -1,7 +1,7 @@
 var searchData=
 [
   ['findassigncall',['findAssignCall',['../namespacepreprocess.html#ae6efc31a5dbea814d20ed8efd321db06',1,'preprocess']]],
-  ['finddiffer',['findDiffer',['../namespaceChange_1_1changeAnalyze.html#a36b10a1513855a481269e984c8dbd8b1',1,'Change::changeAnalyze']]],
+  ['finddiffer',['findDiffer',['../namespacechangeAnalyze.html#aca1a0247c24c805f11d8e151232c6c9d',1,'changeAnalyze']]],
   ['findname',['findName',['../namespacerepair.html#a78d633fe3bd2b3c6f18d9a95904617ae',1,'repair']]],
   ['findpythondir',['findPythonDir',['../namespacetool.html#af97e9e63a1ae8577bbe8865743d57b21',1,'tool']]],
   ['fix',['fix',['../namespacerepair.html#a77d5ab0ffc52fdb84b2063d48952bf07',1,'repair']]],

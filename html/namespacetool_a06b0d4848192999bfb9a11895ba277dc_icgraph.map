@@ -1,7 +1,7 @@
 <map id="removeParameter" name="removeParameter">
-<area shape="rect" id="node2" href="$namespaceChange_1_1changeAnalyze.html#af5439122f5c2b30dd43210ef6a245842" title="Change.changeAnalyze.query\lSharedDict" alt="" coords="429,5,625,47"/>
-<area shape="rect" id="node3" href="$namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件 " alt="" coords="673,97,812,123"/>
-<area shape="rect" id="node4" href="$namespaceChange_1_1changeAnalyze.html#ad35de1fef04601539f2d5eed12cd2537" title="Change.changeAnalyze.update\lSharedDict" alt="" coords="179,123,381,164"/>
-<area shape="rect" id="node5" href="$namespacemap.html#ad057ce6744be1ed77c3482ef8872eba1" title="Static mapping of API signatures API签名静态匹配 " alt="" coords="221,189,339,215"/>
-<area shape="rect" id="node6" href="$namespacemap.html#a5f1be2d0cbe3184aaf86a65cf54e00de" title="Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API..." alt="" coords="478,181,577,207"/>
+<area shape="rect" id="node2" href="$namespacechangeAnalyze.html#aebabc2a1cf15fbd9b0577c48803ffc20" title="changeAnalyze.querySharedDict" alt="" coords="445,5,657,32"/>
+<area shape="rect" id="node3" href="$namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件 " alt="" coords="705,81,844,108"/>
+<area shape="rect" id="node4" href="$namespacechangeAnalyze.html#ab652e534b8f6e22225e41e2293677369" title="changeAnalyze.updateSharedDict" alt="" coords="179,107,397,133"/>
+<area shape="rect" id="node5" href="$namespacemap.html#ad057ce6744be1ed77c3482ef8872eba1" title="Static mapping of API signatures API签名静态匹配 " alt="" coords="229,157,347,184"/>
+<area shape="rect" id="node6" href="$namespacemap.html#a5f1be2d0cbe3184aaf86a65cf54e00de" title="Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API..." alt="" coords="502,157,601,184"/>
 </map>

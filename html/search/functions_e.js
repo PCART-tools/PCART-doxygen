@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['queryshareddict',['querySharedDict',['../namespaceChange_1_1changeAnalyze.html#af5439122f5c2b30dd43210ef6a245842',1,'Change::changeAnalyze']]]
+  ['queryshareddict',['querySharedDict',['../namespacechangeAnalyze.html#aebabc2a1cf15fbd9b0577c48803ffc20',1,'changeAnalyze']]]
 ];

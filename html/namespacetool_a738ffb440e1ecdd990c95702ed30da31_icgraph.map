@@ -1,10 +1,10 @@
 <map id="getFileName" name="getFileName">
-<area shape="rect" id="node2" href="$namespaceChange_1_1changeAnalyze.html#a926c611781e93382aad5ac2f957cf810" title="Change.changeAnalyze.add\lValueForAPI" alt="" coords="348,5,533,47"/>
-<area shape="rect" id="node4" href="$namespacemap.html#ad69df3164e43211b92bd1edcb1c7db9b" title="Dynamic mapping of API signatures API签名动态匹配 " alt="" coords="157,71,293,98"/>
-<area shape="rect" id="node6" href="$namespacepreprocess.html#aeb5178b512f242c05329f1137c0b208c" title="preprocess.addDictAll" alt="" coords="149,122,300,149"/>
-<area shape="rect" id="node8" href="$namespacerepair.html#a8b2a9e10672bdfd180a0fa6d98d48851" title="repair.validateByRun" alt="" coords="153,173,296,199"/>
-<area shape="rect" id="node3" href="$namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件 " alt="" coords="581,71,720,98"/>
-<area shape="rect" id="node5" href="$namespacemap.html#a5f1be2d0cbe3184aaf86a65cf54e00de" title="Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API..." alt="" coords="391,71,490,98"/>
-<area shape="rect" id="node7" href="$namespacepreprocess.html#a0b52460f33415186cee80896a65d8530" title="preprocess.codeProcess" alt="" coords="357,122,524,149"/>
-<area shape="rect" id="node9" href="$namespacerepair.html#afdcb02b6e3ba6de73363c7254596a8b1" title="repair.repairTask" alt="" coords="381,173,500,199"/>
+<area shape="rect" id="node2" href="$namespacechangeAnalyze.html#a9b982b4c1db5f7436cdcbfc5a8c7f9c6" title="changeAnalyze.addValueForAPI" alt="" coords="348,5,559,32"/>
+<area shape="rect" id="node4" href="$namespacemap.html#ad69df3164e43211b92bd1edcb1c7db9b" title="Dynamic mapping of API signatures API签名动态匹配 " alt="" coords="157,56,293,83"/>
+<area shape="rect" id="node6" href="$namespacepreprocess.html#aeb5178b512f242c05329f1137c0b208c" title="preprocess.addDictAll" alt="" coords="149,107,300,133"/>
+<area shape="rect" id="node8" href="$namespacerepair.html#a8b2a9e10672bdfd180a0fa6d98d48851" title="repair.validateByRun" alt="" coords="153,157,296,184"/>
+<area shape="rect" id="node3" href="$namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件 " alt="" coords="607,56,745,83"/>
+<area shape="rect" id="node5" href="$namespacemap.html#a5f1be2d0cbe3184aaf86a65cf54e00de" title="Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API..." alt="" coords="404,56,503,83"/>
+<area shape="rect" id="node7" href="$namespacepreprocess.html#a0b52460f33415186cee80896a65d8530" title="preprocess.codeProcess" alt="" coords="370,107,537,133"/>
+<area shape="rect" id="node9" href="$namespacerepair.html#afdcb02b6e3ba6de73363c7254596a8b1" title="repair.repairTask" alt="" coords="394,157,513,184"/>
 </map>
