@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['main',['main',['../namespacemain.html',1,'']]],
-  ['map',['map',['../namespacemap.html',1,'']]]
+  ['fuzzymatch',['fuzzyMatch',['../namespacefuzzyMatch.html',1,'']]]
 ];

@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['getcall',['getCall',['../namespacegetCall.html',1,'']]],
-  ['getdef',['getDef',['../namespacegetDef.html',1,'']]],
-  ['getpath',['getPath',['../namespacegetPath.html',1,'']]]
+  ['dynamicmatch',['dynamicMatch',['../namespacedynamicMatch.html',1,'']]]
 ];

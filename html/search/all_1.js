@@ -4,10 +4,12 @@ var searchData=
   ['adddictsingle',['addDictSingle',['../namespacepreprocess.html#a7de1c86e6c3f3d8a09c5f8f93e59f7b4',1,'preprocess']]],
   ['addkey',['addKey',['../classchangeAnalyze_1_1Update.html#a51984dbd5f75660e01a21c19ee15e94c',1,'changeAnalyze::Update']]],
   ['addpos',['addPos',['../classchangeAnalyze_1_1Update.html#a444a0abb94a23256928f5166023bb6af',1,'changeAnalyze::Update']]],
-  ['addvalueforapi',['addValueForAPI',['../namespacechangeAnalyze.html#a9b982b4c1db5f7436cdcbfc5a8c7f9c6',1,'changeAnalyze']]],
+  ['addvalueforapi',['addValueForAPI',['../namespaceaddValueForAPI.html',1,'addValueForAPI'],['../namespacechangeAnalyze.html#a9b982b4c1db5f7436cdcbfc5a8c7f9c6',1,'changeAnalyze.addValueForAPI()']]],
+  ['addvalueforapi_2epy',['addValueForAPI.py',['../addValueForAPI_8py.html',1,'']]],
   ['alias',['alias',['../classfuzzyMatch_1_1fuzzyMatch.html#ae67d6c6e342775a03bd935d100b5b8fa',1,'fuzzyMatch::fuzzyMatch']]],
   ['analyzecompatibility',['analyzeCompatibility',['../namespacechangeAnalyze.html#a0e521f7261a83511bc8e4742e2647d64',1,'changeAnalyze']]],
-  ['api',['Api',['../classLibApi_1_1Api.html',1,'LibApi']]],
+  ['ans',['ans',['../namespaceaddValueForAPI.html#acb4ba4b5efe5d71f427bb3bc9dd9a078',1,'addValueForAPI']]],
+  ['api',['Api',['../classLibApi_1_1Api.html',1,'Api'],['../namespaceaddValueForAPI.html#a8ad2f06c592edce1a066c19438a163a6',1,'addValueForAPI.api()'],['../namespacedynamicMatch.html#a8ad2f06c592edce1a066c19438a163a6',1,'dynamicMatch.api()']]],
   ['apiobj',['APIOBJ',['../classLibApi_1_1APIOBJ.html',1,'LibApi']]],
   ['assignvisitor',['AssignVisitor',['../classextractCall_1_1AssignVisitor.html',1,'extractCall']]]
 ];

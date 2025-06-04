@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['objlst',['objLst',['../classLibApi_1_1APIOBJ.html#ace6014a2590bde8fbd38d951a7b03516',1,'LibApi::APIOBJ']]],
-  ['obtaindef',['obtainDef',['../namespacepreprocess.html#a4d15e54d83a7ad49d67a971f67a03268',1,'preprocess']]],
-  ['oneline',['oneLine',['../namespacepreprocess.html#a4c00e7633e0fd15cfaba6731cf8fe9b6',1,'preprocess']]]
+  ['name',['name',['../classLibApi_1_1Parameter.html#ab74e6bf80237ddc4109968cedc58c151',1,'LibApi.Parameter.name()'],['../classLibApi_1_1Api.html#ab74e6bf80237ddc4109968cedc58c151',1,'LibApi.Api.name()']]],
+  ['newk',['newK',['../namespaceaddValueForAPI.html#abf8e049f10a3fad63661b97662d077fc',1,'addValueForAPI']]],
+  ['newkey',['newKey',['../namespaceaddValueForAPI.html#ae5bdfe48c9191617080ff8aa7b0c9cbe',1,'addValueForAPI']]]
 ];
