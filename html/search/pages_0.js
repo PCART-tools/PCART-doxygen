@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['code_20utils',['Code Utils',['../code_utils.html',1,'']]],
   ['configure_20directory_20配置文件目录',['Configure Directory 配置文件目录',['../md__home_nuaa_Projects_PCART-doxygen_PCART_Configure_README.html',1,'']]]
 ];
