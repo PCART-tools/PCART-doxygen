@@ -10,6 +10,5 @@ var searchData=
   ['position',['position',['../classLibApi_1_1Parameter.html#a7130b1618285588513fd1ff97884b9d9',1,'LibApi::Parameter']]],
   ['prefix',['prefix',['../classextractDef_1_1Def2format.html#a7f74717396864848e2bea0bba07e8ebb',1,'extractDef::Def2format']]],
   ['preprocess',['preprocess',['../namespacepreprocess.html',1,'']]],
-  ['preprocess_2epy',['preprocess.py',['../preprocess_8py.html',1,'']]],
-  ['projpath',['projPath',['../namespacemain.html#a1b0ace8ca931bc351da2ed069bb5618e',1,'main']]]
+  ['preprocess_2epy',['preprocess.py',['../preprocess_8py.html',1,'']]]
 ];

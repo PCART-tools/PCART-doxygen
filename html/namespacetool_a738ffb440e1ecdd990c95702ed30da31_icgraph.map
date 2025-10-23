@@ -1,10 +1,11 @@
 <map id="getFileName" name="getFileName">
-<area shape="rect" id="node2" href="$namespacechangeAnalyze.html#a9b982b4c1db5f7436cdcbfc5a8c7f9c6" title="changeAnalyze.addValueForAPI" alt="" coords="348,5,559,32"/>
-<area shape="rect" id="node4" href="$namespacemap.html#ad69df3164e43211b92bd1edcb1c7db9b" title="Dynamic mapping of API signatures API签名动态匹配 " alt="" coords="157,56,293,83"/>
-<area shape="rect" id="node6" href="$namespacepreprocess.html#aeb5178b512f242c05329f1137c0b208c" title="preprocess.addDictAll" alt="" coords="149,107,300,133"/>
-<area shape="rect" id="node8" href="$namespacerepair.html#a8b2a9e10672bdfd180a0fa6d98d48851" title="repair.validateByRun" alt="" coords="153,157,296,184"/>
+<area shape="rect" id="node2" href="$namespacechangeAnalyze.html#a9b982b4c1db5f7436cdcbfc5a8c7f9c6" title="Add values stored by pkl file for API parameters 为API参数添加保存至pkl文件中的值 ..." alt="" coords="348,56,559,83"/>
+<area shape="rect" id="node4" href="$namespacemap.html#ad69df3164e43211b92bd1edcb1c7db9b" title="Dynamic mapping of API signatures API签名动态匹配 " alt="" coords="157,107,293,133"/>
+<area shape="rect" id="node6" href="$namespacepreprocess.html#aeb5178b512f242c05329f1137c0b208c" title="Code instrumentation for all API calls within a project source file 项目源文件所有API调用代码插桩 ..." alt="" coords="149,157,300,184"/>
+<area shape="rect" id="node9" href="$namespacerepair.html#a8b2a9e10672bdfd180a0fa6d98d48851" title="Dynamic validation 动态验证 " alt="" coords="153,5,296,32"/>
 <area shape="rect" id="node3" href="$namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件 " alt="" coords="607,56,745,83"/>
-<area shape="rect" id="node5" href="$namespacemap.html#a5f1be2d0cbe3184aaf86a65cf54e00de" title="Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API..." alt="" coords="404,56,503,83"/>
-<area shape="rect" id="node7" href="$namespacepreprocess.html#a0b52460f33415186cee80896a65d8530" title="preprocess.codeProcess" alt="" coords="370,107,537,133"/>
-<area shape="rect" id="node9" href="$namespacerepair.html#afdcb02b6e3ba6de73363c7254596a8b1" title="repair.repairTask" alt="" coords="394,157,513,184"/>
+<area shape="rect" id="node5" href="$namespacemap.html#a5f1be2d0cbe3184aaf86a65cf54e00de" title="Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API..." alt="" coords="404,107,503,133"/>
+<area shape="rect" id="node7" href="$namespacepreprocess.html#a0b52460f33415186cee80896a65d8530" title="Code processing 代码预处理 " alt="" coords="370,157,537,184"/>
+<area shape="rect" id="node8" href="$namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数 " alt="" coords="635,157,717,184"/>
+<area shape="rect" id="node10" href="$namespacerepair.html#afdcb02b6e3ba6de73363c7254596a8b1" title="Task of repairing parameter compatibility issues 参数兼容性问题修复任务 " alt="" coords="394,5,513,32"/>
 </map>

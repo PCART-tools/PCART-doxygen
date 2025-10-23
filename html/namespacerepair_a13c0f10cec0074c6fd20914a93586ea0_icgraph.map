@@ -1,5 +1,5 @@
 <map id="mirrorAPI" name="mirrorAPI">
-<area shape="rect" id="node2" href="$namespacerepair.html#aaf441b3a0f89d081e50ad51ac510eb1c" title="validateByStr" alt="" coords="131,5,231,32"/>
-<area shape="rect" id="node3" href="$namespacerepair.html#afdcb02b6e3ba6de73363c7254596a8b1" title="repairTask" alt="" coords="279,5,361,32"/>
+<area shape="rect" id="node2" href="$namespacerepair.html#aaf441b3a0f89d081e50ad51ac510eb1c" title="Static validation 静态验证 " alt="" coords="131,5,231,32"/>
+<area shape="rect" id="node3" href="$namespacerepair.html#afdcb02b6e3ba6de73363c7254596a8b1" title="Task of repairing parameter compatibility issues 参数兼容性问题修复任务 " alt="" coords="279,5,361,32"/>
 <area shape="rect" id="node4" href="$namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件 " alt="" coords="409,5,548,32"/>
 </map>

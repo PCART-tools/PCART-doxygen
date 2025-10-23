@@ -1,15 +1,17 @@
 <map id="getAst" name="getAst">
 <area shape="rect" id="node2" href="$namespacegetDef.html#a2b7a86e5e82c89da0c05d0a2659bd1c1" title="Shorten the API path based on init.py and import alias 通过解析__init__.py和import别名,把源码中的部分API路径缩短 " alt="" coords="145,56,279,83"/>
-<area shape="rect" id="node7" href="$namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件 " alt="" coords="748,275,887,301"/>
-<area shape="rect" id="node8" href="$namespacepreprocess.html#a4c00e7633e0fd15cfaba6731cf8fe9b6" title="Convert the multi&#45;line parameter calls in the code into a single line to facilitate insertion into di..." alt="" coords="145,157,279,184"/>
-<area shape="rect" id="node10" href="$namespacepreprocess.html#a4c279837bca66be1c336af00420eb4ad" title="Expand the single&#45;line conditional return statement into a multi&#45;line if&#45;else structure 展开单行条件r..." alt="" coords="113,209,311,250"/>
-<area shape="rect" id="node11" href="$namespacepreprocess.html#a7de1c86e6c3f3d8a09c5f8f93e59f7b4" title="preprocess.addDictSingle" alt="" coords="127,275,297,301"/>
-<area shape="rect" id="node14" href="$namespacerepair.html#afdcb02b6e3ba6de73363c7254596a8b1" title="repair.repairTask" alt="" coords="573,325,692,352"/>
+<area shape="rect" id="node8" href="$namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件 " alt="" coords="728,275,867,301"/>
+<area shape="rect" id="node9" href="$namespacepreprocess.html#a4c00e7633e0fd15cfaba6731cf8fe9b6" title="Convert the multi&#45;line parameter calls in the code into a single line to facilitate insertion into di..." alt="" coords="145,157,279,184"/>
+<area shape="rect" id="node12" href="$namespacepreprocess.html#a4c279837bca66be1c336af00420eb4ad" title="Expand the single&#45;line conditional return statement into a multi&#45;line if&#45;else structure 展开单行条件r..." alt="" coords="113,209,311,250"/>
+<area shape="rect" id="node13" href="$namespacepreprocess.html#a7de1c86e6c3f3d8a09c5f8f93e59f7b4" title="Code instrumentation for single API call within a source file 源文件单个API调用代码插桩 ..." alt="" coords="127,275,297,301"/>
+<area shape="rect" id="node16" href="$namespacerepair.html#afdcb02b6e3ba6de73363c7254596a8b1" title="Task of repairing parameter compatibility issues 参数兼容性问题修复任务 " alt="" coords="383,325,501,352"/>
 <area shape="rect" id="node3" href="$namespacegetDef.html#a3f3b88c223a5bfa2254c656418dc9910" title="Extract class method definitions from a give class. " alt="" coords="383,5,501,32"/>
-<area shape="rect" id="node4" href="$namespacegetDef.html#ae4b9d54a594ab6bbeed1c617a15cbb4a" title="Extract all lib API definitions from a source file. " alt="" coords="587,31,678,57"/>
-<area shape="rect" id="node5" href="$namespacegetDef.html#ad6f70c11131f697c5bce20d6ef27608d" title="Extract all lib API definitions from a specified version. " alt="" coords="740,31,895,57"/>
-<area shape="rect" id="node6" href="$namespaceextractLibAPI.html#abcb90666177fd8ad4f29d6042e113e69" title="This function extracts APIs for a given library version. " alt="" coords="943,31,1127,57"/>
-<area shape="rect" id="node9" href="$namespacepreprocess.html#a0b52460f33415186cee80896a65d8530" title="preprocess.codeProcess" alt="" coords="359,187,525,213"/>
-<area shape="rect" id="node12" href="$namespacemap.html#ad69df3164e43211b92bd1edcb1c7db9b" title="Dynamic mapping of API signatures API签名动态匹配 " alt="" coords="374,275,510,301"/>
-<area shape="rect" id="node13" href="$namespacemap.html#a5f1be2d0cbe3184aaf86a65cf54e00de" title="Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API..." alt="" coords="583,275,682,301"/>
+<area shape="rect" id="node4" href="$namespacegetDef.html#ae4b9d54a594ab6bbeed1c617a15cbb4a" title="Extract all lib API definitions from a source file 抽取库源码API定义任务 " alt="" coords="577,31,668,57"/>
+<area shape="rect" id="node5" href="$namespacegetDef.html#ad6f70c11131f697c5bce20d6ef27608d" title="Extract all lib API definitions from a specified version 抽取给定版本的库API定义 " alt="" coords="720,31,875,57"/>
+<area shape="rect" id="node6" href="$namespaceextractLibAPI.html#a4f0d4271912d3b1669689d06cec9acc3" title="Extract API definitions for a given library version 抽取给定库版本的API定义 " alt="" coords="923,31,1085,57"/>
+<area shape="rect" id="node7" href="$namespaceextractLibAPI.html#a73fb40d31f2dd874c84d240a454c787b" title="Main function of extracting lib API definitions 抽取库API定义主函数 " alt="" coords="1133,31,1267,57"/>
+<area shape="rect" id="node10" href="$namespacepreprocess.html#a0b52460f33415186cee80896a65d8530" title="Code processing 代码预处理 " alt="" coords="359,187,525,213"/>
+<area shape="rect" id="node11" href="$namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数 " alt="" coords="581,187,664,213"/>
+<area shape="rect" id="node14" href="$namespacemap.html#ad69df3164e43211b92bd1edcb1c7db9b" title="Dynamic mapping of API signatures API签名动态匹配 " alt="" coords="374,275,510,301"/>
+<area shape="rect" id="node15" href="$namespacemap.html#a5f1be2d0cbe3184aaf86a65cf54e00de" title="Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API..." alt="" coords="573,275,672,301"/>
 </map>

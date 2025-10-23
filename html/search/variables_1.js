@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['config',['config',['../namespaceextractLibAPI.html#ad2256458892609d0533df5d72a7257ad',1,'extractLibAPI.config()'],['../namespacemain.html#ad2256458892609d0533df5d72a7257ad',1,'main.config()']]],
-  ['currentenv',['currentEnv',['../namespacemain.html#a392a7368f34bc0110a62bd2ec2d54aae',1,'main']]],
-  ['currentsourcecodepath',['currentSourceCodePath',['../namespaceextractLibAPI.html#a3ac740457a7394eb7d389edb09e549ae',1,'extractLibAPI']]],
-  ['currentversion',['currentVersion',['../namespaceextractLibAPI.html#ac7e670c46acaaf318db9bde1a1c1f233',1,'extractLibAPI.currentVersion()'],['../namespacemain.html#ac7e670c46acaaf318db9bde1a1c1f233',1,'main.currentVersion()']]]
+  ['dele',['dele',['../classchangeAnalyze_1_1Update.html#a3f8f3a849ee1470c70afb64c72b5cf91',1,'changeAnalyze::Update']]]
 ];

@@ -69,15 +69,22 @@ $(function() {
 <div class="title">ConditionalReturnTransformer Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Convert conditional return statement to multi-line if-else structure 展开单行条件返回语句为多行if-else结构  
+ <a href="classtool_1_1ConditionalReturnTransformer.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for ConditionalReturnTransformer:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtool_1_1ConditionalReturnTransformer__inherit__graph.png" border="0" usemap="#ConditionalReturnTransformer_inherit__map" alt="Inheritance graph"/></div>
+<map name="ConditionalReturnTransformer_inherit__map" id="ConditionalReturnTransformer_inherit__map">
+</map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for ConditionalReturnTransformer:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtool_1_1ConditionalReturnTransformer__coll__graph.png" border="0" usemap="#ConditionalReturnTransformer_coll__map" alt="Collaboration graph"/></div>
+<map name="ConditionalReturnTransformer_coll__map" id="ConditionalReturnTransformer_coll__map">
+</map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -86,8 +93,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6d763850393280137d191dcd92d82b28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="tool_8py_source.html#l00523">523</a> of file <a class="el" href="tool_8py_source.html">tool.py</a>.</p>
+<div class="textblock"><p>Convert conditional return statement to multi-line if-else structure 展开单行条件返回语句为多行if-else结构 </p>
+
+<p class="definition">Definition at line <a class="el" href="tool_8py_source.html#l00607">607</a> of file <a class="el" href="tool_8py_source.html">tool.py</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a6d763850393280137d191dcd92d82b28"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6d763850393280137d191dcd92d82b28">&#9670;&nbsp;</a></span>visit_Return()</h2>
@@ -115,8 +123,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tool_8py_source.html#l00524">524</a> of file <a class="el" href="tool_8py_source.html">tool.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;    <span class="keyword">def </span><a class="code" href="classtool_1_1ConditionalReturnTransformer.html#a6d763850393280137d191dcd92d82b28">visit_Return</a>(self, node):</div><div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;        <span class="comment">#检查return语句是否为单行条件语句（IfExp)</span></div><div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;        <span class="keywordflow">if</span> isinstance(node, ast.Return) <span class="keywordflow">and</span> isinstance(node.value, ast.IfExp):</div><div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;            ifExp = node.value</div><div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;            newIf = ast.If(</div><div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;                           test=ifExp.test,</div><div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;                           body=[ast.Return(value=ifExp.body)],</div><div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;                           orelse=[ast.Return(value=ifExp.orelse)]</div><div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;                          )</div><div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;            <span class="keywordflow">return</span> newIf</div><div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;        <span class="keywordflow">return</span> node</div><div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;<div class="ttc" id="classtool_1_1ConditionalReturnTransformer_html_a6d763850393280137d191dcd92d82b28"><div class="ttname"><a href="classtool_1_1ConditionalReturnTransformer.html#a6d763850393280137d191dcd92d82b28">tool.ConditionalReturnTransformer.visit_Return</a></div><div class="ttdeci">def visit_Return(self, node)</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00524">tool.py:524</a></div></div>
+<p class="definition">Definition at line <a class="el" href="tool_8py_source.html#l00608">608</a> of file <a class="el" href="tool_8py_source.html">tool.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;    <span class="keyword">def </span><a class="code" href="classtool_1_1ConditionalReturnTransformer.html#a6d763850393280137d191dcd92d82b28">visit_Return</a>(self, node):</div><div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;        <span class="comment">#检查return语句是否为单行条件语句（IfExp)</span></div><div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;        <span class="keywordflow">if</span> isinstance(node, ast.Return) <span class="keywordflow">and</span> isinstance(node.value, ast.IfExp):</div><div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;            ifExp = node.value</div><div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;            newIf = ast.If(</div><div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;                           test=ifExp.test,</div><div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;                           body=[ast.Return(value=ifExp.body)],</div><div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;                           orelse=[ast.Return(value=ifExp.orelse)]</div><div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;                          )</div><div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;            <span class="keywordflow">return</span> newIf</div><div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;        <span class="keywordflow">return</span> node</div><div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;<div class="ttc" id="classtool_1_1ConditionalReturnTransformer_html_a6d763850393280137d191dcd92d82b28"><div class="ttname"><a href="classtool_1_1ConditionalReturnTransformer.html#a6d763850393280137d191dcd92d82b28">tool.ConditionalReturnTransformer.visit_Return</a></div><div class="ttdeci">def visit_Return(self, node)</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00608">tool.py:608</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

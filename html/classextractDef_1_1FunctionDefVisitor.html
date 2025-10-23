@@ -70,17 +70,21 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Function definition node visitor.  
+<p>Function definition node visitor 函数定义节点遍历器  
  <a href="classextractDef_1_1FunctionDefVisitor.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for FunctionDefVisitor:</div>
 <div class="dyncontent">
 <div class="center"><img src="classextractDef_1_1FunctionDefVisitor__inherit__graph.png" border="0" usemap="#FunctionDefVisitor_inherit__map" alt="Inheritance graph"/></div>
+<map name="FunctionDefVisitor_inherit__map" id="FunctionDefVisitor_inherit__map">
+</map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for FunctionDefVisitor:</div>
 <div class="dyncontent">
 <div class="center"><img src="classextractDef_1_1FunctionDefVisitor__coll__graph.png" border="0" usemap="#FunctionDefVisitor_coll__map" alt="Collaboration graph"/></div>
+<map name="FunctionDefVisitor_coll__map" id="FunctionDefVisitor_coll__map">
+</map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -93,10 +97,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab06eb583349e9f32f7ebc6957e3fd417"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Function definition node visitor. </p>
+<div class="textblock"><p>Function definition node visitor 函数定义节点遍历器 </p>
 <p>Inherits from ast.NodeVisitor </p>
 
-<p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00011">11</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00016">16</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae64f0875afe3067b97ba370b354b9213"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae64f0875afe3067b97ba370b354b9213">&#9670;&nbsp;</a></span>__init__()</h2>
@@ -114,8 +118,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00012">12</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">def </span>__init__(self):</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        self._defNodes=[]</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    </div></div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00017">17</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">def </span>__init__(self):</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        self._defNodes=[]</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    </div></div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -135,8 +139,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00015">15</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">def </span>functionNodes(self):</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordflow">return</span> self._defNodes</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div></div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00020">20</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">def </span>functionNodes(self):</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordflow">return</span> self._defNodes</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div></div><!-- fragment -->
 </div>
 </div>
 <a id="ab06eb583349e9f32f7ebc6957e3fd417"></a>
@@ -165,8 +169,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00018">18</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">def </span>visit_FunctionDef(self, node):</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        self._defNodes.append(node)</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div></div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00023">23</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">def </span>visit_FunctionDef(self, node):</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        self._defNodes.append(node)</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div></div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>

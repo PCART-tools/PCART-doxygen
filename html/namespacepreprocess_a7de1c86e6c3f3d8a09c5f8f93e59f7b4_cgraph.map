@@ -1,10 +1,10 @@
 <map id="addDictSingle" name="addDictSingle">
-<area shape="rect" id="node2" href="$namespacepreprocess.html#a638e9a6cb8c8f3b7752dc458a3846d9d" title="getImportLine" alt="" coords="191,5,293,32"/>
-<area shape="rect" id="node3" href="$namespacetool.html#aeb791b1ae890adfbcdf37ee06053021e" title="tool.getLastAPIParameter" alt="" coords="156,56,328,83"/>
-<area shape="rect" id="node4" href="$namespacetool.html#a396cdc600a56de60c51858cb6af5bdf7" title="tool.get_parameter" alt="" coords="177,107,307,133"/>
-<area shape="rect" id="node5" href="$namespacetool.html#a163a1af85c967f70b1495290735321aa" title="tool.getAst" alt="" coords="199,157,285,184"/>
-<area shape="rect" id="node6" href="$namespacepreprocess.html#ae6efc31a5dbea814d20ed8efd321db06" title="findAssignCall" alt="" coords="189,208,295,235"/>
-<area shape="rect" id="node7" href="$namespacepreprocess.html#aaab33bd46f0ae489d21ef62dff750446" title="countSpace" alt="" coords="197,259,287,285"/>
-<area shape="rect" id="node8" href="$namespacetool.html#ac4d05a17f2f511bda4979dd476894896" title="tool.departAPI" alt="" coords="189,309,295,336"/>
-<area shape="rect" id="node9" href="$namespacetool.html#abd074786b2b2c49fb89912e52b42f1fc" title="tool.departAPI2" alt="" coords="186,360,298,387"/>
+<area shape="rect" id="node2" href="$namespacepreprocess.html#a638e9a6cb8c8f3b7752dc458a3846d9d" title="Determine the instrumentation line for import statements 确定import语句插桩行 " alt="" coords="191,5,293,32"/>
+<area shape="rect" id="node3" href="$namespacetool.html#aeb791b1ae890adfbcdf37ee06053021e" title="Get parameter(s) of the last API from the API call string 获取最后一个API参数 " alt="" coords="156,56,328,83"/>
+<area shape="rect" id="node4" href="$namespacetool.html#a396cdc600a56de60c51858cb6af5bdf7" title="Split parameter string into list of separated parameters 将参数字符串拆分成单个的参数 ..." alt="" coords="177,107,307,133"/>
+<area shape="rect" id="node5" href="$namespacetool.html#a163a1af85c967f70b1495290735321aa" title="Get AST for code 将代码转化为Ast树 " alt="" coords="199,157,285,184"/>
+<area shape="rect" id="node6" href="$namespacepreprocess.html#ae6efc31a5dbea814d20ed8efd321db06" title="Find assignment call statements 获取赋值调用语句 " alt="" coords="189,208,295,235"/>
+<area shape="rect" id="node7" href="$namespacepreprocess.html#aaab33bd46f0ae489d21ef62dff750446" title="Count the number of spaces at the begining of a string 计算字符串的前面有多少个空格 ..." alt="" coords="197,259,287,285"/>
+<area shape="rect" id="node8" href="$namespacetool.html#ac4d05a17f2f511bda4979dd476894896" title="Split API call string based on parameter passing 根据参数传递拆分API调用字符串 " alt="" coords="189,309,295,336"/>
+<area shape="rect" id="node9" href="$namespacetool.html#abd074786b2b2c49fb89912e52b42f1fc" title="Split API call string based on separator &quot;.&quot; 根据&quot;.&quot;拆分API调用字符串 " alt="" coords="186,360,298,387"/>
 </map>

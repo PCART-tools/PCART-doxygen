@@ -1,6 +1,6 @@
 <map id="validateByStr" name="validateByStr">
-<area shape="rect" id="node2" href="$namespacerepair.html#a13c0f10cec0074c6fd20914a93586ea0" title="mirrorAPI" alt="" coords="198,5,275,32"/>
-<area shape="rect" id="node5" href="$namespacechangeAnalyze.html#a9b577b97754fdc8097f5837944e9b010" title="changeAnalyze.para2Obj" alt="" coords="153,56,320,83"/>
-<area shape="rect" id="node3" href="$namespacetool.html#aeb791b1ae890adfbcdf37ee06053021e" title="tool.getLastAPIParameter" alt="" coords="368,5,540,32"/>
-<area shape="rect" id="node4" href="$namespacetool.html#a396cdc600a56de60c51858cb6af5bdf7" title="tool.get_parameter" alt="" coords="389,56,519,83"/>
+<area shape="rect" id="node2" href="$namespacerepair.html#a13c0f10cec0074c6fd20914a93586ea0" title="Create mirror for the fixed API by adding all parameter names 给修复后API的参数填上参数名 ..." alt="" coords="198,5,275,32"/>
+<area shape="rect" id="node5" href="$namespacechangeAnalyze.html#a9b577b97754fdc8097f5837944e9b010" title="Convert parameter string to positional and keyword parameter objects 将参数字符串转换为位置和关键字参..." alt="" coords="153,56,320,83"/>
+<area shape="rect" id="node3" href="$namespacetool.html#aeb791b1ae890adfbcdf37ee06053021e" title="Get parameter(s) of the last API from the API call string 获取最后一个API参数 " alt="" coords="368,5,540,32"/>
+<area shape="rect" id="node4" href="$namespacetool.html#a396cdc600a56de60c51858cb6af5bdf7" title="Split parameter string into list of separated parameters 将参数字符串拆分成单个的参数 ..." alt="" coords="389,56,519,83"/>
 </map>

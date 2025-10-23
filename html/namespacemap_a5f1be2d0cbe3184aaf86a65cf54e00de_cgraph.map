@@ -1,17 +1,17 @@
 <map id="mapAPI" name="mapAPI">
 <area shape="rect" id="node2" href="$namespacemap.html#ad69df3164e43211b92bd1edcb1c7db9b" title="Dynamic mapping of API signatures API签名动态匹配 " alt="" coords="123,183,229,209"/>
 <area shape="rect" id="node13" href="$namespacemap.html#ad057ce6744be1ed77c3482ef8872eba1" title="Static mapping of API signatures API签名静态匹配 " alt="" coords="131,259,221,285"/>
-<area shape="rect" id="node3" href="$namespacetool.html#a738ffb440e1ecdd990c95702ed30da31" title="tool.getFileName" alt="" coords="302,132,423,159"/>
-<area shape="rect" id="node4" href="$namespacepreprocess.html#a7de1c86e6c3f3d8a09c5f8f93e59f7b4" title="preprocess.addDictSingle" alt="" coords="277,183,448,209"/>
-<area shape="rect" id="node5" href="$namespacepreprocess.html#a638e9a6cb8c8f3b7752dc458a3846d9d" title="preprocess.getImportLine" alt="" coords="499,5,668,32"/>
-<area shape="rect" id="node6" href="$namespacetool.html#aeb791b1ae890adfbcdf37ee06053021e" title="tool.getLastAPIParameter" alt="" coords="497,56,669,83"/>
-<area shape="rect" id="node7" href="$namespacetool.html#a396cdc600a56de60c51858cb6af5bdf7" title="tool.get_parameter" alt="" coords="518,107,649,133"/>
-<area shape="rect" id="node8" href="$namespacetool.html#a163a1af85c967f70b1495290735321aa" title="tool.getAst" alt="" coords="541,157,626,184"/>
-<area shape="rect" id="node9" href="$namespacepreprocess.html#ae6efc31a5dbea814d20ed8efd321db06" title="preprocess.findAssignCall" alt="" coords="496,208,671,235"/>
-<area shape="rect" id="node10" href="$namespacepreprocess.html#aaab33bd46f0ae489d21ef62dff750446" title="preprocess.countSpace" alt="" coords="504,259,663,285"/>
-<area shape="rect" id="node11" href="$namespacetool.html#ac4d05a17f2f511bda4979dd476894896" title="tool.departAPI" alt="" coords="531,309,636,336"/>
-<area shape="rect" id="node12" href="$namespacetool.html#abd074786b2b2c49fb89912e52b42f1fc" title="tool.departAPI2" alt="" coords="527,360,639,387"/>
+<area shape="rect" id="node3" href="$namespacetool.html#a738ffb440e1ecdd990c95702ed30da31" title="Normalize file name 给文件取名字 " alt="" coords="302,132,423,159"/>
+<area shape="rect" id="node4" href="$namespacepreprocess.html#a7de1c86e6c3f3d8a09c5f8f93e59f7b4" title="Code instrumentation for single API call within a source file 源文件单个API调用代码插桩 ..." alt="" coords="277,183,448,209"/>
+<area shape="rect" id="node5" href="$namespacepreprocess.html#a638e9a6cb8c8f3b7752dc458a3846d9d" title="Determine the instrumentation line for import statements 确定import语句插桩行 " alt="" coords="499,5,668,32"/>
+<area shape="rect" id="node6" href="$namespacetool.html#aeb791b1ae890adfbcdf37ee06053021e" title="Get parameter(s) of the last API from the API call string 获取最后一个API参数 " alt="" coords="497,56,669,83"/>
+<area shape="rect" id="node7" href="$namespacetool.html#a396cdc600a56de60c51858cb6af5bdf7" title="Split parameter string into list of separated parameters 将参数字符串拆分成单个的参数 ..." alt="" coords="518,107,649,133"/>
+<area shape="rect" id="node8" href="$namespacetool.html#a163a1af85c967f70b1495290735321aa" title="Get AST for code 将代码转化为Ast树 " alt="" coords="541,157,626,184"/>
+<area shape="rect" id="node9" href="$namespacepreprocess.html#ae6efc31a5dbea814d20ed8efd321db06" title="Find assignment call statements 获取赋值调用语句 " alt="" coords="496,208,671,235"/>
+<area shape="rect" id="node10" href="$namespacepreprocess.html#aaab33bd46f0ae489d21ef62dff750446" title="Count the number of spaces at the begining of a string 计算字符串的前面有多少个空格 ..." alt="" coords="504,259,663,285"/>
+<area shape="rect" id="node11" href="$namespacetool.html#ac4d05a17f2f511bda4979dd476894896" title="Split API call string based on parameter passing 根据参数传递拆分API调用字符串 " alt="" coords="531,309,636,336"/>
+<area shape="rect" id="node12" href="$namespacetool.html#abd074786b2b2c49fb89912e52b42f1fc" title="Split API call string based on separator &quot;.&quot; 根据&quot;.&quot;拆分API调用字符串 " alt="" coords="527,360,639,387"/>
 <area shape="rect" id="node14" href="$namespaceloadData.html#a534ad5385c0d9ba94804d73e99241c3e" title="Load the extracted definitions of lib APIs for static signature mapping 把之前抽取出来的库API加载到字..." alt="" coords="303,233,422,260"/>
 <area shape="rect" id="node15" href="$namespacemap.html#aaac6f97b9ceb2143a696d52df84f0a21" title="Check the last name in an API call is an alias or not 判断一个callAPI最后一个名字是否为库中的别名 ..." alt="" coords="332,284,393,311"/>
-<area shape="rect" id="node16" href="$namespacetool.html#a06b0d4848192999bfb9a11895ba277dc" title="tool.removeParameter" alt="" coords="287,335,438,361"/>
+<area shape="rect" id="node16" href="$namespacetool.html#a06b0d4848192999bfb9a11895ba277dc" title="Remove parameter(s) from API call string 去掉API中的参数部分 " alt="" coords="287,335,438,361"/>
 </map>
