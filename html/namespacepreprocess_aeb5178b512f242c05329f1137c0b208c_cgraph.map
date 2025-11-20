@@ -3,7 +3,7 @@
 <area shape="rect" id="node3" href="$namespacegetCall.html#a09df38fef33a1a5a38b769e150b35cb8" title="Extract all API calls from a given .py file 每次传进来一个.py文件，抽取所有的调用API. " alt="" coords="136,56,295,83"/>
 <area shape="rect" id="node5" href="$namespacegetCall.html#ab6c9cca192f7cba9dd7a4ec6764cdf03" title="Resotre the conventional API call path in the withitem (including AsyncWith) call form 还原withitemAP..." alt="" coords="343,107,511,133"/>
 <area shape="rect" id="node7" href="$namespacepreprocess.html#ae6efc31a5dbea814d20ed8efd321db06" title="Find assignment call statements 获取赋值调用语句 " alt="" coords="162,157,269,184"/>
-<area shape="rect" id="node8" href="$namespacepreprocess.html#aaab33bd46f0ae489d21ef62dff750446" title="Count the number of spaces at the begining of a string 计算字符串的前面有多少个空格 ..." alt="" coords="170,208,261,235"/>
+<area shape="rect" id="node8" href="$namespacepreprocess.html#aaab33bd46f0ae489d21ef62dff750446" title="Count the number of spaces at the beginning of a string 计算字符串的前面有多少个空格 ..." alt="" coords="170,208,261,235"/>
 <area shape="rect" id="node9" href="$namespacetool.html#a738ffb440e1ecdd990c95702ed30da31" title="Normalize file name 给文件取名字 " alt="" coords="155,259,276,285"/>
 <area shape="rect" id="node10" href="$namespacetool.html#ac4d05a17f2f511bda4979dd476894896" title="Split API call string based on parameter passing 根据参数传递拆分API调用字符串 " alt="" coords="163,309,268,336"/>
 <area shape="rect" id="node11" href="$namespacetool.html#abd074786b2b2c49fb89912e52b42f1fc" title="Split API call string based on separator &quot;.&quot; 根据&quot;.&quot;拆分API调用字符串 " alt="" coords="159,360,271,387"/>

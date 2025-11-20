@@ -19,7 +19,7 @@
 <area shape="rect" id="node9" href="$namespacegetCall.html#a3686a0013578a483d50cde8c495798ab" title="Extract method calls in a custom class inherited from a lib class 获取从库API继承的自定义类中的库API�..." alt="" coords="841,265,972,292"/>
 <area shape="rect" id="node15" href="$namespacetool.html#a163a1af85c967f70b1495290735321aa" title="Get AST for code 将代码转化为Ast树 " alt="" coords="627,189,712,216"/>
 <area shape="rect" id="node18" href="$namespacepreprocess.html#a863e16849c87ef82b42e6a44e743a245" title="Get the local variable in the list comprehension 获取列表推导式中的局部变量 " alt="" coords="595,291,744,317"/>
-<area shape="rect" id="node19" href="$namespacepreprocess.html#aaab33bd46f0ae489d21ef62dff750446" title="Count the number of spaces at the begining of a string 计算字符串的前面有多少个空格 ..." alt="" coords="590,392,749,419"/>
+<area shape="rect" id="node19" href="$namespacepreprocess.html#aaab33bd46f0ae489d21ef62dff750446" title="Count the number of spaces at the beginning of a string 计算字符串的前面有多少个空格 ..." alt="" coords="590,392,749,419"/>
 <area shape="rect" id="node20" href="$namespacepreprocess.html#a45a426d44e2e19441f98e0def6cc2d67" title="Get the local variable in the dictionary comprehension 获取字典推导式中的局部变量 ..." alt="" coords="593,341,745,368"/>
 <area shape="rect" id="node22" href="$namespacepreprocess.html#a638e9a6cb8c8f3b7752dc458a3846d9d" title="Determine the instrumentation line for import statements 确定import语句插桩行 " alt="" coords="585,443,754,469"/>
 <area shape="rect" id="node23" href="$namespacepreprocess.html#ae6efc31a5dbea814d20ed8efd321db06" title="Find assignment call statements 获取赋值调用语句 " alt="" coords="582,544,757,571"/>
