@@ -76,11 +76,15 @@ $(function() {
 Inheritance diagram for WithVisitor:</div>
 <div class="dyncontent">
 <div class="center"><img src="classextractCall_1_1WithVisitor__inherit__graph.png" border="0" usemap="#WithVisitor_inherit__map" alt="Inheritance graph"/></div>
+<map name="WithVisitor_inherit__map" id="WithVisitor_inherit__map">
+</map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for WithVisitor:</div>
 <div class="dyncontent">
 <div class="center"><img src="classextractCall_1_1WithVisitor__coll__graph.png" border="0" usemap="#WithVisitor_coll__map" alt="Collaboration graph"/></div>
+<map name="WithVisitor_coll__map" id="WithVisitor_coll__map">
+</map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -96,7 +100,7 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>Get all with nodes from a project souce file 项目源码with节点遍历器 </p>
 <p>For an withitem node, extract the call name in the context_expr and its alias name (if any) in the optional_vars 对于withitem节点，提取其中的call节点和别名（如果有） </p>
 
-<p class="definition">Definition at line <a class="el" href="extractCall_8py_source.html#l00106">106</a> of file <a class="el" href="extractCall_8py_source.html">extractCall.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="extractCall_8py_source.html#l00086">86</a> of file <a class="el" href="extractCall_8py_source.html">extractCall.py</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae64f0875afe3067b97ba370b354b9213"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae64f0875afe3067b97ba370b354b9213">&#9670;&nbsp;</a></span>__init__()</h2>
@@ -114,8 +118,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="extractCall_8py_source.html#l00107">107</a> of file <a class="el" href="extractCall_8py_source.html">extractCall.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keyword">def </span>__init__(self):</div><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        self._withitemCall={}</div><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    </div></div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="extractCall_8py_source.html#l00087">87</a> of file <a class="el" href="extractCall_8py_source.html">extractCall.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keyword">def </span>__init__(self):</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        self._withitemCall={}</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    </div></div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -135,8 +139,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="extractCall_8py_source.html#l00110">110</a> of file <a class="el" href="extractCall_8py_source.html">extractCall.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keyword">def </span>get_withitem_call(self):</div><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordflow">return</span> self._withitemCall</div><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div></div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="extractCall_8py_source.html#l00090">90</a> of file <a class="el" href="extractCall_8py_source.html">extractCall.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keyword">def </span>get_withitem_call(self):</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">return</span> self._withitemCall</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div></div><!-- fragment -->
 </div>
 </div>
 <a id="aa63d0cf5746a861212612d7f2310d689"></a>
@@ -165,8 +169,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="extractCall_8py_source.html#l00113">113</a> of file <a class="el" href="extractCall_8py_source.html">extractCall.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keyword">def </span>visit_withitem(self, node):</div><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordflow">if</span> isinstance(node.context_expr, ast.Call):</div><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            <span class="keywordflow">if</span> node.optional_vars:</div><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                callName =  ast.unparse(node.context_expr)</div><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                aliasName = ast.unparse(node.optional_vars)</div><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                self._withitemCall[aliasName] = callName</div><div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="extractCall_8py_source.html#l00093">93</a> of file <a class="el" href="extractCall_8py_source.html">extractCall.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keyword">def </span>visit_withitem(self, node):</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordflow">if</span> isinstance(node.context_expr, ast.Call):</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <span class="keywordflow">if</span> node.optional_vars:</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                callName =  ast.unparse(node.context_expr)</div><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                aliasName = ast.unparse(node.optional_vars)</div><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                self._withitemCall[aliasName] = callName</div><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
