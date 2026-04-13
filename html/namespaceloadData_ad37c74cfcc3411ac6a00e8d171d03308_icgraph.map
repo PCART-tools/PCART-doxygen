@@ -1,3 +1,4 @@
 <map id="getAPILst" name="getAPILst">
-<area shape="rect" id="node2" href="$namespaceloadData.html#a785691b1ead057e7df657a708b9e126d" title="遍历所有版本的库API，将其整理成一个json格式的文件 {APIName: {&#39;1.1.0&#39;: [LibAPI1,LibAPI2,...]}, {...}, {...}} " alt="" coords="133,5,200,32"/>
+<area shape="rect" id="node1" title="这个应该和loadlib合并到一起" alt="" coords="127,5,209,32"/>
+<area shape="rect" id="node2" href="$namespaceloadData.html#a785691b1ead057e7df657a708b9e126d" title="遍历所有版本的库API，将其整理成一个json格式的文件 {APIName: {&#39;1.1.0&#39;: [LibAPI1,LibAPI2,...]}, {...}, {...." alt="" coords="5,5,79,32"/>
 </map>

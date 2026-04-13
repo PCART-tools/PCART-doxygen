@@ -1,5 +1,6 @@
 <map id="isAlias" name="isAlias">
-<area shape="rect" id="node2" href="$namespacemap.html#ad057ce6744be1ed77c3482ef8872eba1" title="Static mapping of API signatures API签名静态匹配 " alt="" coords="115,5,205,32"/>
-<area shape="rect" id="node3" href="$namespacemap.html#a5f1be2d0cbe3184aaf86a65cf54e00de" title="Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API..." alt="" coords="253,5,323,32"/>
-<area shape="rect" id="node4" href="$namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件 " alt="" coords="371,5,509,32"/>
+<area shape="rect" id="node1" title="Check the last name in an API call is an alias or not 判断一个callAPI最后一个名字是否为库中的别名" alt="" coords="471,5,536,32"/>
+<area shape="rect" id="node2" href="$namespacemap.html#ad057ce6744be1ed77c3482ef8872eba1" title="Static mapping of API signatures API签名静态匹配" alt="" coords="324,5,423,32"/>
+<area shape="rect" id="node3" href="$namespacemap.html#a5f1be2d0cbe3184aaf86a65cf54e00de" title="Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API与 ..." alt="" coords="204,5,276,32"/>
+<area shape="rect" id="node4" href="$namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件" alt="" coords="5,5,156,32"/>
 </map>

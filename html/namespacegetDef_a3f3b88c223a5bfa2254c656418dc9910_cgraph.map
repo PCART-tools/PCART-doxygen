@@ -1,4 +1,5 @@
 <map id="getClass" name="getClass">
-<area shape="rect" id="node2" href="$namespacegetDef.html#a2b7a86e5e82c89da0c05d0a2659bd1c1" title="Shorten the API path based on init.py and import alias 通过解析__init__.py和import别名,把源码中的部分API路径缩短 " alt="" coords="128,5,220,32"/>
-<area shape="rect" id="node3" href="$namespacetool.html#a163a1af85c967f70b1495290735321aa" title="Get AST for code 将代码转化为Ast树 " alt="" coords="268,5,353,32"/>
+<area shape="rect" id="node1" title="Extract class method definitions from a give class." alt="" coords="5,5,84,32"/>
+<area shape="rect" id="node2" href="$namespacegetDef.html#a2b7a86e5e82c89da0c05d0a2659bd1c1" title="Shorten the API path based on init.py and import alias 通过解析__init__.py和import别名,把源码中的部分API路径缩短" alt="" coords="132,5,231,32"/>
+<area shape="rect" id="node3" href="$namespacetool.html#a163a1af85c967f70b1495290735321aa" title="Get AST for code 将代码转化为Ast树" alt="" coords="279,5,372,32"/>
 </map>

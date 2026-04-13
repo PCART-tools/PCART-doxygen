@@ -1,5 +1,6 @@
 <map id="lib2json" name="lib2json">
-<area shape="rect" id="node2" href="$namespaceloadData.html#ad37c74cfcc3411ac6a00e8d171d03308" title="这个应该和loadlib合并到一起 " alt="" coords="120,5,200,32"/>
-<area shape="rect" id="node3" href="$namespaceloadData.html#ae4efe44611305de952d071509916e776" title="func" alt="" coords="137,56,183,83"/>
-<area shape="rect" id="node4" href="$namespacetool.html#a51b7d0e90dbf25c2596e98cee7912634" title="tool.cmp" alt="" coords="124,107,196,133"/>
+<area shape="rect" id="node1" title="遍历所有版本的库API，将其整理成一个json格式的文件 {APIName: {&#39;1.1.0&#39;: [LibAPI1,LibAPI2,...]}, {...}, {...." alt="" coords="5,56,79,83"/>
+<area shape="rect" id="node2" href="$namespacetool.html#a51b7d0e90dbf25c2596e98cee7912634" title=" " alt="" coords="129,5,207,32"/>
+<area shape="rect" id="node3" href="$namespaceloadData.html#ae4efe44611305de952d071509916e776" title=" " alt="" coords="143,56,193,83"/>
+<area shape="rect" id="node4" href="$namespaceloadData.html#ad37c74cfcc3411ac6a00e8d171d03308" title="这个应该和loadlib合并到一起" alt="" coords="127,107,209,133"/>
 </map>

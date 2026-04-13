@@ -1,9 +1,10 @@
 <map id="getLastAPIParameter" name="getLastAPIParameter">
-<area shape="rect" id="node2" href="$namespacepreprocess.html#a7de1c86e6c3f3d8a09c5f8f93e59f7b4" title="Code instrumentation for a single API call within a source file 源文件单个API调用代码插桩 ..." alt="" coords="200,5,371,32"/>
-<area shape="rect" id="node6" href="$namespacerepair.html#a13c0f10cec0074c6fd20914a93586ea0" title="Create mirror for the fixed API by adding all parameter names 给修复后API的参数填上参数名 ..." alt="" coords="229,56,342,83"/>
-<area shape="rect" id="node3" href="$namespacemap.html#ad69df3164e43211b92bd1edcb1c7db9b" title="Dynamic mapping of API signatures API签名动态匹配 " alt="" coords="419,5,555,32"/>
-<area shape="rect" id="node4" href="$namespacemap.html#a5f1be2d0cbe3184aaf86a65cf54e00de" title="Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API..." alt="" coords="613,5,711,32"/>
-<area shape="rect" id="node5" href="$namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件 " alt="" coords="769,31,908,57"/>
-<area shape="rect" id="node7" href="$namespacerepair.html#aaf441b3a0f89d081e50ad51ac510eb1c" title="Static validation 静态验证 " alt="" coords="419,56,555,83"/>
-<area shape="rect" id="node8" href="$namespacerepair.html#afdcb02b6e3ba6de73363c7254596a8b1" title="Task of repairing parameter compatibility issues 参数兼容性问题修复任务 " alt="" coords="603,56,721,83"/>
+<area shape="rect" id="node1" title="Get parameter(s) of the last API from the API call string 获取最后一个API参数" alt="" coords="816,31,975,57"/>
+<area shape="rect" id="node2" href="$namespacepreprocess.html#a7de1c86e6c3f3d8a09c5f8f93e59f7b4" title="Code instrumentation for a single API call within a source file 源文件单个API调用代码插桩" alt="" coords="581,5,768,32"/>
+<area shape="rect" id="node6" href="$namespacerepair.html#a13c0f10cec0074c6fd20914a93586ea0" title="Create mirror for the fixed API by adding all parameter names 给修复后API的参数填上参数名" alt="" coords="613,56,737,83"/>
+<area shape="rect" id="node3" href="$namespacemap.html#ad69df3164e43211b92bd1edcb1c7db9b" title="Dynamic mapping of API signatures API签名动态匹配" alt="" coords="383,5,533,32"/>
+<area shape="rect" id="node4" href="$namespacemap.html#a5f1be2d0cbe3184aaf86a65cf54e00de" title="Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API与 ..." alt="" coords="217,5,322,32"/>
+<area shape="rect" id="node5" href="$namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件" alt="" coords="5,31,156,57"/>
+<area shape="rect" id="node7" href="$namespacerepair.html#aaf441b3a0f89d081e50ad51ac510eb1c" title="Static validation 静态验证" alt="" coords="383,56,533,83"/>
+<area shape="rect" id="node8" href="$namespacerepair.html#afdcb02b6e3ba6de73363c7254596a8b1" title="Task of repairing parameter compatibility issues 参数兼容性问题修复任务" alt="" coords="204,56,335,83"/>
 </map>

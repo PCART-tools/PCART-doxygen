@@ -1,6 +1,7 @@
 <map id="getClass" name="getClass">
-<area shape="rect" id="node2" href="$namespacegetDef.html#ae4b9d54a594ab6bbeed1c617a15cbb4a" title="Extract all lib API definitions from a source file 抽取库源码API定义任务 " alt="" coords="128,5,175,32"/>
-<area shape="rect" id="node3" href="$namespacegetDef.html#ad6f70c11131f697c5bce20d6ef27608d" title="Extract all lib API definitions from a specified version 抽取给定版本的库API定义 " alt="" coords="223,5,333,32"/>
-<area shape="rect" id="node4" href="$namespaceextractLibAPI.html#a4f0d4271912d3b1669689d06cec9acc3" title="Extract API definitions for a given library version 抽取给定库版本的API定义 " alt="" coords="381,5,544,32"/>
-<area shape="rect" id="node5" href="$namespaceextractLibAPI.html#a73fb40d31f2dd874c84d240a454c787b" title="Main function of extracting lib API definitions 抽取库API定义主函数 " alt="" coords="592,5,725,32"/>
+<area shape="rect" id="node1" title="Extract class method definitions from a give class." alt="" coords="688,5,767,32"/>
+<area shape="rect" id="node2" href="$namespacegetDef.html#ae4b9d54a594ab6bbeed1c617a15cbb4a" title="Extract all lib API definitions from a source file 抽取库源码API定义任务" alt="" coords="589,5,640,32"/>
+<area shape="rect" id="node3" href="$namespacegetDef.html#ad6f70c11131f697c5bce20d6ef27608d" title="Extract all lib API definitions from a specified version 抽取给定版本的库API定义" alt="" coords="420,5,541,32"/>
+<area shape="rect" id="node4" href="$namespaceextractLibAPI.html#a4f0d4271912d3b1669689d06cec9acc3" title="Extract API definitions for a given library version 抽取给定库版本的API定义" alt="" coords="199,5,372,32"/>
+<area shape="rect" id="node5" href="$namespaceextractLibAPI.html#a73fb40d31f2dd874c84d240a454c787b" title="Main function of extracting lib API definitions 抽取库API定义主函数" alt="" coords="5,5,151,32"/>
 </map>

@@ -1,5 +1,6 @@
 <map id="analyzeCompatibility" name="analyzeCompatibility">
-<area shape="rect" id="node2" href="$namespacechangeAnalyze.html#a9b577b97754fdc8097f5837944e9b010" title="Convert parameter string to positional and keyword parameter objects 将参数字符串转换为位置和关键字参..." alt="" coords="205,5,280,32"/>
-<area shape="rect" id="node4" href="$namespacechangeAnalyze.html#ab13af561e1ebeec90579c692f5bce329" title="Determine parameter type change: compatible type means no type change 判断两个参数的类型是否发生了变�..." alt="" coords="196,56,289,83"/>
-<area shape="rect" id="node3" href="$namespacetool.html#a396cdc600a56de60c51858cb6af5bdf7" title="Split parameter string into list of separated parameters 将参数字符串拆分成单个的参数 ..." alt="" coords="337,31,468,57"/>
+<area shape="rect" id="node1" title="Analyze the compatibility of two APIs 判断两个重载API是否兼容" alt="" coords="5,31,167,57"/>
+<area shape="rect" id="node2" href="$namespacechangeAnalyze.html#ab13af561e1ebeec90579c692f5bce329" title="Determine parameter type change: compatible type means no type change &#160;&#160;判断两个参数的类型是否发生了变更: 只要兼容，就认为相同" alt="" coords="215,5,313,32"/>
+<area shape="rect" id="node4" href="$namespacechangeAnalyze.html#a9b577b97754fdc8097f5837944e9b010" title="Convert parameter string to positional and keyword parameter objects 将参数字符串转换为位置和关键字参数对象" alt="" coords="223,56,305,83"/>
+<area shape="rect" id="node3" href="$namespacetool.html#ac911ce7a8605392b72a43d059055729f" title="Split parameter string into list of separated parameters 将参数字符串拆分成单个的参数" alt="" coords="361,31,508,57"/>
 </map>

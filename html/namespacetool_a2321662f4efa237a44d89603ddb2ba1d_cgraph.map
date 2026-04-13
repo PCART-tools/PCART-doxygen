@@ -1,3 +1,4 @@
 <map id="getSourceCodePath" name="getSourceCodePath">
-<area shape="rect" id="node2" href="$namespacetool.html#af97e9e63a1ae8577bbe8865743d57b21" title="Get Python interpreter path 获取Python解释器路径 " alt="" coords="192,5,293,32"/>
+<area shape="rect" id="node1" title="Get source code path of the lib 获取库源码路径" alt="" coords="5,5,153,32"/>
+<area shape="rect" id="node2" href="$namespacetool.html#af97e9e63a1ae8577bbe8865743d57b21" title="Get Python interpreter path 获取Python解释器路径" alt="" coords="201,5,312,32"/>
 </map>

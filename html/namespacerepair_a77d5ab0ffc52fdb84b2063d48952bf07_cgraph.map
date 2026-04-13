@@ -1,5 +1,6 @@
 <map id="fix" name="fix">
-<area shape="rect" id="node2" href="$namespacerepair.html#a3f486f899c41567be3240f65443acf12" title="Get repair operation dictionary of positional parameter 获取位置参数的修复操作字典 ..." alt="" coords="98,5,169,32"/>
-<area shape="rect" id="node3" href="$namespacerepair.html#a78d633fe3bd2b3c6f18d9a95904617ae" title="Find parameter name by its position 通过位置查找参数名 " alt="" coords="94,56,173,83"/>
-<area shape="rect" id="node4" href="$namespacerepair.html#ac9c91801547e5577cd1845cf6ed134dc" title="Get repair operation dictionary of keyword parameter 获取关键字参数的修复操作字典 ..." alt="" coords="92,107,175,133"/>
+<area shape="rect" id="node1" title="Perform parameter repair operations through AST 通过AST执行参数修复操作" alt="" coords="5,56,44,83"/>
+<area shape="rect" id="node2" href="$namespacerepair.html#a78d633fe3bd2b3c6f18d9a95904617ae" title="Find parameter name by its position 通过位置查找参数名" alt="" coords="95,5,180,32"/>
+<area shape="rect" id="node3" href="$namespacerepair.html#ac9c91801547e5577cd1845cf6ed134dc" title="Get repair operation dictionary of keyword parameter 获取关键字参数的修复操作字典" alt="" coords="92,56,183,83"/>
+<area shape="rect" id="node4" href="$namespacerepair.html#a3f486f899c41567be3240f65443acf12" title="Get repair operation dictionary of positional parameter 获取位置参数的修复操作字典" alt="" coords="100,107,175,133"/>
 </map>

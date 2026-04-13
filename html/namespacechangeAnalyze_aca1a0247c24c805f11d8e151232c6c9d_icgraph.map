@@ -1,4 +1,5 @@
 <map id="findDiffer" name="findDiffer">
-<area shape="rect" id="node2" href="$namespacechangeAnalyze.html#a3272743b8ad154a66e9d45ab36bca3ec" title="Detemine the compatibility of APIs from current and target versions 判断起始版本和目标版本API的兼容性..." alt="" coords="128,5,227,32"/>
-<area shape="rect" id="node3" href="$namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件 " alt="" coords="275,5,413,32"/>
+<area shape="rect" id="node1" title="Determine difference of two parameters 输入两个api参数部分，判断参数部分有何不同" alt="" coords="360,5,443,32"/>
+<area shape="rect" id="node2" href="$namespacechangeAnalyze.html#a3272743b8ad154a66e9d45ab36bca3ec" title="Detemine the compatibility of APIs from current and target versions 判断起始版本和目标版本API的兼容性" alt="" coords="204,5,312,32"/>
+<area shape="rect" id="node3" href="$namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件" alt="" coords="5,5,156,32"/>
 </map>

@@ -1,3 +1,4 @@
 <map id="expandConditionalReturn" name="expandConditionalReturn">
-<area shape="rect" id="node2" href="$namespacetool.html#a163a1af85c967f70b1495290735321aa" title="Get AST for code 将代码转化为Ast树 " alt="" coords="221,5,307,32"/>
+<area shape="rect" id="node1" title="Expand the single&#45;line conditional return statement into a multi&#45;line if&#45;else structure &#160;&#160;展开单行条件retur..." alt="" coords="5,5,192,32"/>
+<area shape="rect" id="node2" href="$namespacetool.html#a163a1af85c967f70b1495290735321aa" title="Get AST for code 将代码转化为Ast树" alt="" coords="240,5,333,32"/>
 </map>

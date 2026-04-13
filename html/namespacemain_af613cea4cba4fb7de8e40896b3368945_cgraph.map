@@ -1,32 +1,33 @@
 <map id="main" name="main">
-<area shape="rect" id="node2" href="$namespacetool.html#ac27269fb0ca8635862c18bfe841deaae" title="Load PCART&#39;s configuration file 加载PCART配置文件 " alt="" coords="133,203,242,229"/>
-<area shape="rect" id="node3" href="$namespacepreprocess.html#a0b52460f33415186cee80896a65d8530" title="Code processing 代码预处理 " alt="" coords="104,253,271,280"/>
-<area shape="rect" id="node29" href="$namespacemain.html#a37c97f0a13e2e95f6955d24042b98d4f" title="Generate pkl files and perform detection and repair task 生成项目调用API的pkl文件以及执行检测与修复任..." alt="" coords="148,409,227,436"/>
-<area shape="rect" id="node4" href="$namespacepreprocess.html#a79af2a91a7fa51e11b82e40207c48957" title="Get all lib&#45;related import statements 获取所有第三方库相关的import语句 " alt="" coords="327,5,507,32"/>
-<area shape="rect" id="node5" href="$namespacepreprocess.html#af67fd0a454bad0ef82391bf1d745b87f" title="Save structure information of the project 保存项目的结构信息 " alt="" coords="332,56,503,83"/>
-<area shape="rect" id="node12" href="$namespacepreprocess.html#ac314c05ac2de819eb7e15c9a091beb5d" title="Save import statement to source file 将import语句保存到源码中 " alt="" coords="319,107,515,133"/>
-<area shape="rect" id="node13" href="$namespacepreprocess.html#a422e51d3c4d2044bcb0159a2ebc0df60" title="Convert tabs to spaces in all Python files within a directory 将目录下所有Python文件中的制表符转换为�©..." alt="" coords="329,158,506,199"/>
-<area shape="rect" id="node14" href="$namespacepreprocess.html#a4c00e7633e0fd15cfaba6731cf8fe9b6" title="Convert the multi&#45;line parameter calls in the code into a single line to facilitate insertion into di..." alt="" coords="350,224,485,251"/>
-<area shape="rect" id="node16" href="$namespacepreprocess.html#a4c279837bca66be1c336af00420eb4ad" title="Expand the single&#45;line conditional return statement into a multi&#45;line if&#45;else structure 展开单行条件r..." alt="" coords="319,275,516,317"/>
-<area shape="rect" id="node17" href="$namespacepreprocess.html#a1be44b4612b83c96456034d7eef3a376" title="Convert the ListComp and DictComp statements to variable assignment statements 将列表推导式listComp和..." alt="" coords="325,341,509,368"/>
-<area shape="rect" id="node21" href="$namespacepreprocess.html#aeb5178b512f242c05329f1137c0b208c" title="Code instrumentation for all API calls within a project source file 项目源文件所有API调用代码插桩 ..." alt="" coords="342,519,493,545"/>
-<area shape="rect" id="node28" href="$namespacepreprocess.html#ad272e396d54aa1eb3a41c36c1949323e" title="Code instrumentation for project run file 项目运行文件代码插桩 " alt="" coords="331,392,504,419"/>
-<area shape="rect" id="node6" href="$namespacegetCall.html#a09df38fef33a1a5a38b769e150b35cb8" title="Extract all API calls from a given .py file 每次传进来一个.py文件，抽取所有的调用API. " alt="" coords="590,240,749,267"/>
-<area shape="rect" id="node10" href="$namespacepreprocess.html#ae7e0fb3e9686a37af31d748a4c234ebf" title="Extract decorator API calls 抽取项目中第三方库装饰器调用 " alt="" coords="576,31,763,57"/>
-<area shape="rect" id="node11" href="$namespacepreprocess.html#aba37de1d85915cdded208175b9ff6b26" title="Save assignment statement with constant values 保存常量赋值语句 " alt="" coords="564,81,775,108"/>
-<area shape="rect" id="node7" href="$namespacegetCall.html#af3f5b1dd17766d8a46358385b8ed528b" title="Restore the conventional API call path by modifying the first name of the API prefix 通过修改API赋值�°..." alt="" coords="823,215,990,241"/>
-<area shape="rect" id="node8" href="$namespacegetCall.html#ab6c9cca192f7cba9dd7a4ec6764cdf03" title="Restore the conventional API call path in the withitem (including AsyncWith) call form 还原withitemAP..." alt="" coords="823,392,991,419"/>
-<area shape="rect" id="node9" href="$namespacegetCall.html#a3686a0013578a483d50cde8c495798ab" title="Extract method calls in a custom class inherited from a lib class 获取从库API继承的自定义类中的库API�..." alt="" coords="841,265,972,292"/>
-<area shape="rect" id="node15" href="$namespacetool.html#a163a1af85c967f70b1495290735321aa" title="Get AST for code 将代码转化为Ast树 " alt="" coords="627,189,712,216"/>
-<area shape="rect" id="node18" href="$namespacepreprocess.html#a863e16849c87ef82b42e6a44e743a245" title="Get the local variable in the list comprehension 获取列表推导式中的局部变量 " alt="" coords="595,291,744,317"/>
-<area shape="rect" id="node19" href="$namespacepreprocess.html#aaab33bd46f0ae489d21ef62dff750446" title="Count the number of spaces at the beginning of a string 计算字符串的前面有多少个空格 ..." alt="" coords="590,392,749,419"/>
-<area shape="rect" id="node20" href="$namespacepreprocess.html#a45a426d44e2e19441f98e0def6cc2d67" title="Get the local variable in the dictionary comprehension 获取字典推导式中的局部变量 ..." alt="" coords="593,341,745,368"/>
-<area shape="rect" id="node22" href="$namespacepreprocess.html#a638e9a6cb8c8f3b7752dc458a3846d9d" title="Determine the instrumentation line for import statements 确定import语句插桩行 " alt="" coords="585,443,754,469"/>
-<area shape="rect" id="node23" href="$namespacepreprocess.html#ae6efc31a5dbea814d20ed8efd321db06" title="Find assignment call statements 获取赋值调用语句 " alt="" coords="582,544,757,571"/>
-<area shape="rect" id="node24" href="$namespacetool.html#a738ffb440e1ecdd990c95702ed30da31" title="Normalize file name 给文件取名字 " alt="" coords="609,595,730,621"/>
-<area shape="rect" id="node25" href="$namespacetool.html#ac4d05a17f2f511bda4979dd476894896" title="Split API call string based on parameter passing 根据参数传递拆分API调用字符串 " alt="" coords="617,645,722,672"/>
-<area shape="rect" id="node26" href="$namespacetool.html#abd074786b2b2c49fb89912e52b42f1fc" title="Split API call string based on separator &quot;.&quot; 根据&quot;.&quot;拆分API调用字符串 " alt="" coords="613,696,725,723"/>
-<area shape="rect" id="node27" href="$namespacetool.html#a396cdc600a56de60c51858cb6af5bdf7" title="Split parameter string into list of separated parameters 将参数字符串拆分成单个的参数 ..." alt="" coords="604,747,735,773"/>
-<area shape="rect" id="node30" href="$namespacetool.html#a0c884e031b8683fe57a2fc6e9f321b2b" title="Save PCART report 保存PCART报告 " alt="" coords="369,696,466,723"/>
-<area shape="rect" id="node31" href="$namespacetool.html#a89e3ba62412c41551693e80ced2dc88c" title="Format output 格式化输出 " alt="" coords="620,797,719,824"/>
+<area shape="rect" id="node1" title="Main function of PCART PCART主函数" alt="" coords="5,284,60,311"/>
+<area shape="rect" id="node2" href="$namespacemain.html#a37c97f0a13e2e95f6955d24042b98d4f" title="Generate pkl files and perform detection and repair task 生成项目调用API的pkl文件以及执行检测与修复任务" alt="" coords="155,120,240,147"/>
+<area shape="rect" id="node5" href="$namespacepreprocess.html#a0b52460f33415186cee80896a65d8530" title="Code processing 代码预处理" alt="" coords="108,284,287,311"/>
+<area shape="rect" id="node31" href="$namespacetool.html#ac27269fb0ca8635862c18bfe841deaae" title="Load PCART&#39;s configuration file 加载PCART配置文件" alt="" coords="137,335,257,361"/>
+<area shape="rect" id="node3" href="$namespacetool.html#a0c884e031b8683fe57a2fc6e9f321b2b" title="Save PCART report 保存PCART报告" alt="" coords="390,31,498,57"/>
+<area shape="rect" id="node4" href="$namespacetool.html#a89e3ba62412c41551693e80ced2dc88c" title="Format output 格式化输出" alt="" coords="661,5,771,32"/>
+<area shape="rect" id="node6" href="$namespacepreprocess.html#aeb5178b512f242c05329f1137c0b208c" title="Code instrumentation for all API calls within a project source file 项目源文件所有API调用代码插桩" alt="" coords="362,411,526,437"/>
+<area shape="rect" id="node18" href="$namespacepreprocess.html#a1be44b4612b83c96456034d7eef3a376" title="Convert the ListComp and DictComp statements to variable assignment statements 将列表推导式listComp和字典推导式Di..." alt="" coords="343,208,545,235"/>
+<area shape="rect" id="node21" href="$namespacepreprocess.html#a422e51d3c4d2044bcb0159a2ebc0df60" title="Convert tabs to spaces in all Python files within a directory 将目录下所有Python文件中的制表符转换为空格" alt="" coords="349,462,539,503"/>
+<area shape="rect" id="node22" href="$namespacepreprocess.html#a4c279837bca66be1c336af00420eb4ad" title="Expand the single&#45;line conditional return statement into a multi&#45;line if&#45;else structure &#160;&#160;展开单行条件retur..." alt="" coords="335,558,553,599"/>
+<area shape="rect" id="node24" href="$namespacepreprocess.html#a79af2a91a7fa51e11b82e40207c48957" title="Get all lib&#45;related import statements 获取所有第三方库相关的import语句" alt="" coords="345,107,543,133"/>
+<area shape="rect" id="node25" href="$namespacepreprocess.html#ad272e396d54aa1eb3a41c36c1949323e" title="Code instrumentation for project run file 项目运行文件代码插桩" alt="" coords="349,309,539,336"/>
+<area shape="rect" id="node26" href="$namespacepreprocess.html#ac314c05ac2de819eb7e15c9a091beb5d" title="Save import statement to source file 将import语句保存到源码中" alt="" coords="335,157,553,184"/>
+<area shape="rect" id="node27" href="$namespacepreprocess.html#a4c00e7633e0fd15cfaba6731cf8fe9b6" title="Convert the multi&#45;line parameter calls in the code into a single line to facilitate insertion into di..." alt="" coords="370,684,518,711"/>
+<area shape="rect" id="node28" href="$namespacepreprocess.html#af67fd0a454bad0ef82391bf1d745b87f" title="Save structure information of the project 保存项目的结构信息" alt="" coords="351,259,537,285"/>
+<area shape="rect" id="node7" href="$namespacepreprocess.html#aaab33bd46f0ae489d21ef62dff750446" title="Count the number of spaces at the beginning of a string 计算字符串的前面有多少个空格" alt="" coords="630,309,802,336"/>
+<area shape="rect" id="node8" href="$namespacetool.html#ac4d05a17f2f511bda4979dd476894896" title="Split API call string based on parameter passing 根据参数传递拆分API调用字符串" alt="" coords="659,461,773,488"/>
+<area shape="rect" id="node9" href="$namespacetool.html#abd074786b2b2c49fb89912e52b42f1fc" title="Split API call string based on separator &quot;.&quot; 根据&quot;.&quot;拆分API调用字符串" alt="" coords="655,512,777,539"/>
+<area shape="rect" id="node10" href="$namespacepreprocess.html#ae6efc31a5dbea814d20ed8efd321db06" title="Find assignment call statements 获取赋值调用语句" alt="" coords="621,563,811,589"/>
+<area shape="rect" id="node11" href="$namespacetool.html#ac911ce7a8605392b72a43d059055729f" title="Split parameter string into list of separated parameters 将参数字符串拆分成单个的参数" alt="" coords="643,613,789,640"/>
+<area shape="rect" id="node12" href="$namespacegetCall.html#a09df38fef33a1a5a38b769e150b35cb8" title="Extract all API calls from a given .py file 每次传进来一个.py文件，抽取所有的调用API." alt="" coords="629,157,803,184"/>
+<area shape="rect" id="node15" href="$namespacegetCall.html#ab6c9cca192f7cba9dd7a4ec6764cdf03" title="Restore the conventional API call path in the withitem (including AsyncWith) call form 还原withitemAPI调..." alt="" coords="879,309,1065,336"/>
+<area shape="rect" id="node16" href="$namespacetool.html#a738ffb440e1ecdd990c95702ed30da31" title="Normalize file name 给文件取名字" alt="" coords="649,664,783,691"/>
+<area shape="rect" id="node17" href="$namespacepreprocess.html#a638e9a6cb8c8f3b7752dc458a3846d9d" title="Determine the instrumentation line for import statements 确定import语句插桩行" alt="" coords="622,360,810,387"/>
+<area shape="rect" id="node13" href="$namespacegetCall.html#a3686a0013578a483d50cde8c495798ab" title="Extract method calls in a custom class inherited from a lib class 获取从库API继承的自定义类中的库API方法调用" alt="" coords="903,132,1041,159"/>
+<area shape="rect" id="node14" href="$namespacegetCall.html#af3f5b1dd17766d8a46358385b8ed528b" title="Restore the conventional API call path by modifying the first name of the API prefix 通过修改API赋值调用前缀还原完..." alt="" coords="880,183,1064,209"/>
+<area shape="rect" id="node19" href="$namespacepreprocess.html#a45a426d44e2e19441f98e0def6cc2d67" title="Get the local variable in the dictionary comprehension 获取字典推导式中的局部变量" alt="" coords="633,56,799,83"/>
+<area shape="rect" id="node20" href="$namespacepreprocess.html#a863e16849c87ef82b42e6a44e743a245" title="Get the local variable in the list comprehension 获取列表推导式中的局部变量" alt="" coords="635,107,797,133"/>
+<area shape="rect" id="node23" href="$namespacetool.html#a163a1af85c967f70b1495290735321aa" title="Get AST for code 将代码转化为Ast树" alt="" coords="669,715,763,741"/>
+<area shape="rect" id="node29" href="$namespacepreprocess.html#ae7e0fb3e9686a37af31d748a4c234ebf" title="Extract decorator API calls 抽取项目中第三方库装饰器调用" alt="" coords="613,208,819,235"/>
+<area shape="rect" id="node30" href="$namespacepreprocess.html#aba37de1d85915cdded208175b9ff6b26" title="Save assignment statement with constant values 保存常量赋值语句" alt="" coords="601,259,831,285"/>
 </map>
