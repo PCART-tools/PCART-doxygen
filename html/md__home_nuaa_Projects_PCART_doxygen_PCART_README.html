@@ -114,9 +114,9 @@ $(function() {
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">PCART   </td><td class="markdownTableBodyNone">Runs the PCART tool itself   </td><td class="markdownTableBodyNone">Python 3.9 + dill    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">currentEnv   </td><td class="markdownTableBodyNone">Runs the target project (current library version)   </td><td class="markdownTableBodyNone">Python 3.x + library (current version) + dill    </td></tr>
+<td class="markdownTableBodyNone">currentEnv   </td><td class="markdownTableBodyNone">Dynamic API signature mapping for current library version   </td><td class="markdownTableBodyNone">Python 3.x + library (current version) + dill    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">targetEnv   </td><td class="markdownTableBodyNone">Runs the target project (target library version)   </td><td class="markdownTableBodyNone">Python 3.x + library (target version) + dill   </td></tr>
+<td class="markdownTableBodyNone">targetEnv   </td><td class="markdownTableBodyNone">Dynamic API signature mapping and post-repair validation for target library version   </td><td class="markdownTableBodyNone">Python 3.x + library (target version) + dill   </td></tr>
 </table>
 <h2>Project Structure</h2>
 <ul>
@@ -177,7 +177,7 @@ $(function() {
 <li>The tool automatically handles path separator conversion internally</li>
 </ul>
 <h2>Example</h2>
-<div class="fragment"><div class="line">python main.py -cfg Configure/Deep-Graph-Kernels.json</div>
+<div class="fragment"><div class="line">python main.py -cfg Deep-Graph-Kernels.json</div>
 </div><!-- fragment --><h2>Documentation</h2>
 <p>For detailed tutorials, troubleshooting, and advanced usage, please visit the <a href="https://github.com/PCART-tools/PCART/wiki">PCART Wiki</a>.</p>
 <p>If you use PCART in your work, please cite:</p>
