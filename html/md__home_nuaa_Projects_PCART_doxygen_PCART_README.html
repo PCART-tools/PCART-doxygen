@@ -79,21 +79,35 @@ $(function() {
 <li><a href="https://github.com/PCART-tools/PCBench">PCBench</a> - Benchmark for Python API Parameter Compatibility Issues</li>
 <li><a href="https://github.com/PCART-tools/PCART-evaluation">PCART Evaluation Results</a></li>
 </ul>
-<h2>Supported Compatibility Issue Types</h2>
+<h2>Supported Parameter Change Types</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Description    </th></tr>
+<th class="markdownTableHeadNone">Dictionary Key   </th><th class="markdownTableHeadNone">Type Name   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Support    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Parameter Addition   </td><td class="markdownTableBodyNone">A new required parameter is added in the target version    </td></tr>
+<td class="markdownTableBodyNone"><code>delete</code>   </td><td class="markdownTableBodyNone">Deletion   </td><td class="markdownTableBodyNone">Parameter removed   </td><td class="markdownTableBodyNone">✅ Full    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Parameter Removal   </td><td class="markdownTableBodyNone">A parameter used in the current version is removed in the target version    </td></tr>
+<td class="markdownTableBodyNone"><code>typeChange</code>   </td><td class="markdownTableBodyNone">Type Change   </td><td class="markdownTableBodyNone">Parameter type altered   </td><td class="markdownTableBodyNone">⚠️ Partial    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Parameter Renaming   </td><td class="markdownTableBodyNone">A parameter is renamed between versions    </td></tr>
+<td class="markdownTableBodyNone"><code>rename</code>   </td><td class="markdownTableBodyNone">Renaming   </td><td class="markdownTableBodyNone">Parameter name changed   </td><td class="markdownTableBodyNone">✅ Full    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Parameter Reordering   </td><td class="markdownTableBodyNone">Parameters are reordered in the function signature    </td></tr>
+<td class="markdownTableBodyNone"><code>posChange</code>   </td><td class="markdownTableBodyNone">Position Change   </td><td class="markdownTableBodyNone">Parameter position altered   </td><td class="markdownTableBodyNone">✅ Full    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Positional to Keyword Conversion   </td><td class="markdownTableBodyNone">A parameter that was positional-only becomes keyword-only   </td></tr>
+<td class="markdownTableBodyNone"><code>replace</code>   </td><td class="markdownTableBodyNone">Replacement   </td><td class="markdownTableBodyNone">Parameter replaced at same position   </td><td class="markdownTableBodyNone">✅ Full    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>pos2key</code>   </td><td class="markdownTableBodyNone">Positional to Keyword   </td><td class="markdownTableBodyNone">Positional-only changed to keyword-only   </td><td class="markdownTableBodyNone">✅ Full    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>addPos</code>   </td><td class="markdownTableBodyNone">Add Positional   </td><td class="markdownTableBodyNone">New positional parameter added   </td><td class="markdownTableBodyNone">✅ Full    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>addKey</code>   </td><td class="markdownTableBodyNone">Add Keyword   </td><td class="markdownTableBodyNone">New keyword parameter added   </td><td class="markdownTableBodyNone">✅ Full    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>key2pos</code>   </td><td class="markdownTableBodyNone">Keyword to Positional   </td><td class="markdownTableBodyNone">Keyword changed to positional   </td><td class="markdownTableBodyNone">✅ Full    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>value</code>   </td><td class="markdownTableBodyNone">Default Value Change   </td><td class="markdownTableBodyNone">Parameter default value changed   </td><td class="markdownTableBodyNone">❌ Not implemented   </td></tr>
 </table>
+<p><b>Total: 10 parameter change types</b></p>
+<blockquote class="doxtable">
+<p>⚠️ <b>Note</b>: <code>typeChange</code> only checks if the old type is identical to or a subset of the new type for complex annotations (Union/Optional/|). </p>
+</blockquote>
 <h2>Prerequisites</h2>
 <h3>PCART Runtime Environment</h3>
 <ul>
