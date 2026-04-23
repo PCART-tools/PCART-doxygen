@@ -65,20 +65,32 @@ $(function() {
 <div class="title">README </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><img src="overview.png" alt="image" class="inline"/></p>
+<div class="textblock"><p align="center"></p>
+<p><img src="logo.svg" alt="PCART" style="pointer-events: none;" width="420" class="inline"/> </p>
+<p align="center"></p>
+<p>Automated Repair of Python API Parameter Compatibility Issues </p>
+<p align="center"></p>
+<p><a href="https://github.com/PCART-tools/PCART/wiki">Documentation</a> · <a href="https://github.com/PCART-tools/PCART/wiki/Configuration-Guide">Configuration Guide</a> · <a href="https://github.com/PCART-tools/PCART/wiki/Examples">Examples</a> · <a href="https://pcart-tools.github.io/PCART-doxygen/html">API Docs</a> </p>
+<p><br  />
+</p>
 <h2>What is PCART?</h2>
 <p>PCART is an automated tool designed to detect and repair Python API parameter compatibility issues. It is the first to achieve a fully automated process (end-to-end) that includes <code>API extraction</code>, <code>code instrumentation</code>, <code>mapping</code>, <code>compatibility analysis</code>, and <code>repair and validation</code>. PCART specializes in addressing API compatibility issues arising from parameter <code>addition</code>, <code>removal</code>, <code>renaming</code>, <code>reordering</code>, and the <code>conversion of positional parameters to keyword parameters</code>.</p>
 <h2>Quick Start</h2>
-<div class="fragment"><div class="line"># 1. Create virtual environments with current and target library versions</div>
-<div class="line"># 2. Create config.json in Configure/ directory</div>
-<div class="line"># 3. Run PCART</div>
-<div class="line">python main.py -cfg your_config.json</div>
-</div><!-- fragment --><p>See <a href="https://github.com/PCART-tools/PCART/wiki/Configuration-Guide">Configuration Guide</a> for details.</p>
-<h2>Evaluation</h2>
-<ul>
-<li><a href="https://github.com/PCART-tools/PCBench">PCBench</a> - Benchmark for Python API Parameter Compatibility Issues</li>
-<li><a href="https://github.com/PCART-tools/PCART-evaluation">PCART Evaluation Results</a></li>
-</ul>
+<p>Create the required environments and configuration file, then run:</p>
+<div class="fragment"><div class="line">python main.py -cfg your_config.json</div>
+</div><!-- fragment --><p>For environment setup, configuration fields, and platform-specific examples, see the <a href="https://github.com/PCART-tools/PCART/wiki/Quick-Start">Quick Start</a> and <a href="https://github.com/PCART-tools/PCART/wiki/Configuration-Guide">Configuration Guide</a>.</p>
+<h2>Three-Environment Architecture</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Environment   </th><th class="markdownTableHeadNone">Purpose   </th><th class="markdownTableHeadNone">Requirements    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">PCART   </td><td class="markdownTableBodyNone">Runs the PCART tool itself   </td><td class="markdownTableBodyNone">Python 3.9 + dill    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">currentEnv   </td><td class="markdownTableBodyNone">Dynamic API signature mapping for current library version   </td><td class="markdownTableBodyNone">Python 3.x + current library version + requirements.txt + dill    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">targetEnv   </td><td class="markdownTableBodyNone">Dynamic API signature mapping and post-repair validation for target library version   </td><td class="markdownTableBodyNone">Python 3.x + target library version + requirements.txt + dill   </td></tr>
+</table>
+<p><code>currentEnv</code> and <code>targetEnv</code> should point to environment root directories. See the <a href="https://github.com/PCART-tools/PCART/wiki/Configuration-Guide">Configuration Guide</a> for details.</p>
 <h2>Supported Parameter Change Types</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -108,92 +120,39 @@ $(function() {
 <blockquote class="doxtable">
 <p>⚠️ <b>Note</b>: <code>typeChange</code> only checks if the old type is identical to or a subset of the new type for complex annotations (Union/Optional/|). </p>
 </blockquote>
-<h2>Prerequisites</h2>
-<h3>PCART Runtime Environment</h3>
+<h2>Evaluation</h2>
 <ul>
-<li>Linux (tested on Ubuntu 18.04.1) or Windows (tested on Windows 11)</li>
-<li>Python 3.9.12</li>
-<li>dill 0.3.7</li>
+<li><a href="https://github.com/PCART-tools/PCBench">PCBench</a> - Benchmark for Python API Parameter Compatibility Issues</li>
+<li><a href="https://github.com/PCART-tools/PCART-evaluation">PCART Evaluation Results</a></li>
 </ul>
-<h3>Target Project Environments (for testing compatibility)</h3>
-<ul>
-<li>Python 3.x (version depends on your project requirements)</li>
-<li>dill 0.3.7</li>
-<li>Libraries at current version and target version respectively</li>
-</ul>
-<h3>Three-Environment Architecture</h3>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Environment   </th><th class="markdownTableHeadNone">Purpose   </th><th class="markdownTableHeadNone">Requirements    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">PCART   </td><td class="markdownTableBodyNone">Runs the PCART tool itself   </td><td class="markdownTableBodyNone">Python 3.9 + dill    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">currentEnv   </td><td class="markdownTableBodyNone">Dynamic API signature mapping for current library version   </td><td class="markdownTableBodyNone">Python 3.x + library (current version) + dill    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">targetEnv   </td><td class="markdownTableBodyNone">Dynamic API signature mapping and post-repair validation for target library version   </td><td class="markdownTableBodyNone">Python 3.x + library (target version) + dill   </td></tr>
-</table>
 <h2>Project Structure</h2>
 <ul>
-<li><code><a class="el" href="LibApi_8py.html">API/LibApi.py</a></code> — Library API handling</li>
-<li><code><a class="el" href="changeAnalyze_8py.html">Change/changeAnalyze.py</a></code> — API compatibility analysis (isCompatible, addValueForAPI)</li>
-<li><code>Configure/</code> — Configuration files (JSON configs for different projects)</li>
-<li><code>Example/</code> — Example projects for testing PCART</li>
-<li><code>Extract/</code> — API extraction (<a class="el" href="getCall_8py.html">getCall.py</a>, <a class="el" href="getDef_8py.html">getDef.py</a>, <a class="el" href="extractCall_8py.html">extractCall.py</a>, <a class="el" href="extractDef_8py.html">extractDef.py</a>)</li>
-<li><code>LibAPIExtraction/</code> — Pre-extracted library API definitions</li>
-<li><code>Map/</code> — API mapping (<a class="el" href="map_8py.html">map.py</a>, <a class="el" href="fuzzyMatch_8py.html">fuzzyMatch.py</a>)</li>
-<li><code><a class="el" href="preprocess_8py.html">Preprocess/preprocess.py</a></code> — Code preprocessing</li>
-<li><code><a class="el" href="repair_8py.html">Repair/repair.py</a></code> — Compatibility issue repair and validation</li>
-<li><code>Report/</code> — Repair reports (output)</li>
-<li><code>Script/</code> — Repair helper scripts (addValueForAPI.py, codeUtils.py, dynamicMatch.py, verifySingle.py)</li>
-<li><code><a class="el" href="tool_8py.html">Tool/tool.py</a></code> — Utility functions (AST parsing, config loading, file operations)</li>
-<li><code><a class="el" href="loadData_8py.html">Load/loadData.py</a></code> — Data loading</li>
-<li><code><a class="el" href="getPath_8py.html">Path/getPath.py</a></code> — Path handling</li>
-<li><code><a class="el" href="main_8py.html" title="PCART&#39;s main function entry">main.py</a></code> — Entry point</li>
-<li><code><a class="el" href="extractLibAPI_8py.html" title="Extract library Python APIs.">extractLibAPI.py</a></code> — Library API extraction script</li>
+<li><code><a class="el" href="LibApi_8py.html">API/LibApi.py</a></code> - Library API handling</li>
+<li><code><a class="el" href="changeAnalyze_8py.html">Change/changeAnalyze.py</a></code> - API compatibility analysis (<code>isCompatible</code>, <code>addValueForAPI</code>)</li>
+<li><code>Configure/</code> - Configuration files</li>
+<li><code>Example/</code> - Example projects for testing PCART</li>
+<li><code>Extract/</code> - API extraction (<code><a class="el" href="getCall_8py.html">getCall.py</a></code>, <code><a class="el" href="getDef_8py.html">getDef.py</a></code>, <code><a class="el" href="extractCall_8py.html">extractCall.py</a></code>, <code><a class="el" href="extractDef_8py.html">extractDef.py</a></code>)</li>
+<li><code>LibAPIExtraction/</code> - Pre-extracted library API definitions</li>
+<li><code><a class="el" href="loadData_8py.html">Load/loadData.py</a></code> - Data loading</li>
+<li><code>Map/</code> - API mapping (<code><a class="el" href="map_8py.html">map.py</a></code>, <code><a class="el" href="fuzzyMatch_8py.html">fuzzyMatch.py</a></code>)</li>
+<li><code><a class="el" href="getPath_8py.html">Path/getPath.py</a></code> - Path handling</li>
+<li><code><a class="el" href="preprocess_8py.html">Preprocess/preprocess.py</a></code> - Code preprocessing</li>
+<li><code><a class="el" href="repair_8py.html">Repair/repair.py</a></code> - Compatibility issue repair and validation</li>
+<li><code>Report/</code> - Repair reports</li>
+<li><code>Script/</code> - Repair helper scripts (<code>addValueForAPI.py</code>, <code>codeUtils.py</code>, <code>dynamicMatch.py</code>, <code>verifySingle.py</code>)</li>
+<li><code><a class="el" href="tool_8py.html">Tool/tool.py</a></code> - Utility functions</li>
+<li><code><a class="el" href="main_8py.html" title="PCART&#39;s main function entry">main.py</a></code> - Entry point</li>
+<li><code><a class="el" href="extractLibAPI_8py.html" title="Extract library Python APIs.">extractLibAPI.py</a></code> - Library API extraction script</li>
 </ul>
-<h2>Usage</h2>
-<h3>Step 1: Create virtual environments</h3>
-<p>Determine the current version and target version of the third-party library that needs to be upgraded. Create virtual environments with both versions and install <code>dill</code> in both:</p>
-<div class="fragment"><div class="line">pip install dill</div>
-</div><!-- fragment --><h3>Step 2: Write configuration file</h3>
-<p>Create a JSON file in <code>Configure/</code> directory:</p>
-<p><b>Linux:</b> </p><div class="fragment"><div class="line">{</div>
-<div class="line">  &quot;projPath&quot;: &quot;/home/usr/project&quot;,</div>
-<div class="line">  &quot;runCommand&quot;: &quot;python run.py&quot;,</div>
-<div class="line">  &quot;runFilePath&quot;: &quot;/home/usr/project/src&quot;,</div>
-<div class="line">  &quot;libName&quot;: &quot;torch&quot;,</div>
-<div class="line">  &quot;currentVersion&quot;: &quot;1.7.1&quot;,</div>
-<div class="line">  &quot;targetVersion&quot;: &quot;1.9.0&quot;,</div>
-<div class="line">  &quot;currentEnv&quot;: &quot;/home/usr/anaconda3/envs/v1&quot;,</div>
-<div class="line">  &quot;targetEnv&quot;: &quot;/home/usr/anaconda3/envs/v2&quot;</div>
-<div class="line">}</div>
-</div><!-- fragment --><p><b>Windows:</b> </p><div class="fragment"><div class="line">{</div>
-<div class="line">  &quot;projPath&quot;: &quot;C:\\Users\\usr\\project&quot;,</div>
-<div class="line">  &quot;runCommand&quot;: &quot;python run.py&quot;,</div>
-<div class="line">  &quot;runFilePath&quot;: &quot;C:\\Users\\usr\\project\\src&quot;,</div>
-<div class="line">  &quot;libName&quot;: &quot;torch&quot;,</div>
-<div class="line">  &quot;currentVersion&quot;: &quot;1.7.1&quot;,</div>
-<div class="line">  &quot;targetVersion&quot;: &quot;1.9.0&quot;,</div>
-<div class="line">  &quot;currentEnv&quot;: &quot;C:\\Users\\usr\\anaconda3\\envs\\v1&quot;,</div>
-<div class="line">  &quot;targetEnv&quot;: &quot;C:\\Users\\usr\\anaconda3\\envs\\v2&quot;</div>
-<div class="line">}</div>
-</div><!-- fragment --><p><b>Notes:</b></p><ul>
-<li><code>runFilePath</code>: Empty string <code>""</code> if entry file is in project root; set to subdirectory path if entry file is in a first-level subdirectory</li>
-<li><code>libName</code>: Use the name as it appears in code (e.g., <code>PIL</code> for Pillow, <code>sklearn</code> for scikit-learn)</li>
-</ul>
-<h3>Step 3: Run detection and repair</h3>
-<div class="fragment"><div class="line">python main.py -cfg your_config.json</div>
-</div><!-- fragment --><h3>Optional: Extract library API definitions</h3>
-<div class="fragment"><div class="line">python extractLibAPI.py -cfg your_config.json</div>
-</div><!-- fragment --><h2>Cross-Platform Notes</h2>
+<h2>Documentation</h2>
 <ul>
-<li>Windows: Use backslashes (<code>\\</code>) or forward slashes (<code>/</code>) in JSON paths</li>
-<li>The tool automatically handles path separator conversion internally</li>
+<li><a href="https://github.com/PCART-tools/PCART/wiki">PCART Wiki</a> - Tutorials, troubleshooting, and advanced usage</li>
+<li><a href="https://github.com/PCART-tools/PCART/wiki/Configuration-Guide">Configuration Guide</a> - Complete configuration reference</li>
+<li><a href="https://github.com/PCART-tools/PCART/wiki/Examples">Examples</a> - Example projects and configuration files</li>
+<li><a href="https://github.com/PCART-tools/PCART/wiki/Troubleshooting">Troubleshooting</a> - Common setup and runtime issues</li>
+<li><a href="https://pcart-tools.github.io/PCART-doxygen/html">Doxygen API Docs</a> - Generated code documentation</li>
 </ul>
-<h2>Example</h2>
-<div class="fragment"><div class="line">python main.py -cfg Deep-Graph-Kernels.json</div>
-</div><!-- fragment --><h2>Documentation</h2>
-<p>For detailed tutorials, troubleshooting, and advanced usage, please visit the <a href="https://github.com/PCART-tools/PCART/wiki">PCART Wiki</a>.</p>
+<h2>Citation</h2>
 <p>If you use PCART in your work, please cite:</p>
 <div class="fragment"><div class="line">@article{PCART_TSE2025,</div>
 <div class="line">  author={Zhang, Shuai and Xiao, Guanping and Wang, Jun and Lei, Huashan and He, Gangqiang and Liu, Yepang and Zheng, Zheng},</div>
@@ -205,8 +164,7 @@ $(function() {
 <div class="line">  pages={723-753},</div>
 <div class="line">  doi={10.1109/TSE.2025.3646150}</div>
 <div class="line">}</div>
-</div><!-- fragment --><p><b>PCART</b>'s doxygen document is available <a href="https://pcart-tools.github.io/PCART-doxygen/html">here</a>. </p>
-</div></div><!-- contents -->
+</div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
