@@ -382,7 +382,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;            pyiFlag=0</div>
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;            <span class="keywordflow">if</span> file+<span class="stringliteral">&#39;i&#39;</span> <span class="keywordflow">not</span> <span class="keywordflow">in</span> fileVisitLst: <span class="comment">#判断.pyi之前是否访问过</span></div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;                <span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;                    <span class="keyword">with</span> open(file+<span class="stringliteral">&#39;i&#39;</span>,<span class="stringliteral">&#39;r&#39;</span>) <span class="keyword">as</span> fr:</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;                    <span class="keyword">with</span> open(file+<span class="stringliteral">&#39;i&#39;</span>,<span class="stringliteral">&#39;r&#39;</span>,encoding=<span class="stringliteral">&#39;UTF-8&#39;</span>) <span class="keyword">as</span> fr:</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;                        code_text=fr.read()</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;                    <a class="code" href="namespacegetDef.html#ae4b9d54a594ab6bbeed1c617a15cbb4a">task</a>(code_text,pyiLst,prefix,fileDict, 1) <span class="comment">#抽取.pyi中的API</span></div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;                    pyiFlag=1</div>
@@ -390,7 +390,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;                <span class="keywordflow">except</span> FileNotFoundError:</div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;                    <span class="keywordflow">pass</span></div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        </div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;            <span class="keyword">with</span> open(file,<span class="stringliteral">&#39;r&#39;</span>) <span class="keyword">as</span> fr:</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;            <span class="keyword">with</span> open(file,<span class="stringliteral">&#39;r&#39;</span>,encoding=<span class="stringliteral">&#39;UTF-8&#39;</span>) <span class="keyword">as</span> fr:</div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;                <span class="keywordflow">try</span>:</div>
 <div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;                    code_text=fr.read()</div>
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;                <span class="keywordflow">except</span> Exception <span class="keyword">as</span> e:</div>
@@ -433,7 +433,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;            fileVisitLst.append(file)</div>
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;            <span class="keywordflow">if</span> file.rstrip(<span class="stringliteral">&#39;i&#39;</span>) <span class="keywordflow">not</span> <span class="keywordflow">in</span> fileVisitLst:</div>
 <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;                <span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;                    <span class="keyword">with</span> open(file.rstrip(<span class="stringliteral">&#39;i&#39;</span>),<span class="stringliteral">&#39;r&#39;</span>) <span class="keyword">as</span> fr:</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;                    <span class="keyword">with</span> open(file.rstrip(<span class="stringliteral">&#39;i&#39;</span>),<span class="stringliteral">&#39;r&#39;</span>,encoding=<span class="stringliteral">&#39;UTF-8&#39;</span>) <span class="keyword">as</span> fr:</div>
 <div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;                        code_text=fr.read()</div>
 <div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;                    <a class="code" href="namespacegetDef.html#ae4b9d54a594ab6bbeed1c617a15cbb4a">task</a>(code_text,pyLst,prefix,fileDict) <span class="comment">#抽取.py中的API</span></div>
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;                    fileVisitLst.append(file.rstrip(<span class="stringliteral">&#39;i&#39;</span>))</div>
@@ -449,7 +449,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;                <span class="keywordflow">except</span> FileNotFoundError:</div>
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;                    <span class="keywordflow">pass</span></div>
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;                </div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;            <span class="keyword">with</span> open(file,<span class="stringliteral">&#39;r&#39;</span>) <span class="keyword">as</span> fr:</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;            <span class="keyword">with</span> open(file,<span class="stringliteral">&#39;r&#39;</span>,encoding=<span class="stringliteral">&#39;UTF-8&#39;</span>) <span class="keyword">as</span> fr:</div>
 <div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;                code_text=fr.read()</div>
 <div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;            <a class="code" href="namespacegetDef.html#ae4b9d54a594ab6bbeed1c617a15cbb4a">task</a>(code_text,pyiLst,prefix,fileDict,1) <span class="comment">#抽取.pyi中的API</span></div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;            removeLst=[]</div>
