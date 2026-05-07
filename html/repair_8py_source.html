@@ -291,272 +291,282 @@ $(function() {
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160; </div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160; </div>
-<div class="line"><a name="l00268"></a><span class="lineno"><a class="line" href="namespacerepair.html#a8b2a9e10672bdfd180a0fa6d98d48851">  268</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespacerepair.html#a8b2a9e10672bdfd180a0fa6d98d48851">validateByRun</a>(callAPI,apiWithValue,projName,virtualEnv,runPath,runCommand):</div>
+<div class="line"><a name="l00268"></a><span class="lineno"><a class="line" href="namespacerepair.html#aff5b20e754e58c31c279ee7f818b7a6e">  268</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespacerepair.html#aff5b20e754e58c31c279ee7f818b7a6e">validateByRun</a>(callAPI,apiWithValue,projName,virtualEnv,runPath,runCommand,callKey=None):</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keywordflow">if</span> apiWithValue==<span class="stringliteral">&#39;&#39;</span>:</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    pklName=<a class="code" href="namespacetool.html#a738ffb440e1ecdd990c95702ed30da31">getFileName</a>(callAPI,<span class="stringliteral">&#39;.pkl&#39;</span>)</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="keywordflow">if</span> os.path.exists(f<span class="stringliteral">&quot;Copy/pkl/new_{pklName}&quot;</span>): <span class="comment">#优先加载新版本的PKL</span></div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        pklPath=f<span class="stringliteral">&quot;../../Copy/pkl/new_{pklName}&quot;</span></div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="keywordflow">elif</span> os.path.exists(f<span class="stringliteral">&#39;Copy/pkl/{pklName}&#39;</span>):</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;        pklPath=f<span class="stringliteral">&quot;../../Copy/pkl/{pklName}&quot;</span></div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;        <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160; </div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="comment">#当runPath不在runCommand中时，需要切换到运行文件所在的目录执行命令</span></div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <span class="comment">#而文件操作的相对路径就是相对于命令执行的路径</span></div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <span class="keywordflow">if</span> runPath!=<span class="stringliteral">&#39;&#39;</span> <span class="keywordflow">and</span> runPath <span class="keywordflow">not</span> <span class="keywordflow">in</span> runCommand:</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;        normalized_runPath = runPath.replace(<span class="stringliteral">&#39;\\&#39;</span>, <span class="stringliteral">&#39;/&#39;</span>).strip(<span class="stringliteral">&#39;/&#39;</span>)</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        l=len([segment <span class="keywordflow">for</span> segment <span class="keywordflow">in</span> normalized_runPath.split(<span class="stringliteral">&#39;/&#39;</span>) <span class="keywordflow">if</span> segment])</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        <span class="keywordflow">while</span> l&gt;0:</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;            pklPath=<span class="stringliteral">&#39;../&#39;</span>+pklPath</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;            l-=1</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    pythonPath = <a class="code" href="namespacetool.html#acddd4e80b12bc317097d9b6da7afaa48">resolvePythonExecutable</a>(virtualEnv)</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    pklName=<a class="code" href="namespacetool.html#a738ffb440e1ecdd990c95702ed30da31">getFileName</a>(callKey <span class="keywordflow">or</span> callAPI,<span class="stringliteral">&#39;.pkl&#39;</span>)</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="comment"># 验证阶段复用候选pkl顺序，保证修复验证和动态匹配读取的是同一类接收者</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    pklCandidates=[</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        <span class="stringliteral">&#39;new_&#39;</span>+pklName[:-4]+<span class="stringliteral">&#39;__object.pkl&#39;</span>,</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;        <span class="stringliteral">&#39;new_&#39;</span>+pklName[:-4]+<span class="stringliteral">&#39;__expr.pkl&#39;</span>,</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;        <span class="stringliteral">&#39;new_&#39;</span>+pklName,</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;        pklName[:-4]+<span class="stringliteral">&#39;__object.pkl&#39;</span>,</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        pklName[:-4]+<span class="stringliteral">&#39;__expr.pkl&#39;</span>,</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        pklName,</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    ]</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    pklPath=<span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="keywordflow">for</span> candidateName <span class="keywordflow">in</span> pklCandidates:</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        <span class="keywordflow">if</span> os.path.exists(f<span class="stringliteral">&quot;Copy/pkl/{candidateName}&quot;</span>):</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;            pklPath=f<span class="stringliteral">&quot;../../Copy/pkl/{candidateName}&quot;</span></div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;            <span class="keywordflow">break</span></div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> pklPath:</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160; </div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keywordflow">if</span> runPath <span class="keywordflow">and</span> runPath <span class="keywordflow">not</span> <span class="keywordflow">in</span> runCommand:</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        cwd = os.path.join(<span class="stringliteral">&#39;Dynamic&#39;</span>, projName, runPath)</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        script = <span class="stringliteral">&#39;verifySingle.py&#39;</span></div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    <span class="keywordflow">elif</span> runPath:</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        cwd = os.path.join(<span class="stringliteral">&#39;Dynamic&#39;</span>, projName)</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        script = os.path.join(runPath, <span class="stringliteral">&#39;verifySingle.py&#39;</span>)</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        cwd = os.path.join(<span class="stringliteral">&#39;Dynamic&#39;</span>, projName)</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;        script = <span class="stringliteral">&#39;verifySingle.py&#39;</span></div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    result = subprocess.run(</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        [pythonPath, script, pklPath, apiWithValue],</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        cwd=cwd, capture_output=<span class="keyword">True</span>, text=<span class="keyword">True</span>, encoding=<span class="stringliteral">&#39;utf-8&#39;</span></div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    )</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    <span class="keywordflow">return</span> result</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160; </div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160; </div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160; </div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160; </div>
-<div class="line"><a name="l00315"></a><span class="lineno"><a class="line" href="namespacerepair.html#aaf441b3a0f89d081e50ad51ac510eb1c">  315</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespacerepair.html#aaf441b3a0f89d081e50ad51ac510eb1c">validateByStr</a>(fixedAPI,repairDict,targetAPIDefinition,starFlag,twoStarFlag):</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    paraObjLst=<a class="code" href="namespacerepair.html#a13c0f10cec0074c6fd20914a93586ea0">mirrorAPI</a>(fixedAPI,repairDict)</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    posLst,keyLst=<a class="code" href="namespacechangeAnalyze.html#a9b577b97754fdc8097f5837944e9b010">para2Obj</a>(targetAPIDefinition)</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    targetPara=posLst+keyLst</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    </div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    <span class="keywordflow">for</span> para,nameFlag <span class="keywordflow">in</span> paraObjLst:</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;        compatible=0 <span class="comment">#假设每个参数都不兼容</span></div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;        <span class="keywordflow">for</span> it <span class="keywordflow">in</span> targetPara:</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;            <span class="keywordflow">if</span> nameFlag: <span class="comment">#带参数名使用的,要求修复完之后能在目标版本的参数定义中找到相同名字的参数</span></div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;                <span class="keywordflow">if</span> para.name==it.name:</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;                    compatible=1 </div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;                    <span class="keywordflow">break</span></div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;            <span class="keywordflow">else</span>: <span class="comment">#不带参数使用的要求修复完之后，位置和参数名都要能找到对应的</span></div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;                <span class="keywordflow">if</span> para.position==it.position <span class="keywordflow">and</span> para.name==it.name:</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;                    compatible=1</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;                    <span class="keywordflow">break</span></div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        </div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        </div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        <span class="keywordflow">if</span> <span class="keywordflow">not</span> compatible:</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;            <span class="keywordflow">if</span> nameFlag <span class="keywordflow">and</span> <span class="keywordflow">not</span> twoStarFlag:</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">False</span></div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> nameFlag <span class="keywordflow">and</span> <span class="keywordflow">not</span> starFlag:</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">False</span></div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160; </div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">True</span></div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160; </div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160; </div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160; </div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160; </div>
-<div class="line"><a name="l00362"></a><span class="lineno"><a class="line" href="namespacerepair.html#afdcb02b6e3ba6de73363c7254596a8b1">  362</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespacerepair.html#afdcb02b6e3ba6de73363c7254596a8b1">repairTask</a>(root,callAPI,apiWithValue,projName,runPath,runCommand,repairLst,virtualEnv,errLst):</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    <span class="comment">#静态修复,pkl加载失败，只能进入静态修复</span></div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    repairCandidates=[]</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    <span class="keywordflow">if</span> apiWithValue==<span class="stringliteral">&#39;&#39;</span>:</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;        <span class="keywordflow">for</span> repairDict,targetPara <span class="keywordflow">in</span> repairLst:</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;            starFlag=0 <span class="comment">#判断目标版本的参数定义中是否含有*args</span></div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;            twoStarFlag=0 <span class="comment">#判断目标版本的参数定义中是否含有*kwargs</span></div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;*args&#39;</span> <span class="keywordflow">in</span> targetPara:</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;                starFlag=1</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;**&#39;</span> <span class="keywordflow">in</span> targetPara:</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;                twoStarFlag=1</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;            apiRoot=<a class="code" href="namespacetool.html#a163a1af85c967f70b1495290735321aa">getAst</a>(callAPI,1)</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;            <a class="code" href="namespacerepair.html#a77d5ab0ffc52fdb84b2063d48952bf07">fix</a>(callAPI,repairDict,apiRoot,starFlag,twoStarFlag)</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;            fixedAPI=ast.unparse(apiRoot)</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;            <span class="keywordflow">if</span> <a class="code" href="namespacerepair.html#aaf441b3a0f89d081e50ad51ac510eb1c">validateByStr</a>(fixedAPI,repairDict,targetPara,starFlag,twoStarFlag):</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;                <span class="keywordflow">if</span> fixedAPI <span class="keywordflow">not</span> <span class="keywordflow">in</span> repairCandidates:</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;                    repairCandidates.append(fixedAPI)</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;        </div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;        <span class="comment"># repairCandidates=list(set(repairCandidates))</span></div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;        <span class="keywordflow">if</span> len(repairCandidates)==0:</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;            <span class="keywordflow">return</span> str(repairCandidates), <span class="stringliteral">&#39;Unknown&#39;</span>, <span class="stringliteral">&#39;Unknown&#39;</span></div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;        <span class="keywordflow">elif</span> len(repairCandidates)==1:</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;            fixedAPI=repairCandidates[0]</div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;            <span class="keywordflow">if</span> callAPI.replace(<span class="stringliteral">&#39; &#39;</span>,<span class="stringliteral">&#39;&#39;</span>).replace(<span class="stringliteral">&#39;&quot;&#39;</span>,<span class="stringliteral">&#39;&#39;</span>).replace(<span class="stringliteral">&quot;&#39;&quot;</span>,<span class="stringliteral">&#39;&#39;</span>)==fixedAPI.replace(<span class="stringliteral">&#39; &#39;</span>,<span class="stringliteral">&#39;&#39;</span>).replace(<span class="stringliteral">&#39;&quot;&#39;</span>,<span class="stringliteral">&#39;&#39;</span>).replace(<span class="stringliteral">&quot;&#39;&quot;</span>,<span class="stringliteral">&#39;&#39;</span>):</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;                <span class="keywordflow">return</span> repairCandidates[0],<span class="stringliteral">&quot;Compatible&quot;</span>,<span class="stringliteral">&quot;Unknown&quot;</span></div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;            <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;                <span class="keywordflow">return</span> repairCandidates[0],<span class="stringliteral">&quot;Incompatible&quot;</span>,<span class="stringliteral">&quot;Unknown&quot;</span></div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;        <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;            <span class="keywordflow">return</span> str(repairCandidates),<span class="stringliteral">&quot;Unknown&quot;</span>, <span class="stringliteral">&quot;Unknown&quot;</span></div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160; </div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    <span class="comment">#pkl加载成功，但匹配的结果也可能是多个，内置API只能静态匹配</span></div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    failedLst=[]</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    <span class="keywordflow">for</span> repairDict,targetPara <span class="keywordflow">in</span> repairLst:</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;        starFlag=0 <span class="comment">#判断目标版本的参数定义中是否含有*args</span></div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;        twoStarFlag=0 <span class="comment">#判断目标版本的参数定义中是否含有*kwargs</span></div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;        <span class="comment"># 1.先进行静态验证</span></div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;        <span class="keywordflow">if</span> <span class="stringliteral">&#39;*args&#39;</span> <span class="keywordflow">in</span> targetPara:</div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;            starFlag=1</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;        <span class="keywordflow">if</span> <span class="stringliteral">&#39;**&#39;</span> <span class="keywordflow">in</span> targetPara:</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;            twoStarFlag=1</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;        apiRoot=<a class="code" href="namespacetool.html#a163a1af85c967f70b1495290735321aa">getAst</a>(callAPI,1)</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;        <a class="code" href="namespacerepair.html#a77d5ab0ffc52fdb84b2063d48952bf07">fix</a>(callAPI,repairDict,apiRoot,starFlag,twoStarFlag)</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;        fixedAPI=ast.unparse(apiRoot)</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;        <span class="keywordflow">if</span> <span class="keywordflow">not</span> <a class="code" href="namespacerepair.html#aaf441b3a0f89d081e50ad51ac510eb1c">validateByStr</a>(fixedAPI,repairDict,targetPara,starFlag,twoStarFlag):</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;            <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;        <span class="keywordflow">elif</span> len(repairLst)==1:</div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;            repairCandidates.append(fixedAPI)</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160; </div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;        <span class="comment">#2. 动态验证</span></div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;        fixFlag=<span class="stringliteral">&#39;Failed&#39;</span></div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;        apiRoot=<a class="code" href="namespacetool.html#a163a1af85c967f70b1495290735321aa">getAst</a>(apiWithValue,1)</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;        <a class="code" href="namespacerepair.html#a77d5ab0ffc52fdb84b2063d48952bf07">fix</a>(apiWithValue,repairDict,apiRoot,starFlag,twoStarFlag)</div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;        apiWithValueFixed=ast.unparse(apiRoot)</div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;        <span class="comment">#1先通过动态运行,判断其是否修复成功</span></div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;        result=<a class="code" href="namespacerepair.html#a8b2a9e10672bdfd180a0fa6d98d48851">validateByRun</a>(callAPI,apiWithValueFixed,projName,virtualEnv,runPath,runCommand)</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;        <span class="keywordflow">if</span> result==<span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;            <span class="keywordflow">if</span> fixedAPI <span class="keywordflow">not</span> <span class="keywordflow">in</span> repairCandidates:</div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;                repairCandidates.append(fixedAPI)</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;            fixFlag=<span class="stringliteral">&#39;Unknown&#39;</span></div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;        <span class="keywordflow">elif</span> result.returncode!=0:</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;            errLst.append(f<span class="stringliteral">&quot;{callAPI}, validate error: {result.stderr}\n&quot;</span>)</div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;            failedLst.append(f<span class="stringliteral">&quot;{callAPI}, validate error: {result.stderr}\n&quot;</span>)</div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;dill&#39;</span> <span class="keywordflow">in</span> result.stderr:</div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;                fixFlag=<span class="stringliteral">&#39;Unknown&#39;</span></div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;                <span class="keywordflow">if</span> fixedAPI <span class="keywordflow">not</span> <span class="keywordflow">in</span> repairCandidates:</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;                    repairCandidates.append(fixedAPI)</div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;            <span class="keywordflow">elif</span> <a class="code" href="namespacerepair.html#aaf441b3a0f89d081e50ad51ac510eb1c">validateByStr</a>(fixedAPI,repairDict,targetPara,starFlag,twoStarFlag):</div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;                fixFlag=<span class="stringliteral">&#39;Unknown&#39;</span></div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;                <span class="keywordflow">if</span> fixedAPI <span class="keywordflow">not</span> <span class="keywordflow">in</span> repairCandidates:</div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;                    repairCandidates.append(fixedAPI)</div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160; </div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;        <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;            fixFlag=<span class="stringliteral">&#39;Successful&#39;</span></div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;            <span class="keywordflow">if</span> fixedAPI <span class="keywordflow">not</span> <span class="keywordflow">in</span> repairCandidates:</div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;                repairCandidates.append(fixedAPI)</div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;            <span class="keywordflow">break</span></div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    </div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;    <span class="comment"># repairCandidates=list(set(repairCandidates)) </span></div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;    <span class="keywordflow">if</span> len(repairCandidates)==0:</div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;        <span class="keywordflow">return</span> str(repairCandidates), <span class="stringliteral">&#39;Unknown&#39;</span> , <span class="stringliteral">&#39;Unknown&#39;</span></div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;    <span class="keywordflow">elif</span> len(repairCandidates)==1:</div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;        fixedAPI=repairCandidates[0]</div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;        <span class="keywordflow">if</span> callAPI.replace(<span class="stringliteral">&#39; &#39;</span>,<span class="stringliteral">&#39;&#39;</span>).replace(<span class="stringliteral">&#39;&quot;&#39;</span>,<span class="stringliteral">&#39;&#39;</span>).replace(<span class="stringliteral">&quot;&#39;&quot;</span>,<span class="stringliteral">&#39;&#39;</span>)==fixedAPI.replace(<span class="stringliteral">&#39; &#39;</span>,<span class="stringliteral">&#39;&#39;</span>).replace(<span class="stringliteral">&#39;&quot;&#39;</span>,<span class="stringliteral">&#39;&#39;</span>).replace(<span class="stringliteral">&quot;&#39;&quot;</span>,<span class="stringliteral">&#39;&#39;</span>):</div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;            <span class="keywordflow">return</span> repairCandidates[0],<span class="stringliteral">&#39;Compatible&#39;</span>,fixFlag</div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;        <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;            <span class="keywordflow">return</span> repairCandidates[0],<span class="stringliteral">&#39;Incompatible&#39;</span>,fixFlag</div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;    <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;        <span class="keywordflow">return</span> str(repairCandidates),<span class="stringliteral">&#39;Unknown&#39;</span>,<span class="stringliteral">&#39;Unknown&#39;</span></div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160; </div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;        </div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;<span class="comment"># def repairTask(root,callAPI,apiWithValue,projName,runPath,runCommand,repairLst,virtualEnv,errLst):</span></div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;<span class="comment">#     #静态修复,pkl加载失败，只能进入静态修复</span></div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;<span class="comment">#     repairCandidates=[]</span></div>
-<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;<span class="comment">#     if apiWithValue==&#39;&#39;:</span></div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;<span class="comment">#         for repairDict,targetPara in repairLst:</span></div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;<span class="comment">#             starFlag=0 #判断目标版本的参数定义中是否含有*args</span></div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;<span class="comment">#             twoStarFlag=0 #判断目标版本的参数定义中是否含有*kwargs</span></div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;<span class="comment">#             if &#39;*args&#39; in targetPara:</span></div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;<span class="comment">#                 starFlag=1</span></div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;<span class="comment">#             if &#39;**&#39; in targetPara:</span></div>
-<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;<span class="comment">#                 twoStarFlag=1</span></div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;<span class="comment">#             apiRoot=getAst(callAPI,1)</span></div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;<span class="comment">#             fix(callAPI,repairDict,apiRoot,starFlag,twoStarFlag)</span></div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;<span class="comment">#             fixedAPI=ast.unparse(apiRoot)</span></div>
-<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;<span class="comment">#             if validateByStr(fixedAPI,repairDict,targetPara,starFlag,twoStarFlag):</span></div>
-<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;<span class="comment">#                 if fixedAPI not in repairCandidates:</span></div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;<span class="comment">#                     repairCandidates.append((fixedAPI,repairDict))</span></div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;        </div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;<span class="comment">#         if len(repairCandidates)==0:</span></div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;<span class="comment">#             return str(repairCandidates), &#39;Unknown&#39;, &#39;Unknown&#39;</span></div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;        </div>
-<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;<span class="comment">#         elif len(repairCandidates)==1:</span></div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;<span class="comment">#             fixedAPI=repairCandidates[0][0]</span></div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;<span class="comment">#             repairDict=repairCandidates[0][1]</span></div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;<span class="comment">#             fix(callAPI,repairDict,root,starFlag,twoStarFlag)</span></div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;<span class="comment">#             if callAPI.replace(&#39; &#39;,&#39;&#39;).replace(&#39;&quot;&#39;,&#39;&#39;).replace(&quot;&#39;&quot;,&#39;&#39;)==fixedAPI.replace(&#39; &#39;,&#39;&#39;).replace(&#39;&quot;&#39;,&#39;&#39;).replace(&quot;&#39;&quot;,&#39;&#39;):</span></div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;<span class="comment">#                 return fixedAPI,&quot;Compatible&quot;,&quot;Unknown&quot;</span></div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;<span class="comment">#             else:</span></div>
-<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;<span class="comment">#                 return fixedAPI,&quot;Incompatible&quot;,&quot;Unknown&quot;</span></div>
-<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;        </div>
-<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;<span class="comment">#         else:</span></div>
-<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;<span class="comment">#             tempLst=[x[0] for x in repairCandidates]</span></div>
-<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;<span class="comment">#             return str(tempLst),&quot;Unknown&quot;, &quot;Unknown&quot;</span></div>
-<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160; </div>
-<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160; </div>
-<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;<span class="comment">#     #pkl加载成功，但匹配的结果也可能是多个，内置API只能静态匹配</span></div>
-<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;<span class="comment">#     failedLst=[]</span></div>
-<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;<span class="comment">#     for repairDict,targetPara in repairLst:</span></div>
-<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;<span class="comment">#         starFlag=0 #判断目标版本的参数定义中是否含有*args</span></div>
-<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;<span class="comment">#         twoStarFlag=0 #判断目标版本的参数定义中是否含有*kwargs</span></div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;<span class="comment">#         # 1.先进行静态验证</span></div>
-<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;<span class="comment">#         if &#39;*args&#39; in targetPara:</span></div>
-<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;<span class="comment">#             starFlag=1</span></div>
-<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;<span class="comment">#         if &#39;**&#39; in targetPara:</span></div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;<span class="comment">#             twoStarFlag=1</span></div>
-<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;<span class="comment">#         apiRoot=getAst(callAPI,1)</span></div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;<span class="comment">#         fix(callAPI,repairDict,apiRoot,starFlag,twoStarFlag)</span></div>
-<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;<span class="comment">#         fixedAPI=ast.unparse(apiRoot)</span></div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;<span class="comment">#         if not validateByStr(fixedAPI,repairDict,targetPara,starFlag,twoStarFlag):</span></div>
-<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;<span class="comment">#             continue</span></div>
-<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;<span class="comment">#         elif len(repairLst)==1:</span></div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;<span class="comment">#             repairCandidates.append((fixedAPI,repairDict))</span></div>
-<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160; </div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;<span class="comment">#         #2. 动态验证</span></div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;<span class="comment">#         fixFlag=&#39;Failed&#39;</span></div>
-<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;<span class="comment">#         apiRoot=getAst(apiWithValue,1)</span></div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;<span class="comment">#         fix(apiWithValue,repairDict,apiRoot,starFlag,twoStarFlag)</span></div>
-<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;<span class="comment">#         apiWithValueFixed=ast.unparse(apiRoot)</span></div>
-<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;<span class="comment">#         #1先通过动态运行,判断其是否修复成功</span></div>
-<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;<span class="comment">#         result=validateByRun(callAPI,apiWithValueFixed,projName,virtualEnv,runPath,runCommand)</span></div>
-<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;<span class="comment">#         # print(result.stdout,result.stderr)</span></div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;<span class="comment">#         if result==None:</span></div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;<span class="comment">#             if (fixedAPI,repairDict) not in repairCandidates:</span></div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;<span class="comment">#                 repairCandidates.append((fixedAPI,repairDict))</span></div>
-<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;<span class="comment">#             fixFlag=&#39;Unknown&#39;</span></div>
-<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;        </div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;<span class="comment">#         elif result.returncode!=0:</span></div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;<span class="comment">#             errLst.append(f&quot;{callAPI}, validate error: {result.stderr}\n&quot;)</span></div>
-<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;<span class="comment">#             failedLst.append(f&quot;{callAPI}, validate error: {result.stderr}\n&quot;)</span></div>
-<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;<span class="comment">#             if &#39;dill&#39; in result.stderr:</span></div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;<span class="comment">#                 fixFlag=&#39;Unknown&#39;</span></div>
-<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;<span class="comment">#                 if (fixedAPI,repairDict) not in repairCandidates:</span></div>
-<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;<span class="comment">#                     repairCandidates.append((fixedAPI,repairDict))</span></div>
-<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;<span class="comment">#         else:</span></div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;<span class="comment">#             fixFlag=&#39;Successful&#39;</span></div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;<span class="comment">#             # for k,v in repairDict.items():</span></div>
-<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;<span class="comment">#             #     print(k,v)</span></div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;<span class="comment">#             # print(&#39;\n&#39;)</span></div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;<span class="comment">#             # print(callAPI)</span></div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;<span class="comment">#             # print(fixedAPI)</span></div>
-<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;<span class="comment">#             if (fixedAPI,repairDict) not in repairCandidates:</span></div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;<span class="comment">#                 repairCandidates.append((fixedAPI,repairDict))</span></div>
-<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;<span class="comment">#             break</span></div>
-<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;     </div>
-<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;<span class="comment">#     # repairCandidates=list(set(repairCandidates)) </span></div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;<span class="comment">#     if len(repairCandidates)==0:</span></div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;<span class="comment">#         return str(repairCandidates), &#39;Unknown&#39; , &#39;Unknown&#39;</span></div>
-<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;<span class="comment">#     elif len(repairCandidates)==1:</span></div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;<span class="comment">#         fixedAPI=repairCandidates[0][0]</span></div>
-<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;<span class="comment">#         repairDict=repairCandidates[0][1]</span></div>
-<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;<span class="comment">#         fix(callAPI,repairDict,root,starFlag,twoStarFlag)</span></div>
-<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;<span class="comment">#         if callAPI.replace(&#39; &#39;,&#39;&#39;).replace(&#39;&quot;&#39;,&#39;&#39;).replace(&quot;&#39;&quot;,&#39;&#39;)==fixedAPI.replace(&#39; &#39;,&#39;&#39;).replace(&#39;&quot;&#39;,&#39;&#39;).replace(&quot;&#39;&quot;,&#39;&#39;):</span></div>
-<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;<span class="comment">#             return fixedAPI,&#39;Compatible&#39;,fixFlag</span></div>
-<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;<span class="comment">#         else:</span></div>
-<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;<span class="comment">#             return fixedAPI,&#39;Incompatible&#39;,fixFlag</span></div>
-<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;<span class="comment">#     else:</span></div>
-<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;<span class="comment">#         tempLst=[x[0] for x in repairCandidates]</span></div>
-<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;<span class="comment">#         return str(tempLst),&#39;Unknown&#39;,&#39;Unknown&#39;</span></div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="comment">#当runPath不在runCommand中时，需要切换到运行文件所在的目录执行命令</span></div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <span class="comment">#而文件操作的相对路径就是相对于命令执行的路径</span></div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="keywordflow">if</span> runPath!=<span class="stringliteral">&#39;&#39;</span> <span class="keywordflow">and</span> runPath <span class="keywordflow">not</span> <span class="keywordflow">in</span> runCommand:</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        normalized_runPath = runPath.replace(<span class="stringliteral">&#39;\\&#39;</span>, <span class="stringliteral">&#39;/&#39;</span>).strip(<span class="stringliteral">&#39;/&#39;</span>)</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        l=len([segment <span class="keywordflow">for</span> segment <span class="keywordflow">in</span> normalized_runPath.split(<span class="stringliteral">&#39;/&#39;</span>) <span class="keywordflow">if</span> segment])</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        <span class="keywordflow">while</span> l&gt;0:</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;            pklPath=<span class="stringliteral">&#39;../&#39;</span>+pklPath</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;            l-=1</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    pythonPath = <a class="code" href="namespacetool.html#acddd4e80b12bc317097d9b6da7afaa48">resolvePythonExecutable</a>(virtualEnv)</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160; </div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="keywordflow">if</span> runPath <span class="keywordflow">and</span> runPath <span class="keywordflow">not</span> <span class="keywordflow">in</span> runCommand:</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        cwd = os.path.join(<span class="stringliteral">&#39;Dynamic&#39;</span>, projName, runPath)</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        script = <span class="stringliteral">&#39;verifySingle.py&#39;</span></div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    <span class="keywordflow">elif</span> runPath:</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        cwd = os.path.join(<span class="stringliteral">&#39;Dynamic&#39;</span>, projName)</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        script = os.path.join(runPath, <span class="stringliteral">&#39;verifySingle.py&#39;</span>)</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        cwd = os.path.join(<span class="stringliteral">&#39;Dynamic&#39;</span>, projName)</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        script = <span class="stringliteral">&#39;verifySingle.py&#39;</span></div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    result = subprocess.run(</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        [pythonPath, script, pklPath, apiWithValue],</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        cwd=cwd, capture_output=<span class="keyword">True</span>, text=<span class="keyword">True</span>, encoding=<span class="stringliteral">&#39;utf-8&#39;</span></div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    )</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    <span class="keywordflow">return</span> result</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160; </div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160; </div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160; </div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160; </div>
+<div class="line"><a name="l00325"></a><span class="lineno"><a class="line" href="namespacerepair.html#aaf441b3a0f89d081e50ad51ac510eb1c">  325</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespacerepair.html#aaf441b3a0f89d081e50ad51ac510eb1c">validateByStr</a>(fixedAPI,repairDict,targetAPIDefinition,starFlag,twoStarFlag):</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    paraObjLst=<a class="code" href="namespacerepair.html#a13c0f10cec0074c6fd20914a93586ea0">mirrorAPI</a>(fixedAPI,repairDict)</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    posLst,keyLst=<a class="code" href="namespacechangeAnalyze.html#a9b577b97754fdc8097f5837944e9b010">para2Obj</a>(targetAPIDefinition)</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    targetPara=posLst+keyLst</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    </div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    <span class="keywordflow">for</span> para,nameFlag <span class="keywordflow">in</span> paraObjLst:</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        compatible=0 <span class="comment">#假设每个参数都不兼容</span></div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        <span class="keywordflow">for</span> it <span class="keywordflow">in</span> targetPara:</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;            <span class="keywordflow">if</span> nameFlag: <span class="comment">#带参数名使用的,要求修复完之后能在目标版本的参数定义中找到相同名字的参数</span></div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;                <span class="keywordflow">if</span> para.name==it.name:</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;                    compatible=1 </div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;                    <span class="keywordflow">break</span></div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;            <span class="keywordflow">else</span>: <span class="comment">#不带参数使用的要求修复完之后，位置和参数名都要能找到对应的</span></div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;                <span class="keywordflow">if</span> para.position==it.position <span class="keywordflow">and</span> para.name==it.name:</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;                    compatible=1</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;                    <span class="keywordflow">break</span></div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        </div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        </div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        <span class="keywordflow">if</span> <span class="keywordflow">not</span> compatible:</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;            <span class="keywordflow">if</span> nameFlag <span class="keywordflow">and</span> <span class="keywordflow">not</span> twoStarFlag:</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">False</span></div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> nameFlag <span class="keywordflow">and</span> <span class="keywordflow">not</span> starFlag:</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">False</span></div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160; </div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">True</span></div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160; </div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160; </div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160; </div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160; </div>
+<div class="line"><a name="l00372"></a><span class="lineno"><a class="line" href="namespacerepair.html#a95d4c0f0b1ce623e902d7046f6e04ec2">  372</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespacerepair.html#a95d4c0f0b1ce623e902d7046f6e04ec2">repairTask</a>(root,callAPI,apiWithValue,projName,runPath,runCommand,repairLst,virtualEnv,errLst,callKey=None):</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    <span class="comment">#静态修复,pkl加载失败，只能进入静态修复</span></div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    repairCandidates=[]</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    <span class="keywordflow">if</span> apiWithValue==<span class="stringliteral">&#39;&#39;</span>:</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;        <span class="keywordflow">for</span> repairDict,targetPara <span class="keywordflow">in</span> repairLst:</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;            starFlag=0 <span class="comment">#判断目标版本的参数定义中是否含有*args</span></div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;            twoStarFlag=0 <span class="comment">#判断目标版本的参数定义中是否含有*kwargs</span></div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;*args&#39;</span> <span class="keywordflow">in</span> targetPara:</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;                starFlag=1</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;**&#39;</span> <span class="keywordflow">in</span> targetPara:</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;                twoStarFlag=1</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;            apiRoot=<a class="code" href="namespacetool.html#a163a1af85c967f70b1495290735321aa">getAst</a>(callAPI,1)</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;            <a class="code" href="namespacerepair.html#a77d5ab0ffc52fdb84b2063d48952bf07">fix</a>(callAPI,repairDict,apiRoot,starFlag,twoStarFlag)</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;            fixedAPI=ast.unparse(apiRoot)</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;            <span class="keywordflow">if</span> <a class="code" href="namespacerepair.html#aaf441b3a0f89d081e50ad51ac510eb1c">validateByStr</a>(fixedAPI,repairDict,targetPara,starFlag,twoStarFlag):</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;                <span class="keywordflow">if</span> fixedAPI <span class="keywordflow">not</span> <span class="keywordflow">in</span> repairCandidates:</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;                    repairCandidates.append(fixedAPI)</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;        </div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;        <span class="comment"># repairCandidates=list(set(repairCandidates))</span></div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;        <span class="keywordflow">if</span> len(repairCandidates)==0:</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;            <span class="keywordflow">return</span> str(repairCandidates), <span class="stringliteral">&#39;Unknown&#39;</span>, <span class="stringliteral">&#39;Unknown&#39;</span></div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;        <span class="keywordflow">elif</span> len(repairCandidates)==1:</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;            fixedAPI=repairCandidates[0]</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;            <span class="keywordflow">if</span> callAPI.replace(<span class="stringliteral">&#39; &#39;</span>,<span class="stringliteral">&#39;&#39;</span>).replace(<span class="stringliteral">&#39;&quot;&#39;</span>,<span class="stringliteral">&#39;&#39;</span>).replace(<span class="stringliteral">&quot;&#39;&quot;</span>,<span class="stringliteral">&#39;&#39;</span>)==fixedAPI.replace(<span class="stringliteral">&#39; &#39;</span>,<span class="stringliteral">&#39;&#39;</span>).replace(<span class="stringliteral">&#39;&quot;&#39;</span>,<span class="stringliteral">&#39;&#39;</span>).replace(<span class="stringliteral">&quot;&#39;&quot;</span>,<span class="stringliteral">&#39;&#39;</span>):</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;                <span class="keywordflow">return</span> repairCandidates[0],<span class="stringliteral">&quot;Compatible&quot;</span>,<span class="stringliteral">&quot;Unknown&quot;</span></div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;            <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;                <span class="keywordflow">return</span> repairCandidates[0],<span class="stringliteral">&quot;Incompatible&quot;</span>,<span class="stringliteral">&quot;Unknown&quot;</span></div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;        <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;            <span class="keywordflow">return</span> str(repairCandidates),<span class="stringliteral">&quot;Unknown&quot;</span>, <span class="stringliteral">&quot;Unknown&quot;</span></div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160; </div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;    <span class="comment">#pkl加载成功，但匹配的结果也可能是多个，内置API只能静态匹配</span></div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    failedLst=[]</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;    <span class="keywordflow">for</span> repairDict,targetPara <span class="keywordflow">in</span> repairLst:</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;        starFlag=0 <span class="comment">#判断目标版本的参数定义中是否含有*args</span></div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;        twoStarFlag=0 <span class="comment">#判断目标版本的参数定义中是否含有*kwargs</span></div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;        <span class="comment"># 1.先进行静态验证</span></div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;        <span class="keywordflow">if</span> <span class="stringliteral">&#39;*args&#39;</span> <span class="keywordflow">in</span> targetPara:</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;            starFlag=1</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;        <span class="keywordflow">if</span> <span class="stringliteral">&#39;**&#39;</span> <span class="keywordflow">in</span> targetPara:</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;            twoStarFlag=1</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;        apiRoot=<a class="code" href="namespacetool.html#a163a1af85c967f70b1495290735321aa">getAst</a>(callAPI,1)</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;        <a class="code" href="namespacerepair.html#a77d5ab0ffc52fdb84b2063d48952bf07">fix</a>(callAPI,repairDict,apiRoot,starFlag,twoStarFlag)</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;        fixedAPI=ast.unparse(apiRoot)</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;        <span class="keywordflow">if</span> <span class="keywordflow">not</span> <a class="code" href="namespacerepair.html#aaf441b3a0f89d081e50ad51ac510eb1c">validateByStr</a>(fixedAPI,repairDict,targetPara,starFlag,twoStarFlag):</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;            <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;        <span class="keywordflow">elif</span> len(repairLst)==1:</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;            repairCandidates.append(fixedAPI)</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160; </div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;        <span class="comment">#2. 动态验证</span></div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;        fixFlag=<span class="stringliteral">&#39;Failed&#39;</span></div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;        apiRoot=<a class="code" href="namespacetool.html#a163a1af85c967f70b1495290735321aa">getAst</a>(apiWithValue,1)</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;        <a class="code" href="namespacerepair.html#a77d5ab0ffc52fdb84b2063d48952bf07">fix</a>(apiWithValue,repairDict,apiRoot,starFlag,twoStarFlag)</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;        apiWithValueFixed=ast.unparse(apiRoot)</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;        <span class="comment">#1先通过动态运行,判断其是否修复成功</span></div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;        result=<a class="code" href="namespacerepair.html#aff5b20e754e58c31c279ee7f818b7a6e">validateByRun</a>(callAPI,apiWithValueFixed,projName,virtualEnv,runPath,runCommand,callKey)</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;        <span class="keywordflow">if</span> result==<span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;            <span class="keywordflow">if</span> fixedAPI <span class="keywordflow">not</span> <span class="keywordflow">in</span> repairCandidates:</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;                repairCandidates.append(fixedAPI)</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;            fixFlag=<span class="stringliteral">&#39;Unknown&#39;</span></div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;        <span class="keywordflow">elif</span> result.returncode!=0:</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;            errLst.append(f<span class="stringliteral">&quot;{callAPI}, validate error: {result.stderr}\n&quot;</span>)</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;            failedLst.append(f<span class="stringliteral">&quot;{callAPI}, validate error: {result.stderr}\n&quot;</span>)</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;dill&#39;</span> <span class="keywordflow">in</span> result.stderr:</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;                fixFlag=<span class="stringliteral">&#39;Unknown&#39;</span></div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;                <span class="keywordflow">if</span> fixedAPI <span class="keywordflow">not</span> <span class="keywordflow">in</span> repairCandidates:</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;                    repairCandidates.append(fixedAPI)</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;            <span class="keywordflow">elif</span> <a class="code" href="namespacerepair.html#aaf441b3a0f89d081e50ad51ac510eb1c">validateByStr</a>(fixedAPI,repairDict,targetPara,starFlag,twoStarFlag):</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;                fixFlag=<span class="stringliteral">&#39;Unknown&#39;</span></div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;                <span class="keywordflow">if</span> fixedAPI <span class="keywordflow">not</span> <span class="keywordflow">in</span> repairCandidates:</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;                    repairCandidates.append(fixedAPI)</div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160; </div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;        <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;            fixFlag=<span class="stringliteral">&#39;Successful&#39;</span></div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;            <span class="keywordflow">if</span> fixedAPI <span class="keywordflow">not</span> <span class="keywordflow">in</span> repairCandidates:</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;                repairCandidates.append(fixedAPI)</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;            <span class="keywordflow">break</span></div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;    </div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;    <span class="comment"># repairCandidates=list(set(repairCandidates)) </span></div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;    <span class="keywordflow">if</span> len(repairCandidates)==0:</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;        <span class="keywordflow">return</span> str(repairCandidates), <span class="stringliteral">&#39;Unknown&#39;</span> , <span class="stringliteral">&#39;Unknown&#39;</span></div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;    <span class="keywordflow">elif</span> len(repairCandidates)==1:</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;        fixedAPI=repairCandidates[0]</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;        <span class="keywordflow">if</span> callAPI.replace(<span class="stringliteral">&#39; &#39;</span>,<span class="stringliteral">&#39;&#39;</span>).replace(<span class="stringliteral">&#39;&quot;&#39;</span>,<span class="stringliteral">&#39;&#39;</span>).replace(<span class="stringliteral">&quot;&#39;&quot;</span>,<span class="stringliteral">&#39;&#39;</span>)==fixedAPI.replace(<span class="stringliteral">&#39; &#39;</span>,<span class="stringliteral">&#39;&#39;</span>).replace(<span class="stringliteral">&#39;&quot;&#39;</span>,<span class="stringliteral">&#39;&#39;</span>).replace(<span class="stringliteral">&quot;&#39;&quot;</span>,<span class="stringliteral">&#39;&#39;</span>):</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;            <span class="keywordflow">return</span> repairCandidates[0],<span class="stringliteral">&#39;Compatible&#39;</span>,fixFlag</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;        <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;            <span class="keywordflow">return</span> repairCandidates[0],<span class="stringliteral">&#39;Incompatible&#39;</span>,fixFlag</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;        <span class="keywordflow">return</span> str(repairCandidates),<span class="stringliteral">&#39;Unknown&#39;</span>,<span class="stringliteral">&#39;Unknown&#39;</span></div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160; </div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;        </div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;<span class="comment"># def repairTask(root,callAPI,apiWithValue,projName,runPath,runCommand,repairLst,virtualEnv,errLst):</span></div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;<span class="comment">#     #静态修复,pkl加载失败，只能进入静态修复</span></div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;<span class="comment">#     repairCandidates=[]</span></div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;<span class="comment">#     if apiWithValue==&#39;&#39;:</span></div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;<span class="comment">#         for repairDict,targetPara in repairLst:</span></div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;<span class="comment">#             starFlag=0 #判断目标版本的参数定义中是否含有*args</span></div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;<span class="comment">#             twoStarFlag=0 #判断目标版本的参数定义中是否含有*kwargs</span></div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;<span class="comment">#             if &#39;*args&#39; in targetPara:</span></div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;<span class="comment">#                 starFlag=1</span></div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;<span class="comment">#             if &#39;**&#39; in targetPara:</span></div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;<span class="comment">#                 twoStarFlag=1</span></div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;<span class="comment">#             apiRoot=getAst(callAPI,1)</span></div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;<span class="comment">#             fix(callAPI,repairDict,apiRoot,starFlag,twoStarFlag)</span></div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;<span class="comment">#             fixedAPI=ast.unparse(apiRoot)</span></div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;<span class="comment">#             if validateByStr(fixedAPI,repairDict,targetPara,starFlag,twoStarFlag):</span></div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;<span class="comment">#                 if fixedAPI not in repairCandidates:</span></div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;<span class="comment">#                     repairCandidates.append((fixedAPI,repairDict))</span></div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;        </div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;<span class="comment">#         if len(repairCandidates)==0:</span></div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;<span class="comment">#             return str(repairCandidates), &#39;Unknown&#39;, &#39;Unknown&#39;</span></div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;        </div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;<span class="comment">#         elif len(repairCandidates)==1:</span></div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;<span class="comment">#             fixedAPI=repairCandidates[0][0]</span></div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;<span class="comment">#             repairDict=repairCandidates[0][1]</span></div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;<span class="comment">#             fix(callAPI,repairDict,root,starFlag,twoStarFlag)</span></div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;<span class="comment">#             if callAPI.replace(&#39; &#39;,&#39;&#39;).replace(&#39;&quot;&#39;,&#39;&#39;).replace(&quot;&#39;&quot;,&#39;&#39;)==fixedAPI.replace(&#39; &#39;,&#39;&#39;).replace(&#39;&quot;&#39;,&#39;&#39;).replace(&quot;&#39;&quot;,&#39;&#39;):</span></div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;<span class="comment">#                 return fixedAPI,&quot;Compatible&quot;,&quot;Unknown&quot;</span></div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;<span class="comment">#             else:</span></div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;<span class="comment">#                 return fixedAPI,&quot;Incompatible&quot;,&quot;Unknown&quot;</span></div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;        </div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;<span class="comment">#         else:</span></div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;<span class="comment">#             tempLst=[x[0] for x in repairCandidates]</span></div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;<span class="comment">#             return str(tempLst),&quot;Unknown&quot;, &quot;Unknown&quot;</span></div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160; </div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160; </div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;<span class="comment">#     #pkl加载成功，但匹配的结果也可能是多个，内置API只能静态匹配</span></div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;<span class="comment">#     failedLst=[]</span></div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;<span class="comment">#     for repairDict,targetPara in repairLst:</span></div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;<span class="comment">#         starFlag=0 #判断目标版本的参数定义中是否含有*args</span></div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;<span class="comment">#         twoStarFlag=0 #判断目标版本的参数定义中是否含有*kwargs</span></div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;<span class="comment">#         # 1.先进行静态验证</span></div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;<span class="comment">#         if &#39;*args&#39; in targetPara:</span></div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;<span class="comment">#             starFlag=1</span></div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;<span class="comment">#         if &#39;**&#39; in targetPara:</span></div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;<span class="comment">#             twoStarFlag=1</span></div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;<span class="comment">#         apiRoot=getAst(callAPI,1)</span></div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;<span class="comment">#         fix(callAPI,repairDict,apiRoot,starFlag,twoStarFlag)</span></div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;<span class="comment">#         fixedAPI=ast.unparse(apiRoot)</span></div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;<span class="comment">#         if not validateByStr(fixedAPI,repairDict,targetPara,starFlag,twoStarFlag):</span></div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;<span class="comment">#             continue</span></div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;<span class="comment">#         elif len(repairLst)==1:</span></div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;<span class="comment">#             repairCandidates.append((fixedAPI,repairDict))</span></div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160; </div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;<span class="comment">#         #2. 动态验证</span></div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;<span class="comment">#         fixFlag=&#39;Failed&#39;</span></div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;<span class="comment">#         apiRoot=getAst(apiWithValue,1)</span></div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;<span class="comment">#         fix(apiWithValue,repairDict,apiRoot,starFlag,twoStarFlag)</span></div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;<span class="comment">#         apiWithValueFixed=ast.unparse(apiRoot)</span></div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;<span class="comment">#         #1先通过动态运行,判断其是否修复成功</span></div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;<span class="comment">#         result=validateByRun(callAPI,apiWithValueFixed,projName,virtualEnv,runPath,runCommand)</span></div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;<span class="comment">#         # print(result.stdout,result.stderr)</span></div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;<span class="comment">#         if result==None:</span></div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;<span class="comment">#             if (fixedAPI,repairDict) not in repairCandidates:</span></div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;<span class="comment">#                 repairCandidates.append((fixedAPI,repairDict))</span></div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;<span class="comment">#             fixFlag=&#39;Unknown&#39;</span></div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;        </div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;<span class="comment">#         elif result.returncode!=0:</span></div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;<span class="comment">#             errLst.append(f&quot;{callAPI}, validate error: {result.stderr}\n&quot;)</span></div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;<span class="comment">#             failedLst.append(f&quot;{callAPI}, validate error: {result.stderr}\n&quot;)</span></div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;<span class="comment">#             if &#39;dill&#39; in result.stderr:</span></div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;<span class="comment">#                 fixFlag=&#39;Unknown&#39;</span></div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;<span class="comment">#                 if (fixedAPI,repairDict) not in repairCandidates:</span></div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;<span class="comment">#                     repairCandidates.append((fixedAPI,repairDict))</span></div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;<span class="comment">#         else:</span></div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;<span class="comment">#             fixFlag=&#39;Successful&#39;</span></div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;<span class="comment">#             # for k,v in repairDict.items():</span></div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;<span class="comment">#             #     print(k,v)</span></div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;<span class="comment">#             # print(&#39;\n&#39;)</span></div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;<span class="comment">#             # print(callAPI)</span></div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;<span class="comment">#             # print(fixedAPI)</span></div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;<span class="comment">#             if (fixedAPI,repairDict) not in repairCandidates:</span></div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;<span class="comment">#                 repairCandidates.append((fixedAPI,repairDict))</span></div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;<span class="comment">#             break</span></div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;     </div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;<span class="comment">#     # repairCandidates=list(set(repairCandidates)) </span></div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;<span class="comment">#     if len(repairCandidates)==0:</span></div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;<span class="comment">#         return str(repairCandidates), &#39;Unknown&#39; , &#39;Unknown&#39;</span></div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;<span class="comment">#     elif len(repairCandidates)==1:</span></div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;<span class="comment">#         fixedAPI=repairCandidates[0][0]</span></div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;<span class="comment">#         repairDict=repairCandidates[0][1]</span></div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;<span class="comment">#         fix(callAPI,repairDict,root,starFlag,twoStarFlag)</span></div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;<span class="comment">#         if callAPI.replace(&#39; &#39;,&#39;&#39;).replace(&#39;&quot;&#39;,&#39;&#39;).replace(&quot;&#39;&quot;,&#39;&#39;)==fixedAPI.replace(&#39; &#39;,&#39;&#39;).replace(&#39;&quot;&#39;,&#39;&#39;).replace(&quot;&#39;&quot;,&#39;&#39;):</span></div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;<span class="comment">#             return fixedAPI,&#39;Compatible&#39;,fixFlag</span></div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;<span class="comment">#         else:</span></div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;<span class="comment">#             return fixedAPI,&#39;Incompatible&#39;,fixFlag</span></div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;<span class="comment">#     else:</span></div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;<span class="comment">#         tempLst=[x[0] for x in repairCandidates]</span></div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;<span class="comment">#         return str(tempLst),&#39;Unknown&#39;,&#39;Unknown&#39;</span></div>
 <div class="ttc" id="anamespaceAPI_1_1LibApi_html"><div class="ttname"><a href="namespaceAPI_1_1LibApi.html">LibApi</a></div></div>
 <div class="ttc" id="anamespacechangeAnalyze_html_a9b577b97754fdc8097f5837944e9b010"><div class="ttname"><a href="namespacechangeAnalyze.html#a9b577b97754fdc8097f5837944e9b010">changeAnalyze.para2Obj</a></div><div class="ttdeci">def para2Obj(paraStr)</div><div class="ttdoc">Convert parameter string to positional and keyword parameter objects 将参数字符串转换为位置和关键字参数对象</div><div class="ttdef"><b>Definition:</b> <a href="changeAnalyze_8py_source.html#l00221">changeAnalyze.py:221</a></div></div>
 <div class="ttc" id="anamespacerepair_html_a13c0f10cec0074c6fd20914a93586ea0"><div class="ttname"><a href="namespacerepair.html#a13c0f10cec0074c6fd20914a93586ea0">repair.mirrorAPI</a></div><div class="ttdeci">def mirrorAPI(fixedAPI, dic)</div><div class="ttdoc">Create mirror for the fixed API by adding all parameter names 给修复后API的参数填上参数名</div><div class="ttdef"><b>Definition:</b> <a href="repair_8py_source.html#l00075">repair.py:75</a></div></div>
 <div class="ttc" id="anamespacerepair_html_a3f486f899c41567be3240f65443acf12"><div class="ttname"><a href="namespacerepair.html#a3f486f899c41567be3240f65443acf12">repair.mapPos</a></div><div class="ttdeci">def mapPos(pos, dic)</div><div class="ttdoc">Get repair operation dictionary of positional parameter 获取位置参数的修复操作字典</div><div class="ttdef"><b>Definition:</b> <a href="repair_8py_source.html#l00026">repair.py:26</a></div></div>
 <div class="ttc" id="anamespacerepair_html_a77d5ab0ffc52fdb84b2063d48952bf07"><div class="ttname"><a href="namespacerepair.html#a77d5ab0ffc52fdb84b2063d48952bf07">repair.fix</a></div><div class="ttdeci">def fix(callAPI, repairDict, node, starFlag, twoStarFlag)</div><div class="ttdoc">Perform parameter repair operations through AST 通过AST执行参数修复操作</div><div class="ttdef"><b>Definition:</b> <a href="repair_8py_source.html#l00134">repair.py:134</a></div></div>
 <div class="ttc" id="anamespacerepair_html_a78d633fe3bd2b3c6f18d9a95904617ae"><div class="ttname"><a href="namespacerepair.html#a78d633fe3bd2b3c6f18d9a95904617ae">repair.findName</a></div><div class="ttdeci">def findName(pos, dic)</div><div class="ttdoc">Find parameter name by its position 通过位置查找参数名</div><div class="ttdef"><b>Definition:</b> <a href="repair_8py_source.html#l00060">repair.py:60</a></div></div>
-<div class="ttc" id="anamespacerepair_html_a8b2a9e10672bdfd180a0fa6d98d48851"><div class="ttname"><a href="namespacerepair.html#a8b2a9e10672bdfd180a0fa6d98d48851">repair.validateByRun</a></div><div class="ttdeci">def validateByRun(callAPI, apiWithValue, projName, virtualEnv, runPath, runCommand)</div><div class="ttdoc">Dynamic validation 动态验证</div><div class="ttdef"><b>Definition:</b> <a href="repair_8py_source.html#l00268">repair.py:268</a></div></div>
-<div class="ttc" id="anamespacerepair_html_aaf441b3a0f89d081e50ad51ac510eb1c"><div class="ttname"><a href="namespacerepair.html#aaf441b3a0f89d081e50ad51ac510eb1c">repair.validateByStr</a></div><div class="ttdeci">def validateByStr(fixedAPI, repairDict, targetAPIDefinition, starFlag, twoStarFlag)</div><div class="ttdoc">Static validation 静态验证</div><div class="ttdef"><b>Definition:</b> <a href="repair_8py_source.html#l00315">repair.py:315</a></div></div>
+<div class="ttc" id="anamespacerepair_html_a95d4c0f0b1ce623e902d7046f6e04ec2"><div class="ttname"><a href="namespacerepair.html#a95d4c0f0b1ce623e902d7046f6e04ec2">repair.repairTask</a></div><div class="ttdeci">def repairTask(root, callAPI, apiWithValue, projName, runPath, runCommand, repairLst, virtualEnv, errLst, callKey=None)</div><div class="ttdoc">Task of repairing parameter compatibility issues 参数兼容性问题修复任务</div><div class="ttdef"><b>Definition:</b> <a href="repair_8py_source.html#l00372">repair.py:372</a></div></div>
+<div class="ttc" id="anamespacerepair_html_aaf441b3a0f89d081e50ad51ac510eb1c"><div class="ttname"><a href="namespacerepair.html#aaf441b3a0f89d081e50ad51ac510eb1c">repair.validateByStr</a></div><div class="ttdeci">def validateByStr(fixedAPI, repairDict, targetAPIDefinition, starFlag, twoStarFlag)</div><div class="ttdoc">Static validation 静态验证</div><div class="ttdef"><b>Definition:</b> <a href="repair_8py_source.html#l00325">repair.py:325</a></div></div>
 <div class="ttc" id="anamespacerepair_html_ac9c91801547e5577cd1845cf6ed134dc"><div class="ttname"><a href="namespacerepair.html#ac9c91801547e5577cd1845cf6ed134dc">repair.mapName</a></div><div class="ttdeci">def mapName(name, dic)</div><div class="ttdoc">Get repair operation dictionary of keyword parameter 获取关键字参数的修复操作字典</div><div class="ttdef"><b>Definition:</b> <a href="repair_8py_source.html#l00046">repair.py:46</a></div></div>
-<div class="ttc" id="anamespacerepair_html_afdcb02b6e3ba6de73363c7254596a8b1"><div class="ttname"><a href="namespacerepair.html#afdcb02b6e3ba6de73363c7254596a8b1">repair.repairTask</a></div><div class="ttdeci">def repairTask(root, callAPI, apiWithValue, projName, runPath, runCommand, repairLst, virtualEnv, errLst)</div><div class="ttdoc">Task of repairing parameter compatibility issues 参数兼容性问题修复任务</div><div class="ttdef"><b>Definition:</b> <a href="repair_8py_source.html#l00362">repair.py:362</a></div></div>
+<div class="ttc" id="anamespacerepair_html_aff5b20e754e58c31c279ee7f818b7a6e"><div class="ttname"><a href="namespacerepair.html#aff5b20e754e58c31c279ee7f818b7a6e">repair.validateByRun</a></div><div class="ttdeci">def validateByRun(callAPI, apiWithValue, projName, virtualEnv, runPath, runCommand, callKey=None)</div><div class="ttdoc">Dynamic validation 动态验证</div><div class="ttdef"><b>Definition:</b> <a href="repair_8py_source.html#l00268">repair.py:268</a></div></div>
 <div class="ttc" id="anamespacetool_html_a163a1af85c967f70b1495290735321aa"><div class="ttname"><a href="namespacetool.html#a163a1af85c967f70b1495290735321aa">tool.getAst</a></div><div class="ttdeci">def getAst(filePath, strFlag=0)</div><div class="ttdoc">Get AST for code 将代码转化为Ast树</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00118">tool.py:118</a></div></div>
 <div class="ttc" id="anamespacetool_html_a738ffb440e1ecdd990c95702ed30da31"><div class="ttname"><a href="namespacetool.html#a738ffb440e1ecdd990c95702ed30da31">tool.getFileName</a></div><div class="ttdeci">def getFileName(fileName, extension)</div><div class="ttdoc">Normalize file name 给文件取名字</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00408">tool.py:408</a></div></div>
 <div class="ttc" id="anamespacetool_html_ac911ce7a8605392b72a43d059055729f"><div class="ttname"><a href="namespacetool.html#ac911ce7a8605392b72a43d059055729f">tool.get_parameter</a></div><div class="ttdeci">def get_parameter(p_string, separator=',', space=1)</div><div class="ttdoc">Split parameter string into list of separated parameters 将参数字符串拆分成单个的参数</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00029">tool.py:29</a></div></div>
