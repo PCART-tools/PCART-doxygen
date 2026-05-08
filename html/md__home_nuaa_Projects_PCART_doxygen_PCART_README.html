@@ -70,7 +70,7 @@ $(function() {
 <p align="center"></p>
 <p>Automated Repair of Python API Parameter Compatibility Issues </p>
 <p align="center"></p>
-<p><a href="https://github.com/PCART-tools/PCART/wiki">Documentation</a> · <a href="https://github.com/PCART-tools/PCART/wiki/Configuration-Guide">Configuration Guide</a> · <a href="https://github.com/PCART-tools/PCART/wiki/Examples">Examples</a> · <a href="https://pcart-tools.github.io/PCART-doxygen/html">API Docs</a> </p>
+<p><a href="https://github.com/PCART-tools/PCART/wiki">Documentation</a> · <a href="https://github.com/PCART-tools/PCART/wiki/Configuration-Guide">Configuration Guide</a> · <a href="https://github.com/PCART-tools/PCART/wiki/How-It-Works">How It Works</a> · <a href="https://github.com/PCART-tools/PCART/wiki/Examples">Examples</a> · <a href="https://pcart-tools.github.io/PCART-doxygen/html">API Docs</a> </p>
 <p><br  />
 </p>
 <h2>What is PCART?</h2>
@@ -90,7 +90,7 @@ $(function() {
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">targetEnv   </td><td class="markdownTableBodyNone">Dynamic API signature mapping and post-repair validation for target library version   </td><td class="markdownTableBodyNone">Python 3.x + target library version + requirements.txt + dill   </td></tr>
 </table>
-<p><code>currentEnv</code> and <code>targetEnv</code> should point to environment root directories. See the <a href="https://github.com/PCART-tools/PCART/wiki/Configuration-Guide">Configuration Guide</a> for details.</p>
+<p><code>currentEnv</code> and <code>targetEnv</code> should point to environment root directories (not the Python executable path). PCART auto-detects the interpreter and supports multiple <code>runCommand</code> formats (<code>python</code>, <code>python3</code>, <code>py -X.Y</code>, <code>python -m</code>, console scripts). See the <a href="https://github.com/PCART-tools/PCART/wiki/Configuration-Guide">Configuration Guide</a> for details.</p>
 <h2>Supported Parameter Change Types</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -139,7 +139,7 @@ $(function() {
 <li><code><a class="el" href="preprocess_8py.html">Preprocess/preprocess.py</a></code> - Code preprocessing</li>
 <li><code><a class="el" href="repair_8py.html">Repair/repair.py</a></code> - Compatibility issue repair and validation</li>
 <li><code>Report/</code> - Repair reports</li>
-<li><code>Script/</code> - Repair helper scripts (<code>addValueForAPI.py</code>, <code>codeUtils.py</code>, <code>dynamicMatch.py</code>, <code>verifySingle.py</code>)</li>
+<li><code>Script/</code> - Runtime helper scripts (<code>addValueForAPI.py</code>, <code>codeUtils.py</code>, <code>dynamicMatch.py</code>, <code><a class="el" href="recordValue_8py.html" title="Runtime value recorder used by instrumented project files.">recordValue.py</a></code>, <code>verifySingle.py</code>)</li>
 <li><code><a class="el" href="tool_8py.html">Tool/tool.py</a></code> - Utility functions</li>
 <li><code><a class="el" href="main_8py.html" title="PCART&#39;s main function entry">main.py</a></code> - Entry point</li>
 <li><code><a class="el" href="extractLibAPI_8py.html" title="Extract library Python APIs.">extractLibAPI.py</a></code> - Library API extraction script</li>
@@ -147,7 +147,8 @@ $(function() {
 <h2>Documentation</h2>
 <ul>
 <li><a href="https://github.com/PCART-tools/PCART/wiki">PCART Wiki</a> - Tutorials, troubleshooting, and advanced usage</li>
-<li><a href="https://github.com/PCART-tools/PCART/wiki/Configuration-Guide">Configuration Guide</a> - Complete configuration reference</li>
+<li><a href="https://github.com/PCART-tools/PCART/wiki/How-It-Works">How It Works</a> - Pipeline, pkl lifecycle, matching strategy</li>
+<li><a href="https://github.com/PCART-tools/PCART/wiki/Configuration-Guide">Configuration Guide</a> - Complete configuration reference (including runCommand formats)</li>
 <li><a href="https://github.com/PCART-tools/PCART/wiki/Examples">Examples</a> - Example projects and configuration files</li>
 <li><a href="https://github.com/PCART-tools/PCART/wiki/Troubleshooting">Troubleshooting</a> - Common setup and runtime issues</li>
 <li><a href="https://pcart-tools.github.io/PCART-doxygen/html">Doxygen API Docs</a> - Generated code documentation</li>
