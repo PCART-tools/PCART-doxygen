@@ -136,6 +136,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a06b0d4848192999bfb9a11895ba277dc"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetool.html#a06b0d4848192999bfb9a11895ba277dc">removeParameter</a> (s, flag=0)</td></tr>
 <tr class="memdesc:a06b0d4848192999bfb9a11895ba277dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove parameter(s) from API call string 去掉API中的参数部分  <a href="namespacetool.html#a06b0d4848192999bfb9a11895ba277dc">More...</a><br /></td></tr>
 <tr class="separator:a06b0d4848192999bfb9a11895ba277dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a924419c52a2a18a8cbef3b0fb9bac5f3"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetool.html#a924419c52a2a18a8cbef3b0fb9bac5f3">resolveConfigFilePath</a> (config, repoRoot)</td></tr>
+<tr class="memdesc:a924419c52a2a18a8cbef3b0fb9bac5f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resolve PCART config file path 解析PCART配置文件路径  <a href="namespacetool.html#a924419c52a2a18a8cbef3b0fb9bac5f3">More...</a><br /></td></tr>
+<tr class="separator:a924419c52a2a18a8cbef3b0fb9bac5f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a798f243de94474f63d3b1edeb8384a3e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetool.html#a798f243de94474f63d3b1edeb8384a3e">resolveConfigValuePath</a> (repoRoot, path)</td></tr>
+<tr class="memdesc:a798f243de94474f63d3b1edeb8384a3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resolve path value loaded from PCART config 解析PCART配置字段中的路径值  <a href="namespacetool.html#a798f243de94474f63d3b1edeb8384a3e">More...</a><br /></td></tr>
+<tr class="separator:a798f243de94474f63d3b1edeb8384a3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a111bedf50d5fa9bbd67744ca605a9c"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetool.html#a9a111bedf50d5fa9bbd67744ca605a9c">resolveConsoleExecutable</a> (envPath, commandName)</td></tr>
 <tr class="memdesc:a9a111bedf50d5fa9bbd67744ca605a9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resolve console script executable from a virtual environment 从虚拟环境中解析console script可执行文件  <a href="namespacetool.html#a9a111bedf50d5fa9bbd67744ca605a9c">More...</a><br /></td></tr>
 <tr class="separator:a9a111bedf50d5fa9bbd67744ca605a9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -193,26 +199,26 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Command argv list for subprocess.run </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="tool_8py_source.html#l00671">671</a> of file <a class="el" href="tool_8py_source.html">tool.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;<span class="keyword">def </span><a class="code" href="namespacetool.html#a06834e8d522d907efbdb98ce689b85db">buildRunCommand</a>(runCommand,envPath):</div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;    normalizedCommand,commandType=<a class="code" href="namespacetool.html#ad5f825eabcfb5ac3830d4c9650bb76e6">normalizeRunCommand</a>(runCommand)</div>
-<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;    <span class="keywordflow">if</span> commandType==<span class="stringliteral">&#39;python&#39;</span>:</div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;        <span class="keywordflow">return</span> [<a class="code" href="namespacetool.html#acddd4e80b12bc317097d9b6da7afaa48">resolvePythonExecutable</a>(envPath)] + shlex.split(normalizedCommand)</div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160; </div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;    args=shlex.split(normalizedCommand)</div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> args:</div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;        <span class="keywordflow">raise</span> UnsupportedRunCommand(<span class="stringliteral">&#39;Empty run command&#39;</span>)</div>
-<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;    <span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;        commandPath=<a class="code" href="namespacetool.html#a9a111bedf50d5fa9bbd67744ca605a9c">resolveConsoleExecutable</a>(envPath,args[0])</div>
-<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;    <span class="keywordflow">except</span> FileNotFoundError <span class="keyword">as</span> e:</div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;        <span class="keywordflow">raise</span> UnsupportedRunCommand(str(e)) <span class="keyword">from</span> e</div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;    <span class="keywordflow">return</span> [commandPath] + args[1:]</div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160; </div>
-<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160; </div>
-<div class="ttc" id="anamespacetool_html_a06834e8d522d907efbdb98ce689b85db"><div class="ttname"><a href="namespacetool.html#a06834e8d522d907efbdb98ce689b85db">tool.buildRunCommand</a></div><div class="ttdeci">def buildRunCommand(runCommand, envPath)</div><div class="ttdoc">Build subprocess argv for project run command 为被测项目运行命令构造subprocess argv.</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00671">tool.py:671</a></div></div>
-<div class="ttc" id="anamespacetool_html_a9a111bedf50d5fa9bbd67744ca605a9c"><div class="ttname"><a href="namespacetool.html#a9a111bedf50d5fa9bbd67744ca605a9c">tool.resolveConsoleExecutable</a></div><div class="ttdeci">def resolveConsoleExecutable(envPath, commandName)</div><div class="ttdoc">Resolve console script executable from a virtual environment 从虚拟环境中解析console script可执行文件</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00640">tool.py:640</a></div></div>
-<div class="ttc" id="anamespacetool_html_acddd4e80b12bc317097d9b6da7afaa48"><div class="ttname"><a href="namespacetool.html#acddd4e80b12bc317097d9b6da7afaa48">tool.resolvePythonExecutable</a></div><div class="ttdeci">def resolvePythonExecutable(envPath)</div><div class="ttdoc">Resolve Python executable from a virtual environment root 从虚拟环境根目录解析 Python 解释器路径</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00728">tool.py:728</a></div></div>
-<div class="ttc" id="anamespacetool_html_ad5f825eabcfb5ac3830d4c9650bb76e6"><div class="ttname"><a href="namespacetool.html#ad5f825eabcfb5ac3830d4c9650bb76e6">tool.normalizeRunCommand</a></div><div class="ttdeci">def normalizeRunCommand(runCommand)</div><div class="ttdoc">Normalize project run command 归一化被测项目运行命令</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00610">tool.py:610</a></div></div>
+<p class="definition">Definition at line <a class="el" href="tool_8py_source.html#l00702">702</a> of file <a class="el" href="tool_8py_source.html">tool.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;<span class="keyword">def </span><a class="code" href="namespacetool.html#a06834e8d522d907efbdb98ce689b85db">buildRunCommand</a>(runCommand,envPath):</div>
+<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;    normalizedCommand,commandType=<a class="code" href="namespacetool.html#ad5f825eabcfb5ac3830d4c9650bb76e6">normalizeRunCommand</a>(runCommand)</div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;    <span class="keywordflow">if</span> commandType==<span class="stringliteral">&#39;python&#39;</span>:</div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;        <span class="keywordflow">return</span> [<a class="code" href="namespacetool.html#acddd4e80b12bc317097d9b6da7afaa48">resolvePythonExecutable</a>(envPath)] + shlex.split(normalizedCommand)</div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160; </div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;    args=shlex.split(normalizedCommand)</div>
+<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> args:</div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;        <span class="keywordflow">raise</span> UnsupportedRunCommand(<span class="stringliteral">&#39;Empty run command&#39;</span>)</div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;    <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;        commandPath=<a class="code" href="namespacetool.html#a9a111bedf50d5fa9bbd67744ca605a9c">resolveConsoleExecutable</a>(envPath,args[0])</div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;    <span class="keywordflow">except</span> FileNotFoundError <span class="keyword">as</span> e:</div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;        <span class="keywordflow">raise</span> UnsupportedRunCommand(str(e)) <span class="keyword">from</span> e</div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;    <span class="keywordflow">return</span> [commandPath] + args[1:]</div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160; </div>
+<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160; </div>
+<div class="ttc" id="anamespacetool_html_a06834e8d522d907efbdb98ce689b85db"><div class="ttname"><a href="namespacetool.html#a06834e8d522d907efbdb98ce689b85db">tool.buildRunCommand</a></div><div class="ttdeci">def buildRunCommand(runCommand, envPath)</div><div class="ttdoc">Build subprocess argv for project run command 为被测项目运行命令构造subprocess argv.</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00702">tool.py:702</a></div></div>
+<div class="ttc" id="anamespacetool_html_a9a111bedf50d5fa9bbd67744ca605a9c"><div class="ttname"><a href="namespacetool.html#a9a111bedf50d5fa9bbd67744ca605a9c">tool.resolveConsoleExecutable</a></div><div class="ttdeci">def resolveConsoleExecutable(envPath, commandName)</div><div class="ttdoc">Resolve console script executable from a virtual environment 从虚拟环境中解析console script可执行文件</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00671">tool.py:671</a></div></div>
+<div class="ttc" id="anamespacetool_html_acddd4e80b12bc317097d9b6da7afaa48"><div class="ttname"><a href="namespacetool.html#acddd4e80b12bc317097d9b6da7afaa48">tool.resolvePythonExecutable</a></div><div class="ttdeci">def resolvePythonExecutable(envPath)</div><div class="ttdoc">Resolve Python executable from a virtual environment root 从虚拟环境根目录解析 Python 解释器路径</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00759">tool.py:759</a></div></div>
+<div class="ttc" id="anamespacetool_html_ad5f825eabcfb5ac3830d4c9650bb76e6"><div class="ttname"><a href="namespacetool.html#ad5f825eabcfb5ac3830d4c9650bb76e6">tool.normalizeRunCommand</a></div><div class="ttdeci">def normalizeRunCommand(runCommand)</div><div class="ttdoc">Normalize project run command 归一化被测项目运行命令</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00641">tool.py:641</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -235,7 +241,8 @@ Here is the caller graph for this function:</div>
 <area shape="rect" title="Build subprocess argv for project run command 为被测项目运行命令构造subprocess argv." alt="" coords="556,31,703,57"/>
 <area shape="rect" href="namespacemain.html#a37c97f0a13e2e95f6955d24042b98d4f" title="Generate pkl files and perform detection and repair task 生成项目调用API的pkl文件以及执行检测与修复任务" alt="" coords="371,5,494,32"/>
 <area shape="rect" href="namespacemap.html#a266cf0061b59b701942899be9e9da28a" title="Dynamic mapping of API signatures API签名动态匹配" alt="" coords="357,56,508,83"/>
-<area shape="rect" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数" alt="" coords="211,5,303,32"/>
+<area shape="rect" href="namespacemain.html#a54735b5e5f3ae5ec9c331c9117618719" title="Run PCART with an isolated workspace 在隔离工作区中运行PCART." alt="" coords="217,5,297,32"/>
+<area shape="rect" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数" alt="" coords="35,5,127,32"/>
 <area shape="rect" href="namespacemap.html#a5b2e7c6bed22e3b899bde94558cde802" title="Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API与 ..." alt="" coords="204,56,309,83"/>
 <area shape="rect" href="namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件" alt="" coords="5,56,156,83"/>
 </map>
@@ -392,7 +399,8 @@ Here is the caller graph for this function:</div>
 <area shape="rect" href="namespacepreprocess.html#aeb5178b512f242c05329f1137c0b208c" title="Code instrumentation for all API calls within a project source file 项目源文件所有API调用代码插桩" alt="" coords="595,5,759,32"/>
 <area shape="rect" href="namespacepreprocess.html#ac6b9a59751c27f21581a3c39d0a7ebdd" title="Code instrumentation for a single API call within a source file 源文件单个API调用代码插桩" alt="" coords="584,56,771,83"/>
 <area shape="rect" href="namespacepreprocess.html#a0b52460f33415186cee80896a65d8530" title="Code processing 代码预处理" alt="" coords="357,5,536,32"/>
-<area shape="rect" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数" alt="" coords="211,5,303,32"/>
+<area shape="rect" href="namespacemain.html#a54735b5e5f3ae5ec9c331c9117618719" title="Run PCART with an isolated workspace 在隔离工作区中运行PCART." alt="" coords="217,5,297,32"/>
+<area shape="rect" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数" alt="" coords="35,5,127,32"/>
 <area shape="rect" href="namespacemap.html#a266cf0061b59b701942899be9e9da28a" title="Dynamic mapping of API signatures API签名动态匹配" alt="" coords="371,56,522,83"/>
 <area shape="rect" href="namespacemap.html#a5b2e7c6bed22e3b899bde94558cde802" title="Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API与 ..." alt="" coords="204,56,309,83"/>
 <area shape="rect" href="namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件" alt="" coords="5,56,156,83"/>
@@ -493,7 +501,8 @@ Here is the caller graph for this function:</div>
 <area shape="rect" href="namespacepreprocess.html#aeb5178b512f242c05329f1137c0b208c" title="Code instrumentation for all API calls within a project source file 项目源文件所有API调用代码插桩" alt="" coords="595,5,759,32"/>
 <area shape="rect" href="namespacepreprocess.html#ac6b9a59751c27f21581a3c39d0a7ebdd" title="Code instrumentation for a single API call within a source file 源文件单个API调用代码插桩" alt="" coords="584,56,771,83"/>
 <area shape="rect" href="namespacepreprocess.html#a0b52460f33415186cee80896a65d8530" title="Code processing 代码预处理" alt="" coords="357,5,536,32"/>
-<area shape="rect" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数" alt="" coords="211,5,303,32"/>
+<area shape="rect" href="namespacemain.html#a54735b5e5f3ae5ec9c331c9117618719" title="Run PCART with an isolated workspace 在隔离工作区中运行PCART." alt="" coords="217,5,297,32"/>
+<area shape="rect" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数" alt="" coords="35,5,127,32"/>
 <area shape="rect" href="namespacemap.html#a266cf0061b59b701942899be9e9da28a" title="Dynamic mapping of API signatures API签名动态匹配" alt="" coords="371,56,522,83"/>
 <area shape="rect" href="namespacemap.html#a5b2e7c6bed22e3b899bde94558cde802" title="Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API与 ..." alt="" coords="204,56,309,83"/>
 <area shape="rect" href="namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件" alt="" coords="5,56,156,83"/>
@@ -527,25 +536,25 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>full_path The path of Python interpreter </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="tool_8py_source.html#l00706">706</a> of file <a class="el" href="tool_8py_source.html">tool.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;<span class="keyword">def </span><a class="code" href="namespacetool.html#af97e9e63a1ae8577bbe8865743d57b21">findPythonDir</a>(basePath):</div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.exists(basePath):</div>
-<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;        <span class="keywordflow">raise</span> FileNotFoundError(</div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;            f<span class="stringliteral">&quot;Cannot find Python directory: {basePath} does not exist&quot;</span></div>
-<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;        )</div>
-<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;    </div>
-<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;    <span class="keywordflow">for</span> entry <span class="keywordflow">in</span> os.listdir(basePath):</div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;        full_path = os.path.join(basePath, entry)</div>
-<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;        <span class="keywordflow">if</span> os.path.isdir(full_path):</div>
-<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;            <span class="keywordflow">if</span> entry.startswith(<span class="stringliteral">&quot;python&quot;</span>):</div>
-<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;                <span class="keywordflow">return</span> full_path</div>
-<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;    </div>
-<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;    <span class="keywordflow">raise</span> FileNotFoundError(</div>
-<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;        f<span class="stringliteral">&quot;Cannot find Python directory under {basePath}/pythonxx.xx&quot;</span></div>
-<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;    )</div>
-<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160; </div>
-<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160; </div>
-<div class="ttc" id="anamespacetool_html_af97e9e63a1ae8577bbe8865743d57b21"><div class="ttname"><a href="namespacetool.html#af97e9e63a1ae8577bbe8865743d57b21">tool.findPythonDir</a></div><div class="ttdeci">def findPythonDir(basePath)</div><div class="ttdoc">Get Python interpreter path 获取Python解释器路径</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00706">tool.py:706</a></div></div>
+<p class="definition">Definition at line <a class="el" href="tool_8py_source.html#l00737">737</a> of file <a class="el" href="tool_8py_source.html">tool.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;<span class="keyword">def </span><a class="code" href="namespacetool.html#af97e9e63a1ae8577bbe8865743d57b21">findPythonDir</a>(basePath):</div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.exists(basePath):</div>
+<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;        <span class="keywordflow">raise</span> FileNotFoundError(</div>
+<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;            f<span class="stringliteral">&quot;Cannot find Python directory: {basePath} does not exist&quot;</span></div>
+<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;        )</div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;    </div>
+<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;    <span class="keywordflow">for</span> entry <span class="keywordflow">in</span> os.listdir(basePath):</div>
+<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;        full_path = os.path.join(basePath, entry)</div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;        <span class="keywordflow">if</span> os.path.isdir(full_path):</div>
+<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;            <span class="keywordflow">if</span> entry.startswith(<span class="stringliteral">&quot;python&quot;</span>):</div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;                <span class="keywordflow">return</span> full_path</div>
+<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;    </div>
+<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;    <span class="keywordflow">raise</span> FileNotFoundError(</div>
+<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;        f<span class="stringliteral">&quot;Cannot find Python directory under {basePath}/pythonxx.xx&quot;</span></div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;    )</div>
+<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160; </div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160; </div>
+<div class="ttc" id="anamespacetool_html_af97e9e63a1ae8577bbe8865743d57b21"><div class="ttname"><a href="namespacetool.html#af97e9e63a1ae8577bbe8865743d57b21">tool.findPythonDir</a></div><div class="ttdeci">def findPythonDir(basePath)</div><div class="ttdoc">Get Python interpreter path 获取Python解释器路径</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00737">tool.py:737</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -701,7 +710,8 @@ Here is the caller graph for this function:</div>
 <area shape="rect" href="namespacechangeAnalyze.html#a9b577b97754fdc8097f5837944e9b010" title="Convert parameter string to positional and keyword parameter objects 将参数字符串转换为位置和关键字参数对象" alt="" coords="784,157,968,184"/>
 <area shape="rect" href="classLibApi_1_1APIOBJ.html#a6df461a3f6e2a6f292810db36212da14" title=" " alt="" coords="791,259,961,285"/>
 <area shape="rect" href="namespacepreprocess.html#a0b52460f33415186cee80896a65d8530" title="Code processing 代码预处理" alt="" coords="505,5,684,32"/>
-<area shape="rect" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数" alt="" coords="263,5,355,32"/>
+<area shape="rect" href="namespacemain.html#a54735b5e5f3ae5ec9c331c9117618719" title="Run PCART with an isolated workspace 在隔离工作区中运行PCART." alt="" coords="269,5,349,32"/>
+<area shape="rect" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数" alt="" coords="35,5,127,32"/>
 <area shape="rect" href="namespacemap.html#a266cf0061b59b701942899be9e9da28a" title="Dynamic mapping of API signatures API签名动态匹配" alt="" coords="519,56,670,83"/>
 <area shape="rect" href="namespacemap.html#a5b2e7c6bed22e3b899bde94558cde802" title="Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API与 ..." alt="" coords="257,56,362,83"/>
 <area shape="rect" href="namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件" alt="" coords="5,107,156,133"/>
@@ -777,7 +787,8 @@ Here is the caller graph for this function:</div>
 <area shape="rect" href="namespacerepair.html#a95d4c0f0b1ce623e902d7046f6e04ec2" title="Task of repairing parameter compatibility issues 参数兼容性问题修复任务" alt="" coords="813,275,944,301"/>
 <area shape="rect" href="namespacegetDef.html#a2b7a86e5e82c89da0c05d0a2659bd1c1" title="Shorten the API path based on init.py and import alias 通过解析__init__.py和import别名,把源码中的部分API路径缩短" alt="" coords="1052,325,1199,352"/>
 <area shape="rect" href="namespacepreprocess.html#a0b52460f33415186cee80896a65d8530" title="Code processing 代码预处理" alt="" coords="789,64,968,91"/>
-<area shape="rect" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数" alt="" coords="643,64,735,91"/>
+<area shape="rect" href="namespacemain.html#a54735b5e5f3ae5ec9c331c9117618719" title="Run PCART with an isolated workspace 在隔离工作区中运行PCART." alt="" coords="649,64,729,91"/>
+<area shape="rect" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数" alt="" coords="458,64,550,91"/>
 <area shape="rect" href="namespacemap.html#a266cf0061b59b701942899be9e9da28a" title="Dynamic mapping of API signatures API签名动态匹配" alt="" coords="803,173,954,200"/>
 <area shape="rect" href="namespacemap.html#a5b2e7c6bed22e3b899bde94558cde802" title="Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API与 ..." alt="" coords="636,173,741,200"/>
 <area shape="rect" href="namespacegetDef.html#a3f3b88c223a5bfa2254c656418dc9910" title="Extract class method definitions from a give class." alt="" coords="816,325,941,352"/>
@@ -858,7 +869,8 @@ Here is the caller graph for this function:</div>
 <area shape="rect" href="namespacerecordValue.html#a1b9b8095ea17c0ccc866619c441cf1fc" title="Save collected runtime values to pkl files 将收集到的运行时值保存到pkl文件" alt="" coords="747,208,908,235"/>
 <area shape="rect" href="namespacerepair.html#aff5b20e754e58c31c279ee7f818b7a6e" title="Dynamic validation 动态验证" alt="" coords="748,259,907,285"/>
 <area shape="rect" href="namespacepreprocess.html#a0b52460f33415186cee80896a65d8530" title="Code processing 代码预处理" alt="" coords="479,5,657,32"/>
-<area shape="rect" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数" alt="" coords="271,5,363,32"/>
+<area shape="rect" href="namespacemain.html#a54735b5e5f3ae5ec9c331c9117618719" title="Run PCART with an isolated workspace 在隔离工作区中运行PCART." alt="" coords="277,5,357,32"/>
+<area shape="rect" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数" alt="" coords="35,5,127,32"/>
 <area shape="rect" href="namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件" alt="" coords="5,119,156,145"/>
 <area shape="rect" href="namespacemap.html#a5b2e7c6bed22e3b899bde94558cde802" title="Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API与 ..." alt="" coords="265,119,370,145"/>
 <area shape="rect" href="namespacerepair.html#a95d4c0f0b1ce623e902d7046f6e04ec2" title="Task of repairing parameter compatibility issues 参数兼容性问题修复任务" alt="" coords="503,245,633,272"/>
@@ -993,25 +1005,26 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The .py filename, or '' </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="tool_8py_source.html#l00691">691</a> of file <a class="el" href="tool_8py_source.html">tool.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;<span class="keyword">def </span><a class="code" href="namespacetool.html#ae11019ef37390ec657efde69354884aa">getRunFile</a>(runCommand):</div>
-<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;    tokens=shlex.split(runCommand)</div>
-<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;    <span class="keywordflow">for</span> token <span class="keywordflow">in</span> tokens:</div>
-<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;        candidate=token.split(<span class="stringliteral">&#39;::&#39;</span>,1)[0]</div>
-<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;        <span class="keywordflow">if</span> candidate.endswith(<span class="stringliteral">&#39;.py&#39;</span>):</div>
-<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;            <span class="keywordflow">return</span> candidate</div>
-<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;    <span class="keywordflow">return</span> <span class="stringliteral">&#39;&#39;</span></div>
-<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160; </div>
-<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160; </div>
-<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160; </div>
-<div class="ttc" id="anamespacetool_html_ae11019ef37390ec657efde69354884aa"><div class="ttname"><a href="namespacetool.html#ae11019ef37390ec657efde69354884aa">tool.getRunFile</a></div><div class="ttdeci">def getRunFile(runCommand)</div><div class="ttdoc">Extract the .py script filename from a run command 从运行命令中提取.py脚本文件名</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00691">tool.py:691</a></div></div>
+<p class="definition">Definition at line <a class="el" href="tool_8py_source.html#l00722">722</a> of file <a class="el" href="tool_8py_source.html">tool.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;<span class="keyword">def </span><a class="code" href="namespacetool.html#ae11019ef37390ec657efde69354884aa">getRunFile</a>(runCommand):</div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;    tokens=shlex.split(runCommand)</div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;    <span class="keywordflow">for</span> token <span class="keywordflow">in</span> tokens:</div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;        candidate=token.split(<span class="stringliteral">&#39;::&#39;</span>,1)[0]</div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;        <span class="keywordflow">if</span> candidate.endswith(<span class="stringliteral">&#39;.py&#39;</span>):</div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;            <span class="keywordflow">return</span> candidate</div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;    <span class="keywordflow">return</span> <span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160; </div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160; </div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160; </div>
+<div class="ttc" id="anamespacetool_html_ae11019ef37390ec657efde69354884aa"><div class="ttname"><a href="namespacetool.html#ae11019ef37390ec657efde69354884aa">tool.getRunFile</a></div><div class="ttdeci">def getRunFile(runCommand)</div><div class="ttdoc">Extract the .py script filename from a run command 从运行命令中提取.py脚本文件名</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00722">tool.py:722</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacetool_ae11019ef37390ec657efde69354884aa_icgraph.png" border="0" usemap="#anamespacetool_ae11019ef37390ec657efde69354884aa_icgraph" alt=""/></div>
 <map name="anamespacetool_ae11019ef37390ec657efde69354884aa_icgraph" id="anamespacetool_ae11019ef37390ec657efde69354884aa_icgraph">
-<area shape="rect" title="Extract the .py script filename from a run command 从运行命令中提取.py脚本文件名" alt="" coords="372,5,463,32"/>
-<area shape="rect" href="namespacepreprocess.html#a0b52460f33415186cee80896a65d8530" title="Code processing 代码预处理" alt="" coords="145,5,324,32"/>
+<area shape="rect" title="Extract the .py script filename from a run command 从运行命令中提取.py脚本文件名" alt="" coords="500,5,591,32"/>
+<area shape="rect" href="namespacepreprocess.html#a0b52460f33415186cee80896a65d8530" title="Code processing 代码预处理" alt="" coords="273,5,452,32"/>
+<area shape="rect" href="namespacemain.html#a54735b5e5f3ae5ec9c331c9117618719" title="Run PCART with an isolated workspace 在隔离工作区中运行PCART." alt="" coords="145,5,225,32"/>
 <area shape="rect" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数" alt="" coords="5,5,97,32"/>
 </map>
 </div>
@@ -1044,28 +1057,28 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>(currentVersion, targetVersion, currentSourceCodePath, targetSourceCodePath) Tuple of current version, target version, virtual environment paths of current version and target version </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="tool_8py_source.html#l00758">758</a> of file <a class="el" href="tool_8py_source.html">tool.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;<span class="keyword">def </span><a class="code" href="namespacetool.html#a2321662f4efa237a44d89603ddb2ba1d">getSourceCodePath</a>(configPath):</div>
-<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;    <span class="keyword">with</span> open(f<span class="stringliteral">&quot;Configure/{configPath}&quot;</span>,<span class="stringliteral">&#39;r&#39;</span>,encoding=<span class="stringliteral">&#39;UTF-8&#39;</span>) <span class="keyword">as</span> fr:</div>
-<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;        dic=json.load(fr)</div>
-<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;    libName=dic[<span class="stringliteral">&#39;libName&#39;</span>]</div>
-<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;    currentVersion=dic[<span class="stringliteral">&#39;currentVersion&#39;</span>]</div>
-<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;    targetVersion=dic[<span class="stringliteral">&#39;targetVersion&#39;</span>]</div>
-<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;    currentEnvPath=dic[<span class="stringliteral">&#39;currentEnv&#39;</span>]</div>
-<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;    targetEnvPath=dic[<span class="stringliteral">&#39;targetEnv&#39;</span>]</div>
-<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;    </div>
-<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;    <span class="keywordflow">if</span> platform.system() == <span class="stringliteral">&#39;Windows&#39;</span>:</div>
-<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;        currentSourceCodePath=os.path.join(currentEnvPath, <span class="stringliteral">&quot;Lib&quot;</span>, <span class="stringliteral">&quot;site-packages&quot;</span>, libName)</div>
-<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;        targetSourceCodePath=os.path.join(targetEnvPath, <span class="stringliteral">&quot;Lib&quot;</span>, <span class="stringliteral">&quot;site-packages&quot;</span>, libName)</div>
-<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;    <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;        currentSourceCodePath=os.path.join(<a class="code" href="namespacetool.html#af97e9e63a1ae8577bbe8865743d57b21">findPythonDir</a>(os.path.join(currentEnvPath, <span class="stringliteral">&quot;lib&quot;</span>)), <span class="stringliteral">&quot;site-packages&quot;</span>, libName)</div>
-<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;        targetSourceCodePath=os.path.join(<a class="code" href="namespacetool.html#af97e9e63a1ae8577bbe8865743d57b21">findPythonDir</a>(os.path.join(targetEnvPath, <span class="stringliteral">&quot;lib&quot;</span>)), <span class="stringliteral">&quot;site-packages&quot;</span>, libName) </div>
-<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160; </div>
-<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;    <span class="keywordflow">return</span> currentVersion, targetVersion, currentSourceCodePath, targetSourceCodePath</div>
-<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160; </div>
-<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160; </div>
-<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160; </div>
-<div class="ttc" id="anamespacetool_html_a2321662f4efa237a44d89603ddb2ba1d"><div class="ttname"><a href="namespacetool.html#a2321662f4efa237a44d89603ddb2ba1d">tool.getSourceCodePath</a></div><div class="ttdeci">def getSourceCodePath(configPath)</div><div class="ttdoc">Get source code path of the lib 获取库源码路径</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00758">tool.py:758</a></div></div>
+<p class="definition">Definition at line <a class="el" href="tool_8py_source.html#l00789">789</a> of file <a class="el" href="tool_8py_source.html">tool.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;<span class="keyword">def </span><a class="code" href="namespacetool.html#a2321662f4efa237a44d89603ddb2ba1d">getSourceCodePath</a>(configPath):</div>
+<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;    <span class="keyword">with</span> open(f<span class="stringliteral">&quot;Configure/{configPath}&quot;</span>,<span class="stringliteral">&#39;r&#39;</span>,encoding=<span class="stringliteral">&#39;UTF-8&#39;</span>) <span class="keyword">as</span> fr:</div>
+<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;        dic=json.load(fr)</div>
+<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;    libName=dic[<span class="stringliteral">&#39;libName&#39;</span>]</div>
+<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;    currentVersion=dic[<span class="stringliteral">&#39;currentVersion&#39;</span>]</div>
+<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;    targetVersion=dic[<span class="stringliteral">&#39;targetVersion&#39;</span>]</div>
+<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;    currentEnvPath=dic[<span class="stringliteral">&#39;currentEnv&#39;</span>]</div>
+<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;    targetEnvPath=dic[<span class="stringliteral">&#39;targetEnv&#39;</span>]</div>
+<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;    </div>
+<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;    <span class="keywordflow">if</span> platform.system() == <span class="stringliteral">&#39;Windows&#39;</span>:</div>
+<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;        currentSourceCodePath=os.path.join(currentEnvPath, <span class="stringliteral">&quot;Lib&quot;</span>, <span class="stringliteral">&quot;site-packages&quot;</span>, libName)</div>
+<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;        targetSourceCodePath=os.path.join(targetEnvPath, <span class="stringliteral">&quot;Lib&quot;</span>, <span class="stringliteral">&quot;site-packages&quot;</span>, libName)</div>
+<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;        currentSourceCodePath=os.path.join(<a class="code" href="namespacetool.html#af97e9e63a1ae8577bbe8865743d57b21">findPythonDir</a>(os.path.join(currentEnvPath, <span class="stringliteral">&quot;lib&quot;</span>)), <span class="stringliteral">&quot;site-packages&quot;</span>, libName)</div>
+<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;        targetSourceCodePath=os.path.join(<a class="code" href="namespacetool.html#af97e9e63a1ae8577bbe8865743d57b21">findPythonDir</a>(os.path.join(targetEnvPath, <span class="stringliteral">&quot;lib&quot;</span>)), <span class="stringliteral">&quot;site-packages&quot;</span>, libName) </div>
+<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160; </div>
+<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;    <span class="keywordflow">return</span> currentVersion, targetVersion, currentSourceCodePath, targetSourceCodePath</div>
+<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160; </div>
+<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160; </div>
+<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160; </div>
+<div class="ttc" id="anamespacetool_html_a2321662f4efa237a44d89603ddb2ba1d"><div class="ttname"><a href="namespacetool.html#a2321662f4efa237a44d89603ddb2ba1d">tool.getSourceCodePath</a></div><div class="ttdeci">def getSourceCodePath(configPath)</div><div class="ttdoc">Get source code path of the lib 获取库源码路径</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00789">tool.py:789</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1198,13 +1211,13 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if command points to py launcher </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="tool_8py_source.html#l00587">587</a> of file <a class="el" href="tool_8py_source.html">tool.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;<span class="keyword">def </span><a class="code" href="namespacetool.html#ab9a41531acf14c5b655fb3cea3fbffc9">isPyLauncher</a>(command):</div>
-<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;    baseName=os.path.basename(command.replace(<span class="stringliteral">&#39;\\&#39;</span>,<span class="stringliteral">&#39;/&#39;</span>)).lower()</div>
-<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;    <span class="keywordflow">return</span> baseName <span class="keywordflow">in</span> (<span class="stringliteral">&#39;py&#39;</span>,<span class="stringliteral">&#39;py.exe&#39;</span>)</div>
-<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160; </div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160; </div>
-<div class="ttc" id="anamespacetool_html_ab9a41531acf14c5b655fb3cea3fbffc9"><div class="ttname"><a href="namespacetool.html#ab9a41531acf14c5b655fb3cea3fbffc9">tool.isPyLauncher</a></div><div class="ttdeci">def isPyLauncher(command)</div><div class="ttdoc">Check whether command is Windows py launcher 判断命令是否为Windows py启动器</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00587">tool.py:587</a></div></div>
+<p class="definition">Definition at line <a class="el" href="tool_8py_source.html#l00618">618</a> of file <a class="el" href="tool_8py_source.html">tool.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;<span class="keyword">def </span><a class="code" href="namespacetool.html#ab9a41531acf14c5b655fb3cea3fbffc9">isPyLauncher</a>(command):</div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;    baseName=os.path.basename(command.replace(<span class="stringliteral">&#39;\\&#39;</span>,<span class="stringliteral">&#39;/&#39;</span>)).lower()</div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;    <span class="keywordflow">return</span> baseName <span class="keywordflow">in</span> (<span class="stringliteral">&#39;py&#39;</span>,<span class="stringliteral">&#39;py.exe&#39;</span>)</div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160; </div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160; </div>
+<div class="ttc" id="anamespacetool_html_ab9a41531acf14c5b655fb3cea3fbffc9"><div class="ttname"><a href="namespacetool.html#ab9a41531acf14c5b655fb3cea3fbffc9">tool.isPyLauncher</a></div><div class="ttdeci">def isPyLauncher(command)</div><div class="ttdoc">Check whether command is Windows py launcher 判断命令是否为Windows py启动器</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00618">tool.py:618</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1215,7 +1228,8 @@ Here is the caller graph for this function:</div>
 <area shape="rect" href="namespacetool.html#a06834e8d522d907efbdb98ce689b85db" title="Build subprocess argv for project run command 为被测项目运行命令构造subprocess argv." alt="" coords="556,31,703,57"/>
 <area shape="rect" href="namespacemain.html#a37c97f0a13e2e95f6955d24042b98d4f" title="Generate pkl files and perform detection and repair task 生成项目调用API的pkl文件以及执行检测与修复任务" alt="" coords="371,5,494,32"/>
 <area shape="rect" href="namespacemap.html#a266cf0061b59b701942899be9e9da28a" title="Dynamic mapping of API signatures API签名动态匹配" alt="" coords="357,56,508,83"/>
-<area shape="rect" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数" alt="" coords="211,5,303,32"/>
+<area shape="rect" href="namespacemain.html#a54735b5e5f3ae5ec9c331c9117618719" title="Run PCART with an isolated workspace 在隔离工作区中运行PCART." alt="" coords="217,5,297,32"/>
+<area shape="rect" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数" alt="" coords="35,5,127,32"/>
 <area shape="rect" href="namespacemap.html#a5b2e7c6bed22e3b899bde94558cde802" title="Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API与 ..." alt="" coords="204,56,309,83"/>
 <area shape="rect" href="namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件" alt="" coords="5,56,156,83"/>
 </map>
@@ -1248,17 +1262,17 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if command points to Python executable </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="tool_8py_source.html#l00573">573</a> of file <a class="el" href="tool_8py_source.html">tool.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;<span class="keyword">def </span><a class="code" href="namespacetool.html#aead1b9bf1040d7b731555503ebc46c93">isPythonExecutable</a>(command):</div>
-<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;    baseName=os.path.basename(command.replace(<span class="stringliteral">&#39;\\&#39;</span>,<span class="stringliteral">&#39;/&#39;</span>)).lower()</div>
-<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;    <span class="keywordflow">if</span> baseName <span class="keywordflow">in</span> (<span class="stringliteral">&#39;python&#39;</span>,<span class="stringliteral">&#39;python.exe&#39;</span>):</div>
-<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">True</span></div>
-<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;    <span class="keywordflow">if</span> re.match(<span class="stringliteral">r&#39;^python3(\.\d+)?(\.exe)?$&#39;</span>,baseName):</div>
-<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">True</span></div>
-<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">False</span></div>
-<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160; </div>
-<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160; </div>
-<div class="ttc" id="anamespacetool_html_aead1b9bf1040d7b731555503ebc46c93"><div class="ttname"><a href="namespacetool.html#aead1b9bf1040d7b731555503ebc46c93">tool.isPythonExecutable</a></div><div class="ttdeci">def isPythonExecutable(command)</div><div class="ttdoc">Check whether command is a Python executable name/path 判断命令是否为Python解释器名称或路径</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00573">tool.py:573</a></div></div>
+<p class="definition">Definition at line <a class="el" href="tool_8py_source.html#l00604">604</a> of file <a class="el" href="tool_8py_source.html">tool.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;<span class="keyword">def </span><a class="code" href="namespacetool.html#aead1b9bf1040d7b731555503ebc46c93">isPythonExecutable</a>(command):</div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;    baseName=os.path.basename(command.replace(<span class="stringliteral">&#39;\\&#39;</span>,<span class="stringliteral">&#39;/&#39;</span>)).lower()</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;    <span class="keywordflow">if</span> baseName <span class="keywordflow">in</span> (<span class="stringliteral">&#39;python&#39;</span>,<span class="stringliteral">&#39;python.exe&#39;</span>):</div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">True</span></div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;    <span class="keywordflow">if</span> re.match(<span class="stringliteral">r&#39;^python3(\.\d+)?(\.exe)?$&#39;</span>,baseName):</div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">True</span></div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">False</span></div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160; </div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160; </div>
+<div class="ttc" id="anamespacetool_html_aead1b9bf1040d7b731555503ebc46c93"><div class="ttname"><a href="namespacetool.html#aead1b9bf1040d7b731555503ebc46c93">tool.isPythonExecutable</a></div><div class="ttdeci">def isPythonExecutable(command)</div><div class="ttdoc">Check whether command is a Python executable name/path 判断命令是否为Python解释器名称或路径</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00604">tool.py:604</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1269,7 +1283,8 @@ Here is the caller graph for this function:</div>
 <area shape="rect" href="namespacetool.html#a06834e8d522d907efbdb98ce689b85db" title="Build subprocess argv for project run command 为被测项目运行命令构造subprocess argv." alt="" coords="556,31,703,57"/>
 <area shape="rect" href="namespacemain.html#a37c97f0a13e2e95f6955d24042b98d4f" title="Generate pkl files and perform detection and repair task 生成项目调用API的pkl文件以及执行检测与修复任务" alt="" coords="371,5,494,32"/>
 <area shape="rect" href="namespacemap.html#a266cf0061b59b701942899be9e9da28a" title="Dynamic mapping of API signatures API签名动态匹配" alt="" coords="357,56,508,83"/>
-<area shape="rect" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数" alt="" coords="211,5,303,32"/>
+<area shape="rect" href="namespacemain.html#a54735b5e5f3ae5ec9c331c9117618719" title="Run PCART with an isolated workspace 在隔离工作区中运行PCART." alt="" coords="217,5,297,32"/>
+<area shape="rect" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数" alt="" coords="35,5,127,32"/>
 <area shape="rect" href="namespacemap.html#a5b2e7c6bed22e3b899bde94558cde802" title="Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API与 ..." alt="" coords="204,56,309,83"/>
 <area shape="rect" href="namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件" alt="" coords="5,56,156,83"/>
 </map>
@@ -1319,7 +1334,8 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacetool_ac27269fb0ca8635862c18bfe841deaae_icgraph.png" border="0" usemap="#anamespacetool_ac27269fb0ca8635862c18bfe841deaae_icgraph" alt=""/></div>
 <map name="anamespacetool_ac27269fb0ca8635862c18bfe841deaae_icgraph" id="anamespacetool_ac27269fb0ca8635862c18bfe841deaae_icgraph">
-<area shape="rect" title="Load PCART&#39;s configuration file 加载PCART配置文件" alt="" coords="145,5,236,32"/>
+<area shape="rect" title="Load PCART&#39;s configuration file 加载PCART配置文件" alt="" coords="273,5,364,32"/>
+<area shape="rect" href="namespacemain.html#a54735b5e5f3ae5ec9c331c9117618719" title="Run PCART with an isolated workspace 在隔离工作区中运行PCART." alt="" coords="145,5,225,32"/>
 <area shape="rect" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数" alt="" coords="5,5,97,32"/>
 </map>
 </div>
@@ -1352,32 +1368,32 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>(normalizedCommand, commandType) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="tool_8py_source.html#l00610">610</a> of file <a class="el" href="tool_8py_source.html">tool.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;<span class="keyword">def </span><a class="code" href="namespacetool.html#ad5f825eabcfb5ac3830d4c9650bb76e6">normalizeRunCommand</a>(runCommand):</div>
-<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;    tokens=shlex.split(runCommand)</div>
-<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> tokens:</div>
-<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;        <span class="keywordflow">return</span> runCommand,<span class="stringliteral">&#39;python&#39;</span></div>
-<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160; </div>
-<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;    <span class="comment"># 兼容未加引号的Windows Python路径，避免shlex处理反斜杠</span></div>
-<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;    simpleTokens=runCommand.split(maxsplit=1)</div>
-<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;    <span class="keywordflow">if</span> simpleTokens <span class="keywordflow">and</span> <a class="code" href="namespacetool.html#aead1b9bf1040d7b731555503ebc46c93">isPythonExecutable</a>(simpleTokens[0]):</div>
-<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;        rest=simpleTokens[1].lstrip() <span class="keywordflow">if</span> len(simpleTokens)&gt;1 <span class="keywordflow">else</span> <span class="stringliteral">&#39;&#39;</span></div>
-<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;        <span class="keywordflow">return</span> rest,<span class="stringliteral">&#39;python&#39;</span></div>
-<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;    <span class="keywordflow">if</span> simpleTokens <span class="keywordflow">and</span> <a class="code" href="namespacetool.html#ab9a41531acf14c5b655fb3cea3fbffc9">isPyLauncher</a>(simpleTokens[0]):</div>
-<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;        rest=simpleTokens[1].lstrip() <span class="keywordflow">if</span> len(simpleTokens)&gt;1 <span class="keywordflow">else</span> <span class="stringliteral">&#39;&#39;</span></div>
-<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;        restTokens=shlex.split(rest)</div>
-<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;        <span class="keywordflow">return</span> shlex.join(<a class="code" href="namespacetool.html#af39825f4655d189d682b08f602ca7784">stripPyLauncherOption</a>(restTokens)),<span class="stringliteral">&#39;python&#39;</span></div>
-<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160; </div>
-<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;    <span class="keywordflow">if</span> <a class="code" href="namespacetool.html#aead1b9bf1040d7b731555503ebc46c93">isPythonExecutable</a>(tokens[0]):</div>
-<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;        <span class="keywordflow">return</span> shlex.join(tokens[1:]),<span class="stringliteral">&#39;python&#39;</span></div>
-<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;    <span class="keywordflow">if</span> <a class="code" href="namespacetool.html#ab9a41531acf14c5b655fb3cea3fbffc9">isPyLauncher</a>(tokens[0]):</div>
-<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;        <span class="keywordflow">return</span> shlex.join(<a class="code" href="namespacetool.html#af39825f4655d189d682b08f602ca7784">stripPyLauncherOption</a>(tokens[1:])),<span class="stringliteral">&#39;python&#39;</span></div>
-<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;    <span class="keywordflow">if</span> tokens[0]==<span class="stringliteral">&#39;-m&#39;</span> <span class="keywordflow">or</span> tokens[0].endswith(<span class="stringliteral">&#39;.py&#39;</span>):</div>
-<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;        <span class="keywordflow">return</span> runCommand,<span class="stringliteral">&#39;python&#39;</span></div>
-<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;    <span class="keywordflow">return</span> runCommand,<span class="stringliteral">&#39;console&#39;</span></div>
-<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160; </div>
-<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160; </div>
-<div class="ttc" id="anamespacetool_html_af39825f4655d189d682b08f602ca7784"><div class="ttname"><a href="namespacetool.html#af39825f4655d189d682b08f602ca7784">tool.stripPyLauncherOption</a></div><div class="ttdeci">def stripPyLauncherOption(tokens)</div><div class="ttdoc">Remove version option after py launcher 去除py启动器后的版本选项</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00597">tool.py:597</a></div></div>
+<p class="definition">Definition at line <a class="el" href="tool_8py_source.html#l00641">641</a> of file <a class="el" href="tool_8py_source.html">tool.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;<span class="keyword">def </span><a class="code" href="namespacetool.html#ad5f825eabcfb5ac3830d4c9650bb76e6">normalizeRunCommand</a>(runCommand):</div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;    tokens=shlex.split(runCommand)</div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> tokens:</div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;        <span class="keywordflow">return</span> runCommand,<span class="stringliteral">&#39;python&#39;</span></div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160; </div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;    <span class="comment"># 兼容未加引号的Windows Python路径，避免shlex处理反斜杠</span></div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;    simpleTokens=runCommand.split(maxsplit=1)</div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;    <span class="keywordflow">if</span> simpleTokens <span class="keywordflow">and</span> <a class="code" href="namespacetool.html#aead1b9bf1040d7b731555503ebc46c93">isPythonExecutable</a>(simpleTokens[0]):</div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;        rest=simpleTokens[1].lstrip() <span class="keywordflow">if</span> len(simpleTokens)&gt;1 <span class="keywordflow">else</span> <span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;        <span class="keywordflow">return</span> rest,<span class="stringliteral">&#39;python&#39;</span></div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;    <span class="keywordflow">if</span> simpleTokens <span class="keywordflow">and</span> <a class="code" href="namespacetool.html#ab9a41531acf14c5b655fb3cea3fbffc9">isPyLauncher</a>(simpleTokens[0]):</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;        rest=simpleTokens[1].lstrip() <span class="keywordflow">if</span> len(simpleTokens)&gt;1 <span class="keywordflow">else</span> <span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;        restTokens=shlex.split(rest)</div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;        <span class="keywordflow">return</span> shlex.join(<a class="code" href="namespacetool.html#af39825f4655d189d682b08f602ca7784">stripPyLauncherOption</a>(restTokens)),<span class="stringliteral">&#39;python&#39;</span></div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160; </div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;    <span class="keywordflow">if</span> <a class="code" href="namespacetool.html#aead1b9bf1040d7b731555503ebc46c93">isPythonExecutable</a>(tokens[0]):</div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;        <span class="keywordflow">return</span> shlex.join(tokens[1:]),<span class="stringliteral">&#39;python&#39;</span></div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;    <span class="keywordflow">if</span> <a class="code" href="namespacetool.html#ab9a41531acf14c5b655fb3cea3fbffc9">isPyLauncher</a>(tokens[0]):</div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;        <span class="keywordflow">return</span> shlex.join(<a class="code" href="namespacetool.html#af39825f4655d189d682b08f602ca7784">stripPyLauncherOption</a>(tokens[1:])),<span class="stringliteral">&#39;python&#39;</span></div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;    <span class="keywordflow">if</span> tokens[0]==<span class="stringliteral">&#39;-m&#39;</span> <span class="keywordflow">or</span> tokens[0].endswith(<span class="stringliteral">&#39;.py&#39;</span>):</div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;        <span class="keywordflow">return</span> runCommand,<span class="stringliteral">&#39;python&#39;</span></div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;    <span class="keywordflow">return</span> runCommand,<span class="stringliteral">&#39;console&#39;</span></div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160; </div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160; </div>
+<div class="ttc" id="anamespacetool_html_af39825f4655d189d682b08f602ca7784"><div class="ttname"><a href="namespacetool.html#af39825f4655d189d682b08f602ca7784">tool.stripPyLauncherOption</a></div><div class="ttdeci">def stripPyLauncherOption(tokens)</div><div class="ttdoc">Remove version option after py launcher 去除py启动器后的版本选项</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00628">tool.py:628</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1398,7 +1414,8 @@ Here is the caller graph for this function:</div>
 <area shape="rect" href="namespacetool.html#a06834e8d522d907efbdb98ce689b85db" title="Build subprocess argv for project run command 为被测项目运行命令构造subprocess argv." alt="" coords="556,31,703,57"/>
 <area shape="rect" href="namespacemain.html#a37c97f0a13e2e95f6955d24042b98d4f" title="Generate pkl files and perform detection and repair task 生成项目调用API的pkl文件以及执行检测与修复任务" alt="" coords="371,5,494,32"/>
 <area shape="rect" href="namespacemap.html#a266cf0061b59b701942899be9e9da28a" title="Dynamic mapping of API signatures API签名动态匹配" alt="" coords="357,56,508,83"/>
-<area shape="rect" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数" alt="" coords="211,5,303,32"/>
+<area shape="rect" href="namespacemain.html#a54735b5e5f3ae5ec9c331c9117618719" title="Run PCART with an isolated workspace 在隔离工作区中运行PCART." alt="" coords="217,5,297,32"/>
+<area shape="rect" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数" alt="" coords="35,5,127,32"/>
 <area shape="rect" href="namespacemap.html#a5b2e7c6bed22e3b899bde94558cde802" title="Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API与 ..." alt="" coords="204,56,309,83"/>
 <area shape="rect" href="namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件" alt="" coords="5,56,156,83"/>
 </map>
@@ -1505,6 +1522,127 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a924419c52a2a18a8cbef3b0fb9bac5f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a924419c52a2a18a8cbef3b0fb9bac5f3">&#9670;&nbsp;</a></span>resolveConfigFilePath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def tool.resolveConfigFilePath </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>config</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>repoRoot</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Resolve PCART config file path 解析PCART配置文件路径 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">config</td><td>The config file path or config file name under Configure </td></tr>
+    <tr><td class="paramname">repoRoot</td><td>The PCART repository root path </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Absolute config file path </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="tool_8py_source.html#l00570">570</a> of file <a class="el" href="tool_8py_source.html">tool.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;<span class="keyword">def </span><a class="code" href="namespacetool.html#a924419c52a2a18a8cbef3b0fb9bac5f3">resolveConfigFilePath</a>(config,repoRoot):</div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;    <span class="keywordflow">if</span> os.path.isabs(config):</div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;        <span class="keywordflow">return</span> config</div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;    <span class="keywordflow">if</span> os.path.exists(config):</div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;        <span class="keywordflow">return</span> os.path.abspath(config)</div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;    <span class="keywordflow">return</span> os.path.join(repoRoot,<span class="stringliteral">&#39;Configure&#39;</span>,config)</div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160; </div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160; </div>
+<div class="ttc" id="anamespacetool_html_a924419c52a2a18a8cbef3b0fb9bac5f3"><div class="ttname"><a href="namespacetool.html#a924419c52a2a18a8cbef3b0fb9bac5f3">tool.resolveConfigFilePath</a></div><div class="ttdeci">def resolveConfigFilePath(config, repoRoot)</div><div class="ttdoc">Resolve PCART config file path 解析PCART配置文件路径</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00570">tool.py:570</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacetool_a924419c52a2a18a8cbef3b0fb9bac5f3_icgraph.png" border="0" usemap="#anamespacetool_a924419c52a2a18a8cbef3b0fb9bac5f3_icgraph" alt=""/></div>
+<map name="anamespacetool_a924419c52a2a18a8cbef3b0fb9bac5f3_icgraph" id="anamespacetool_a924419c52a2a18a8cbef3b0fb9bac5f3_icgraph">
+<area shape="rect" title="Resolve PCART config file path 解析PCART配置文件路径" alt="" coords="273,5,436,32"/>
+<area shape="rect" href="namespacemain.html#a54735b5e5f3ae5ec9c331c9117618719" title="Run PCART with an isolated workspace 在隔离工作区中运行PCART." alt="" coords="145,5,225,32"/>
+<area shape="rect" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数" alt="" coords="5,5,97,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a798f243de94474f63d3b1edeb8384a3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a798f243de94474f63d3b1edeb8384a3e">&#9670;&nbsp;</a></span>resolveConfigValuePath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def tool.resolveConfigValuePath </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>repoRoot</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>path</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Resolve path value loaded from PCART config 解析PCART配置字段中的路径值 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">repoRoot</td><td>The PCART repository root path </td></tr>
+    <tr><td class="paramname">path</td><td>The path value read from config </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Absolute path for relative values, original empty value otherwise </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="tool_8py_source.html#l00584">584</a> of file <a class="el" href="tool_8py_source.html">tool.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;<span class="keyword">def </span><a class="code" href="namespacetool.html#a798f243de94474f63d3b1edeb8384a3e">resolveConfigValuePath</a>(repoRoot,path):</div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> path:</div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;        <span class="keywordflow">return</span> path</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;    expanded=os.path.expanduser(path)</div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;    <span class="keywordflow">if</span> os.name==<span class="stringliteral">&#39;nt&#39;</span> <span class="keywordflow">and</span> expanded.startswith(<span class="stringliteral">&#39;/&#39;</span>) <span class="keywordflow">and</span> <span class="keywordflow">not</span> expanded.startswith(<span class="stringliteral">&#39;//&#39;</span>):</div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;        <span class="keywordflow">return</span> expanded</div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;    <span class="keywordflow">if</span> os.path.isabs(expanded):</div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;        <span class="keywordflow">return</span> os.path.abspath(expanded)</div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;    <span class="keywordflow">return</span> os.path.abspath(os.path.join(repoRoot,expanded))</div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160; </div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160; </div>
+<div class="ttc" id="anamespacetool_html_a798f243de94474f63d3b1edeb8384a3e"><div class="ttname"><a href="namespacetool.html#a798f243de94474f63d3b1edeb8384a3e">tool.resolveConfigValuePath</a></div><div class="ttdeci">def resolveConfigValuePath(repoRoot, path)</div><div class="ttdoc">Resolve path value loaded from PCART config 解析PCART配置字段中的路径值</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00584">tool.py:584</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacetool_a798f243de94474f63d3b1edeb8384a3e_icgraph.png" border="0" usemap="#anamespacetool_a798f243de94474f63d3b1edeb8384a3e_icgraph" alt=""/></div>
+<map name="anamespacetool_a798f243de94474f63d3b1edeb8384a3e_icgraph" id="anamespacetool_a798f243de94474f63d3b1edeb8384a3e_icgraph">
+<area shape="rect" title="Resolve path value loaded from PCART config 解析PCART配置字段中的路径值" alt="" coords="273,5,448,32"/>
+<area shape="rect" href="namespacemain.html#a54735b5e5f3ae5ec9c331c9117618719" title="Run PCART with an isolated workspace 在隔离工作区中运行PCART." alt="" coords="145,5,225,32"/>
+<area shape="rect" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数" alt="" coords="5,5,97,32"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a9a111bedf50d5fa9bbd67744ca605a9c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9a111bedf50d5fa9bbd67744ca605a9c">&#9670;&nbsp;</a></span>resolveConsoleExecutable()</h2>
 
@@ -1541,32 +1679,32 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>resolvedPath Path of the console executable </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="tool_8py_source.html#l00640">640</a> of file <a class="el" href="tool_8py_source.html">tool.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;<span class="keyword">def </span><a class="code" href="namespacetool.html#a9a111bedf50d5fa9bbd67744ca605a9c">resolveConsoleExecutable</a>(envPath,commandName):</div>
-<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;    normalizedEnvPath=os.path.abspath(envPath)</div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;    candidates=[]</div>
-<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;    <span class="keywordflow">if</span> platform.system()==<span class="stringliteral">&#39;Windows&#39;</span>:</div>
-<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;        scriptsPath=os.path.join(normalizedEnvPath,<span class="stringliteral">&#39;Scripts&#39;</span>)</div>
-<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;        candidates.extend([</div>
-<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;            os.path.join(scriptsPath,commandName),</div>
-<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;            os.path.join(scriptsPath,commandName+<span class="stringliteral">&#39;.exe&#39;</span>),</div>
-<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;            os.path.join(scriptsPath,commandName+<span class="stringliteral">&#39;.cmd&#39;</span>),</div>
-<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;            os.path.join(scriptsPath,commandName+<span class="stringliteral">&#39;.bat&#39;</span>),</div>
-<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;        ])</div>
-<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;    <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;        candidates.append(os.path.join(normalizedEnvPath,<span class="stringliteral">&#39;bin&#39;</span>,commandName))</div>
-<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160; </div>
-<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;    <span class="keywordflow">for</span> candidate <span class="keywordflow">in</span> candidates:</div>
-<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;        <span class="keywordflow">if</span> os.path.exists(candidate):</div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;            <span class="keywordflow">return</span> candidate</div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160; </div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;    candidateStr=<span class="stringliteral">&#39;, &#39;</span>.join(candidates)</div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;    <span class="keywordflow">raise</span> FileNotFoundError(</div>
-<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;        f<span class="stringliteral">&quot;Cannot find console command &#39;{commandName}&#39; under virtual &quot;</span></div>
-<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;        f<span class="stringliteral">&quot;environment root: {normalizedEnvPath}. Tried: {candidateStr}&quot;</span></div>
-<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;    )</div>
-<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160; </div>
-<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="tool_8py_source.html#l00671">671</a> of file <a class="el" href="tool_8py_source.html">tool.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;<span class="keyword">def </span><a class="code" href="namespacetool.html#a9a111bedf50d5fa9bbd67744ca605a9c">resolveConsoleExecutable</a>(envPath,commandName):</div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;    normalizedEnvPath=os.path.abspath(envPath)</div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;    candidates=[]</div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;    <span class="keywordflow">if</span> platform.system()==<span class="stringliteral">&#39;Windows&#39;</span>:</div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;        scriptsPath=os.path.join(normalizedEnvPath,<span class="stringliteral">&#39;Scripts&#39;</span>)</div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;        candidates.extend([</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;            os.path.join(scriptsPath,commandName),</div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;            os.path.join(scriptsPath,commandName+<span class="stringliteral">&#39;.exe&#39;</span>),</div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;            os.path.join(scriptsPath,commandName+<span class="stringliteral">&#39;.cmd&#39;</span>),</div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;            os.path.join(scriptsPath,commandName+<span class="stringliteral">&#39;.bat&#39;</span>),</div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;        ])</div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;        candidates.append(os.path.join(normalizedEnvPath,<span class="stringliteral">&#39;bin&#39;</span>,commandName))</div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160; </div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;    <span class="keywordflow">for</span> candidate <span class="keywordflow">in</span> candidates:</div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;        <span class="keywordflow">if</span> os.path.exists(candidate):</div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;            <span class="keywordflow">return</span> candidate</div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160; </div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;    candidateStr=<span class="stringliteral">&#39;, &#39;</span>.join(candidates)</div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;    <span class="keywordflow">raise</span> FileNotFoundError(</div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;        f<span class="stringliteral">&quot;Cannot find console command &#39;{commandName}&#39; under virtual &quot;</span></div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;        f<span class="stringliteral">&quot;environment root: {normalizedEnvPath}. Tried: {candidateStr}&quot;</span></div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;    )</div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160; </div>
+<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160; </div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1576,7 +1714,8 @@ Here is the caller graph for this function:</div>
 <area shape="rect" href="namespacetool.html#a06834e8d522d907efbdb98ce689b85db" title="Build subprocess argv for project run command 为被测项目运行命令构造subprocess argv." alt="" coords="556,31,703,57"/>
 <area shape="rect" href="namespacemain.html#a37c97f0a13e2e95f6955d24042b98d4f" title="Generate pkl files and perform detection and repair task 生成项目调用API的pkl文件以及执行检测与修复任务" alt="" coords="371,5,494,32"/>
 <area shape="rect" href="namespacemap.html#a266cf0061b59b701942899be9e9da28a" title="Dynamic mapping of API signatures API签名动态匹配" alt="" coords="357,56,508,83"/>
-<area shape="rect" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数" alt="" coords="211,5,303,32"/>
+<area shape="rect" href="namespacemain.html#a54735b5e5f3ae5ec9c331c9117618719" title="Run PCART with an isolated workspace 在隔离工作区中运行PCART." alt="" coords="217,5,297,32"/>
+<area shape="rect" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数" alt="" coords="35,5,127,32"/>
 <area shape="rect" href="namespacemap.html#a5b2e7c6bed22e3b899bde94558cde802" title="Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API与 ..." alt="" coords="204,56,309,83"/>
 <area shape="rect" href="namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件" alt="" coords="5,56,156,83"/>
 </map>
@@ -1609,30 +1748,30 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>resolvedPath Absolute path of the Python executable </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="tool_8py_source.html#l00728">728</a> of file <a class="el" href="tool_8py_source.html">tool.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;<span class="keyword">def </span><a class="code" href="namespacetool.html#acddd4e80b12bc317097d9b6da7afaa48">resolvePythonExecutable</a>(envPath):</div>
-<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;    normalizedEnvPath = os.path.abspath(envPath)</div>
-<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;    <span class="keywordflow">if</span> platform.system() == <span class="stringliteral">&#39;Windows&#39;</span>:</div>
-<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;        candidates = [</div>
-<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;            os.path.join(normalizedEnvPath, <span class="stringliteral">&#39;python.exe&#39;</span>),</div>
-<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;            os.path.join(normalizedEnvPath, <span class="stringliteral">&#39;Scripts&#39;</span>, <span class="stringliteral">&#39;python.exe&#39;</span>),</div>
-<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;        ]</div>
-<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;    <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;        candidates = [</div>
-<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;            os.path.join(normalizedEnvPath, <span class="stringliteral">&#39;bin&#39;</span>, <span class="stringliteral">&#39;python&#39;</span>),</div>
-<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;        ]</div>
-<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160; </div>
-<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;    <span class="keywordflow">for</span> candidate <span class="keywordflow">in</span> candidates:</div>
-<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;        <span class="keywordflow">if</span> os.path.exists(candidate):</div>
-<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;            <span class="keywordflow">return</span> candidate</div>
-<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160; </div>
-<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;    candidate_str = <span class="stringliteral">&#39;, &#39;</span>.join(candidates)</div>
-<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;    <span class="keywordflow">raise</span> FileNotFoundError(</div>
-<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;        f<span class="stringliteral">&quot;Cannot find Python executable under virtual environment root: &quot;</span></div>
-<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;        f<span class="stringliteral">&quot;{normalizedEnvPath}. Tried: {candidate_str}&quot;</span></div>
-<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;    )</div>
-<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160; </div>
-<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="tool_8py_source.html#l00759">759</a> of file <a class="el" href="tool_8py_source.html">tool.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;<span class="keyword">def </span><a class="code" href="namespacetool.html#acddd4e80b12bc317097d9b6da7afaa48">resolvePythonExecutable</a>(envPath):</div>
+<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;    normalizedEnvPath = os.path.abspath(envPath)</div>
+<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;    <span class="keywordflow">if</span> platform.system() == <span class="stringliteral">&#39;Windows&#39;</span>:</div>
+<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;        candidates = [</div>
+<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;            os.path.join(normalizedEnvPath, <span class="stringliteral">&#39;python.exe&#39;</span>),</div>
+<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;            os.path.join(normalizedEnvPath, <span class="stringliteral">&#39;Scripts&#39;</span>, <span class="stringliteral">&#39;python.exe&#39;</span>),</div>
+<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;        ]</div>
+<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;        candidates = [</div>
+<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;            os.path.join(normalizedEnvPath, <span class="stringliteral">&#39;bin&#39;</span>, <span class="stringliteral">&#39;python&#39;</span>),</div>
+<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;        ]</div>
+<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160; </div>
+<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;    <span class="keywordflow">for</span> candidate <span class="keywordflow">in</span> candidates:</div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;        <span class="keywordflow">if</span> os.path.exists(candidate):</div>
+<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;            <span class="keywordflow">return</span> candidate</div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160; </div>
+<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;    candidate_str = <span class="stringliteral">&#39;, &#39;</span>.join(candidates)</div>
+<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;    <span class="keywordflow">raise</span> FileNotFoundError(</div>
+<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;        f<span class="stringliteral">&quot;Cannot find Python executable under virtual environment root: &quot;</span></div>
+<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;        f<span class="stringliteral">&quot;{normalizedEnvPath}. Tried: {candidate_str}&quot;</span></div>
+<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;    )</div>
+<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160; </div>
+<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160; </div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1640,14 +1779,15 @@ Here is the caller graph for this function:</div>
 <map name="anamespacetool_acddd4e80b12bc317097d9b6da7afaa48_icgraph" id="anamespacetool_acddd4e80b12bc317097d9b6da7afaa48_icgraph">
 <area shape="rect" title="Resolve Python executable from a virtual environment root 从虚拟环境根目录解析 Python 解释器路径" alt="" coords="884,81,1071,108"/>
 <area shape="rect" href="namespacechangeAnalyze.html#a9c5ff1362604c3cd3c580b52c36162f0" title="Add values stored by pkl file for API parameters 为API参数添加保存至pkl文件中的值" alt="" coords="204,5,431,32"/>
-<area shape="rect" href="namespacetool.html#a06834e8d522d907efbdb98ce689b85db" title="Build subprocess argv for project run command 为被测项目运行命令构造subprocess argv." alt="" coords="683,56,830,83"/>
+<area shape="rect" href="namespacetool.html#a06834e8d522d907efbdb98ce689b85db" title="Build subprocess argv for project run command 为被测项目运行命令构造subprocess argv." alt="" coords="683,157,830,184"/>
 <area shape="rect" href="namespacemap.html#a266cf0061b59b701942899be9e9da28a" title="Dynamic mapping of API signatures API签名动态匹配" alt="" coords="479,107,629,133"/>
-<area shape="rect" href="namespacerepair.html#aff5b20e754e58c31c279ee7f818b7a6e" title="Dynamic validation 动态验证" alt="" coords="677,157,836,184"/>
-<area shape="rect" href="namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件" alt="" coords="5,107,156,133"/>
-<area shape="rect" href="namespacemain.html#a37c97f0a13e2e95f6955d24042b98d4f" title="Generate pkl files and perform detection and repair task 生成项目调用API的pkl文件以及执行检测与修复任务" alt="" coords="493,56,615,83"/>
-<area shape="rect" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数" alt="" coords="271,56,363,83"/>
+<area shape="rect" href="namespacerepair.html#aff5b20e754e58c31c279ee7f818b7a6e" title="Dynamic validation 动态验证" alt="" coords="677,56,836,83"/>
+<area shape="rect" href="namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件" alt="" coords="5,56,156,83"/>
+<area shape="rect" href="namespacemain.html#a37c97f0a13e2e95f6955d24042b98d4f" title="Generate pkl files and perform detection and repair task 生成项目调用API的pkl文件以及执行检测与修复任务" alt="" coords="493,157,615,184"/>
+<area shape="rect" href="namespacemain.html#a54735b5e5f3ae5ec9c331c9117618719" title="Run PCART with an isolated workspace 在隔离工作区中运行PCART." alt="" coords="277,157,357,184"/>
+<area shape="rect" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数" alt="" coords="35,157,127,184"/>
 <area shape="rect" href="namespacemap.html#a5b2e7c6bed22e3b899bde94558cde802" title="Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API与 ..." alt="" coords="265,107,370,133"/>
-<area shape="rect" href="namespacerepair.html#a95d4c0f0b1ce623e902d7046f6e04ec2" title="Task of repairing parameter compatibility issues 参数兼容性问题修复任务" alt="" coords="489,157,619,184"/>
+<area shape="rect" href="namespacerepair.html#a95d4c0f0b1ce623e902d7046f6e04ec2" title="Task of repairing parameter compatibility issues 参数兼容性问题修复任务" alt="" coords="489,56,619,83"/>
 </map>
 </div>
 
@@ -1807,8 +1947,9 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacetool_a0c884e031b8683fe57a2fc6e9f321b2b_icgraph.png" border="0" usemap="#anamespacetool_a0c884e031b8683fe57a2fc6e9f321b2b_icgraph" alt=""/></div>
 <map name="anamespacetool_a0c884e031b8683fe57a2fc6e9f321b2b_icgraph" id="anamespacetool_a0c884e031b8683fe57a2fc6e9f321b2b_icgraph">
-<area shape="rect" title="Save PCART report 保存PCART报告" alt="" coords="316,5,395,32"/>
-<area shape="rect" href="namespacemain.html#a37c97f0a13e2e95f6955d24042b98d4f" title="Generate pkl files and perform detection and repair task 生成项目调用API的pkl文件以及执行检测与修复任务" alt="" coords="145,5,268,32"/>
+<area shape="rect" title="Save PCART report 保存PCART报告" alt="" coords="444,5,523,32"/>
+<area shape="rect" href="namespacemain.html#a37c97f0a13e2e95f6955d24042b98d4f" title="Generate pkl files and perform detection and repair task 生成项目调用API的pkl文件以及执行检测与修复任务" alt="" coords="273,5,396,32"/>
+<area shape="rect" href="namespacemain.html#a54735b5e5f3ae5ec9c331c9117618719" title="Run PCART with an isolated workspace 在隔离工作区中运行PCART." alt="" coords="145,5,225,32"/>
 <area shape="rect" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数" alt="" coords="5,5,97,32"/>
 </map>
 </div>
@@ -1840,13 +1981,13 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Tokens without version selector </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="tool_8py_source.html#l00597">597</a> of file <a class="el" href="tool_8py_source.html">tool.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;<span class="keyword">def </span><a class="code" href="namespacetool.html#af39825f4655d189d682b08f602ca7784">stripPyLauncherOption</a>(tokens):</div>
-<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;    <span class="keywordflow">if</span> tokens <span class="keywordflow">and</span> re.match(<span class="stringliteral">r&#39;^-\d(\.\d+)?(-\d+)?$&#39;</span>,tokens[0]):</div>
-<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;        <span class="keywordflow">return</span> tokens[1:]</div>
-<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;    <span class="keywordflow">return</span> tokens</div>
-<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160; </div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="tool_8py_source.html#l00628">628</a> of file <a class="el" href="tool_8py_source.html">tool.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;<span class="keyword">def </span><a class="code" href="namespacetool.html#af39825f4655d189d682b08f602ca7784">stripPyLauncherOption</a>(tokens):</div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;    <span class="keywordflow">if</span> tokens <span class="keywordflow">and</span> re.match(<span class="stringliteral">r&#39;^-\d(\.\d+)?(-\d+)?$&#39;</span>,tokens[0]):</div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;        <span class="keywordflow">return</span> tokens[1:]</div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;    <span class="keywordflow">return</span> tokens</div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160; </div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160; </div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1857,7 +1998,8 @@ Here is the caller graph for this function:</div>
 <area shape="rect" href="namespacetool.html#a06834e8d522d907efbdb98ce689b85db" title="Build subprocess argv for project run command 为被测项目运行命令构造subprocess argv." alt="" coords="556,31,703,57"/>
 <area shape="rect" href="namespacemain.html#a37c97f0a13e2e95f6955d24042b98d4f" title="Generate pkl files and perform detection and repair task 生成项目调用API的pkl文件以及执行检测与修复任务" alt="" coords="371,5,494,32"/>
 <area shape="rect" href="namespacemap.html#a266cf0061b59b701942899be9e9da28a" title="Dynamic mapping of API signatures API签名动态匹配" alt="" coords="357,56,508,83"/>
-<area shape="rect" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数" alt="" coords="211,5,303,32"/>
+<area shape="rect" href="namespacemain.html#a54735b5e5f3ae5ec9c331c9117618719" title="Run PCART with an isolated workspace 在隔离工作区中运行PCART." alt="" coords="217,5,297,32"/>
+<area shape="rect" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数" alt="" coords="35,5,127,32"/>
 <area shape="rect" href="namespacemap.html#a5b2e7c6bed22e3b899bde94558cde802" title="Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API与 ..." alt="" coords="204,56,309,83"/>
 <area shape="rect" href="namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件" alt="" coords="5,56,156,83"/>
 </map>
@@ -1933,9 +2075,10 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacetool_a89e3ba62412c41551693e80ced2dc88c_icgraph.png" border="0" usemap="#anamespacetool_a89e3ba62412c41551693e80ced2dc88c_icgraph" alt=""/></div>
 <map name="anamespacetool_a89e3ba62412c41551693e80ced2dc88c_icgraph" id="anamespacetool_a89e3ba62412c41551693e80ced2dc88c_icgraph">
-<area shape="rect" title="Format output 格式化输出" alt="" coords="443,5,525,32"/>
-<area shape="rect" href="namespacetool.html#a0c884e031b8683fe57a2fc6e9f321b2b" title="Save PCART report 保存PCART报告" alt="" coords="316,5,395,32"/>
-<area shape="rect" href="namespacemain.html#a37c97f0a13e2e95f6955d24042b98d4f" title="Generate pkl files and perform detection and repair task 生成项目调用API的pkl文件以及执行检测与修复任务" alt="" coords="145,5,268,32"/>
+<area shape="rect" title="Format output 格式化输出" alt="" coords="571,5,653,32"/>
+<area shape="rect" href="namespacetool.html#a0c884e031b8683fe57a2fc6e9f321b2b" title="Save PCART report 保存PCART报告" alt="" coords="444,5,523,32"/>
+<area shape="rect" href="namespacemain.html#a37c97f0a13e2e95f6955d24042b98d4f" title="Generate pkl files and perform detection and repair task 生成项目调用API的pkl文件以及执行检测与修复任务" alt="" coords="273,5,396,32"/>
+<area shape="rect" href="namespacemain.html#a54735b5e5f3ae5ec9c331c9117618719" title="Run PCART with an isolated workspace 在隔离工作区中运行PCART." alt="" coords="145,5,225,32"/>
 <area shape="rect" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数" alt="" coords="5,5,97,32"/>
 </map>
 </div>

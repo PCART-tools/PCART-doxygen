@@ -1,0 +1,5 @@
+<map id="createRunWorkspace" name="createRunWorkspace">
+<area shape="rect" id="node1" title="Create an isolated workspace for one PCART run command 为一次PCART运行命令创建隔离工作区" alt="" coords="5,31,164,57"/>
+<area shape="rect" id="node2" href="$namespaceworkspace.html#a46da2a5c9f862cc9c976c155bb91dc27" title="Convert project path/name to a filesystem&#45;safe slug 将项目路径或项目名转换为可作为目录名使用的slug." alt="" coords="212,5,361,32"/>
+<area shape="rect" id="node3" href="$namespaceworkspace.html#ac38101f78c013e4d49db5d01b00d33ed" title="Write workspace metadata 写入运行工作区元数据" alt="" coords="228,56,345,83"/>
+</map>

@@ -931,120 +931,126 @@ $(function() {
 <div class="line"><a name="l00987"></a><span class="lineno">  987</span>&#160; </div>
 <div class="line"><a name="l00988"></a><span class="lineno">  988</span>&#160; </div>
 <div class="line"><a name="l00989"></a><span class="lineno">  989</span>&#160; </div>
-<div class="line"><a name="l01002"></a><span class="lineno"><a class="line" href="namespacepreprocess.html#a0b52460f33415186cee80896a65d8530"> 1002</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespacepreprocess.html#a0b52460f33415186cee80896a65d8530">codeProcess</a>(projPath,runCommand,runPath,libName):</div>
-<div class="line"><a name="l01003"></a><span class="lineno"> 1003</span>&#160;    <span class="comment">#提取运行的文件</span></div>
-<div class="line"><a name="l01004"></a><span class="lineno"> 1004</span>&#160;    runFileLst=[]</div>
-<div class="line"><a name="l01005"></a><span class="lineno"> 1005</span>&#160;    runFile=<a class="code" href="namespacetool.html#ae11019ef37390ec657efde69354884aa">getRunFile</a>(runCommand)</div>
-<div class="line"><a name="l01006"></a><span class="lineno"> 1006</span>&#160;    prefix=<span class="stringliteral">&#39;&#39;</span> <span class="comment">#运行文件所在的目录，默认是在项目的一级子目录下</span></div>
-<div class="line"><a name="l01007"></a><span class="lineno"> 1007</span>&#160;    <span class="comment"># if &#39;/&#39; in runFile:</span></div>
-<div class="line"><a name="l01008"></a><span class="lineno"> 1008</span>&#160;    <span class="keywordflow">if</span> runFile <span class="keywordflow">and</span> (<span class="stringliteral">&#39;/&#39;</span> <span class="keywordflow">in</span> runFile <span class="keywordflow">or</span> <span class="stringliteral">&#39;\\&#39;</span> <span class="keywordflow">in</span> runFile):</div>
-<div class="line"><a name="l01009"></a><span class="lineno"> 1009</span>&#160;        <span class="comment"># prefix=runFile.rsplit(&#39;/&#39;,1)[0]</span></div>
-<div class="line"><a name="l01010"></a><span class="lineno"> 1010</span>&#160;        prefix = os.path.dirname(runFile)</div>
-<div class="line"><a name="l01011"></a><span class="lineno"> 1011</span>&#160;        <span class="comment"># runFile=runFile.rsplit(&#39;/&#39;,1)[1] #去掉路径前缀，只保留文件名即run.py</span></div>
-<div class="line"><a name="l01012"></a><span class="lineno"> 1012</span>&#160;        runFile = os.path.basename(runFile)</div>
-<div class="line"><a name="l01013"></a><span class="lineno"> 1013</span>&#160;    <span class="keywordflow">if</span> runFile:</div>
-<div class="line"><a name="l01014"></a><span class="lineno"> 1014</span>&#160;        runFileLst.append(runFile)</div>
-<div class="line"><a name="l01015"></a><span class="lineno"> 1015</span>&#160;    <span class="comment">#这种情况针对于python run.py, run.py在其它目录中比如src，则prefix就是src </span></div>
-<div class="line"><a name="l01016"></a><span class="lineno"> 1016</span>&#160;    <span class="comment">#若是python src/run.py, 则prexfix和runPath是一致的</span></div>
-<div class="line"><a name="l01017"></a><span class="lineno"> 1017</span>&#160;    <span class="keywordflow">if</span> runPath!=<span class="stringliteral">&#39;&#39;</span> <span class="keywordflow">and</span> prefix!=runPath:</div>
-<div class="line"><a name="l01018"></a><span class="lineno"> 1018</span>&#160;        prefix=runPath</div>
-<div class="line"><a name="l01019"></a><span class="lineno"> 1019</span>&#160;    <span class="comment"># projName=projPath.split(&#39;/&#39;)[-1]</span></div>
-<div class="line"><a name="l01020"></a><span class="lineno"> 1020</span>&#160;    projName = os.path.basename(projPath)</div>
-<div class="line"><a name="l01021"></a><span class="lineno"> 1021</span>&#160;    copyProjPath=f<span class="stringliteral">&quot;Copy/{projName}&quot;</span></div>
-<div class="line"><a name="l01022"></a><span class="lineno"> 1022</span>&#160;    importStatement=<span class="stringliteral">&#39;&#39;</span></div>
-<div class="line"><a name="l01023"></a><span class="lineno"> 1023</span>&#160;    <span class="keywordflow">for</span> it <span class="keywordflow">in</span> runFileLst:</div>
-<div class="line"><a name="l01024"></a><span class="lineno"> 1024</span>&#160;        <span class="comment"># it=it.rstrip(&#39;.py&#39;) #把文件名中的后缀去掉，但遇到display.py会变成displa</span></div>
-<div class="line"><a name="l01025"></a><span class="lineno"> 1025</span>&#160;        it=it[0:-3]</div>
-<div class="line"><a name="l01026"></a><span class="lineno"> 1026</span>&#160;        importStatement+=f<span class="stringliteral">&quot;from {it} import *\n&quot;</span></div>
-<div class="line"><a name="l01027"></a><span class="lineno"> 1027</span>&#160; </div>
-<div class="line"><a name="l01028"></a><span class="lineno"> 1028</span>&#160; </div>
-<div class="line"><a name="l01029"></a><span class="lineno"> 1029</span>&#160;    <span class="comment">#找出项目中所有和第三方库相关的import语句</span></div>
-<div class="line"><a name="l01030"></a><span class="lineno"> 1030</span>&#160;    libImportLst=<a class="code" href="namespacepreprocess.html#a79af2a91a7fa51e11b82e40207c48957">getLibImportLst</a>(projPath,libName)</div>
-<div class="line"><a name="l01031"></a><span class="lineno"> 1031</span>&#160;    libImportLst.append(importStatement) </div>
-<div class="line"><a name="l01032"></a><span class="lineno"> 1032</span>&#160; </div>
-<div class="line"><a name="l01033"></a><span class="lineno"> 1033</span>&#160;    <span class="comment">#清除Copy和Dynamic中遗留的项目信息，然后把新项目的信息拷贝进去</span></div>
-<div class="line"><a name="l01034"></a><span class="lineno"> 1034</span>&#160;    <span class="comment"># print(projPath)</span></div>
-<div class="line"><a name="l01035"></a><span class="lineno"> 1035</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isdir(<span class="stringliteral">&#39;Copy&#39;</span>):</div>
-<div class="line"><a name="l01036"></a><span class="lineno"> 1036</span>&#160;        os.mkdir(<span class="stringliteral">&#39;Copy&#39;</span>) </div>
-<div class="line"><a name="l01037"></a><span class="lineno"> 1037</span>&#160;    shutil.rmtree(<span class="stringliteral">&#39;Copy&#39;</span>)</div>
-<div class="line"><a name="l01038"></a><span class="lineno"> 1038</span>&#160;    shutil.copytree(projPath,f<span class="stringliteral">&#39;Copy/{projName}&#39;</span>,ignore=ignore_sym_links)</div>
-<div class="line"><a name="l01039"></a><span class="lineno"> 1039</span>&#160;    os.mkdir(<span class="stringliteral">&#39;Copy/pkl&#39;</span>)</div>
-<div class="line"><a name="l01040"></a><span class="lineno"> 1040</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isdir(<span class="stringliteral">&#39;Dynamic&#39;</span>):</div>
-<div class="line"><a name="l01041"></a><span class="lineno"> 1041</span>&#160;        os.mkdir(<span class="stringliteral">&#39;Dynamic&#39;</span>) </div>
-<div class="line"><a name="l01042"></a><span class="lineno"> 1042</span>&#160;    shutil.rmtree(<span class="stringliteral">&#39;Dynamic&#39;</span>)</div>
-<div class="line"><a name="l01043"></a><span class="lineno"> 1043</span>&#160;    shutil.copytree(projPath,f<span class="stringliteral">&#39;Dynamic/{projName}&#39;</span>,ignore=ignore_sym_links)</div>
-<div class="line"><a name="l01044"></a><span class="lineno"> 1044</span>&#160;    </div>
-<div class="line"><a name="l01045"></a><span class="lineno"> 1045</span>&#160;    <span class="comment">#去掉项目代码中的冗余信息，仅保存项目代码的结构信息（import,functionDef, classDef）</span></div>
-<div class="line"><a name="l01046"></a><span class="lineno"> 1046</span>&#160;    <a class="code" href="namespacepreprocess.html#af67fd0a454bad0ef82391bf1d745b87f">saveStructure</a>(f<span class="stringliteral">&#39;Dynamic/{projName}&#39;</span>,libName) </div>
-<div class="line"><a name="l01047"></a><span class="lineno"> 1047</span>&#160;    </div>
-<div class="line"><a name="l01048"></a><span class="lineno"> 1048</span>&#160;    shutil.copy2(<span class="stringliteral">&#39;Script/addValueForAPI.py&#39;</span>,f<span class="stringliteral">&#39;Dynamic/{projName}/{prefix}&#39;</span>)</div>
-<div class="line"><a name="l01049"></a><span class="lineno"> 1049</span>&#160;    shutil.copy2(<span class="stringliteral">&#39;Script/codeUtils.py&#39;</span>,f<span class="stringliteral">&#39;Dynamic/{projName}/{prefix}&#39;</span>)</div>
-<div class="line"><a name="l01050"></a><span class="lineno"> 1050</span>&#160;    shutil.copy2(<span class="stringliteral">&#39;Script/dynamicMatch.py&#39;</span>,f<span class="stringliteral">&#39;Dynamic/{projName}/{prefix}&#39;</span>)</div>
-<div class="line"><a name="l01051"></a><span class="lineno"> 1051</span>&#160;    shutil.copy2(<span class="stringliteral">&#39;Script/verifySingle.py&#39;</span>,f<span class="stringliteral">&#39;Dynamic/{projName}/{prefix}&#39;</span>)</div>
-<div class="line"><a name="l01052"></a><span class="lineno"> 1052</span>&#160;    </div>
-<div class="line"><a name="l01053"></a><span class="lineno"> 1053</span>&#160;    <span class="comment">#更新脚本中的from ... import ...语句,因为加载pkl的时候需要依赖于项目的结构信息</span></div>
-<div class="line"><a name="l01054"></a><span class="lineno"> 1054</span>&#160;    <a class="code" href="namespacepreprocess.html#ac314c05ac2de819eb7e15c9a091beb5d">modifyFromImport</a>(f<span class="stringliteral">&#39;Dynamic/{projName}/{prefix}/addValueForAPI.py&#39;</span>,libImportLst)</div>
-<div class="line"><a name="l01055"></a><span class="lineno"> 1055</span>&#160;    <a class="code" href="namespacepreprocess.html#ac314c05ac2de819eb7e15c9a091beb5d">modifyFromImport</a>(f<span class="stringliteral">&#39;Dynamic/{projName}/{prefix}/dynamicMatch.py&#39;</span>,libImportLst)</div>
-<div class="line"><a name="l01056"></a><span class="lineno"> 1056</span>&#160;    <a class="code" href="namespacepreprocess.html#ac314c05ac2de819eb7e15c9a091beb5d">modifyFromImport</a>(f<span class="stringliteral">&#39;Dynamic/{projName}/{prefix}/verifySingle.py&#39;</span>,libImportLst)</div>
+<div class="line"><a name="l00994"></a><span class="lineno"><a class="line" href="namespacepreprocess.html#aa6aca43577a6c7675fc40529658b4787">  994</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespacepreprocess.html#aa6aca43577a6c7675fc40529658b4787">scriptPath</a>(scriptName):</div>
+<div class="line"><a name="l00995"></a><span class="lineno">  995</span>&#160;    <span class="keywordflow">return</span> os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),</div>
+<div class="line"><a name="l00996"></a><span class="lineno">  996</span>&#160;                        <span class="stringliteral">&#39;Script&#39;</span>,scriptName)</div>
+<div class="line"><a name="l00997"></a><span class="lineno">  997</span>&#160; </div>
+<div class="line"><a name="l00998"></a><span class="lineno">  998</span>&#160; </div>
+<div class="line"><a name="l00999"></a><span class="lineno">  999</span>&#160; </div>
+<div class="line"><a name="l01012"></a><span class="lineno"><a class="line" href="namespacepreprocess.html#a0b52460f33415186cee80896a65d8530"> 1012</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespacepreprocess.html#a0b52460f33415186cee80896a65d8530">codeProcess</a>(projPath,runCommand,runPath,libName):</div>
+<div class="line"><a name="l01013"></a><span class="lineno"> 1013</span>&#160;    <span class="comment">#提取运行的文件</span></div>
+<div class="line"><a name="l01014"></a><span class="lineno"> 1014</span>&#160;    runFileLst=[]</div>
+<div class="line"><a name="l01015"></a><span class="lineno"> 1015</span>&#160;    runFile=<a class="code" href="namespacetool.html#ae11019ef37390ec657efde69354884aa">getRunFile</a>(runCommand)</div>
+<div class="line"><a name="l01016"></a><span class="lineno"> 1016</span>&#160;    prefix=<span class="stringliteral">&#39;&#39;</span> <span class="comment">#运行文件所在的目录，默认是在项目的一级子目录下</span></div>
+<div class="line"><a name="l01017"></a><span class="lineno"> 1017</span>&#160;    <span class="comment"># if &#39;/&#39; in runFile:</span></div>
+<div class="line"><a name="l01018"></a><span class="lineno"> 1018</span>&#160;    <span class="keywordflow">if</span> runFile <span class="keywordflow">and</span> (<span class="stringliteral">&#39;/&#39;</span> <span class="keywordflow">in</span> runFile <span class="keywordflow">or</span> <span class="stringliteral">&#39;\\&#39;</span> <span class="keywordflow">in</span> runFile):</div>
+<div class="line"><a name="l01019"></a><span class="lineno"> 1019</span>&#160;        <span class="comment"># prefix=runFile.rsplit(&#39;/&#39;,1)[0]</span></div>
+<div class="line"><a name="l01020"></a><span class="lineno"> 1020</span>&#160;        prefix = os.path.dirname(runFile)</div>
+<div class="line"><a name="l01021"></a><span class="lineno"> 1021</span>&#160;        <span class="comment"># runFile=runFile.rsplit(&#39;/&#39;,1)[1] #去掉路径前缀，只保留文件名即run.py</span></div>
+<div class="line"><a name="l01022"></a><span class="lineno"> 1022</span>&#160;        runFile = os.path.basename(runFile)</div>
+<div class="line"><a name="l01023"></a><span class="lineno"> 1023</span>&#160;    <span class="keywordflow">if</span> runFile:</div>
+<div class="line"><a name="l01024"></a><span class="lineno"> 1024</span>&#160;        runFileLst.append(runFile)</div>
+<div class="line"><a name="l01025"></a><span class="lineno"> 1025</span>&#160;    <span class="comment">#这种情况针对于python run.py, run.py在其它目录中比如src，则prefix就是src </span></div>
+<div class="line"><a name="l01026"></a><span class="lineno"> 1026</span>&#160;    <span class="comment">#若是python src/run.py, 则prexfix和runPath是一致的</span></div>
+<div class="line"><a name="l01027"></a><span class="lineno"> 1027</span>&#160;    <span class="keywordflow">if</span> runPath!=<span class="stringliteral">&#39;&#39;</span> <span class="keywordflow">and</span> prefix!=runPath:</div>
+<div class="line"><a name="l01028"></a><span class="lineno"> 1028</span>&#160;        prefix=runPath</div>
+<div class="line"><a name="l01029"></a><span class="lineno"> 1029</span>&#160;    <span class="comment"># projName=projPath.split(&#39;/&#39;)[-1]</span></div>
+<div class="line"><a name="l01030"></a><span class="lineno"> 1030</span>&#160;    projName = os.path.basename(projPath)</div>
+<div class="line"><a name="l01031"></a><span class="lineno"> 1031</span>&#160;    copyProjPath=f<span class="stringliteral">&quot;Copy/{projName}&quot;</span></div>
+<div class="line"><a name="l01032"></a><span class="lineno"> 1032</span>&#160;    importStatement=<span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l01033"></a><span class="lineno"> 1033</span>&#160;    <span class="keywordflow">for</span> it <span class="keywordflow">in</span> runFileLst:</div>
+<div class="line"><a name="l01034"></a><span class="lineno"> 1034</span>&#160;        <span class="comment"># it=it.rstrip(&#39;.py&#39;) #把文件名中的后缀去掉，但遇到display.py会变成displa</span></div>
+<div class="line"><a name="l01035"></a><span class="lineno"> 1035</span>&#160;        it=it[0:-3]</div>
+<div class="line"><a name="l01036"></a><span class="lineno"> 1036</span>&#160;        importStatement+=f<span class="stringliteral">&quot;from {it} import *\n&quot;</span></div>
+<div class="line"><a name="l01037"></a><span class="lineno"> 1037</span>&#160; </div>
+<div class="line"><a name="l01038"></a><span class="lineno"> 1038</span>&#160; </div>
+<div class="line"><a name="l01039"></a><span class="lineno"> 1039</span>&#160;    <span class="comment">#找出项目中所有和第三方库相关的import语句</span></div>
+<div class="line"><a name="l01040"></a><span class="lineno"> 1040</span>&#160;    libImportLst=<a class="code" href="namespacepreprocess.html#a79af2a91a7fa51e11b82e40207c48957">getLibImportLst</a>(projPath,libName)</div>
+<div class="line"><a name="l01041"></a><span class="lineno"> 1041</span>&#160;    libImportLst.append(importStatement) </div>
+<div class="line"><a name="l01042"></a><span class="lineno"> 1042</span>&#160; </div>
+<div class="line"><a name="l01043"></a><span class="lineno"> 1043</span>&#160;    <span class="comment">#清除Copy和Dynamic中遗留的项目信息，然后把新项目的信息拷贝进去</span></div>
+<div class="line"><a name="l01044"></a><span class="lineno"> 1044</span>&#160;    <span class="comment"># print(projPath)</span></div>
+<div class="line"><a name="l01045"></a><span class="lineno"> 1045</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isdir(<span class="stringliteral">&#39;Copy&#39;</span>):</div>
+<div class="line"><a name="l01046"></a><span class="lineno"> 1046</span>&#160;        os.mkdir(<span class="stringliteral">&#39;Copy&#39;</span>) </div>
+<div class="line"><a name="l01047"></a><span class="lineno"> 1047</span>&#160;    shutil.rmtree(<span class="stringliteral">&#39;Copy&#39;</span>)</div>
+<div class="line"><a name="l01048"></a><span class="lineno"> 1048</span>&#160;    shutil.copytree(projPath,f<span class="stringliteral">&#39;Copy/{projName}&#39;</span>,ignore=ignore_sym_links)</div>
+<div class="line"><a name="l01049"></a><span class="lineno"> 1049</span>&#160;    os.mkdir(<span class="stringliteral">&#39;Copy/pkl&#39;</span>)</div>
+<div class="line"><a name="l01050"></a><span class="lineno"> 1050</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isdir(<span class="stringliteral">&#39;Dynamic&#39;</span>):</div>
+<div class="line"><a name="l01051"></a><span class="lineno"> 1051</span>&#160;        os.mkdir(<span class="stringliteral">&#39;Dynamic&#39;</span>) </div>
+<div class="line"><a name="l01052"></a><span class="lineno"> 1052</span>&#160;    shutil.rmtree(<span class="stringliteral">&#39;Dynamic&#39;</span>)</div>
+<div class="line"><a name="l01053"></a><span class="lineno"> 1053</span>&#160;    shutil.copytree(projPath,f<span class="stringliteral">&#39;Dynamic/{projName}&#39;</span>,ignore=ignore_sym_links)</div>
+<div class="line"><a name="l01054"></a><span class="lineno"> 1054</span>&#160;    </div>
+<div class="line"><a name="l01055"></a><span class="lineno"> 1055</span>&#160;    <span class="comment">#去掉项目代码中的冗余信息，仅保存项目代码的结构信息（import,functionDef, classDef）</span></div>
+<div class="line"><a name="l01056"></a><span class="lineno"> 1056</span>&#160;    <a class="code" href="namespacepreprocess.html#af67fd0a454bad0ef82391bf1d745b87f">saveStructure</a>(f<span class="stringliteral">&#39;Dynamic/{projName}&#39;</span>,libName) </div>
 <div class="line"><a name="l01057"></a><span class="lineno"> 1057</span>&#160;    </div>
-<div class="line"><a name="l01058"></a><span class="lineno"> 1058</span>&#160;    <span class="comment">#清除data中的数据</span></div>
-<div class="line"><a name="l01059"></a><span class="lineno"> 1059</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isdir(<span class="stringliteral">&#39;data&#39;</span>):</div>
-<div class="line"><a name="l01060"></a><span class="lineno"> 1060</span>&#160;        os.mkdir(<span class="stringliteral">&#39;data&#39;</span>) </div>
-<div class="line"><a name="l01061"></a><span class="lineno"> 1061</span>&#160;    shutil.rmtree(<span class="stringliteral">&#39;data&#39;</span>)</div>
-<div class="line"><a name="l01062"></a><span class="lineno"> 1062</span>&#160;    os.mkdir(<span class="stringliteral">&#39;data&#39;</span>)</div>
-<div class="line"><a name="l01063"></a><span class="lineno"> 1063</span>&#160;    </div>
-<div class="line"><a name="l01064"></a><span class="lineno"> 1064</span>&#160;    </div>
-<div class="line"><a name="l01065"></a><span class="lineno"> 1065</span>&#160;    <span class="comment">#然后再把Copy中的项目制表符统一转化为空格,目的是为了插入字典的时候计算空格缩进</span></div>
-<div class="line"><a name="l01066"></a><span class="lineno"> 1066</span>&#160;    <a class="code" href="namespacepreprocess.html#a422e51d3c4d2044bcb0159a2ebc0df60">convertTabsToSpaces</a>(<span class="stringliteral">&#39;Copy&#39;</span>)</div>
-<div class="line"><a name="l01067"></a><span class="lineno"> 1067</span>&#160; </div>
-<div class="line"><a name="l01068"></a><span class="lineno"> 1068</span>&#160;    <span class="comment">#把代码换行写的合成一行，并添加字典</span></div>
-<div class="line"><a name="l01069"></a><span class="lineno"> 1069</span>&#160;    pathObj=Path(<span class="stringliteral">&#39;DF&#39;</span>)</div>
-<div class="line"><a name="l01070"></a><span class="lineno"> 1070</span>&#160;    pathObj.getPath(copyProjPath)</div>
-<div class="line"><a name="l01071"></a><span class="lineno"> 1071</span>&#160;    filePath=[file <span class="keywordflow">for</span> file <span class="keywordflow">in</span> pathObj.path <span class="keywordflow">if</span> file.endswith(<span class="stringliteral">&#39;.py&#39;</span>)]</div>
-<div class="line"><a name="l01072"></a><span class="lineno"> 1072</span>&#160;    <span class="keywordflow">for</span> file <span class="keywordflow">in</span> filePath:<span class="comment">#下面的所有操作都是对项目副本进行的</span></div>
-<div class="line"><a name="l01073"></a><span class="lineno"> 1073</span>&#160;        <a class="code" href="namespacepreprocess.html#a4c00e7633e0fd15cfaba6731cf8fe9b6">oneLine</a>(file)</div>
+<div class="line"><a name="l01058"></a><span class="lineno"> 1058</span>&#160;    shutil.copy2(<a class="code" href="namespacepreprocess.html#aa6aca43577a6c7675fc40529658b4787">scriptPath</a>(<span class="stringliteral">&#39;addValueForAPI.py&#39;</span>),f<span class="stringliteral">&#39;Dynamic/{projName}/{prefix}&#39;</span>)</div>
+<div class="line"><a name="l01059"></a><span class="lineno"> 1059</span>&#160;    shutil.copy2(<a class="code" href="namespacepreprocess.html#aa6aca43577a6c7675fc40529658b4787">scriptPath</a>(<span class="stringliteral">&#39;codeUtils.py&#39;</span>),f<span class="stringliteral">&#39;Dynamic/{projName}/{prefix}&#39;</span>)</div>
+<div class="line"><a name="l01060"></a><span class="lineno"> 1060</span>&#160;    shutil.copy2(<a class="code" href="namespacepreprocess.html#aa6aca43577a6c7675fc40529658b4787">scriptPath</a>(<span class="stringliteral">&#39;dynamicMatch.py&#39;</span>),f<span class="stringliteral">&#39;Dynamic/{projName}/{prefix}&#39;</span>)</div>
+<div class="line"><a name="l01061"></a><span class="lineno"> 1061</span>&#160;    shutil.copy2(<a class="code" href="namespacepreprocess.html#aa6aca43577a6c7675fc40529658b4787">scriptPath</a>(<span class="stringliteral">&#39;verifySingle.py&#39;</span>),f<span class="stringliteral">&#39;Dynamic/{projName}/{prefix}&#39;</span>)</div>
+<div class="line"><a name="l01062"></a><span class="lineno"> 1062</span>&#160;    </div>
+<div class="line"><a name="l01063"></a><span class="lineno"> 1063</span>&#160;    <span class="comment">#更新脚本中的from ... import ...语句,因为加载pkl的时候需要依赖于项目的结构信息</span></div>
+<div class="line"><a name="l01064"></a><span class="lineno"> 1064</span>&#160;    <a class="code" href="namespacepreprocess.html#ac314c05ac2de819eb7e15c9a091beb5d">modifyFromImport</a>(f<span class="stringliteral">&#39;Dynamic/{projName}/{prefix}/addValueForAPI.py&#39;</span>,libImportLst)</div>
+<div class="line"><a name="l01065"></a><span class="lineno"> 1065</span>&#160;    <a class="code" href="namespacepreprocess.html#ac314c05ac2de819eb7e15c9a091beb5d">modifyFromImport</a>(f<span class="stringliteral">&#39;Dynamic/{projName}/{prefix}/dynamicMatch.py&#39;</span>,libImportLst)</div>
+<div class="line"><a name="l01066"></a><span class="lineno"> 1066</span>&#160;    <a class="code" href="namespacepreprocess.html#ac314c05ac2de819eb7e15c9a091beb5d">modifyFromImport</a>(f<span class="stringliteral">&#39;Dynamic/{projName}/{prefix}/verifySingle.py&#39;</span>,libImportLst)</div>
+<div class="line"><a name="l01067"></a><span class="lineno"> 1067</span>&#160;    </div>
+<div class="line"><a name="l01068"></a><span class="lineno"> 1068</span>&#160;    <span class="comment">#清除data中的数据</span></div>
+<div class="line"><a name="l01069"></a><span class="lineno"> 1069</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isdir(<span class="stringliteral">&#39;data&#39;</span>):</div>
+<div class="line"><a name="l01070"></a><span class="lineno"> 1070</span>&#160;        os.mkdir(<span class="stringliteral">&#39;data&#39;</span>) </div>
+<div class="line"><a name="l01071"></a><span class="lineno"> 1071</span>&#160;    shutil.rmtree(<span class="stringliteral">&#39;data&#39;</span>)</div>
+<div class="line"><a name="l01072"></a><span class="lineno"> 1072</span>&#160;    os.mkdir(<span class="stringliteral">&#39;data&#39;</span>)</div>
+<div class="line"><a name="l01073"></a><span class="lineno"> 1073</span>&#160;    </div>
 <div class="line"><a name="l01074"></a><span class="lineno"> 1074</span>&#160;    </div>
-<div class="line"><a name="l01075"></a><span class="lineno"> 1075</span>&#160;    <span class="comment">#处理单行条件返回语句</span></div>
-<div class="line"><a name="l01076"></a><span class="lineno"> 1076</span>&#160;    <span class="keywordflow">for</span> file <span class="keywordflow">in</span> filePath:</div>
-<div class="line"><a name="l01077"></a><span class="lineno"> 1077</span>&#160;        <a class="code" href="namespacepreprocess.html#a4c279837bca66be1c336af00420eb4ad">expandConditionalReturn</a>(file) </div>
-<div class="line"><a name="l01078"></a><span class="lineno"> 1078</span>&#160; </div>
-<div class="line"><a name="l01079"></a><span class="lineno"> 1079</span>&#160;    <span class="comment">#处理局部变量</span></div>
-<div class="line"><a name="l01080"></a><span class="lineno"> 1080</span>&#160;    <span class="keywordflow">for</span> file <span class="keywordflow">in</span> filePath:</div>
-<div class="line"><a name="l01081"></a><span class="lineno"> 1081</span>&#160;        <a class="code" href="namespacepreprocess.html#a1be44b4612b83c96456034d7eef3a376">convertLocalVar</a>(file,libName) </div>
-<div class="line"><a name="l01082"></a><span class="lineno"> 1082</span>&#160; </div>
-<div class="line"><a name="l01083"></a><span class="lineno"> 1083</span>&#160; </div>
-<div class="line"><a name="l01084"></a><span class="lineno"> 1084</span>&#160;    shutil.copytree(f<span class="stringliteral">&#39;Copy/{projName}&#39;</span>,f<span class="stringliteral">&#39;Copy/bak_{projName}&#39;</span>)</div>
-<div class="line"><a name="l01085"></a><span class="lineno"> 1085</span>&#160; </div>
-<div class="line"><a name="l01086"></a><span class="lineno"> 1086</span>&#160;    <span class="comment"># 计算recordValue.py到Copy/pkl的相对路径</span></div>
-<div class="line"><a name="l01087"></a><span class="lineno"> 1087</span>&#160;    pklDepth=1</div>
-<div class="line"><a name="l01088"></a><span class="lineno"> 1088</span>&#160;    <span class="keywordflow">if</span> prefix:</div>
-<div class="line"><a name="l01089"></a><span class="lineno"> 1089</span>&#160;        pklDepth+=len([s <span class="keywordflow">for</span> s <span class="keywordflow">in</span> prefix.replace(<span class="stringliteral">&#39;\\&#39;</span>,<span class="stringliteral">&#39;/&#39;</span>).strip(<span class="stringliteral">&#39;/&#39;</span>).split(<span class="stringliteral">&#39;/&#39;</span>) <span class="keywordflow">if</span> s])</div>
-<div class="line"><a name="l01090"></a><span class="lineno"> 1090</span>&#160;    pklRelPath=<span class="stringliteral">&#39;/&#39;</span>.join([<span class="stringliteral">&#39;..&#39;</span>]*pklDepth+[<span class="stringliteral">&#39;pkl&#39;</span>])</div>
-<div class="line"><a name="l01091"></a><span class="lineno"> 1091</span>&#160;    <a class="code" href="namespacepreprocess.html#a786d8e37525e381b79707973cf3509fb">writeRecordValue</a>(f<span class="stringliteral">&quot;Copy/bak_{projName}/{prefix}/recordValue.py&quot;</span>,pklRelPath,0)</div>
-<div class="line"><a name="l01092"></a><span class="lineno"> 1092</span>&#160;    </div>
-<div class="line"><a name="l01093"></a><span class="lineno"> 1093</span>&#160;    </div>
-<div class="line"><a name="l01094"></a><span class="lineno"> 1094</span>&#160;    <span class="keywordflow">for</span> file <span class="keywordflow">in</span> filePath:</div>
-<div class="line"><a name="l01095"></a><span class="lineno"> 1095</span>&#160;        <a class="code" href="namespacepreprocess.html#aeb5178b512f242c05329f1137c0b208c">addDictAll</a>(projPath,projName,file,runFileLst,libName,runPath,runCommand)</div>
-<div class="line"><a name="l01096"></a><span class="lineno"> 1096</span>&#160;    </div>
-<div class="line"><a name="l01097"></a><span class="lineno"> 1097</span>&#160;    <span class="comment">#再对bak_proj中的运行文件进行插桩</span></div>
-<div class="line"><a name="l01098"></a><span class="lineno"> 1098</span>&#160;    <span class="keywordflow">for</span> file <span class="keywordflow">in</span> runFileLst:</div>
-<div class="line"><a name="l01099"></a><span class="lineno"> 1099</span>&#160;        file=f<span class="stringliteral">&#39;Copy/bak_{projName}/{prefix}/&#39;</span>+file</div>
-<div class="line"><a name="l01100"></a><span class="lineno"> 1100</span>&#160;        <span class="comment"># print(prefix)</span></div>
-<div class="line"><a name="l01101"></a><span class="lineno"> 1101</span>&#160;        <a class="code" href="namespacepreprocess.html#ad272e396d54aa1eb3a41c36c1949323e">handleRunFile</a>(file,runPath,runCommand) </div>
-<div class="line"><a name="l01102"></a><span class="lineno"> 1102</span>&#160;    <span class="comment"># bak项目会在current pkl生成后换回Copy/{projName}，其运行文件也依赖codeUtils</span></div>
-<div class="line"><a name="l01103"></a><span class="lineno"> 1103</span>&#160;    shutil.copy2(<span class="stringliteral">&#39;Script/codeUtils.py&#39;</span>,f<span class="stringliteral">&#39;Copy/bak_{projName}/{prefix}&#39;</span>)</div>
-<div class="line"><a name="l01104"></a><span class="lineno"> 1104</span>&#160;    </div>
-<div class="line"><a name="l01105"></a><span class="lineno"> 1105</span>&#160;    <span class="comment">#处理完项目所有文件后，再给项目添加一个新的文件</span></div>
-<div class="line"><a name="l01106"></a><span class="lineno"> 1106</span>&#160;    <a class="code" href="namespacepreprocess.html#a786d8e37525e381b79707973cf3509fb">writeRecordValue</a>(f<span class="stringliteral">&quot;Copy/{projName}/{prefix}/recordValue.py&quot;</span>,pklRelPath,1)</div>
-<div class="line"><a name="l01107"></a><span class="lineno"> 1107</span>&#160;    </div>
-<div class="line"><a name="l01108"></a><span class="lineno"> 1108</span>&#160;    shutil.copy2(<span class="stringliteral">&#39;Script/codeUtils.py&#39;</span>,f<span class="stringliteral">&#39;Copy/{projName}/{runPath}&#39;</span>) </div>
-<div class="line"><a name="l01109"></a><span class="lineno"> 1109</span>&#160;    <span class="keywordflow">if</span> prefix!=runPath:</div>
-<div class="line"><a name="l01110"></a><span class="lineno"> 1110</span>&#160;        shutil.copy2(<span class="stringliteral">&#39;Script/codeUtils.py&#39;</span>,f<span class="stringliteral">&#39;Copy/{projName}/{prefix}&#39;</span>)</div>
+<div class="line"><a name="l01075"></a><span class="lineno"> 1075</span>&#160;    <span class="comment">#然后再把Copy中的项目制表符统一转化为空格,目的是为了插入字典的时候计算空格缩进</span></div>
+<div class="line"><a name="l01076"></a><span class="lineno"> 1076</span>&#160;    <a class="code" href="namespacepreprocess.html#a422e51d3c4d2044bcb0159a2ebc0df60">convertTabsToSpaces</a>(<span class="stringliteral">&#39;Copy&#39;</span>)</div>
+<div class="line"><a name="l01077"></a><span class="lineno"> 1077</span>&#160; </div>
+<div class="line"><a name="l01078"></a><span class="lineno"> 1078</span>&#160;    <span class="comment">#把代码换行写的合成一行，并添加字典</span></div>
+<div class="line"><a name="l01079"></a><span class="lineno"> 1079</span>&#160;    pathObj=Path(<span class="stringliteral">&#39;DF&#39;</span>)</div>
+<div class="line"><a name="l01080"></a><span class="lineno"> 1080</span>&#160;    pathObj.getPath(copyProjPath)</div>
+<div class="line"><a name="l01081"></a><span class="lineno"> 1081</span>&#160;    filePath=[file <span class="keywordflow">for</span> file <span class="keywordflow">in</span> pathObj.path <span class="keywordflow">if</span> file.endswith(<span class="stringliteral">&#39;.py&#39;</span>)]</div>
+<div class="line"><a name="l01082"></a><span class="lineno"> 1082</span>&#160;    <span class="keywordflow">for</span> file <span class="keywordflow">in</span> filePath:<span class="comment">#下面的所有操作都是对项目副本进行的</span></div>
+<div class="line"><a name="l01083"></a><span class="lineno"> 1083</span>&#160;        <a class="code" href="namespacepreprocess.html#a4c00e7633e0fd15cfaba6731cf8fe9b6">oneLine</a>(file)</div>
+<div class="line"><a name="l01084"></a><span class="lineno"> 1084</span>&#160;    </div>
+<div class="line"><a name="l01085"></a><span class="lineno"> 1085</span>&#160;    <span class="comment">#处理单行条件返回语句</span></div>
+<div class="line"><a name="l01086"></a><span class="lineno"> 1086</span>&#160;    <span class="keywordflow">for</span> file <span class="keywordflow">in</span> filePath:</div>
+<div class="line"><a name="l01087"></a><span class="lineno"> 1087</span>&#160;        <a class="code" href="namespacepreprocess.html#a4c279837bca66be1c336af00420eb4ad">expandConditionalReturn</a>(file) </div>
+<div class="line"><a name="l01088"></a><span class="lineno"> 1088</span>&#160; </div>
+<div class="line"><a name="l01089"></a><span class="lineno"> 1089</span>&#160;    <span class="comment">#处理局部变量</span></div>
+<div class="line"><a name="l01090"></a><span class="lineno"> 1090</span>&#160;    <span class="keywordflow">for</span> file <span class="keywordflow">in</span> filePath:</div>
+<div class="line"><a name="l01091"></a><span class="lineno"> 1091</span>&#160;        <a class="code" href="namespacepreprocess.html#a1be44b4612b83c96456034d7eef3a376">convertLocalVar</a>(file,libName) </div>
+<div class="line"><a name="l01092"></a><span class="lineno"> 1092</span>&#160; </div>
+<div class="line"><a name="l01093"></a><span class="lineno"> 1093</span>&#160; </div>
+<div class="line"><a name="l01094"></a><span class="lineno"> 1094</span>&#160;    shutil.copytree(f<span class="stringliteral">&#39;Copy/{projName}&#39;</span>,f<span class="stringliteral">&#39;Copy/bak_{projName}&#39;</span>)</div>
+<div class="line"><a name="l01095"></a><span class="lineno"> 1095</span>&#160; </div>
+<div class="line"><a name="l01096"></a><span class="lineno"> 1096</span>&#160;    <span class="comment"># 计算recordValue.py到Copy/pkl的相对路径</span></div>
+<div class="line"><a name="l01097"></a><span class="lineno"> 1097</span>&#160;    pklDepth=1</div>
+<div class="line"><a name="l01098"></a><span class="lineno"> 1098</span>&#160;    <span class="keywordflow">if</span> prefix:</div>
+<div class="line"><a name="l01099"></a><span class="lineno"> 1099</span>&#160;        pklDepth+=len([s <span class="keywordflow">for</span> s <span class="keywordflow">in</span> prefix.replace(<span class="stringliteral">&#39;\\&#39;</span>,<span class="stringliteral">&#39;/&#39;</span>).strip(<span class="stringliteral">&#39;/&#39;</span>).split(<span class="stringliteral">&#39;/&#39;</span>) <span class="keywordflow">if</span> s])</div>
+<div class="line"><a name="l01100"></a><span class="lineno"> 1100</span>&#160;    pklRelPath=<span class="stringliteral">&#39;/&#39;</span>.join([<span class="stringliteral">&#39;..&#39;</span>]*pklDepth+[<span class="stringliteral">&#39;pkl&#39;</span>])</div>
+<div class="line"><a name="l01101"></a><span class="lineno"> 1101</span>&#160;    <a class="code" href="namespacepreprocess.html#a786d8e37525e381b79707973cf3509fb">writeRecordValue</a>(f<span class="stringliteral">&quot;Copy/bak_{projName}/{prefix}/recordValue.py&quot;</span>,pklRelPath,0)</div>
+<div class="line"><a name="l01102"></a><span class="lineno"> 1102</span>&#160;    </div>
+<div class="line"><a name="l01103"></a><span class="lineno"> 1103</span>&#160;    </div>
+<div class="line"><a name="l01104"></a><span class="lineno"> 1104</span>&#160;    <span class="keywordflow">for</span> file <span class="keywordflow">in</span> filePath:</div>
+<div class="line"><a name="l01105"></a><span class="lineno"> 1105</span>&#160;        <a class="code" href="namespacepreprocess.html#aeb5178b512f242c05329f1137c0b208c">addDictAll</a>(projPath,projName,file,runFileLst,libName,runPath,runCommand)</div>
+<div class="line"><a name="l01106"></a><span class="lineno"> 1106</span>&#160;    </div>
+<div class="line"><a name="l01107"></a><span class="lineno"> 1107</span>&#160;    <span class="comment">#再对bak_proj中的运行文件进行插桩</span></div>
+<div class="line"><a name="l01108"></a><span class="lineno"> 1108</span>&#160;    <span class="keywordflow">for</span> file <span class="keywordflow">in</span> runFileLst:</div>
+<div class="line"><a name="l01109"></a><span class="lineno"> 1109</span>&#160;        file=f<span class="stringliteral">&#39;Copy/bak_{projName}/{prefix}/&#39;</span>+file</div>
+<div class="line"><a name="l01110"></a><span class="lineno"> 1110</span>&#160;        <span class="comment"># print(prefix)</span></div>
+<div class="line"><a name="l01111"></a><span class="lineno"> 1111</span>&#160;        <a class="code" href="namespacepreprocess.html#ad272e396d54aa1eb3a41c36c1949323e">handleRunFile</a>(file,runPath,runCommand) </div>
+<div class="line"><a name="l01112"></a><span class="lineno"> 1112</span>&#160;    <span class="comment"># bak项目会在current pkl生成后换回Copy/{projName}，其运行文件也依赖codeUtils</span></div>
+<div class="line"><a name="l01113"></a><span class="lineno"> 1113</span>&#160;    shutil.copy2(<a class="code" href="namespacepreprocess.html#aa6aca43577a6c7675fc40529658b4787">scriptPath</a>(<span class="stringliteral">&#39;codeUtils.py&#39;</span>),f<span class="stringliteral">&#39;Copy/bak_{projName}/{prefix}&#39;</span>)</div>
+<div class="line"><a name="l01114"></a><span class="lineno"> 1114</span>&#160;    </div>
+<div class="line"><a name="l01115"></a><span class="lineno"> 1115</span>&#160;    <span class="comment">#处理完项目所有文件后，再给项目添加一个新的文件</span></div>
+<div class="line"><a name="l01116"></a><span class="lineno"> 1116</span>&#160;    <a class="code" href="namespacepreprocess.html#a786d8e37525e381b79707973cf3509fb">writeRecordValue</a>(f<span class="stringliteral">&quot;Copy/{projName}/{prefix}/recordValue.py&quot;</span>,pklRelPath,1)</div>
+<div class="line"><a name="l01117"></a><span class="lineno"> 1117</span>&#160;    </div>
+<div class="line"><a name="l01118"></a><span class="lineno"> 1118</span>&#160;    shutil.copy2(<a class="code" href="namespacepreprocess.html#aa6aca43577a6c7675fc40529658b4787">scriptPath</a>(<span class="stringliteral">&#39;codeUtils.py&#39;</span>),f<span class="stringliteral">&#39;Copy/{projName}/{runPath}&#39;</span>)</div>
+<div class="line"><a name="l01119"></a><span class="lineno"> 1119</span>&#160;    <span class="keywordflow">if</span> prefix!=runPath:</div>
+<div class="line"><a name="l01120"></a><span class="lineno"> 1120</span>&#160;        shutil.copy2(<a class="code" href="namespacepreprocess.html#aa6aca43577a6c7675fc40529658b4787">scriptPath</a>(<span class="stringliteral">&#39;codeUtils.py&#39;</span>),f<span class="stringliteral">&#39;Copy/{projName}/{prefix}&#39;</span>)</div>
 <div class="ttc" id="anamespaceExtract_1_1extractCall_html"><div class="ttname"><a href="namespaceExtract_1_1extractCall.html">extractCall</a></div></div>
 <div class="ttc" id="anamespacePath_1_1getPath_html"><div class="ttname"><a href="namespacePath_1_1getPath.html">getPath</a></div></div>
 <div class="ttc" id="anamespacegetCall_html_a09df38fef33a1a5a38b769e150b35cb8"><div class="ttname"><a href="namespacegetCall.html#a09df38fef33a1a5a38b769e150b35cb8">getCall.getCallFunction</a></div><div class="ttdeci">def getCallFunction(filePath, libName)</div><div class="ttdoc">Extract all API calls from a given .py file 每次传进来一个.py文件，抽取所有的调用API.</div><div class="ttdef"><b>Definition:</b> <a href="getCall_8py_source.html#l00195">getCall.py:195</a></div></div>
 <div class="ttc" id="anamespacegetCall_html_ad822ec04ad5a7e5ed8e64b816a20e314"><div class="ttname"><a href="namespacegetCall.html#ad822ec04ad5a7e5ed8e64b816a20e314">getCall.modifyWithName</a></div><div class="ttdeci">def modifyWithName(callName, withitemCallName, lineno=None)</div><div class="ttdoc">Restore the conventional API call path in the withitem (including AsyncWith) call form 还原withitemAPI调...</div><div class="ttdef"><b>Definition:</b> <a href="getCall_8py_source.html#l00152">getCall.py:152</a></div></div>
-<div class="ttc" id="anamespacepreprocess_html_a0b52460f33415186cee80896a65d8530"><div class="ttname"><a href="namespacepreprocess.html#a0b52460f33415186cee80896a65d8530">preprocess.codeProcess</a></div><div class="ttdeci">def codeProcess(projPath, runCommand, runPath, libName)</div><div class="ttdoc">Code processing 代码预处理</div><div class="ttdef"><b>Definition:</b> <a href="preprocess_8py_source.html#l01002">preprocess.py:1002</a></div></div>
+<div class="ttc" id="anamespacepreprocess_html_a0b52460f33415186cee80896a65d8530"><div class="ttname"><a href="namespacepreprocess.html#a0b52460f33415186cee80896a65d8530">preprocess.codeProcess</a></div><div class="ttdeci">def codeProcess(projPath, runCommand, runPath, libName)</div><div class="ttdoc">Code processing 代码预处理</div><div class="ttdef"><b>Definition:</b> <a href="preprocess_8py_source.html#l01012">preprocess.py:1012</a></div></div>
 <div class="ttc" id="anamespacepreprocess_html_a1be44b4612b83c96456034d7eef3a376"><div class="ttname"><a href="namespacepreprocess.html#a1be44b4612b83c96456034d7eef3a376">preprocess.convertLocalVar</a></div><div class="ttdeci">def convertLocalVar(filePath, libName)</div><div class="ttdoc">Convert the ListComp and DictComp statements to variable assignment statements 将列表推导式listComp和字典推导式Di...</div><div class="ttdef"><b>Definition:</b> <a href="preprocess_8py_source.html#l00148">preprocess.py:148</a></div></div>
 <div class="ttc" id="anamespacepreprocess_html_a422e51d3c4d2044bcb0159a2ebc0df60"><div class="ttname"><a href="namespacepreprocess.html#a422e51d3c4d2044bcb0159a2ebc0df60">preprocess.convertTabsToSpaces</a></div><div class="ttdeci">def convertTabsToSpaces(directory)</div><div class="ttdoc">Convert tabs to spaces in all Python files within a directory 将目录下所有Python文件中的制表符转换为空格</div><div class="ttdef"><b>Definition:</b> <a href="preprocess_8py_source.html#l00955">preprocess.py:955</a></div></div>
 <div class="ttc" id="anamespacepreprocess_html_a45a426d44e2e19441f98e0def6cc2d67"><div class="ttname"><a href="namespacepreprocess.html#a45a426d44e2e19441f98e0def6cc2d67">preprocess.getDictVar</a></div><div class="ttdeci">def getDictVar(root, ansLst)</div><div class="ttdoc">Get the local variable in the dictionary comprehension 获取字典推导式中的局部变量</div><div class="ttdef"><b>Definition:</b> <a href="preprocess_8py_source.html#l00124">preprocess.py:124</a></div></div>
@@ -1058,6 +1064,7 @@ $(function() {
 <div class="ttc" id="anamespacepreprocess_html_a863e16849c87ef82b42e6a44e743a245"><div class="ttname"><a href="namespacepreprocess.html#a863e16849c87ef82b42e6a44e743a245">preprocess.getListVar</a></div><div class="ttdeci">def getListVar(root, ansLst)</div><div class="ttdoc">Get the local variable in the list comprehension 获取列表推导式中的局部变量</div><div class="ttdef"><b>Definition:</b> <a href="preprocess_8py_source.html#l00097">preprocess.py:97</a></div></div>
 <div class="ttc" id="anamespacepreprocess_html_aa3fe42ad1cabeeb14f498fbbc37a5d4e"><div class="ttname"><a href="namespacepreprocess.html#aa3fe42ad1cabeeb14f498fbbc37a5d4e">preprocess.countBracket</a></div><div class="ttdeci">def countBracket(s)</div><div class="ttdoc">Count the number of different types of brackets ((), [], {}) in a string 计算字符串中各类括号((),...</div><div class="ttdef"><b>Definition:</b> <a href="preprocess_8py_source.html#l00022">preprocess.py:22</a></div></div>
 <div class="ttc" id="anamespacepreprocess_html_aa4a5e25d5835c88d23f7e5881063ad0d"><div class="ttname"><a href="namespacepreprocess.html#aa4a5e25d5835c88d23f7e5881063ad0d">preprocess.getSelfReceiverExpr</a></div><div class="ttdeci">def getSelfReceiverExpr(root, lineno, methodName)</div><div class="ttdoc">Resolve the visible base-class expression for an inherited self receiver 还原继承场景中self调用者可见的基类表达式</div><div class="ttdef"><b>Definition:</b> <a href="preprocess_8py_source.html#l00317">preprocess.py:317</a></div></div>
+<div class="ttc" id="anamespacepreprocess_html_aa6aca43577a6c7675fc40529658b4787"><div class="ttname"><a href="namespacepreprocess.html#aa6aca43577a6c7675fc40529658b4787">preprocess.scriptPath</a></div><div class="ttdeci">def scriptPath(scriptName)</div><div class="ttdoc">Get source script path from PCART repository 获取PCART仓库中的辅助脚本路径</div><div class="ttdef"><b>Definition:</b> <a href="preprocess_8py_source.html#l00994">preprocess.py:994</a></div></div>
 <div class="ttc" id="anamespacepreprocess_html_aaab33bd46f0ae489d21ef62dff750446"><div class="ttname"><a href="namespacepreprocess.html#aaab33bd46f0ae489d21ef62dff750446">preprocess.countSpace</a></div><div class="ttdeci">def countSpace(s)</div><div class="ttdoc">Count the number of spaces at the beginning of a string 计算字符串的前面有多少个空格</div><div class="ttdef"><b>Definition:</b> <a href="preprocess_8py_source.html#l00341">preprocess.py:341</a></div></div>
 <div class="ttc" id="anamespacepreprocess_html_aba37de1d85915cdded208175b9ff6b26"><div class="ttname"><a href="namespacepreprocess.html#aba37de1d85915cdded208175b9ff6b26">preprocess.saveConstantAssign</a></div><div class="ttdeci">def saveConstantAssign(astNode, constantVar, nonConstantVar, decoratorLst)</div><div class="ttdoc">Save assignment statement with constant values 保存常量赋值语句</div><div class="ttdef"><b>Definition:</b> <a href="preprocess_8py_source.html#l00791">preprocess.py:791</a></div></div>
 <div class="ttc" id="anamespacepreprocess_html_ac314c05ac2de819eb7e15c9a091beb5d"><div class="ttname"><a href="namespacepreprocess.html#ac314c05ac2de819eb7e15c9a091beb5d">preprocess.modifyFromImport</a></div><div class="ttdeci">def modifyFromImport(filePath, importStatement)</div><div class="ttdoc">Save import statement to source file 将import语句保存到源码中</div><div class="ttdef"><b>Definition:</b> <a href="preprocess_8py_source.html#l00756">preprocess.py:756</a></div></div>
@@ -1073,7 +1080,7 @@ $(function() {
 <div class="ttc" id="anamespacetool_html_abd074786b2b2c49fb89912e52b42f1fc"><div class="ttname"><a href="namespacetool.html#abd074786b2b2c49fb89912e52b42f1fc">tool.departAPI2</a></div><div class="ttdeci">def departAPI2(s, separator='.')</div><div class="ttdoc">Split API call string based on separator &quot;.&quot; 根据&quot;.&quot;拆分API调用字符串</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00282">tool.py:282</a></div></div>
 <div class="ttc" id="anamespacetool_html_ac4d05a17f2f511bda4979dd476894896"><div class="ttname"><a href="namespacetool.html#ac4d05a17f2f511bda4979dd476894896">tool.departAPI</a></div><div class="ttdeci">def departAPI(s)</div><div class="ttdoc">Split API call string based on parameter passing 根据参数传递拆分API调用字符串</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00234">tool.py:234</a></div></div>
 <div class="ttc" id="anamespacetool_html_ac911ce7a8605392b72a43d059055729f"><div class="ttname"><a href="namespacetool.html#ac911ce7a8605392b72a43d059055729f">tool.get_parameter</a></div><div class="ttdeci">def get_parameter(p_string, separator=',', space=1)</div><div class="ttdoc">Split parameter string into list of separated parameters 将参数字符串拆分成单个的参数</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00030">tool.py:30</a></div></div>
-<div class="ttc" id="anamespacetool_html_ae11019ef37390ec657efde69354884aa"><div class="ttname"><a href="namespacetool.html#ae11019ef37390ec657efde69354884aa">tool.getRunFile</a></div><div class="ttdeci">def getRunFile(runCommand)</div><div class="ttdoc">Extract the .py script filename from a run command 从运行命令中提取.py脚本文件名</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00691">tool.py:691</a></div></div>
+<div class="ttc" id="anamespacetool_html_ae11019ef37390ec657efde69354884aa"><div class="ttname"><a href="namespacetool.html#ae11019ef37390ec657efde69354884aa">tool.getRunFile</a></div><div class="ttdeci">def getRunFile(runCommand)</div><div class="ttdoc">Extract the .py script filename from a run command 从运行命令中提取.py脚本文件名</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00722">tool.py:722</a></div></div>
 <div class="ttc" id="anamespacetool_html_aeb791b1ae890adfbcdf37ee06053021e"><div class="ttname"><a href="namespacetool.html#aeb791b1ae890adfbcdf37ee06053021e">tool.getLastAPIParameter</a></div><div class="ttdeci">def getLastAPIParameter(apiStr)</div><div class="ttdoc">Get parameter(s) of the last API from the API call string 获取最后一个API参数</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00204">tool.py:204</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
