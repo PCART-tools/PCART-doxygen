@@ -1,0 +1,6 @@
+<map id="normalizeRunCommand" name="normalizeRunCommand">
+<area shape="rect" id="node1" title="Normalize project run command 归一化被测项目运行命令" alt="" coords="5,56,184,83"/>
+<area shape="rect" id="node2" href="$namespacetool.html#ab9a41531acf14c5b655fb3cea3fbffc9" title="Check whether command is Windows py launcher 判断命令是否为Windows py启动器" alt="" coords="263,5,371,32"/>
+<area shape="rect" id="node3" href="$namespacetool.html#aead1b9bf1040d7b731555503ebc46c93" title="Check whether command is a Python executable name/path 判断命令是否为Python解释器名称或路径" alt="" coords="242,56,391,83"/>
+<area shape="rect" id="node4" href="$namespacetool.html#af39825f4655d189d682b08f602ca7784" title="Remove version option after py launcher 去除py启动器后的版本选项" alt="" coords="232,107,401,133"/>
+</map>

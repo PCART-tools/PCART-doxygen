@@ -1,0 +1,9 @@
+<map id="normalizeRunCommand" name="normalizeRunCommand">
+<area shape="rect" id="node1" title="Normalize project run command 归一化被测项目运行命令" alt="" coords="751,31,929,57"/>
+<area shape="rect" id="node2" href="$namespacetool.html#a06834e8d522d907efbdb98ce689b85db" title="Build subprocess argv for project run command 为被测项目运行命令构造subprocess argv." alt="" coords="556,31,703,57"/>
+<area shape="rect" id="node3" href="$namespacemain.html#a37c97f0a13e2e95f6955d24042b98d4f" title="Generate pkl files and perform detection and repair task 生成项目调用API的pkl文件以及执行检测与修复任务" alt="" coords="371,5,494,32"/>
+<area shape="rect" id="node5" href="$namespacemap.html#a266cf0061b59b701942899be9e9da28a" title="Dynamic mapping of API signatures API签名动态匹配" alt="" coords="357,56,508,83"/>
+<area shape="rect" id="node4" href="$namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数" alt="" coords="211,5,303,32"/>
+<area shape="rect" id="node6" href="$namespacemap.html#a5b2e7c6bed22e3b899bde94558cde802" title="Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API与 ..." alt="" coords="204,56,309,83"/>
+<area shape="rect" id="node7" href="$namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件" alt="" coords="5,56,156,83"/>
+</map>

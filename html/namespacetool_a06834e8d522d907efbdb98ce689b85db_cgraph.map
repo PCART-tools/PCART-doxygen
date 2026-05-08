@@ -1,0 +1,9 @@
+<map id="buildRunCommand" name="buildRunCommand">
+<area shape="rect" id="node1" title="Build subprocess argv for project run command 为被测项目运行命令构造subprocess argv." alt="" coords="5,107,152,133"/>
+<area shape="rect" id="node2" href="$namespacetool.html#ad5f825eabcfb5ac3830d4c9650bb76e6" title="Normalize project run command 归一化被测项目运行命令" alt="" coords="207,56,386,83"/>
+<area shape="rect" id="node6" href="$namespacetool.html#a9a111bedf50d5fa9bbd67744ca605a9c" title="Resolve console script executable from a virtual environment 从虚拟环境中解析console script可执行文件" alt="" coords="200,107,393,133"/>
+<area shape="rect" id="node7" href="$namespacetool.html#acddd4e80b12bc317097d9b6da7afaa48" title="Resolve Python executable from a virtual environment root 从虚拟环境根目录解析 Python 解释器路径" alt="" coords="203,157,390,184"/>
+<area shape="rect" id="node3" href="$namespacetool.html#ab9a41531acf14c5b655fb3cea3fbffc9" title="Check whether command is Windows py launcher 判断命令是否为Windows py启动器" alt="" coords="472,5,580,32"/>
+<area shape="rect" id="node4" href="$namespacetool.html#aead1b9bf1040d7b731555503ebc46c93" title="Check whether command is a Python executable name/path 判断命令是否为Python解释器名称或路径" alt="" coords="451,56,601,83"/>
+<area shape="rect" id="node5" href="$namespacetool.html#af39825f4655d189d682b08f602ca7784" title="Remove version option after py launcher 去除py启动器后的版本选项" alt="" coords="441,107,611,133"/>
+</map>

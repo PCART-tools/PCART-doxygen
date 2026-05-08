@@ -81,6 +81,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtool_1_1ConditionalReturnTransformer.html">ConditionalReturnTransformer</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert conditional return statement to multi-line if-else structure 展开单行条件返回语句为多行if-else结构  <a href="classtool_1_1ConditionalReturnTransformer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtool_1_1UnsupportedRunCommand.html">UnsupportedRunCommand</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -90,6 +92,9 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a06834e8d522d907efbdb98ce689b85db"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetool.html#a06834e8d522d907efbdb98ce689b85db">buildRunCommand</a> (runCommand, envPath)</td></tr>
+<tr class="memdesc:a06834e8d522d907efbdb98ce689b85db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build subprocess argv for project run command 为被测项目运行命令构造subprocess argv.  <a href="namespacetool.html#a06834e8d522d907efbdb98ce689b85db">More...</a><br /></td></tr>
+<tr class="separator:a06834e8d522d907efbdb98ce689b85db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51b7d0e90dbf25c2596e98cee7912634"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetool.html#a51b7d0e90dbf25c2596e98cee7912634">cmp</a> (version)</td></tr>
 <tr class="separator:a51b7d0e90dbf25c2596e98cee7912634"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4d05a17f2f511bda4979dd476894896"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetool.html#ac4d05a17f2f511bda4979dd476894896">departAPI</a> (s)</td></tr>
@@ -115,6 +120,9 @@ Functions</h2></td></tr>
 <tr class="memitem:aeb791b1ae890adfbcdf37ee06053021e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetool.html#aeb791b1ae890adfbcdf37ee06053021e">getLastAPIParameter</a> (apiStr)</td></tr>
 <tr class="memdesc:aeb791b1ae890adfbcdf37ee06053021e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get parameter(s) of the last API from the API call string 获取最后一个API参数  <a href="namespacetool.html#aeb791b1ae890adfbcdf37ee06053021e">More...</a><br /></td></tr>
 <tr class="separator:aeb791b1ae890adfbcdf37ee06053021e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae11019ef37390ec657efde69354884aa"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetool.html#ae11019ef37390ec657efde69354884aa">getRunFile</a> (runCommand)</td></tr>
+<tr class="memdesc:ae11019ef37390ec657efde69354884aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract the .py script filename from a run command 从运行命令中提取.py脚本文件名  <a href="namespacetool.html#ae11019ef37390ec657efde69354884aa">More...</a><br /></td></tr>
+<tr class="separator:ae11019ef37390ec657efde69354884aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2321662f4efa237a44d89603ddb2ba1d"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetool.html#a2321662f4efa237a44d89603ddb2ba1d">getSourceCodePath</a> (configPath)</td></tr>
 <tr class="memdesc:a2321662f4efa237a44d89603ddb2ba1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get source code path of the lib 获取库源码路径  <a href="namespacetool.html#a2321662f4efa237a44d89603ddb2ba1d">More...</a><br /></td></tr>
 <tr class="separator:a2321662f4efa237a44d89603ddb2ba1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -123,18 +131,33 @@ Functions</h2></td></tr>
 <tr class="separator:a5cc61c9c0a7f6f85176b0d98dfb8dd1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a849edc20eeb55c40facb1c1f49effa"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetool.html#a8a849edc20eeb55c40facb1c1f49effa">isDynamic</a> (dic)</td></tr>
 <tr class="separator:a8a849edc20eeb55c40facb1c1f49effa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9a41531acf14c5b655fb3cea3fbffc9"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetool.html#ab9a41531acf14c5b655fb3cea3fbffc9">isPyLauncher</a> (command)</td></tr>
+<tr class="memdesc:ab9a41531acf14c5b655fb3cea3fbffc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether command is Windows py launcher 判断命令是否为Windows py启动器  <a href="namespacetool.html#ab9a41531acf14c5b655fb3cea3fbffc9">More...</a><br /></td></tr>
+<tr class="separator:ab9a41531acf14c5b655fb3cea3fbffc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aead1b9bf1040d7b731555503ebc46c93"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetool.html#aead1b9bf1040d7b731555503ebc46c93">isPythonExecutable</a> (command)</td></tr>
+<tr class="memdesc:aead1b9bf1040d7b731555503ebc46c93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether command is a Python executable name/path 判断命令是否为Python解释器名称或路径  <a href="namespacetool.html#aead1b9bf1040d7b731555503ebc46c93">More...</a><br /></td></tr>
+<tr class="separator:aead1b9bf1040d7b731555503ebc46c93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac27269fb0ca8635862c18bfe841deaae"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetool.html#ac27269fb0ca8635862c18bfe841deaae">loadConfig</a> (configPath)</td></tr>
 <tr class="memdesc:ac27269fb0ca8635862c18bfe841deaae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load PCART's configuration file 加载PCART配置文件  <a href="namespacetool.html#ac27269fb0ca8635862c18bfe841deaae">More...</a><br /></td></tr>
 <tr class="separator:ac27269fb0ca8635862c18bfe841deaae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5f825eabcfb5ac3830d4c9650bb76e6"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetool.html#ad5f825eabcfb5ac3830d4c9650bb76e6">normalizeRunCommand</a> (runCommand)</td></tr>
+<tr class="memdesc:ad5f825eabcfb5ac3830d4c9650bb76e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalize project run command 归一化被测项目运行命令  <a href="namespacetool.html#ad5f825eabcfb5ac3830d4c9650bb76e6">More...</a><br /></td></tr>
+<tr class="separator:ad5f825eabcfb5ac3830d4c9650bb76e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06b0d4848192999bfb9a11895ba277dc"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetool.html#a06b0d4848192999bfb9a11895ba277dc">removeParameter</a> (s, flag=0)</td></tr>
 <tr class="memdesc:a06b0d4848192999bfb9a11895ba277dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove parameter(s) from API call string 去掉API中的参数部分  <a href="namespacetool.html#a06b0d4848192999bfb9a11895ba277dc">More...</a><br /></td></tr>
 <tr class="separator:a06b0d4848192999bfb9a11895ba277dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a111bedf50d5fa9bbd67744ca605a9c"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetool.html#a9a111bedf50d5fa9bbd67744ca605a9c">resolveConsoleExecutable</a> (envPath, commandName)</td></tr>
+<tr class="memdesc:a9a111bedf50d5fa9bbd67744ca605a9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resolve console script executable from a virtual environment 从虚拟环境中解析console script可执行文件  <a href="namespacetool.html#a9a111bedf50d5fa9bbd67744ca605a9c">More...</a><br /></td></tr>
+<tr class="separator:a9a111bedf50d5fa9bbd67744ca605a9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acddd4e80b12bc317097d9b6da7afaa48"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetool.html#acddd4e80b12bc317097d9b6da7afaa48">resolvePythonExecutable</a> (envPath)</td></tr>
 <tr class="memdesc:acddd4e80b12bc317097d9b6da7afaa48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resolve Python executable from a virtual environment root 从虚拟环境根目录解析 Python 解释器路径  <a href="namespacetool.html#acddd4e80b12bc317097d9b6da7afaa48">More...</a><br /></td></tr>
 <tr class="separator:acddd4e80b12bc317097d9b6da7afaa48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c884e031b8683fe57a2fc6e9f321b2b"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetool.html#a0c884e031b8683fe57a2fc6e9f321b2b">save2txt</a> (lst, libName, runCommand, savePath)</td></tr>
 <tr class="memdesc:a0c884e031b8683fe57a2fc6e9f321b2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save PCART report 保存PCART报告  <a href="namespacetool.html#a0c884e031b8683fe57a2fc6e9f321b2b">More...</a><br /></td></tr>
 <tr class="separator:a0c884e031b8683fe57a2fc6e9f321b2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af39825f4655d189d682b08f602ca7784"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetool.html#af39825f4655d189d682b08f602ca7784">stripPyLauncherOption</a> (tokens)</td></tr>
+<tr class="memdesc:af39825f4655d189d682b08f602ca7784"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove version option after py launcher 去除py启动器后的版本选项  <a href="namespacetool.html#af39825f4655d189d682b08f602ca7784">More...</a><br /></td></tr>
+<tr class="separator:af39825f4655d189d682b08f602ca7784"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89e3ba62412c41551693e80ced2dc88c"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetool.html#a89e3ba62412c41551693e80ced2dc88c">writeLine</a> (width, s, fw)</td></tr>
 <tr class="memdesc:a89e3ba62412c41551693e80ced2dc88c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Format output 格式化输出  <a href="namespacetool.html#a89e3ba62412c41551693e80ced2dc88c">More...</a><br /></td></tr>
 <tr class="separator:a89e3ba62412c41551693e80ced2dc88c"><td class="memSeparator" colspan="2">&#160;</td></tr>

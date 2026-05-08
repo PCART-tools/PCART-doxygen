@@ -8,6 +8,7 @@ var searchData=
   ['alias_9',['alias',['../classfuzzyMatch_1_1fuzzyMatch.html#ae67d6c6e342775a03bd935d100b5b8fa',1,'fuzzyMatch::fuzzyMatch']]],
   ['analyzecompatibility_10',['analyzeCompatibility',['../namespacechangeAnalyze.html#a0e521f7261a83511bc8e4742e2647d64',1,'changeAnalyze']]],
   ['api_11',['Api',['../classLibApi_1_1Api.html',1,'LibApi']]],
-  ['apiobj_12',['APIOBJ',['../classLibApi_1_1APIOBJ.html',1,'LibApi']]],
-  ['assignvisitor_13',['AssignVisitor',['../classextractDef_1_1AssignVisitor.html',1,'extractDef']]]
+  ['apicoveredset_12',['apiCoveredSet',['../namespacerecordValue.html#acba84d5f15e7d21dec5041eacb39a812',1,'recordValue']]],
+  ['apiobj_13',['APIOBJ',['../classLibApi_1_1APIOBJ.html',1,'LibApi']]],
+  ['assignvisitor_14',['AssignVisitor',['../classextractDef_1_1AssignVisitor.html',1,'extractDef']]]
 ];
