@@ -1,0 +1,6 @@
+<map id="hasSaveFailedManifest" name="hasSaveFailedManifest">
+<area shape="rect" id="node1" title="Check whether a callsite candidate manifest records pkl save failure 检查调用点候选清单是否记录了pkl保存失败" alt="" coords="491,5,663,32"/>
+<area shape="rect" id="node2" href="$namespacemap.html#ad42b1c51153bfcc30c38bf31ca669197" title="Dynamic mapping of API signatures API签名动态匹配" alt="" coords="324,5,443,32"/>
+<area shape="rect" id="node3" href="$namespacemap.html#a78308f65da57a1b78ac061bddb981715" title="Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API与 ..." alt="" coords="204,5,276,32"/>
+<area shape="rect" id="node4" href="$namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件" alt="" coords="5,5,156,32"/>
+</map>

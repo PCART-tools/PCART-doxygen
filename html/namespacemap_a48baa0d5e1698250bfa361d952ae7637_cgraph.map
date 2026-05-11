@@ -1,0 +1,6 @@
+<map id="hasSaveFailedManifest" name="hasSaveFailedManifest">
+<area shape="rect" id="node1" title="Check whether a callsite candidate manifest records pkl save failure 检查调用点候选清单是否记录了pkl保存失败" alt="" coords="5,5,177,32"/>
+<area shape="rect" id="node2" href="$namespacetool.html#a738ffb440e1ecdd990c95702ed30da31" title="Normalize file name 给文件取名字" alt="" coords="225,5,360,32"/>
+<area shape="rect" id="node3" href="$namespacetool.html#adb980fd487d69797992c72e9b8c73326" title="Return artifact hash from an artifact id 从运行产物id中提取hash." alt="" coords="667,5,820,32"/>
+<area shape="rect" id="node4" href="$namespacetool.html#a3d830c5894b1bc76beb533d6aa2d55f3" title="Shorten artifact file name while preserving full hash 缩短运行产物文件名并保留完整hash." alt="" coords="408,31,619,57"/>
+</map>

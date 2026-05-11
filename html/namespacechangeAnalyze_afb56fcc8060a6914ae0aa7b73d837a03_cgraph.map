@@ -1,0 +1,7 @@
+<map id="addValueForAPI" name="addValueForAPI">
+<area shape="rect" id="node1" title="Add values stored by pkl file for API parameters 为API参数添加保存至pkl文件中的值" alt="" coords="5,31,128,57"/>
+<area shape="rect" id="node2" href="$namespacetool.html#a738ffb440e1ecdd990c95702ed30da31" title="Normalize file name 给文件取名字" alt="" coords="216,5,351,32"/>
+<area shape="rect" id="node5" href="$namespacetool.html#acddd4e80b12bc317097d9b6da7afaa48" title="Resolve Python executable from a virtual environment root 从虚拟环境根目录解析 Python 解释器路径" alt="" coords="176,56,391,83"/>
+<area shape="rect" id="node3" href="$namespacetool.html#adb980fd487d69797992c72e9b8c73326" title="Return artifact hash from an artifact id 从运行产物id中提取hash." alt="" coords="697,5,851,32"/>
+<area shape="rect" id="node4" href="$namespacetool.html#a3d830c5894b1bc76beb533d6aa2d55f3" title="Shorten artifact file name while preserving full hash 缩短运行产物文件名并保留完整hash." alt="" coords="439,31,649,57"/>
+</map>

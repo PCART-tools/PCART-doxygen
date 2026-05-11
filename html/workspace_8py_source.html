@@ -210,39 +210,52 @@ $(function() {
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="preprocessor">@contextmanager</span></div>
-<div class="line"><a name="l00191"></a><span class="lineno"><a class="line" href="namespaceworkspace.html#a52f0dcdb1eb2925c1043860032f669d9">  191</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespaceworkspace.html#a52f0dcdb1eb2925c1043860032f669d9">workspaceCwd</a>(path):</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    previous=os.getcwd()</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    os.chdir(path)</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <span class="keywordflow">yield</span></div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordflow">finally</span>:</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        os.chdir(previous)</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
-<div class="line"><a name="l00204"></a><span class="lineno"><a class="line" href="namespaceworkspace.html#a39fae6e30ae356b4e47690160ea2d5d9">  204</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespaceworkspace.html#a39fae6e30ae356b4e47690160ea2d5d9">exportRunReport</a>(workspace):</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    os.makedirs(workspace.report_root, exist_ok=<span class="keyword">True</span>)</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    os.makedirs(os.path.join(workspace.report_root,<span class="stringliteral">&#39;patches&#39;</span>),exist_ok=<span class="keyword">True</span>)</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    os.makedirs(os.path.join(workspace.report_root,<span class="stringliteral">&#39;fixed_project&#39;</span>),exist_ok=<span class="keyword">True</span>)</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isdir(workspace.internal_report_dir):</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keywordflow">for</span> name <span class="keywordflow">in</span> os.listdir(workspace.internal_report_dir):</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        source=os.path.join(workspace.internal_report_dir,name)</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        target=os.path.join(workspace.report_root,name)</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        <span class="keywordflow">if</span> os.path.isdir(source):</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;            <span class="keywordflow">if</span> os.path.exists(target):</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;                shutil.rmtree(target)</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;            shutil.copytree(source,target)</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;            shutil.copy2(source,target)</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
+<div class="line"><a name="l00193"></a><span class="lineno"><a class="line" href="namespaceworkspace.html#aba6396054179aaa393205a76b303d7a6">  193</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespaceworkspace.html#aba6396054179aaa393205a76b303d7a6">getRuntimePaths</a>(workspace):</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keywordflow">return</span> {</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <span class="stringliteral">&#39;workspace_root&#39;</span>: workspace.workspace_root,</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="stringliteral">&#39;copy_root&#39;</span>: workspace.copy_root,</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        <span class="stringliteral">&#39;dynamic_root&#39;</span>: workspace.dynamic_root,</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="stringliteral">&#39;data_dir&#39;</span>: workspace.data_dir,</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <span class="stringliteral">&#39;temp_dir&#39;</span>: workspace.temp_dir,</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        <span class="stringliteral">&#39;report_dir&#39;</span>: workspace.internal_report_dir,</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    }</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="preprocessor">@contextmanager</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno"><a class="line" href="namespaceworkspace.html#a52f0dcdb1eb2925c1043860032f669d9">  209</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespaceworkspace.html#a52f0dcdb1eb2925c1043860032f669d9">workspaceCwd</a>(path):</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    previous=os.getcwd()</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    os.chdir(path)</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        <span class="keywordflow">yield</span></div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keywordflow">finally</span>:</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        os.chdir(previous)</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; </div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
+<div class="line"><a name="l00222"></a><span class="lineno"><a class="line" href="namespaceworkspace.html#a39fae6e30ae356b4e47690160ea2d5d9">  222</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespaceworkspace.html#a39fae6e30ae356b4e47690160ea2d5d9">exportRunReport</a>(workspace):</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    os.makedirs(workspace.report_root, exist_ok=<span class="keyword">True</span>)</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    os.makedirs(os.path.join(workspace.report_root,<span class="stringliteral">&#39;patches&#39;</span>),exist_ok=<span class="keyword">True</span>)</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    os.makedirs(os.path.join(workspace.report_root,<span class="stringliteral">&#39;fixed_project&#39;</span>),exist_ok=<span class="keyword">True</span>)</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isdir(workspace.internal_report_dir):</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keywordflow">for</span> name <span class="keywordflow">in</span> os.listdir(workspace.internal_report_dir):</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        source=os.path.join(workspace.internal_report_dir,name)</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        target=os.path.join(workspace.report_root,name)</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        <span class="keywordflow">if</span> os.path.isdir(source):</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;            <span class="keywordflow">if</span> os.path.exists(target):</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;                shutil.rmtree(target)</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;            shutil.copytree(source,target)</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;            shutil.copy2(source,target)</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160; </div>
 <div class="ttc" id="aclassworkspace_1_1RunWorkspace_html"><div class="ttname"><a href="classworkspace_1_1RunWorkspace.html">workspace.RunWorkspace</a></div><div class="ttdoc">Run workspace path object PCART单次运行的工作区路径对象</div><div class="ttdef"><b>Definition:</b> <a href="workspace_8py_source.html#l00021">workspace.py:21</a></div></div>
 <div class="ttc" id="anamespaceworkspace_html_a0021e3b7235fc99d47ec6abf492a12e4"><div class="ttname"><a href="namespaceworkspace.html#a0021e3b7235fc99d47ec6abf492a12e4">workspace.getRepoRoot</a></div><div class="ttdeci">def getRepoRoot()</div><div class="ttdoc">Get PCART repository root path 获取PCART仓库根目录路径</div><div class="ttdef"><b>Definition:</b> <a href="workspace_8py_source.html#l00040">workspace.py:40</a></div></div>
-<div class="ttc" id="anamespaceworkspace_html_a39fae6e30ae356b4e47690160ea2d5d9"><div class="ttname"><a href="namespaceworkspace.html#a39fae6e30ae356b4e47690160ea2d5d9">workspace.exportRunReport</a></div><div class="ttdeci">def exportRunReport(workspace)</div><div class="ttdoc">Export internal report files to user-visible report directory 将工作区内部报告导出到用户可见报告目录</div><div class="ttdef"><b>Definition:</b> <a href="workspace_8py_source.html#l00204">workspace.py:204</a></div></div>
+<div class="ttc" id="anamespaceworkspace_html_a39fae6e30ae356b4e47690160ea2d5d9"><div class="ttname"><a href="namespaceworkspace.html#a39fae6e30ae356b4e47690160ea2d5d9">workspace.exportRunReport</a></div><div class="ttdeci">def exportRunReport(workspace)</div><div class="ttdoc">Export internal report files to user-visible report directory 将工作区内部报告导出到用户可见报告目录</div><div class="ttdef"><b>Definition:</b> <a href="workspace_8py_source.html#l00222">workspace.py:222</a></div></div>
 <div class="ttc" id="anamespaceworkspace_html_a46da2a5c9f862cc9c976c155bb91dc27"><div class="ttname"><a href="namespaceworkspace.html#a46da2a5c9f862cc9c976c155bb91dc27">workspace.slugifyProjectName</a></div><div class="ttdeci">def slugifyProjectName(projPath)</div><div class="ttdoc">Convert project path/name to a filesystem-safe slug 将项目路径或项目名转换为可作为目录名使用的slug.</div><div class="ttdef"><b>Definition:</b> <a href="workspace_8py_source.html#l00049">workspace.py:49</a></div></div>
-<div class="ttc" id="anamespaceworkspace_html_a52f0dcdb1eb2925c1043860032f669d9"><div class="ttname"><a href="namespaceworkspace.html#a52f0dcdb1eb2925c1043860032f669d9">workspace.workspaceCwd</a></div><div class="ttdeci">def workspaceCwd(path)</div><div class="ttdoc">Temporarily switch current working directory 临时切换当前工作目录</div><div class="ttdef"><b>Definition:</b> <a href="workspace_8py_source.html#l00191">workspace.py:191</a></div></div>
+<div class="ttc" id="anamespaceworkspace_html_a52f0dcdb1eb2925c1043860032f669d9"><div class="ttname"><a href="namespaceworkspace.html#a52f0dcdb1eb2925c1043860032f669d9">workspace.workspaceCwd</a></div><div class="ttdeci">def workspaceCwd(path)</div><div class="ttdoc">Temporarily switch current working directory 临时切换当前工作目录</div><div class="ttdef"><b>Definition:</b> <a href="workspace_8py_source.html#l00209">workspace.py:209</a></div></div>
 <div class="ttc" id="anamespaceworkspace_html_a9360d1de3db40b2a88a9d941c4e6d3c7"><div class="ttname"><a href="namespaceworkspace.html#a9360d1de3db40b2a88a9d941c4e6d3c7">workspace.createRunWorkspace</a></div><div class="ttdeci">def createRunWorkspace(repoRoot, projPath, runCommand, runPath, libName, currentVersion, targetVersion, currentEnv, targetEnv, commandId='cmd-001', timestamp=None)</div><div class="ttdoc">Create an isolated workspace for one PCART run command 为一次PCART运行命令创建隔离工作区</div><div class="ttdef"><b>Definition:</b> <a href="workspace_8py_source.html#l00101">workspace.py:113</a></div></div>
+<div class="ttc" id="anamespaceworkspace_html_aba6396054179aaa393205a76b303d7a6"><div class="ttname"><a href="namespaceworkspace.html#aba6396054179aaa393205a76b303d7a6">workspace.getRuntimePaths</a></div><div class="ttdeci">def getRuntimePaths(workspace)</div><div class="ttdoc">Return runtime artifact paths for the current execution 返回当前执行使用的运行产物路径</div><div class="ttdef"><b>Definition:</b> <a href="workspace_8py_source.html#l00193">workspace.py:193</a></div></div>
 <div class="ttc" id="anamespaceworkspace_html_ac38101f78c013e4d49db5d01b00d33ed"><div class="ttname"><a href="namespaceworkspace.html#ac38101f78c013e4d49db5d01b00d33ed">workspace.writeMetadata</a></div><div class="ttdeci">def writeMetadata(workspace, metadata)</div><div class="ttdoc">Write workspace metadata 写入运行工作区元数据</div><div class="ttdef"><b>Definition:</b> <a href="workspace_8py_source.html#l00179">workspace.py:179</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
