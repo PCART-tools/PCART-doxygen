@@ -1,0 +1,5 @@
+<map id="getFileName" name="getFileName">
+<area shape="rect" id="node1" title="Normalize file name 给文件取名字" alt="" coords="5,5,111,32"/>
+<area shape="rect" id="node2" href="$namespacetool.html#adb980fd487d69797992c72e9b8c73326" title="Return artifact hash from an artifact id 从运行产物id中提取hash." alt="" coords="388,5,512,32"/>
+<area shape="rect" id="node3" href="$namespacetool.html#a3d830c5894b1bc76beb533d6aa2d55f3" title="Shorten artifact file name while preserving full hash 缩短运行产物文件名并保留完整hash." alt="" coords="159,31,340,57"/>
+</map>

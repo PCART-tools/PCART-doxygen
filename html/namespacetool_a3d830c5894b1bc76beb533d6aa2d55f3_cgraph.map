@@ -1,0 +1,4 @@
+<map id="shortenArtifactFileName" name="shortenArtifactFileName">
+<area shape="rect" id="node1" title="Shorten artifact file name while preserving full hash 缩短运行产物文件名并保留完整hash." alt="" coords="5,5,187,32"/>
+<area shape="rect" id="node2" href="$namespacetool.html#adb980fd487d69797992c72e9b8c73326" title="Return artifact hash from an artifact id 从运行产物id中提取hash." alt="" coords="235,5,359,32"/>
+</map>

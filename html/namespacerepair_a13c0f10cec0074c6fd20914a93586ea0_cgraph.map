@@ -1,5 +1,5 @@
 <map id="mirrorAPI" name="mirrorAPI">
 <area shape="rect" id="node1" title="Create mirror for the fixed API by adding all parameter names 给修复后API的参数填上参数名" alt="" coords="5,31,88,57"/>
-<area shape="rect" id="node2" href="$namespacetool.html#ac911ce7a8605392b72a43d059055729f" title="Split parameter string into list of separated parameters 将参数字符串拆分成单个的参数" alt="" coords="156,5,303,32"/>
-<area shape="rect" id="node3" href="$namespacetool.html#aeb791b1ae890adfbcdf37ee06053021e" title="Get parameter(s) of the last API from the API call string 获取最后一个API参数" alt="" coords="136,56,323,83"/>
+<area shape="rect" id="node2" href="$namespacetool.html#aeb791b1ae890adfbcdf37ee06053021e" title="Get parameter(s) of the last API from the API call string 获取最后一个API参数" alt="" coords="136,5,323,32"/>
+<area shape="rect" id="node3" href="$namespacetool.html#a79b523c932db90445596767f644be48c" title="Split parameter string into list of separated parameters 将参数字符串拆分成单个的参数" alt="" coords="160,56,299,83"/>
 </map>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['type_410',['type',['../classLibApi_1_1Parameter.html#a7aead736a07eaf25623ad7bfa1f0ee2d',1,'LibApi.Parameter.type()'],['../classchangeAnalyze_1_1Update.html#a7aead736a07eaf25623ad7bfa1f0ee2d',1,'changeAnalyze.Update.type()']]]
+  ['star_5fposition_441',['star_position',['../classLibApi_1_1Parameter.html#aaf4d4b955624734af60406a80a732f7d',1,'LibApi::Parameter']]]
 ];

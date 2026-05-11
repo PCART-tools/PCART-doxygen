@@ -169,7 +169,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            pString=objP.findall(item) <span class="comment">#获取函数参数</span></div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            api.parameters_string=<span class="stringliteral">&#39;&#39;</span>.join(pString) <span class="comment">#保存参数整体的字符串</span></div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            <span class="keywordflow">if</span> len(pString)&gt;0:</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                lst=<a class="code" href="namespacetool.html#ac911ce7a8605392b72a43d059055729f">get_parameter</a>(pString[0]) <span class="comment">#拆分参数</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                lst=<a class="code" href="namespacetool.html#a79b523c932db90445596767f644be48c">getParameter</a>(pString[0]) <span class="comment">#拆分参数</span></div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                <span class="comment">#把self和cls去掉</span></div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                <span class="keywordflow">if</span> <span class="stringliteral">&#39;self&#39;</span> <span class="keywordflow">in</span> lst:</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                    lst.remove(<span class="stringliteral">&#39;self&#39;</span>)</div>
@@ -199,14 +199,14 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                    api.parameters.append(parameter)</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;            </div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;            self.objLst.append(api)</div>
-<div class="ttc" id="anamespacetool_html_ac911ce7a8605392b72a43d059055729f"><div class="ttname"><a href="namespacetool.html#ac911ce7a8605392b72a43d059055729f">tool.get_parameter</a></div><div class="ttdeci">def get_parameter(p_string, separator=',', space=1)</div><div class="ttdoc">Split parameter string into list of separated parameters 将参数字符串拆分成单个的参数</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00030">tool.py:30</a></div></div>
+<div class="ttc" id="anamespacetool_html_a79b523c932db90445596767f644be48c"><div class="ttname"><a href="namespacetool.html#a79b523c932db90445596767f644be48c">tool.getParameter</a></div><div class="ttdeci">def getParameter(p_string, separator=',', space=1)</div><div class="ttdoc">Split parameter string into list of separated parameters 将参数字符串拆分成单个的参数</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00078">tool.py:78</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classLibApi_1_1APIOBJ_a6df461a3f6e2a6f292810db36212da14_cgraph.png" border="0" usemap="#aclassLibApi_1_1APIOBJ_a6df461a3f6e2a6f292810db36212da14_cgraph" alt=""/></div>
 <map name="aclassLibApi_1_1APIOBJ_a6df461a3f6e2a6f292810db36212da14_cgraph" id="aclassLibApi_1_1APIOBJ_a6df461a3f6e2a6f292810db36212da14_cgraph">
 <area shape="rect" title=" " alt="" coords="5,5,84,32"/>
-<area shape="rect" href="namespacetool.html#ac911ce7a8605392b72a43d059055729f" title="Split parameter string into list of separated parameters 将参数字符串拆分成单个的参数" alt="" coords="132,5,279,32"/>
+<area shape="rect" href="namespacetool.html#a79b523c932db90445596767f644be48c" title="Split parameter string into list of separated parameters 将参数字符串拆分成单个的参数" alt="" coords="132,5,271,32"/>
 </map>
 </div>
 

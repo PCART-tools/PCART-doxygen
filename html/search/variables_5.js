@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['objlst_397',['objLst',['../classLibApi_1_1APIOBJ.html#ace6014a2590bde8fbd38d951a7b03516',1,'LibApi::APIOBJ']]]
+  ['name_428',['name',['../classLibApi_1_1Parameter.html#ab74e6bf80237ddc4109968cedc58c151',1,'LibApi.Parameter.name()'],['../classLibApi_1_1Api.html#ab74e6bf80237ddc4109968cedc58c151',1,'LibApi.Api.name()']]]
 ];

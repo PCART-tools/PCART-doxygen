@@ -1,0 +1,4 @@
+<map id="getArtifactDisplayName" name="getArtifactDisplayName">
+<area shape="rect" id="node1" title="Return readable artifact display name 返回可读运行产物展示名" alt="" coords="5,5,184,32"/>
+<area shape="rect" id="node2" href="$namespacetool.html#adb980fd487d69797992c72e9b8c73326" title="Return artifact hash from an artifact id 从运行产物id中提取hash." alt="" coords="232,5,356,32"/>
+</map>

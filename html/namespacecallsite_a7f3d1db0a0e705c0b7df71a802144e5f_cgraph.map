@@ -1,0 +1,5 @@
+<map id="makeCallsiteRecord" name="makeCallsiteRecord">
+<area shape="rect" id="node1" title="Make callsite record 构造调用点记录" alt="" coords="5,31,157,57"/>
+<area shape="rect" id="node2" href="$namespacecallsite.html#a10129000122ceacaec2cb26cd4e3a8a5" title="Normalize call text for identity generation 归一化调用文本，用于生成调用点身份" alt="" coords="205,5,344,32"/>
+<area shape="rect" id="node3" href="$namespacecallsite.html#a011e3f8ff9cf7205c116ce2eee657af4" title="Normalize source file path to project relative path 将源码路径归一化为项目相对路径" alt="" coords="207,56,343,83"/>
+</map>

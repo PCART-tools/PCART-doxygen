@@ -102,7 +102,7 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Convert conditional return statement to multi-line if-else structure 展开单行条件返回语句为多行if-else结构 </p>
 
-<p class="definition">Definition at line <a class="el" href="tool_8py_source.html#l00811">811</a> of file <a class="el" href="tool_8py_source.html">tool.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tool_8py_source.html#l00861">861</a> of file <a class="el" href="tool_8py_source.html">tool.py</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a6d763850393280137d191dcd92d82b28"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6d763850393280137d191dcd92d82b28">&#9670;&nbsp;</a></span>visit_Return()</h2>
@@ -130,18 +130,18 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tool_8py_source.html#l00812">812</a> of file <a class="el" href="tool_8py_source.html">tool.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;    <span class="keyword">def </span>visit_Return(self, node):</div>
-<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;        <span class="comment">#检查return语句是否为单行条件语句（IfExp)</span></div>
-<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;        <span class="keywordflow">if</span> isinstance(node, ast.Return) <span class="keywordflow">and</span> isinstance(node.value, ast.IfExp):</div>
-<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;            ifExp = node.value</div>
-<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;            newIf = ast.If(</div>
-<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;                           test=ifExp.test,</div>
-<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;                           body=[ast.Return(value=ifExp.body)],</div>
-<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;                           orelse=[ast.Return(value=ifExp.orelse)]</div>
-<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;                          )</div>
-<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;            <span class="keywordflow">return</span> newIf</div>
-<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;        <span class="keywordflow">return</span> node</div>
+<p class="definition">Definition at line <a class="el" href="tool_8py_source.html#l00862">862</a> of file <a class="el" href="tool_8py_source.html">tool.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;    <span class="keyword">def </span>visit_Return(self, node):</div>
+<div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;        <span class="comment">#检查return语句是否为单行条件语句（IfExp)</span></div>
+<div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;        <span class="keywordflow">if</span> isinstance(node, ast.Return) <span class="keywordflow">and</span> isinstance(node.value, ast.IfExp):</div>
+<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;            ifExp = node.value</div>
+<div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;            newIf = ast.If(</div>
+<div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;                           test=ifExp.test,</div>
+<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;                           body=[ast.Return(value=ifExp.body)],</div>
+<div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;                           orelse=[ast.Return(value=ifExp.orelse)]</div>
+<div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;                          )</div>
+<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;            <span class="keywordflow">return</span> newIf</div>
+<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;        <span class="keywordflow">return</span> node</div>
 </div><!-- fragment -->
 </div>
 </div>

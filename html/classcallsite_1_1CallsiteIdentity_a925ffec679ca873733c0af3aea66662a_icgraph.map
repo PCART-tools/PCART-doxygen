@@ -1,0 +1,4 @@
+<map id="artifactPayload" name="artifactPayload">
+<area shape="rect" id="node1" title="The relative path from project root 相对于项目根目录的文件路径" alt="" coords="156,5,276,32"/>
+<area shape="rect" id="node2" href="$classcallsite_1_1CallsiteIdentity.html#add59ebac4797ef0dd5379aa261b008c2" title="Return stable artifact hash for a callsite 返回调用点稳定运行产物hash." alt="" coords="5,5,108,32"/>
+</map>

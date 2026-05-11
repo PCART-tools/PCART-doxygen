@@ -1,7 +1,7 @@
 <map id="validateByStr" name="validateByStr">
 <area shape="rect" id="node1" title="Static validation 静态验证" alt="" coords="5,31,116,57"/>
-<area shape="rect" id="node2" href="$namespacerepair.html#a13c0f10cec0074c6fd20914a93586ea0" title="Create mirror for the fixed API by adding all parameter names 给修复后API的参数填上参数名" alt="" coords="215,56,297,83"/>
-<area shape="rect" id="node5" href="$namespacechangeAnalyze.html#a9b577b97754fdc8097f5837944e9b010" title="Convert parameter string to positional and keyword parameter objects 将参数字符串转换为位置和关键字参数对象" alt="" coords="164,5,348,32"/>
-<area shape="rect" id="node3" href="$namespacetool.html#ac911ce7a8605392b72a43d059055729f" title="Split parameter string into list of separated parameters 将参数字符串拆分成单个的参数" alt="" coords="416,5,563,32"/>
-<area shape="rect" id="node4" href="$namespacetool.html#aeb791b1ae890adfbcdf37ee06053021e" title="Get parameter(s) of the last API from the API call string 获取最后一个API参数" alt="" coords="396,56,583,83"/>
+<area shape="rect" id="node2" href="$namespacerepair.html#a13c0f10cec0074c6fd20914a93586ea0" title="Create mirror for the fixed API by adding all parameter names 给修复后API的参数填上参数名" alt="" coords="215,5,297,32"/>
+<area shape="rect" id="node5" href="$namespacechangeAnalyze.html#a9b577b97754fdc8097f5837944e9b010" title="Convert parameter string to positional and keyword parameter objects 将参数字符串转换为位置和关键字参数对象" alt="" coords="164,56,348,83"/>
+<area shape="rect" id="node3" href="$namespacetool.html#aeb791b1ae890adfbcdf37ee06053021e" title="Get parameter(s) of the last API from the API call string 获取最后一个API参数" alt="" coords="396,5,583,32"/>
+<area shape="rect" id="node4" href="$namespacetool.html#a79b523c932db90445596767f644be48c" title="Split parameter string into list of separated parameters 将参数字符串拆分成单个的参数" alt="" coords="420,56,559,83"/>
 </map>

@@ -1,6 +1,6 @@
 <map id="getSelfAPI" name="getSelfAPI">
 <area shape="rect" id="node1" title="Extract method calls in a custom class inherited from a lib class 获取从库API继承的自定义类中的库API方法调用" alt="" coords="920,81,1009,108"/>
-<area shape="rect" id="node2" href="$namespacegetCall.html#a09df38fef33a1a5a38b769e150b35cb8" title="Extract all API calls from a given .py file 每次传进来一个.py文件，抽取所有的调用API." alt="" coords="749,81,872,108"/>
+<area shape="rect" id="node2" href="$namespacegetCall.html#a1a5e8458deb9887f9eef4d1d493030a6" title="Extract all API calls from a given .py file 每次传进来一个.py文件，抽取所有的调用API." alt="" coords="749,81,872,108"/>
 <area shape="rect" id="node3" href="$namespacepreprocess.html#aeb5178b512f242c05329f1137c0b208c" title="Code instrumentation for all API calls within a project source file 项目源文件所有API调用代码插桩" alt="" coords="519,5,683,32"/>
 <area shape="rect" id="node7" href="$namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件" alt="" coords="525,56,676,83"/>
 <area shape="rect" id="node8" href="$namespacepreprocess.html#a1be44b4612b83c96456034d7eef3a376" title="Convert the ListComp and DictComp statements to variable assignment statements 将列表推导式listComp和字典推导式Di..." alt="" coords="500,107,701,133"/>
