@@ -1,13 +1,12 @@
 <map id="shortenArtifactFileName" name="shortenArtifactFileName">
-<area shape="rect" id="node1" title="Shorten artifact file name while preserving full hash 缩短运行产物文件名并保留完整hash." alt="" coords="1123,116,1304,143"/>
-<area shape="rect" id="node2" href="$namespacetool.html#a738ffb440e1ecdd990c95702ed30da31" title="Normalize file name 给文件取名字" alt="" coords="969,116,1075,143"/>
-<area shape="rect" id="node3" href="$namespacechangeAnalyze.html#afb56fcc8060a6914ae0aa7b73d837a03" title="Add values stored by pkl file for API parameters 为API参数添加保存至pkl文件中的值" alt="" coords="204,15,431,41"/>
-<area shape="rect" id="node5" href="$namespacemap.html#ad42b1c51153bfcc30c38bf31ca669197" title="Dynamic mapping of API signatures API签名动态匹配" alt="" coords="479,91,629,117"/>
-<area shape="rect" id="node7" href="$namespacemap.html#a48baa0d5e1698250bfa361d952ae7637" title="Check whether a callsite candidate manifest records pkl save failure 检查调用点候选清单是否记录了pkl保存失败" alt="" coords="697,91,902,117"/>
-<area shape="rect" id="node8" href="$namespacemap.html#a4dfc27a9ef88266fabc973323ea01327" title="Save dynamic match result snapshot 保存动态匹配结果快照" alt="" coords="677,141,921,168"/>
-<area shape="rect" id="node9" href="$namespacerecordValue.html#a1b9b8095ea17c0ccc866619c441cf1fc" title="Save collected runtime values to pkl files 将收集到的运行时值保存到pkl文件" alt="" coords="719,192,880,219"/>
-<area shape="rect" id="node10" href="$namespacerepair.html#a9bf5e162d36d1dcde8ec91f611575276" title="Dynamic validation 动态验证" alt="" coords="720,243,879,269"/>
-<area shape="rect" id="node4" href="$namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件" alt="" coords="5,91,156,117"/>
-<area shape="rect" id="node6" href="$namespacemap.html#a78308f65da57a1b78ac061bddb981715" title="Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API与 ..." alt="" coords="265,91,370,117"/>
-<area shape="rect" id="node11" href="$namespacerepair.html#a4474fce39da06e080d7eab0050a1e987" title="Task of repairing parameter compatibility issues 参数兼容性问题修复任务" alt="" coords="489,217,619,244"/>
+<area shape="rect" id="node1" title="Shorten artifact file name while preserving full hash 缩短运行产物文件名并保留完整hash." alt="" coords="1123,81,1304,108"/>
+<area shape="rect" id="node2" href="$namespacetool.html#a738ffb440e1ecdd990c95702ed30da31" title="Normalize file name 给文件取名字" alt="" coords="969,81,1075,108"/>
+<area shape="rect" id="node3" href="$namespacechangeAnalyze.html#afb56fcc8060a6914ae0aa7b73d837a03" title="Add values stored by pkl file for API parameters 为API参数添加保存至pkl文件中的值" alt="" coords="204,5,431,32"/>
+<area shape="rect" id="node5" href="$namespacemap.html#ad42b1c51153bfcc30c38bf31ca669197" title="Dynamic mapping of API signatures API签名动态匹配" alt="" coords="479,81,629,108"/>
+<area shape="rect" id="node7" href="$namespacemap.html#a48baa0d5e1698250bfa361d952ae7637" title="Check whether a callsite candidate manifest records pkl save failure 检查调用点候选清单是否记录了pkl保存失败" alt="" coords="697,81,902,108"/>
+<area shape="rect" id="node8" href="$namespacemap.html#a4dfc27a9ef88266fabc973323ea01327" title="Save dynamic match result snapshot 保存动态匹配结果快照" alt="" coords="677,132,921,159"/>
+<area shape="rect" id="node9" href="$namespacerepair.html#a9bf5e162d36d1dcde8ec91f611575276" title="Dynamic validation 动态验证" alt="" coords="720,183,879,209"/>
+<area shape="rect" id="node4" href="$namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件" alt="" coords="5,81,156,108"/>
+<area shape="rect" id="node6" href="$namespacemap.html#a78308f65da57a1b78ac061bddb981715" title="Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API与 ..." alt="" coords="265,81,370,108"/>
+<area shape="rect" id="node10" href="$namespacerepair.html#a4474fce39da06e080d7eab0050a1e987" title="Task of repairing parameter compatibility issues 参数兼容性问题修复任务" alt="" coords="489,157,619,184"/>
 </map>
