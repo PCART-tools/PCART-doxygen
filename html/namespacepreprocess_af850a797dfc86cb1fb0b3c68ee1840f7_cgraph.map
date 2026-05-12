@@ -1,0 +1,4 @@
+<map id="getDecoratorInsertIndex" name="getDecoratorInsertIndex">
+<area shape="rect" id="node1" title="Get decorator block start index 获取装饰器块起始行号" alt="" coords="5,5,185,32"/>
+<area shape="rect" id="node2" href="$namespacepreprocess.html#aaab33bd46f0ae489d21ef62dff750446" title="Count the number of spaces at the beginning of a string 计算字符串的前面有多少个空格" alt="" coords="233,5,331,32"/>
+</map>
