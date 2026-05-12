@@ -1,4 +1,4 @@
 <map id="func" name="func">
-<area shape="rect" id="node1" title=" " alt="" coords="127,5,177,32"/>
-<area shape="rect" id="node2" href="$namespaceloadData.html#a785691b1ead057e7df657a708b9e126d" title="遍历所有版本的库API，将其整理成一个json格式的文件 {APIName: {&#39;1.1.0&#39;: [LibAPI1,LibAPI2,...]}, {...}, {...." alt="" coords="5,5,79,32"/>
+<area shape="rect" id="node1" title="Get all overloaded API strings for a given API name 获取给定API名称的所有重载API字符串" alt="" coords="127,5,177,32"/>
+<area shape="rect" id="node2" href="$namespaceloadData.html#a785691b1ead057e7df657a708b9e126d" title="Traverse all library API versions and consolidate into a JSON file 遍历所有版本的库API，将其整理成一个json格式的文件" alt="" coords="5,5,79,32"/>
 </map>

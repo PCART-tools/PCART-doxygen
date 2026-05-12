@@ -3,7 +3,7 @@
 <area shape="rect" id="node2" href="$namespacechangeAnalyze.html#afb56fcc8060a6914ae0aa7b73d837a03" title="Add values stored by pkl file for API parameters 为API参数添加保存至pkl文件中的值" alt="" coords="778,816,1005,843"/>
 <area shape="rect" id="node7" href="$namespacetool.html#a163a1af85c967f70b1495290735321aa" title="Get AST for code 将代码转化为Ast树" alt="" coords="1138,360,1231,387"/>
 <area shape="rect" id="node8" href="$namespacegetCall.html#a1a5e8458deb9887f9eef4d1d493030a6" title="Extract all API calls from a given .py file 每次传进来一个.py文件，抽取所有的调用API." alt="" coords="202,208,375,235"/>
-<area shape="rect" id="node15" href="$namespacechangeAnalyze.html#a3272743b8ad154a66e9d45ab36bca3ec" title="Detemine the compatibility of APIs from current and target versions 判断起始版本和目标版本API的兼容性" alt="" coords="183,56,394,83"/>
+<area shape="rect" id="node15" href="$namespacechangeAnalyze.html#a3272743b8ad154a66e9d45ab36bca3ec" title="Determine the compatibility of APIs from current and target versions 判断起始版本和目标版本API的兼容性" alt="" coords="183,56,394,83"/>
 <area shape="rect" id="node21" href="$namespacemap.html#a78308f65da57a1b78ac061bddb981715" title="Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API与 ..." alt="" coords="236,867,341,893"/>
 <area shape="rect" id="node39" href="$namespacetool.html#a06b0d4848192999bfb9a11895ba277dc" title="Remove parameter(s) from API call string 去掉API中的参数部分" alt="" coords="807,1120,975,1147"/>
 <area shape="rect" id="node40" href="$namespacechangeAnalyze.html#aebabc2a1cf15fbd9b0577c48803ffc20" title="Query API mapping dictionary 查询API映射字典" alt="" coords="172,917,405,944"/>
@@ -40,7 +40,7 @@
 <area shape="rect" id="node30" href="$namespacetool.html#aeb791b1ae890adfbcdf37ee06053021e" title="Get parameter(s) of the last API from the API call string 获取最后一个API参数" alt="" coords="1091,259,1278,285"/>
 <area shape="rect" id="node31" href="$namespacepreprocess.html#aa4a5e25d5835c88d23f7e5881063ad0d" title="Resolve the visible base&#45;class expression for an inherited self receiver 还原继承场景中self调用者可见的基类表达式" alt="" coords="1070,715,1299,741"/>
 <area shape="rect" id="node33" href="$namespacetool.html#ad5f825eabcfb5ac3830d4c9650bb76e6" title="Normalize project run command 归一化被测项目运行命令" alt="" coords="1081,765,1289,792"/>
-<area shape="rect" id="node37" href="$namespacemap.html#aaac6f97b9ceb2143a696d52df84f0a21" title="Check the last name in an API call is an alias or not 判断一个callAPI最后一个名字是否为库中的别名" alt="" coords="842,1019,941,1045"/>
+<area shape="rect" id="node37" href="$namespacemap.html#aaac6f97b9ceb2143a696d52df84f0a21" title="Check whether the last name in an API call is an alias 判断一个callAPI最后一个名字是否为库中的别名" alt="" coords="842,1019,941,1045"/>
 <area shape="rect" id="node38" href="$namespaceloadData.html#a534ad5385c0d9ba94804d73e99241c3e" title="Load the extracted definitions of lib APIs for static signature mapping 把之前抽取出来的库API加载到字典中，在项目API与库AP..." alt="" coords="825,1069,957,1096"/>
 <area shape="rect" id="node42" href="$namespacerepair.html#a77d5ab0ffc52fdb84b2063d48952bf07" title="Perform parameter repair operations through AST 通过AST执行参数修复操作" alt="" coords="550,512,629,539"/>
 <area shape="rect" id="node46" href="$namespacerepair.html#a9bf5e162d36d1dcde8ec91f611575276" title="Dynamic validation 动态验证" alt="" coords="812,715,971,741"/>

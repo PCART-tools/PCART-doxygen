@@ -79,20 +79,20 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6902ba6005267ff3d939e4a1a2aabe6f"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgetDef_1_1RegexMatch.html#a6902ba6005267ff3d939e4a1a2aabe6f">__init__</a> (self, code_text, pattern)</td></tr>
-<tr class="memdesc:a6902ba6005267ff3d939e4a1a2aabe6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor.  <a href="classgetDef_1_1RegexMatch.html#a6902ba6005267ff3d939e4a1a2aabe6f">More...</a><br /></td></tr>
+<tr class="memdesc:a6902ba6005267ff3d939e4a1a2aabe6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor 构造函数  <a href="classgetDef_1_1RegexMatch.html#a6902ba6005267ff3d939e4a1a2aabe6f">More...</a><br /></td></tr>
 <tr class="separator:a6902ba6005267ff3d939e4a1a2aabe6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad58623e6201bdcbab5abb2dd0536c5a5"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgetDef_1_1RegexMatch.html#ad58623e6201bdcbab5abb2dd0536c5a5">get_result</a> (self)</td></tr>
-<tr class="memdesc:ad58623e6201bdcbab5abb2dd0536c5a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the match result.  <a href="classgetDef_1_1RegexMatch.html#ad58623e6201bdcbab5abb2dd0536c5a5">More...</a><br /></td></tr>
+<tr class="memdesc:ad58623e6201bdcbab5abb2dd0536c5a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the match result 返回匹配结果  <a href="classgetDef_1_1RegexMatch.html#ad58623e6201bdcbab5abb2dd0536c5a5">More...</a><br /></td></tr>
 <tr class="separator:ad58623e6201bdcbab5abb2dd0536c5a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e05d4e91df0c3c398518b2fc888ecec"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgetDef_1_1RegexMatch.html#a4e05d4e91df0c3c398518b2fc888ecec">regex_match</a> (self)</td></tr>
-<tr class="memdesc:a4e05d4e91df0c3c398518b2fc888ecec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform the regular expressions.  <a href="classgetDef_1_1RegexMatch.html#a4e05d4e91df0c3c398518b2fc888ecec">More...</a><br /></td></tr>
+<tr class="memdesc:a4e05d4e91df0c3c398518b2fc888ecec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform the regular expression match 执行正则表达式匹配  <a href="classgetDef_1_1RegexMatch.html#a4e05d4e91df0c3c398518b2fc888ecec">More...</a><br /></td></tr>
 <tr class="separator:a4e05d4e91df0c3c398518b2fc888ecec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Regular expression match class 正则表达式匹配类 </p>
 <p>Match a given pattern from code text </p>
 
-<p class="definition">Definition at line <a class="el" href="getDef_8py_source.html#l00021">21</a> of file <a class="el" href="getDef_8py_source.html">getDef.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="getDef_8py_source.html#l00026">26</a> of file <a class="el" href="getDef_8py_source.html">getDef.py</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6902ba6005267ff3d939e4a1a2aabe6f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6902ba6005267ff3d939e4a1a2aabe6f">&#9670;&nbsp;</a></span>__init__()</h2>
@@ -126,14 +126,21 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>The constructor. </p>
+<p>The constructor 构造函数 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">code_text</td><td>Source code text to search </td></tr>
+    <tr><td class="paramname">pattern</td><td>Regular expression pattern </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="getDef_8py_source.html#l00024">24</a> of file <a class="el" href="getDef_8py_source.html">getDef.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">def </span>__init__(self,code_text,pattern):</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        self._code_text=code_text</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        self._pattern=pattern</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        self._result=[]</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="getDef_8py_source.html#l00032">32</a> of file <a class="el" href="getDef_8py_source.html">getDef.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">def </span>__init__(self,code_text,pattern):</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        self._code_text=code_text</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        self._pattern=pattern</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        self._result=[]</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -154,18 +161,13 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Return the match result. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">self</td><td>The object pointer </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Return the match result 返回匹配结果 </p>
+<dl class="section return"><dt>Returns</dt><dd>List of regex match results </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="getDef_8py_source.html#l00031">31</a> of file <a class="el" href="getDef_8py_source.html">getDef.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">def </span>get_result(self):</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">return</span> self._result</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="getDef_8py_source.html#l00040">40</a> of file <a class="el" href="getDef_8py_source.html">getDef.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">def </span>get_result(self):</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">return</span> self._result</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -185,33 +187,28 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Perform the regular expressions. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">self</td><td>The object pointer </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Perform the regular expression match 执行正则表达式匹配 </p>
+<dl class="section return"><dt>Returns</dt><dd>1 if a match is found, otherwise 0 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="getDef_8py_source.html#l00036">36</a> of file <a class="el" href="getDef_8py_source.html">getDef.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">def </span>regex_match(self):</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        obj=re.compile(self._pattern,re.DOTALL)</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        lst=obj.findall(self._code_text)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">if</span> len(lst)&gt;0:</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="comment">#对找到的所有参数字符串进行处理</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keywordflow">for</span> index <span class="keywordflow">in</span> range(0,len(lst)):</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                <span class="keywordflow">if</span> lst[index].find(<span class="stringliteral">&#39;\n&#39;</span>)!=-1: <span class="comment">#若参数字符串含有换行符&#39;\n&#39;</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                    lst[index]=lst[index].replace(<span class="stringliteral">&#39;\n&#39;</span>,<span class="stringliteral">&#39;&#39;</span>) <span class="comment">#去掉所有的换行符</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                lst[index]=lst[index].replace(<span class="stringliteral">&#39; &#39;</span>,<span class="stringliteral">&#39;&#39;</span>) <span class="comment">#去掉所有的空格</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            self._result=lst</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">return</span> 1</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            self._result=[]</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordflow">return</span> 0</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="getDef_8py_source.html#l00046">46</a> of file <a class="el" href="getDef_8py_source.html">getDef.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">def </span>regex_match(self):</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        obj=re.compile(self._pattern,re.DOTALL)</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        lst=obj.findall(self._code_text)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">if</span> len(lst)&gt;0:</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="comment">#对找到的所有参数字符串进行处理</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordflow">for</span> index <span class="keywordflow">in</span> range(0,len(lst)):</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <span class="keywordflow">if</span> lst[index].find(<span class="stringliteral">&#39;\n&#39;</span>)!=-1: <span class="comment">#若参数字符串含有换行符&#39;\n&#39;</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                    lst[index]=lst[index].replace(<span class="stringliteral">&#39;\n&#39;</span>,<span class="stringliteral">&#39;&#39;</span>) <span class="comment">#去掉所有的换行符</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                lst[index]=lst[index].replace(<span class="stringliteral">&#39; &#39;</span>,<span class="stringliteral">&#39;&#39;</span>) <span class="comment">#去掉所有的空格</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            self._result=lst</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">return</span> 1</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            self._result=[]</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keywordflow">return</span> 0</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>

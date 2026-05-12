@@ -1,5 +1,5 @@
 <map id="cmp" name="cmp">
-<area shape="rect" id="node1" title=" " alt="" coords="189,31,240,57"/>
-<area shape="rect" id="node2" href="$namespacetool.html#a5cc61c9c0a7f6f85176b0d98dfb8dd1b" title="给定库的路径，获得该库的所有版本号" alt="" coords="18,5,129,32"/>
-<area shape="rect" id="node3" href="$namespaceloadData.html#a785691b1ead057e7df657a708b9e126d" title="遍历所有版本的库API，将其整理成一个json格式的文件 {APIName: {&#39;1.1.0&#39;: [LibAPI1,LibAPI2,...]}, {...}, {...." alt="" coords="5,56,141,83"/>
+<area shape="rect" id="node1" title="Normalize and compare version strings 归一化并比较版本号字符串" alt="" coords="189,31,240,57"/>
+<area shape="rect" id="node2" href="$namespacetool.html#a5cc61c9c0a7f6f85176b0d98dfb8dd1b" title="Get all version numbers from a library package directory 给定库的路径，获得该库的所有版本号" alt="" coords="18,5,129,32"/>
+<area shape="rect" id="node3" href="$namespaceloadData.html#a785691b1ead057e7df657a708b9e126d" title="Traverse all library API versions and consolidate into a JSON file 遍历所有版本的库API，将其整理成一个json格式的文件" alt="" coords="5,56,141,83"/>
 </map>

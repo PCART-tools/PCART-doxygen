@@ -95,7 +95,7 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Provide structured callsite identity helpers. </p>
-<p>More details (TODO) </p>
+<p>Defines <a class="el" href="classcallsite_1_1CallsiteIdentity.html" title="Callsite identity class 调用点身份类">CallsiteIdentity</a> (structured source-location metadata) and <a class="el" href="classcallsite_1_1CallsiteRecord.html" title="Callsite record class 调用点记录类">CallsiteRecord</a> (artifact_id + format_api + parameters). The artifactId() method produces a stable, readable SHA256-based key used for pkl naming, manifest tracking, and shared dictionary lookups throughout the pipeline. 定义CallsiteIdentity（结构化源码位置元数据）和CallsiteRecord （artifact_id + format_api + parameters）。artifactId()方法生成稳定可读的 SHA256-based键，用于pkl命名、manifest跟踪和共享字典查找。 </p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a7f3d1db0a0e705c0b7df71a802144e5f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7f3d1db0a0e705c0b7df71a802144e5f">&#9670;&nbsp;</a></span>makeCallsiteRecord()</h2>
@@ -182,26 +182,26 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>callsite record dictionary </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="callsite_8py_source.html#l00170">170</a> of file <a class="el" href="callsite_8py_source.html">callsite.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;):</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    identity = CallsiteIdentity(</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        rel_path=<a class="code" href="namespacecallsite.html#a011e3f8ff9cf7205c116ce2eee657af4">normalizeRelPath</a>(file_path, proj_path),</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        lineno=int(lineno),</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        col_offset=int(col_offset),</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        end_lineno=end_lineno,</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        end_col_offset=end_col_offset,</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        call_text=call_text,</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        normalized_call=<a class="code" href="namespacecallsite.html#a10129000122ceacaec2cb26cd4e3a8a5">normalizeCallText</a>(call_text),</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    )</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    record = CallsiteRecord(</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        identity=identity,</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        artifact_id=identity.artifactId(),</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        format_api=format_api,</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        parameters=parameters,</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    )</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordflow">return</span> record.toDict()</div>
-<div class="ttc" id="anamespacecallsite_html_a011e3f8ff9cf7205c116ce2eee657af4"><div class="ttname"><a href="namespacecallsite.html#a011e3f8ff9cf7205c116ce2eee657af4">callsite.normalizeRelPath</a></div><div class="ttdeci">def normalizeRelPath(file_path, proj_path=None)</div><div class="ttdoc">Normalize source file path to project relative path 将源码路径归一化为项目相对路径</div><div class="ttdef"><b>Definition:</b> <a href="callsite_8py_source.html#l00144">callsite.py:144</a></div></div>
-<div class="ttc" id="anamespacecallsite_html_a10129000122ceacaec2cb26cd4e3a8a5"><div class="ttname"><a href="namespacecallsite.html#a10129000122ceacaec2cb26cd4e3a8a5">callsite.normalizeCallText</a></div><div class="ttdeci">def normalizeCallText(call_text)</div><div class="ttdoc">Normalize call text for identity generation 归一化调用文本，用于生成调用点身份</div><div class="ttdef"><b>Definition:</b> <a href="callsite_8py_source.html#l00134">callsite.py:134</a></div></div>
+<p class="definition">Definition at line <a class="el" href="callsite_8py_source.html#l00180">180</a> of file <a class="el" href="callsite_8py_source.html">callsite.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;):</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    identity = CallsiteIdentity(</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        rel_path=<a class="code" href="namespacecallsite.html#a011e3f8ff9cf7205c116ce2eee657af4">normalizeRelPath</a>(file_path, proj_path),</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        lineno=int(lineno),</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        col_offset=int(col_offset),</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        end_lineno=end_lineno,</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        end_col_offset=end_col_offset,</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        call_text=call_text,</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        normalized_call=<a class="code" href="namespacecallsite.html#a10129000122ceacaec2cb26cd4e3a8a5">normalizeCallText</a>(call_text),</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    )</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    record = CallsiteRecord(</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        identity=identity,</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        artifact_id=identity.artifactId(),</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        format_api=format_api,</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        parameters=parameters,</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    )</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="keywordflow">return</span> record.toDict()</div>
+<div class="ttc" id="anamespacecallsite_html_a011e3f8ff9cf7205c116ce2eee657af4"><div class="ttname"><a href="namespacecallsite.html#a011e3f8ff9cf7205c116ce2eee657af4">callsite.normalizeRelPath</a></div><div class="ttdeci">def normalizeRelPath(file_path, proj_path=None)</div><div class="ttdoc">Normalize source file path to project relative path 将源码路径归一化为项目相对路径</div><div class="ttdef"><b>Definition:</b> <a href="callsite_8py_source.html#l00154">callsite.py:154</a></div></div>
+<div class="ttc" id="anamespacecallsite_html_a10129000122ceacaec2cb26cd4e3a8a5"><div class="ttname"><a href="namespacecallsite.html#a10129000122ceacaec2cb26cd4e3a8a5">callsite.normalizeCallText</a></div><div class="ttdeci">def normalizeCallText(call_text)</div><div class="ttdoc">Normalize call text for identity generation 归一化调用文本，用于生成调用点身份</div><div class="ttdef"><b>Definition:</b> <a href="callsite_8py_source.html#l00144">callsite.py:144</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -256,11 +256,11 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>normalized call text </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="callsite_8py_source.html#l00134">134</a> of file <a class="el" href="callsite_8py_source.html">callsite.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="keyword">def </span><a class="code" href="namespacecallsite.html#a10129000122ceacaec2cb26cd4e3a8a5">normalizeCallText</a>(call_text):</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordflow">return</span> call_text.replace(<span class="stringliteral">&#39; &#39;</span>, <span class="stringliteral">&#39;&#39;</span>).replace(<span class="stringliteral">&#39;&quot;&#39;</span>, <span class="stringliteral">&#39;&#39;</span>).replace(<span class="stringliteral">&quot;&#39;&quot;</span>, <span class="stringliteral">&#39;&#39;</span>)</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="callsite_8py_source.html#l00144">144</a> of file <a class="el" href="callsite_8py_source.html">callsite.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="keyword">def </span><a class="code" href="namespacecallsite.html#a10129000122ceacaec2cb26cd4e3a8a5">normalizeCallText</a>(call_text):</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordflow">return</span> call_text.replace(<span class="stringliteral">&#39; &#39;</span>, <span class="stringliteral">&#39;&#39;</span>).replace(<span class="stringliteral">&#39;&quot;&#39;</span>, <span class="stringliteral">&#39;&#39;</span>).replace(<span class="stringliteral">&quot;&#39;&quot;</span>, <span class="stringliteral">&#39;&#39;</span>)</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -317,20 +317,20 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>normalized relative path </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="callsite_8py_source.html#l00144">144</a> of file <a class="el" href="callsite_8py_source.html">callsite.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="keyword">def </span><a class="code" href="namespacecallsite.html#a011e3f8ff9cf7205c116ce2eee657af4">normalizeRelPath</a>(file_path, proj_path=None):</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    normalized_file = os.path.abspath(file_path).replace(<span class="stringliteral">&#39;\\&#39;</span>, <span class="stringliteral">&#39;/&#39;</span>)</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordflow">if</span> proj_path:</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        normalized_root = os.path.abspath(proj_path).replace(<span class="stringliteral">&#39;\\&#39;</span>, <span class="stringliteral">&#39;/&#39;</span>).rstrip(<span class="stringliteral">&#39;/&#39;</span>)</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            rel_path = os.path.relpath(normalized_file, normalized_root).replace(<span class="stringliteral">&#39;\\&#39;</span>, <span class="stringliteral">&#39;/&#39;</span>)</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> rel_path.startswith(<span class="stringliteral">&#39;..&#39;</span>):</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                <span class="keywordflow">return</span> rel_path</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        <span class="keywordflow">except</span> ValueError:</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;            <span class="keywordflow">pass</span></div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordflow">return</span> normalized_file</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="callsite_8py_source.html#l00154">154</a> of file <a class="el" href="callsite_8py_source.html">callsite.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="keyword">def </span><a class="code" href="namespacecallsite.html#a011e3f8ff9cf7205c116ce2eee657af4">normalizeRelPath</a>(file_path, proj_path=None):</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    normalized_file = os.path.abspath(file_path).replace(<span class="stringliteral">&#39;\\&#39;</span>, <span class="stringliteral">&#39;/&#39;</span>)</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordflow">if</span> proj_path:</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        normalized_root = os.path.abspath(proj_path).replace(<span class="stringliteral">&#39;\\&#39;</span>, <span class="stringliteral">&#39;/&#39;</span>).rstrip(<span class="stringliteral">&#39;/&#39;</span>)</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            rel_path = os.path.relpath(normalized_file, normalized_root).replace(<span class="stringliteral">&#39;\\&#39;</span>, <span class="stringliteral">&#39;/&#39;</span>)</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> rel_path.startswith(<span class="stringliteral">&#39;..&#39;</span>):</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                <span class="keywordflow">return</span> rel_path</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        <span class="keywordflow">except</span> ValueError:</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;            <span class="keywordflow">pass</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keywordflow">return</span> normalized_file</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">

@@ -79,17 +79,20 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae64f0875afe3067b97ba370b354b9213"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextractCall_1_1GetFuncCall.html#ae64f0875afe3067b97ba370b354b9213">__init__</a> (self)</td></tr>
+<tr class="memdesc:ae64f0875afe3067b97ba370b354b9213"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the function call list 初始化函数调用列表  <a href="classextractCall_1_1GetFuncCall.html#ae64f0875afe3067b97ba370b354b9213">More...</a><br /></td></tr>
 <tr class="separator:ae64f0875afe3067b97ba370b354b9213"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1e246a71e92f76bf81912bbafa6445b"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextractCall_1_1GetFuncCall.html#ad1e246a71e92f76bf81912bbafa6445b">dfsVisit</a> (self, node)</td></tr>
+<tr class="memdesc:ad1e246a71e92f76bf81912bbafa6445b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Depth-first search visit that extracts Call nodes 深度优先遍历，提取Call节点  <a href="classextractCall_1_1GetFuncCall.html#ad1e246a71e92f76bf81912bbafa6445b">More...</a><br /></td></tr>
 <tr class="separator:ad1e246a71e92f76bf81912bbafa6445b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af27b4c4e9e33cd515f71631cdc4f6335"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextractCall_1_1GetFuncCall.html#af27b4c4e9e33cd515f71631cdc4f6335">func_call</a> (self)</td></tr>
-<tr class="separator:af27b4c4e9e33cd515f71631cdc4f6335"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9a7bb4324a54f39e61dbfc304287d50"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextractCall_1_1GetFuncCall.html#aa9a7bb4324a54f39e61dbfc304287d50">func_call</a> (self)</td></tr>
+<tr class="memdesc:aa9a7bb4324a54f39e61dbfc304287d50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return collected function call tuples 返回收集到的函数调用元组  <a href="classextractCall_1_1GetFuncCall.html#aa9a7bb4324a54f39e61dbfc304287d50">More...</a><br /></td></tr>
+<tr class="separator:aa9a7bb4324a54f39e61dbfc304287d50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Extract all call type nodes from a project source file 抽取项目源码中的所有call类型节点 </p>
-<p>Use DFS algorithm to traverse the call type node from the root node. Each API call is stored in a tuple (API name, parameters, call statement, line/column span) 从根节点开始，直接找根节点的孩子，Call存在于Expr和Assign节点中。每个API调用存储调用语句及其行列位置 </p>
+<p>Use a DFS algorithm to traverse the call type node from the root node. Each API call is stored in a tuple (API name, parameters, call statement, line/column span) 从根节点开始，直接找根节点的孩子，Call存在于Expr和Assign节点中。每个API调用存储调用语句及其行列位置 </p>
 
-<p class="definition">Definition at line <a class="el" href="extractCall_8py_source.html#l00047">47</a> of file <a class="el" href="extractCall_8py_source.html">extractCall.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="extractCall_8py_source.html#l00065">65</a> of file <a class="el" href="extractCall_8py_source.html">extractCall.py</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae64f0875afe3067b97ba370b354b9213"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae64f0875afe3067b97ba370b354b9213">&#9670;&nbsp;</a></span>__init__()</h2>
@@ -107,10 +110,12 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="extractCall_8py_source.html#l00048">48</a> of file <a class="el" href="extractCall_8py_source.html">extractCall.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">def </span>__init__(self):</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        self._func_call=[] <span class="comment">#list中每个元素都是一个tuple</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<p>Initialize the function call list 初始化函数调用列表 </p>
+
+<p class="definition">Definition at line <a class="el" href="extractCall_8py_source.html#l00068">68</a> of file <a class="el" href="extractCall_8py_source.html">extractCall.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keyword">def </span>__init__(self):</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        self._func_call=[] <span class="comment">#list中每个元素都是一个tuple</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -141,46 +146,53 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="extractCall_8py_source.html#l00057">57</a> of file <a class="el" href="extractCall_8py_source.html">extractCall.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">def </span>dfsVisit(self,node):</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="comment">#先递推再回归 </span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">for</span> n <span class="keywordflow">in</span> ast.iter_child_nodes(node):</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            self.dfsVisit(n)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">if</span> isinstance(node,ast.Call):</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            callName=ast.unparse(node.func)</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            callState=ast.unparse(node) <span class="comment">#还原之后的语句可能和项目中的语句存在差异，比如空格等</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            argLst=[]</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keywordflow">for</span> arg <span class="keywordflow">in</span> node.args:</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                argLst.append(ast.unparse(arg))</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keywordflow">for</span> keyword <span class="keywordflow">in</span> node.keywords:</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                argLst.append(ast.unparse(keyword))</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            parameters=<span class="stringliteral">&#39;,&#39;</span>.join(argLst)</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            callInfo=(</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                callName,</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                parameters,</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                callState,</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                node.lineno,</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                node.col_offset,</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                getattr(node,<span class="stringliteral">&#39;end_lineno&#39;</span>,<span class="keywordtype">None</span>),</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                getattr(node,<span class="stringliteral">&#39;end_col_offset&#39;</span>,<span class="keywordtype">None</span>),</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            )</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordflow">if</span> callInfo <span class="keywordflow">not</span> <span class="keywordflow">in</span> self._func_call:</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                <span class="comment"># print(node.lineno,&#39;&lt;--&gt;&#39;,callState)</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                self._func_call.append(callInfo)</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                <span class="keywordflow">pass</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                <span class="comment"># print(node.lineno,&#39;&lt;--&gt;&#39;,callState)</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<p>Depth-first search visit that extracts Call nodes 深度优先遍历，提取Call节点 </p>
+<p>Terminates when a Call node is found or the current node has no children. 结束条件：遇到Call节点或当前节点无子节点 </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>The AST node to traverse </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="extractCall_8py_source.html#l00086">86</a> of file <a class="el" href="extractCall_8py_source.html">extractCall.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keyword">def </span>dfsVisit(self,node):</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="comment">#先递推再回归 </span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">for</span> n <span class="keywordflow">in</span> ast.iter_child_nodes(node):</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            self.dfsVisit(n)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">if</span> isinstance(node,ast.Call):</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            callName=ast.unparse(node.func)</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            callState=ast.unparse(node) <span class="comment">#还原之后的语句可能和项目中的语句存在差异，比如空格等</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            argLst=[]</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <span class="keywordflow">for</span> arg <span class="keywordflow">in</span> node.args:</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                argLst.append(ast.unparse(arg))</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            <span class="keywordflow">for</span> keyword <span class="keywordflow">in</span> node.keywords:</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                argLst.append(ast.unparse(keyword))</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            parameters=<span class="stringliteral">&#39;,&#39;</span>.join(argLst)</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            callInfo=(</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                callName,</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                parameters,</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                callState,</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                node.lineno,</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                node.col_offset,</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                getattr(node,<span class="stringliteral">&#39;end_lineno&#39;</span>,<span class="keywordtype">None</span>),</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                getattr(node,<span class="stringliteral">&#39;end_col_offset&#39;</span>,<span class="keywordtype">None</span>),</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            )</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            <span class="keywordflow">if</span> callInfo <span class="keywordflow">not</span> <span class="keywordflow">in</span> self._func_call:</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                self._func_call.append(callInfo)</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                <span class="keywordflow">pass</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classextractCall_1_1GetFuncCall_ad1e246a71e92f76bf81912bbafa6445b_cgraph.png" border="0" usemap="#aclassextractCall_1_1GetFuncCall_ad1e246a71e92f76bf81912bbafa6445b_cgraph" alt=""/></div>
 <map name="aclassextractCall_1_1GetFuncCall_ad1e246a71e92f76bf81912bbafa6445b_cgraph" id="aclassextractCall_1_1GetFuncCall_ad1e246a71e92f76bf81912bbafa6445b_cgraph">
-<area shape="rect" title=" " alt="" coords="5,29,76,56"/>
+<area shape="rect" title="Depth&#45;first search visit that extracts Call nodes 深度优先遍历，提取Call节点" alt="" coords="5,29,76,56"/>
 </map>
 </div>
 <div class="dynheader">
@@ -188,20 +200,20 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classextractCall_1_1GetFuncCall_ad1e246a71e92f76bf81912bbafa6445b_icgraph.png" border="0" usemap="#aclassextractCall_1_1GetFuncCall_ad1e246a71e92f76bf81912bbafa6445b_icgraph" alt=""/></div>
 <map name="aclassextractCall_1_1GetFuncCall_ad1e246a71e92f76bf81912bbafa6445b_icgraph" id="aclassextractCall_1_1GetFuncCall_ad1e246a71e92f76bf81912bbafa6445b_icgraph">
-<area shape="rect" title=" " alt="" coords="5,29,76,56"/>
+<area shape="rect" title="Depth&#45;first search visit that extracts Call nodes 深度优先遍历，提取Call节点" alt="" coords="5,29,76,56"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="af27b4c4e9e33cd515f71631cdc4f6335"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af27b4c4e9e33cd515f71631cdc4f6335">&#9670;&nbsp;</a></span>func_call()</h2>
+<a id="aa9a7bb4324a54f39e61dbfc304287d50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9a7bb4324a54f39e61dbfc304287d50">&#9670;&nbsp;</a></span>func_call()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">def func_call </td>
+          <td class="memname">func_call </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname"><em>self</em></td><td>)</td>
@@ -210,10 +222,13 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="extractCall_8py_source.html#l00052">52</a> of file <a class="el" href="extractCall_8py_source.html">extractCall.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">def </span>func_call(self):</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">return</span> self._func_call</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<p>Return collected function call tuples 返回收集到的函数调用元组 </p>
+<dl class="section return"><dt>Returns</dt><dd>list of (call_name, parameters, call_state, lineno, col_offset, end_lineno, end_col_offset) tuples </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="extractCall_8py_source.html#l00076">76</a> of file <a class="el" href="extractCall_8py_source.html">extractCall.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">def </span>func_call(self):</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">return</span> self._func_call</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>

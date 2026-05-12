@@ -117,7 +117,7 @@ Public Attributes</h2></td></tr>
 <div class="textblock"><p><a class="el" href="classLibApi_1_1Parameter.html" title="Parameter class for Library APIs API参数类">Parameter</a> class for Library APIs API参数类 </p>
 <p><a class="el" href="classLibApi_1_1Parameter.html" title="Parameter class for Library APIs API参数类">Parameter</a> object: for storing the information of one parameter 参数对象:用于保存一个参数的信息 </p>
 
-<p class="definition">Definition at line <a class="el" href="LibApi_8py_source.html#l00019">19</a> of file <a class="el" href="LibApi_8py_source.html">LibApi.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LibApi_8py_source.html#l00024">24</a> of file <a class="el" href="LibApi_8py_source.html">LibApi.py</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae64f0875afe3067b97ba370b354b9213"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae64f0875afe3067b97ba370b354b9213">&#9670;&nbsp;</a></span>__init__()</h2>
@@ -137,27 +137,27 @@ Public Attributes</h2></td></tr>
 
 <p>The constructor 构造函数 </p>
 
-<p class="definition">Definition at line <a class="el" href="LibApi_8py_source.html#l00023">23</a> of file <a class="el" href="LibApi_8py_source.html">LibApi.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">def </span>__init__(self):</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        self.fullItem=<span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        self.name=<span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        self.position=<span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        self.value=<span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        self.type=<span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        self.star_position=-1  <span class="comment">#记录&#39;*&#39;的位置,便于拆分位置参数和关键字参数</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="LibApi_8py_source.html#l00028">28</a> of file <a class="el" href="LibApi_8py_source.html">LibApi.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">def </span>__init__(self):</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        self.fullItem=<span class="stringliteral">&quot;&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        self.name=<span class="stringliteral">&quot;&quot;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        self.position=<span class="stringliteral">&quot;&quot;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        self.value=<span class="stringliteral">&quot;&quot;</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        self.type=<span class="stringliteral">&quot;&quot;</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        self.star_position=-1  <span class="comment">#记录&#39;*&#39;的位置,便于拆分位置参数和关键字参数</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -189,11 +189,18 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Determine whether two parameter objects are equal 判断两个参数对象是否相等 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>The parameter object to compare </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the parameter names are equal </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="LibApi_8py_source.html#l00056">56</a> of file <a class="el" href="LibApi_8py_source.html">LibApi.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">def </span>__eq__(self,other):</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">return</span> self.fullItem==other.fullItem</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;   </div>
+<p class="definition">Definition at line <a class="el" href="LibApi_8py_source.html#l00064">64</a> of file <a class="el" href="LibApi_8py_source.html">LibApi.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">def </span>__eq__(self,other):</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">return</span> self.fullItem==other.fullItem</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;   </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -214,11 +221,12 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Return the hash value of the parameter 返回参数哈希值 </p>
+<dl class="section return"><dt>Returns</dt><dd>Hash value of the parameter name </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="LibApi_8py_source.html#l00051">51</a> of file <a class="el" href="LibApi_8py_source.html">LibApi.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">def </span>__hash__(self):</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">return</span> hash(self.fullItem)</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;   </div>
+<p class="definition">Definition at line <a class="el" href="LibApi_8py_source.html#l00057">57</a> of file <a class="el" href="LibApi_8py_source.html">LibApi.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">def </span>__hash__(self):</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">return</span> hash(self.fullItem)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;   </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -239,14 +247,14 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Return the string representation of the parameter 返回参数的字符串表示形式 </p>
+<dl class="section return"><dt>Returns</dt><dd>Original parameter string </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="LibApi_8py_source.html#l00061">61</a> of file <a class="el" href="LibApi_8py_source.html">LibApi.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">def </span>__repr__(self):</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">return</span> self.fullItem</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">#暂时只考虑同名Api的变更情况</span></div>
+<p class="definition">Definition at line <a class="el" href="LibApi_8py_source.html#l00070">70</a> of file <a class="el" href="LibApi_8py_source.html">LibApi.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">def </span>__repr__(self):</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">return</span> self.fullItem</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -265,7 +273,7 @@ Public Attributes</h2></td></tr>
 
 <p>The full string of the parameter 参数字符串 </p>
 
-<p class="definition">Definition at line <a class="el" href="LibApi_8py_source.html#l00027">27</a> of file <a class="el" href="LibApi_8py_source.html">LibApi.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LibApi_8py_source.html#l00032">32</a> of file <a class="el" href="LibApi_8py_source.html">LibApi.py</a>.</p>
 
 </div>
 </div>
@@ -283,7 +291,7 @@ Public Attributes</h2></td></tr>
 
 <p>The parameter name 参数名称 </p>
 
-<p class="definition">Definition at line <a class="el" href="LibApi_8py_source.html#l00031">31</a> of file <a class="el" href="LibApi_8py_source.html">LibApi.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LibApi_8py_source.html#l00036">36</a> of file <a class="el" href="LibApi_8py_source.html">LibApi.py</a>.</p>
 
 </div>
 </div>
@@ -301,7 +309,7 @@ Public Attributes</h2></td></tr>
 
 <p>The parameter position 参数位置 </p>
 
-<p class="definition">Definition at line <a class="el" href="LibApi_8py_source.html#l00035">35</a> of file <a class="el" href="LibApi_8py_source.html">LibApi.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LibApi_8py_source.html#l00040">40</a> of file <a class="el" href="LibApi_8py_source.html">LibApi.py</a>.</p>
 
 </div>
 </div>
@@ -319,7 +327,7 @@ Public Attributes</h2></td></tr>
 
 <p>The star symbol position 星号位置 </p>
 
-<p class="definition">Definition at line <a class="el" href="LibApi_8py_source.html#l00047">47</a> of file <a class="el" href="LibApi_8py_source.html">LibApi.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LibApi_8py_source.html#l00052">52</a> of file <a class="el" href="LibApi_8py_source.html">LibApi.py</a>.</p>
 
 </div>
 </div>
@@ -337,7 +345,7 @@ Public Attributes</h2></td></tr>
 
 <p>The parameter type 参数类型 </p>
 
-<p class="definition">Definition at line <a class="el" href="LibApi_8py_source.html#l00043">43</a> of file <a class="el" href="LibApi_8py_source.html">LibApi.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LibApi_8py_source.html#l00048">48</a> of file <a class="el" href="LibApi_8py_source.html">LibApi.py</a>.</p>
 
 </div>
 </div>
@@ -355,7 +363,7 @@ Public Attributes</h2></td></tr>
 
 <p>The parameter default value 参数默认值 </p>
 
-<p class="definition">Definition at line <a class="el" href="LibApi_8py_source.html#l00039">39</a> of file <a class="el" href="LibApi_8py_source.html">LibApi.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LibApi_8py_source.html#l00044">44</a> of file <a class="el" href="LibApi_8py_source.html">LibApi.py</a>.</p>
 
 </div>
 </div>

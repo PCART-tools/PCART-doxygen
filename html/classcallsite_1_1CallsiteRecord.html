@@ -86,7 +86,7 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>Callsite record class 调用点记录类 </p>
 <p>A <a class="el" href="classcallsite_1_1CallsiteRecord.html" title="Callsite record class 调用点记录类">CallsiteRecord</a> separates runtime artifact id, report display text and static matching API. CallsiteRecord用于分离运行产物id、报告展示文本和静态匹配API。 </p>
 
-<p class="definition">Definition at line <a class="el" href="callsite_8py_source.html#l00094">94</a> of file <a class="el" href="callsite_8py_source.html">callsite.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="callsite_8py_source.html#l00103">103</a> of file <a class="el" href="callsite_8py_source.html">callsite.py</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a390e5529b920cc2843616c97c18ba253"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a390e5529b920cc2843616c97c18ba253">&#9670;&nbsp;</a></span>toDict()</h2>
@@ -108,25 +108,25 @@ Public Member Functions</h2></td></tr>
 <p>The stable id used by pkl/json/manifest/sharedDict pkl/json/manifest/sharedDict使用的稳定id</p>
 <p>The restored API used for static matching 静态匹配用的还原API</p>
 <p>The original parameter string of the callsite 调用点原始参数字符串</p>
-<p>Convert callsite record to dictionary 将调用点记录转换为字典 </p>
+<p>Convert callsite record to dictionary 将调用点记录转换为字典 </p><dl class="section return"><dt>Returns</dt><dd>dict representation of the callsite record </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="callsite_8py_source.html#l00113">113</a> of file <a class="el" href="callsite_8py_source.html">callsite.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keyword">def </span>toDict(self):</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordflow">return</span> {</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            <span class="stringliteral">&#39;id&#39;</span>: self.artifact_id,</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <span class="stringliteral">&#39;artifact_hash&#39;</span>: self.identity.artifactHash(),</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            <span class="stringliteral">&#39;rel_path&#39;</span>: self.identity.rel_path,</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            <span class="stringliteral">&#39;lineno&#39;</span>: self.identity.lineno,</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            <span class="stringliteral">&#39;col_offset&#39;</span>: self.identity.col_offset,</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            <span class="stringliteral">&#39;end_lineno&#39;</span>: self.identity.end_lineno,</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            <span class="stringliteral">&#39;end_col_offset&#39;</span>: self.identity.end_col_offset,</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            <span class="stringliteral">&#39;call_text&#39;</span>: self.identity.call_text,</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            <span class="stringliteral">&#39;normalized_call&#39;</span>: self.identity.normalized_call,</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            <span class="stringliteral">&#39;format_api&#39;</span>: self.format_api,</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            <span class="stringliteral">&#39;parameters&#39;</span>: self.parameters,</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        }</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="callsite_8py_source.html#l00123">123</a> of file <a class="el" href="callsite_8py_source.html">callsite.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keyword">def </span>toDict(self):</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordflow">return</span> {</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            <span class="stringliteral">&#39;id&#39;</span>: self.artifact_id,</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            <span class="stringliteral">&#39;artifact_hash&#39;</span>: self.identity.artifactHash(),</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            <span class="stringliteral">&#39;rel_path&#39;</span>: self.identity.rel_path,</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            <span class="stringliteral">&#39;lineno&#39;</span>: self.identity.lineno,</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            <span class="stringliteral">&#39;col_offset&#39;</span>: self.identity.col_offset,</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            <span class="stringliteral">&#39;end_lineno&#39;</span>: self.identity.end_lineno,</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            <span class="stringliteral">&#39;end_col_offset&#39;</span>: self.identity.end_col_offset,</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            <span class="stringliteral">&#39;call_text&#39;</span>: self.identity.call_text,</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            <span class="stringliteral">&#39;normalized_call&#39;</span>: self.identity.normalized_call,</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            <span class="stringliteral">&#39;format_api&#39;</span>: self.format_api,</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;            <span class="stringliteral">&#39;parameters&#39;</span>: self.parameters,</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        }</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>

@@ -1,5 +1,5 @@
 <map id="isCompatible" name="isCompatible">
-<area shape="rect" id="node1" title="Detemine the compatibility of APIs from current and target versions 判断起始版本和目标版本API的兼容性" alt="" coords="5,31,113,57"/>
+<area shape="rect" id="node1" title="Determine the compatibility of APIs from current and target versions 判断起始版本和目标版本API的兼容性" alt="" coords="5,31,113,57"/>
 <area shape="rect" id="node2" href="$namespacechangeAnalyze.html#a0e521f7261a83511bc8e4742e2647d64" title="Analyze the compatibility of two APIs 判断两个重载API是否兼容" alt="" coords="161,5,323,32"/>
 <area shape="rect" id="node6" href="$namespacechangeAnalyze.html#aca1a0247c24c805f11d8e151232c6c9d" title="Determine difference of two parameters 输入两个api参数部分，判断参数部分有何不同" alt="" coords="201,56,283,83"/>
 <area shape="rect" id="node3" href="$namespacechangeAnalyze.html#ab13af561e1ebeec90579c692f5bce329" title="Determine parameter type change: compatible type means no type change &#160;&#160;判断两个参数的类型是否发生了变更: 只要兼容，就认为相同" alt="" coords="371,5,469,32"/>

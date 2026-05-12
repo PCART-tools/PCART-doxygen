@@ -97,17 +97,20 @@ Collaboration diagram for FromImport:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a569f31ff4e93695a017d56134d758b95"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextractDef_1_1FromImport.html#a569f31ff4e93695a017d56134d758b95">__init__</a> (self, currentLevel)</td></tr>
+<tr class="memdesc:a569f31ff4e93695a017d56134d758b95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the from-import visitor for a given package level 初始化from-import遍历器，传入当前包层级  <a href="classextractDef_1_1FromImport.html#a569f31ff4e93695a017d56134d758b95">More...</a><br /></td></tr>
 <tr class="separator:a569f31ff4e93695a017d56134d758b95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a5f254c6ba30cc25df470314a505589"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextractDef_1_1FromImport.html#a2a5f254c6ba30cc25df470314a505589">importDict</a> (self)</td></tr>
-<tr class="separator:a2a5f254c6ba30cc25df470314a505589"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bf5d7f1fa537a7005110c07600d0707"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextractDef_1_1FromImport.html#a3bf5d7f1fa537a7005110c07600d0707">importDict</a> (self)</td></tr>
+<tr class="memdesc:a3bf5d7f1fa537a7005110c07600d0707"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the import dictionary 返回导入字典  <a href="classextractDef_1_1FromImport.html#a3bf5d7f1fa537a7005110c07600d0707">More...</a><br /></td></tr>
+<tr class="separator:a3bf5d7f1fa537a7005110c07600d0707"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad168dceb9bac7d34f2731494492f961b"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextractDef_1_1FromImport.html#ad168dceb9bac7d34f2731494492f961b">visit_ImportFrom</a> (self, node)</td></tr>
+<tr class="memdesc:ad168dceb9bac7d34f2731494492f961b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visit an ImportFrom node and resolve relative imports 访问ImportFrom节点，解析相对导入  <a href="classextractDef_1_1FromImport.html#ad168dceb9bac7d34f2731494492f961b">More...</a><br /></td></tr>
 <tr class="separator:ad168dceb9bac7d34f2731494492f961b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>From import statement node visitor From import语句节点遍历器 </p>
 <p>Inherits from ast.NodeVisitor </p>
 
-<p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00033">33</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00047">47</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a569f31ff4e93695a017d56134d758b95"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a569f31ff4e93695a017d56134d758b95">&#9670;&nbsp;</a></span>__init__()</h2>
@@ -135,23 +138,31 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00034">34</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">def </span>__init__(self, currentLevel):</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        self._importDict={}</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        self._currentLevel=currentLevel</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<p>Initialize the from-import visitor for a given package level 初始化from-import遍历器，传入当前包层级 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">currentLevel</td><td>The current package level name </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00051">51</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">def </span>__init__(self, currentLevel):</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        self._importDict={}</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        self._currentLevel=currentLevel</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a2a5f254c6ba30cc25df470314a505589"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a5f254c6ba30cc25df470314a505589">&#9670;&nbsp;</a></span>importDict()</h2>
+<a id="a3bf5d7f1fa537a7005110c07600d0707"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bf5d7f1fa537a7005110c07600d0707">&#9670;&nbsp;</a></span>importDict()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">def importDict </td>
+          <td class="memname">importDict </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname"><em>self</em></td><td>)</td>
@@ -160,10 +171,13 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00039">39</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">def </span>importDict(self):</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">return</span> self._importDict</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<p>Return the import dictionary 返回导入字典 </p>
+<dl class="section return"><dt>Returns</dt><dd>dict mapping module+name to alias or name </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00060">60</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">def </span>importDict(self):</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">return</span> self._importDict</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -193,29 +207,38 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00042">42</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">def </span>visit_ImportFrom(self, node):</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">if</span> node.module <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            module=node.module</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keywordflow">if</span> node.level==0:<span class="comment">#若是绝对导入，需考虑层级</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                tempLst=module.split(<span class="stringliteral">&#39;.&#39;</span>)</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <span class="keywordflow">if</span> len(tempLst)==1:</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                    module=<span class="stringliteral">&#39;&#39;</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="keywordflow">elif</span> self._currentLevel <span class="keywordflow">in</span> tempLst:</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                    index=tempLst.index(self._currentLevel)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                    module=<span class="stringliteral">&#39;.&#39;</span>.join(tempLst[index+1:])</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            lst=[{<span class="stringliteral">&#39;name&#39;</span>:name.name,<span class="stringliteral">&#39;alias&#39;</span>:name.asname} <span class="keywordflow">for</span> name <span class="keywordflow">in</span> node.names] <span class="comment">#可能会import个多个,from A import a,b,c </span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordflow">for</span> dic <span class="keywordflow">in</span> lst: <span class="comment">#lst中每个元素都是字典</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                key=module+<span class="stringliteral">&#39;.&#39;</span>+dic[<span class="stringliteral">&#39;name&#39;</span>] <span class="comment">#dic[&#39;name&#39;]可能是*</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                key=key.lstrip(<span class="stringliteral">&#39;.&#39;</span>)</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <span class="keywordflow">if</span> dic[<span class="stringliteral">&#39;alias&#39;</span>]:</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                    self._importDict[key]=dic[<span class="stringliteral">&#39;alias&#39;</span>]</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                    self._importDict[key]=dic[<span class="stringliteral">&#39;name&#39;</span>]</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<p>Visit an ImportFrom node and resolve relative imports 访问ImportFrom节点，解析相对导入 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>The ImportFrom AST node </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00067">67</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">def </span>visit_ImportFrom(self, node):</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">if</span> node.module <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            module=node.module</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordflow">if</span> node.level==0:<span class="comment">#若是绝对导入，需考虑层级</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                tempLst=module.split(<span class="stringliteral">&#39;.&#39;</span>)</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <span class="keywordflow">if</span> len(tempLst)==1:</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                    module=<span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                <span class="keywordflow">elif</span> self._currentLevel <span class="keywordflow">in</span> tempLst:</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                    index=tempLst.index(self._currentLevel)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                    module=<span class="stringliteral">&#39;.&#39;</span>.join(tempLst[index+1:])</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            lst=[{<span class="stringliteral">&#39;name&#39;</span>:name.name,<span class="stringliteral">&#39;alias&#39;</span>:name.asname} <span class="keywordflow">for</span> name <span class="keywordflow">in</span> node.names] <span class="comment">#可能会import个多个,from A import a,b,c </span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordflow">for</span> dic <span class="keywordflow">in</span> lst: <span class="comment">#lst中每个元素都是字典</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                key=module+<span class="stringliteral">&#39;.&#39;</span>+dic[<span class="stringliteral">&#39;name&#39;</span>] <span class="comment">#dic[&#39;name&#39;]可能是*</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                key=key.lstrip(<span class="stringliteral">&#39;.&#39;</span>)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <span class="keywordflow">if</span> dic[<span class="stringliteral">&#39;alias&#39;</span>]:</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                    self._importDict[key]=dic[<span class="stringliteral">&#39;alias&#39;</span>]</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                    self._importDict[key]=dic[<span class="stringliteral">&#39;name&#39;</span>]</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>

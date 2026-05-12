@@ -2,7 +2,7 @@ var searchData=
 [
   ['ignore_5fsym_5flinks_109',['ignore_sym_links',['../namespacepreprocess.html#ac5716a9ce7108ac71d2b2cedf1cdd19b',1,'preprocess']]],
   ['import_110',['Import',['../classextractCall_1_1Import.html',1,'extractCall']]],
-  ['importdict_111',['importDict',['../classextractDef_1_1FromImport.html#a2a5f254c6ba30cc25df470314a505589',1,'extractDef::FromImport']]],
+  ['importdict_111',['importDict',['../classextractDef_1_1FromImport.html#a3bf5d7f1fa537a7005110c07600d0707',1,'extractDef::FromImport']]],
   ['isalias_112',['isAlias',['../namespacemap.html#aaac6f97b9ceb2143a696d52df84f0a21',1,'map']]],
   ['iscompatible_113',['isCompatible',['../namespacechangeAnalyze.html#a3272743b8ad154a66e9d45ab36bca3ec',1,'changeAnalyze']]],
   ['isdiffertype_114',['isDifferType',['../namespacechangeAnalyze.html#ab13af561e1ebeec90579c692f5bce329',1,'changeAnalyze']]],

@@ -107,21 +107,21 @@ Functions</h2></td></tr>
 <p>Extract API definitions for a given library version 抽取给定库版本的API定义 </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">version</td><td>An specific library version </td></tr>
+    <tr><td class="paramname">version</td><td>A specific library version </td></tr>
     <tr><td class="paramname">sourceCodePath</td><td>The source code path of the library </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="extractLibAPI_8py_source.html#l00021">21</a> of file <a class="el" href="extractLibAPI_8py_source.html">extractLibAPI.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceextractLibAPI.html#a4f0d4271912d3b1669689d06cec9acc3">getLibAPI</a>(version, sourceCodePath):</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    libName=os.path.basename(sourceCodePath)</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="namespacegetDef.html#ad6f70c11131f697c5bce20d6ef27608d">getDefFunction</a>((libName, version, sourceCodePath))</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="ttc" id="anamespaceextractLibAPI_html_a4f0d4271912d3b1669689d06cec9acc3"><div class="ttname"><a href="namespaceextractLibAPI.html#a4f0d4271912d3b1669689d06cec9acc3">extractLibAPI.getLibAPI</a></div><div class="ttdeci">def getLibAPI(version, sourceCodePath)</div><div class="ttdoc">Extract API definitions for a given library version 抽取给定库版本的API定义</div><div class="ttdef"><b>Definition:</b> <a href="extractLibAPI_8py_source.html#l00021">extractLibAPI.py:21</a></div></div>
-<div class="ttc" id="anamespacegetDef_html_ad6f70c11131f697c5bce20d6ef27608d"><div class="ttname"><a href="namespacegetDef.html#ad6f70c11131f697c5bce20d6ef27608d">getDef.getDefFunction</a></div><div class="ttdeci">def getDefFunction(args)</div><div class="ttdoc">Extract all lib API definitions from a specified version 抽取给定版本的库API定义</div><div class="ttdef"><b>Definition:</b> <a href="getDef_8py_source.html#l00269">getDef.py:269</a></div></div>
+<p class="definition">Definition at line <a class="el" href="extractLibAPI_8py_source.html#l00024">24</a> of file <a class="el" href="extractLibAPI_8py_source.html">extractLibAPI.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceextractLibAPI.html#a4f0d4271912d3b1669689d06cec9acc3">getLibAPI</a>(version, sourceCodePath):</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    libName=os.path.basename(sourceCodePath)</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="namespacegetDef.html#ad6f70c11131f697c5bce20d6ef27608d">getDefFunction</a>((libName, version, sourceCodePath))</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="ttc" id="anamespaceextractLibAPI_html_a4f0d4271912d3b1669689d06cec9acc3"><div class="ttname"><a href="namespaceextractLibAPI.html#a4f0d4271912d3b1669689d06cec9acc3">extractLibAPI.getLibAPI</a></div><div class="ttdeci">def getLibAPI(version, sourceCodePath)</div><div class="ttdoc">Extract API definitions for a given library version 抽取给定库版本的API定义</div><div class="ttdef"><b>Definition:</b> <a href="extractLibAPI_8py_source.html#l00024">extractLibAPI.py:24</a></div></div>
+<div class="ttc" id="anamespacegetDef_html_ad6f70c11131f697c5bce20d6ef27608d"><div class="ttname"><a href="namespacegetDef.html#ad6f70c11131f697c5bce20d6ef27608d">getDef.getDefFunction</a></div><div class="ttdeci">def getDefFunction(args)</div><div class="ttdoc">Extract all lib API definitions from a specified version 抽取给定版本的库API定义</div><div class="ttdef"><b>Definition:</b> <a href="getDef_8py_source.html#l00277">getDef.py:277</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -165,27 +165,27 @@ Here is the caller graph for this function:</div>
 
 <p>Main function of extracting lib API definitions 抽取库API定义主函数 </p>
 
-<p class="definition">Definition at line <a class="el" href="extractLibAPI_8py_source.html#l00029">29</a> of file <a class="el" href="extractLibAPI_8py_source.html">extractLibAPI.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceextractLibAPI.html#a73fb40d31f2dd874c84d240a454c787b">main</a>():</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">if</span> len(sys.argv) &lt; 3:</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        print(<span class="stringliteral">&quot;Usage: python extractLibAPI.py -cfg config.json&quot;</span>)</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        sys.exit(1)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    config=sys.argv[2]</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">#加载配置</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    currentVersion, targetVersion, currentSourceCodePath, targetSourceCodePath = <a class="code" href="namespacetool.html#a2321662f4efa237a44d89603ddb2ba1d">getSourceCodePath</a>(config)</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;   </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">#抽取起始版本API定义</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    print(currentVersion, currentSourceCodePath)</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="namespaceextractLibAPI.html#a4f0d4271912d3b1669689d06cec9acc3">getLibAPI</a>(currentVersion, currentSourceCodePath)</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="comment">#抽取目标版本API定义 </span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    print(targetVersion, targetSourceCodePath)</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="namespaceextractLibAPI.html#a4f0d4271912d3b1669689d06cec9acc3">getLibAPI</a>(targetVersion, targetSourceCodePath) </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="ttc" id="anamespaceextractLibAPI_html_a73fb40d31f2dd874c84d240a454c787b"><div class="ttname"><a href="namespaceextractLibAPI.html#a73fb40d31f2dd874c84d240a454c787b">extractLibAPI.main</a></div><div class="ttdeci">def main()</div><div class="ttdoc">Main function of extracting lib API definitions 抽取库API定义主函数</div><div class="ttdef"><b>Definition:</b> <a href="extractLibAPI_8py_source.html#l00029">extractLibAPI.py:29</a></div></div>
-<div class="ttc" id="anamespacetool_html_a2321662f4efa237a44d89603ddb2ba1d"><div class="ttname"><a href="namespacetool.html#a2321662f4efa237a44d89603ddb2ba1d">tool.getSourceCodePath</a></div><div class="ttdeci">def getSourceCodePath(configPath)</div><div class="ttdoc">Get source code path of the lib 获取库源码路径</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00839">tool.py:839</a></div></div>
+<p class="definition">Definition at line <a class="el" href="extractLibAPI_8py_source.html#l00032">32</a> of file <a class="el" href="extractLibAPI_8py_source.html">extractLibAPI.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceextractLibAPI.html#a73fb40d31f2dd874c84d240a454c787b">main</a>():</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">if</span> len(sys.argv) &lt; 3:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        print(<span class="stringliteral">&quot;Usage: python extractLibAPI.py -cfg config.json&quot;</span>)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        sys.exit(1)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    config=sys.argv[2]</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">#加载配置</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    currentVersion, targetVersion, currentSourceCodePath, targetSourceCodePath = <a class="code" href="namespacetool.html#a2321662f4efa237a44d89603ddb2ba1d">getSourceCodePath</a>(config)</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;   </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">#抽取起始版本API定义</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    print(currentVersion, currentSourceCodePath)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="namespaceextractLibAPI.html#a4f0d4271912d3b1669689d06cec9acc3">getLibAPI</a>(currentVersion, currentSourceCodePath)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">#抽取目标版本API定义 </span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    print(targetVersion, targetSourceCodePath)</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="namespaceextractLibAPI.html#a4f0d4271912d3b1669689d06cec9acc3">getLibAPI</a>(targetVersion, targetSourceCodePath) </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="ttc" id="anamespaceextractLibAPI_html_a73fb40d31f2dd874c84d240a454c787b"><div class="ttname"><a href="namespaceextractLibAPI.html#a73fb40d31f2dd874c84d240a454c787b">extractLibAPI.main</a></div><div class="ttdeci">def main()</div><div class="ttdoc">Main function of extracting lib API definitions 抽取库API定义主函数</div><div class="ttdef"><b>Definition:</b> <a href="extractLibAPI_8py_source.html#l00032">extractLibAPI.py:32</a></div></div>
+<div class="ttc" id="anamespacetool_html_a2321662f4efa237a44d89603ddb2ba1d"><div class="ttname"><a href="namespacetool.html#a2321662f4efa237a44d89603ddb2ba1d">tool.getSourceCodePath</a></div><div class="ttdeci">def getSourceCodePath(configPath)</div><div class="ttdoc">Get source code path of the lib 获取库源码路径</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00866">tool.py:866</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
