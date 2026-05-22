@@ -1,7 +1,7 @@
 <map id="saveStructure" name="saveStructure">
 <area shape="rect" id="node1" title="Save structure information of the project 保存项目的结构信息" alt="" coords="5,81,117,108"/>
 <area shape="rect" id="node2" href="$namespacepreprocess.html#ae7e0fb3e9686a37af31d748a4c234ebf" title="Extract decorator API calls 抽取项目中第三方库装饰器调用" alt="" coords="186,31,318,57"/>
-<area shape="rect" id="node3" href="$namespacegetCall.html#a1a5e8458deb9887f9eef4d1d493030a6" title="Extract all API calls from a given .py file 每次传进来一个.py文件，抽取所有的调用API." alt="" coords="165,81,339,108"/>
+<area shape="rect" id="node3" href="$namespacegetCall.html#a6671b2b1a28dcf2b92aaf39b9696fae3" title="Extract all API calls from a given .py file 每次传进来一个.py文件，抽取所有的调用API." alt="" coords="165,81,339,108"/>
 <area shape="rect" id="node10" href="$namespacepreprocess.html#aba37de1d85915cdded208175b9ff6b26" title="Save assignment statement with constant values 保存常量赋值语句" alt="" coords="175,132,329,159"/>
 <area shape="rect" id="node4" href="$namespacegetCall.html#a3686a0013578a483d50cde8c495798ab" title="Extract method calls in a custom class inherited from a lib class 获取从库API继承的自定义类中的库API方法调用" alt="" coords="419,5,557,32"/>
 <area shape="rect" id="node5" href="$namespacecallsite.html#a7f3d1db0a0e705c0b7df71a802144e5f" title="Make callsite record 构造调用点记录" alt="" coords="387,56,589,83"/>

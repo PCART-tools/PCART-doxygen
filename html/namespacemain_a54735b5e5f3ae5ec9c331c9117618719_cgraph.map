@@ -1,52 +1,52 @@
 <map id="run" name="run">
-<area shape="rect" id="node1" title="Run PCART with an isolated workspace 在隔离工作区中运行PCART." alt="" coords="5,1064,48,1091"/>
-<area shape="rect" id="node2" href="$namespacemain.html#a8d0e05dcf4b34e079f4df96b19e84cf2" title="Generate pkl files and perform detection and repair tasks 生成项目调用API的pkl文件以及执行检测与修复任务" alt="" coords="170,196,255,223"/>
-<area shape="rect" id="node13" href="$namespacepreprocess.html#a820f22e7f645d6238fa530f1219389fe" title="Code processing 代码预处理" alt="" coords="123,744,302,771"/>
-<area shape="rect" id="node42" href="$namespaceworkspace.html#a9360d1de3db40b2a88a9d941c4e6d3c7" title="Create an isolated workspace for one PCART run command 为一次PCART运行命令创建隔离工作区" alt="" coords="96,963,329,989"/>
-<area shape="rect" id="node45" href="$namespaceworkspace.html#a39fae6e30ae356b4e47690160ea2d5d9" title="Export internal report files to user&#45;visible report directory 将工作区内部报告导出到用户可见报告目录" alt="" coords="109,1013,316,1040"/>
-<area shape="rect" id="node46" href="$namespaceworkspace.html#a0021e3b7235fc99d47ec6abf492a12e4" title="Get PCART repository root path 获取PCART仓库根目录路径" alt="" coords="123,1064,303,1091"/>
-<area shape="rect" id="node47" href="$namespacetool.html#ac27269fb0ca8635862c18bfe841deaae" title="Load PCART&#39;s configuration file 加载PCART配置文件" alt="" coords="153,1115,273,1141"/>
-<area shape="rect" id="node48" href="$namespacetool.html#a924419c52a2a18a8cbef3b0fb9bac5f3" title="Resolve PCART config file path 解析PCART配置文件路径" alt="" coords="117,1165,308,1192"/>
-<area shape="rect" id="node49" href="$namespacetool.html#a798f243de94474f63d3b1edeb8384a3e" title="Resolve path value loaded from PCART config 解析PCART配置字段中的路径值" alt="" coords="111,1216,315,1243"/>
-<area shape="rect" id="node50" href="$namespaceworkspace.html#a52f0dcdb1eb2925c1043860032f669d9" title=" " alt="" coords="115,1267,310,1293"/>
-<area shape="rect" id="node3" href="$namespacetool.html#a06834e8d522d907efbdb98ce689b85db" title="Build subprocess argv for project run command 为被测项目运行命令构造subprocess argv." alt="" coords="401,132,576,159"/>
-<area shape="rect" id="node10" href="$namespaceworkspace.html#aba6396054179aaa393205a76b303d7a6" title="Return runtime artifact paths for the current execution 返回当前执行使用的运行产物路径" alt="" coords="385,233,592,260"/>
-<area shape="rect" id="node11" href="$namespacetool.html#a0c884e031b8683fe57a2fc6e9f321b2b" title="Save PCART report 保存PCART报告" alt="" coords="435,31,543,57"/>
-<area shape="rect" id="node4" href="$namespacetool.html#ad5f825eabcfb5ac3830d4c9650bb76e6" title="Normalize project run command 归一化被测项目运行命令" alt="" coords="667,107,875,133"/>
-<area shape="rect" id="node8" href="$namespacetool.html#a9a111bedf50d5fa9bbd67744ca605a9c" title="Resolve console script executable from a virtual environment 从虚拟环境中解析console script可执行文件" alt="" coords="660,157,883,184"/>
-<area shape="rect" id="node9" href="$namespacetool.html#acddd4e80b12bc317097d9b6da7afaa48" title="Resolve Python executable from a virtual environment root 从虚拟环境根目录解析 Python 解释器路径" alt="" coords="664,56,879,83"/>
-<area shape="rect" id="node5" href="$namespacetool.html#ab9a41531acf14c5b655fb3cea3fbffc9" title="Check whether command is Windows py launcher 判断命令是否为Windows py启动器" alt="" coords="973,56,1111,83"/>
-<area shape="rect" id="node6" href="$namespacetool.html#aead1b9bf1040d7b731555503ebc46c93" title="Check whether command is a Python executable name/path 判断命令是否为Python解释器名称或路径" alt="" coords="953,107,1131,133"/>
-<area shape="rect" id="node7" href="$namespacetool.html#af39825f4655d189d682b08f602ca7784" title="Remove version option after py launcher 去除py启动器后的版本选项" alt="" coords="943,157,1141,184"/>
-<area shape="rect" id="node12" href="$namespacetool.html#a89e3ba62412c41551693e80ced2dc88c" title="Format output 格式化输出" alt="" coords="716,5,827,32"/>
-<area shape="rect" id="node14" href="$namespacepreprocess.html#a66e56d747edac1867251b521065bab72" title="Code instrumentation for all API calls within a project source file 项目源文件所有API调用代码插桩" alt="" coords="407,664,571,691"/>
-<area shape="rect" id="node27" href="$namespacepreprocess.html#a1be44b4612b83c96456034d7eef3a376" title="Convert the ListComp and DictComp statements to variable assignment statements 将列表推导式listComp和字典推导式Di..." alt="" coords="388,461,589,488"/>
-<area shape="rect" id="node30" href="$namespacepreprocess.html#a422e51d3c4d2044bcb0159a2ebc0df60" title="Convert tabs to spaces in all Python files within a directory 将目录下所有Python文件中的制表符转换为空格" alt="" coords="394,934,583,975"/>
-<area shape="rect" id="node31" href="$namespacepreprocess.html#a4c279837bca66be1c336af00420eb4ad" title="Expand the single&#45;line conditional return statement into a multi&#45;line if&#45;else structure &#160;&#160;展开单行条件retur..." alt="" coords="379,766,598,807"/>
-<area shape="rect" id="node32" href="$namespacepreprocess.html#a79af2a91a7fa51e11b82e40207c48957" title="Get all lib&#45;related import statements 获取所有第三方库相关的import语句" alt="" coords="389,1000,588,1027"/>
-<area shape="rect" id="node33" href="$namespacetool.html#ae11019ef37390ec657efde69354884aa" title="Extract the .py script filename from a run command 从运行命令中提取.py脚本文件名" alt="" coords="429,1051,549,1077"/>
-<area shape="rect" id="node34" href="$namespacepreprocess.html#ad272e396d54aa1eb3a41c36c1949323e" title="Code instrumentation for project run file 项目运行文件代码插桩" alt="" coords="394,832,583,859"/>
-<area shape="rect" id="node35" href="$namespacepreprocess.html#ac314c05ac2de819eb7e15c9a091beb5d" title="Save import statement to source file 将import语句保存到源码中" alt="" coords="379,309,598,336"/>
-<area shape="rect" id="node36" href="$namespacepreprocess.html#a4c00e7633e0fd15cfaba6731cf8fe9b6" title="Convert the multi&#45;line parameter calls in the code into a single line to facilitate insertion into di..." alt="" coords="415,715,563,741"/>
-<area shape="rect" id="node37" href="$namespacepreprocess.html#af67fd0a454bad0ef82391bf1d745b87f" title="Save structure information of the project 保存项目的结构信息" alt="" coords="395,411,582,437"/>
-<area shape="rect" id="node40" href="$namespacepreprocess.html#aa6aca43577a6c7675fc40529658b4787" title="Get source script path from PCART repository 获取PCART仓库中的辅助脚本路径" alt="" coords="408,360,569,387"/>
-<area shape="rect" id="node41" href="$namespacepreprocess.html#a786d8e37525e381b79707973cf3509fb" title="Write recordValue.py used by instrumented project files 写入插桩文件共享的recordValue.py." alt="" coords="383,883,594,909"/>
-<area shape="rect" id="node15" href="$namespacepreprocess.html#aaab33bd46f0ae489d21ef62dff750446" title="Count the number of spaces at the beginning of a string 计算字符串的前面有多少个空格" alt="" coords="956,723,1128,749"/>
-<area shape="rect" id="node16" href="$namespacetool.html#ac4d05a17f2f511bda4979dd476894896" title="Split API call string based on parameter passing 根据参数传递拆分API调用字符串" alt="" coords="714,563,829,589"/>
-<area shape="rect" id="node17" href="$namespacetool.html#abd074786b2b2c49fb89912e52b42f1fc" title="Split API call string based on separator &quot;.&quot; 根据&quot;.&quot;拆分API调用字符串" alt="" coords="710,613,833,640"/>
-<area shape="rect" id="node18" href="$namespacepreprocess.html#ae6efc31a5dbea814d20ed8efd321db06" title="Find assignment call statements 获取赋值调用语句" alt="" coords="677,664,866,691"/>
-<area shape="rect" id="node19" href="$namespacepreprocess.html#a545a0bfd0673e4d835f285ed1dc4e0b6" title="Resolve the source expression assigned to a receiver alias 还原调用者别名在当前作用域内的赋值来源表达式" alt="" coords="648,781,895,808"/>
-<area shape="rect" id="node20" href="$namespacetool.html#a163a1af85c967f70b1495290735321aa" title="Get AST for code 将代码转化为Ast树" alt="" coords="725,984,818,1011"/>
-<area shape="rect" id="node21" href="$namespacegetCall.html#a1a5e8458deb9887f9eef4d1d493030a6" title="Extract all API calls from a given .py file 每次传进来一个.py文件，抽取所有的调用API." alt="" coords="685,411,858,437"/>
-<area shape="rect" id="node22" href="$namespacegetCall.html#ad822ec04ad5a7e5ed8e64b816a20e314" title="Restore the conventional API call path in the withitem (including AsyncWith) call form 还原withitemAPI调..." alt="" coords="949,461,1135,488"/>
-<area shape="rect" id="node23" href="$namespacepreprocess.html#af850a797dfc86cb1fb0b3c68ee1840f7" title="Get decorator block start index 获取装饰器块起始行号" alt="" coords="662,715,881,757"/>
-<area shape="rect" id="node24" href="$namespacepreprocess.html#a638e9a6cb8c8f3b7752dc458a3846d9d" title="Determine the instrumentation line for import statements 确定import语句插桩行" alt="" coords="677,1035,865,1061"/>
-<area shape="rect" id="node25" href="$namespacetool.html#a79b523c932db90445596767f644be48c" title="Split parameter string into list of separated parameters 将参数字符串拆分成单个的参数" alt="" coords="702,883,841,909"/>
-<area shape="rect" id="node26" href="$namespacepreprocess.html#aa4a5e25d5835c88d23f7e5881063ad0d" title="Resolve the visible base&#45;class expression for an inherited self receiver 还原继承场景中self调用者可见的基类表达式" alt="" coords="657,933,886,960"/>
-<area shape="rect" id="node28" href="$namespacepreprocess.html#a45a426d44e2e19441f98e0def6cc2d67" title="Get the local variable in the dictionary comprehension 获取字典推导式中的局部变量" alt="" coords="689,360,854,387"/>
-<area shape="rect" id="node29" href="$namespacepreprocess.html#a863e16849c87ef82b42e6a44e743a245" title="Get the local variable in the list comprehension 获取列表推导式中的局部变量" alt="" coords="690,309,853,336"/>
-<area shape="rect" id="node38" href="$namespacepreprocess.html#ae7e0fb3e9686a37af31d748a4c234ebf" title="Extract decorator API calls 抽取项目中第三方库装饰器调用" alt="" coords="668,208,875,235"/>
-<area shape="rect" id="node39" href="$namespacepreprocess.html#aba37de1d85915cdded208175b9ff6b26" title="Save assignment statement with constant values 保存常量赋值语句" alt="" coords="657,259,886,285"/>
-<area shape="rect" id="node43" href="$namespaceworkspace.html#a46da2a5c9f862cc9c976c155bb91dc27" title="Convert project path/name to a filesystem&#45;safe slug 将项目路径或项目名转换为可作为目录名使用的slug." alt="" coords="377,1152,600,1179"/>
-<area shape="rect" id="node44" href="$namespaceworkspace.html#ac38101f78c013e4d49db5d01b00d33ed" title="Write workspace metadata 写入运行工作区元数据" alt="" coords="393,1101,584,1128"/>
+<area shape="rect" id="node1" title="Run PCART with an isolated workspace 在隔离工作区中运行PCART." alt="" coords="5,651,48,678"/>
+<area shape="rect" id="node2" href="$namespacemain.html#a4267bbc09b63fab971b487585a51ea7b" title="Generate pkl files and perform detection and repair tasks 生成项目调用API的pkl文件以及执行检测与修复任务" alt="" coords="170,138,255,165"/>
+<area shape="rect" id="node3" href="$namespacepcresolveBridge.html#a512bbb00e40320ecbcbf53a312f05f09" title="Build a CallsiteRecord lookup table from PCResolve analysis 从PCResolve分析结果构建CallsiteRecord查找表" alt="" coords="383,21,595,63"/>
+<area shape="rect" id="node14" href="$namespacepreprocess.html#a2eec1d8b2c398e66364228c1ad0c6ff9" title="Code processing 代码预处理" alt="" coords="123,525,302,551"/>
+<area shape="rect" id="node42" href="$namespaceworkspace.html#a9360d1de3db40b2a88a9d941c4e6d3c7" title="Create an isolated workspace for one PCART run command 为一次PCART运行命令创建隔离工作区" alt="" coords="96,575,329,602"/>
+<area shape="rect" id="node45" href="$namespaceworkspace.html#a39fae6e30ae356b4e47690160ea2d5d9" title="Export internal report files to user&#45;visible report directory 将工作区内部报告导出到用户可见报告目录" alt="" coords="109,626,316,653"/>
+<area shape="rect" id="node46" href="$namespaceworkspace.html#a0021e3b7235fc99d47ec6abf492a12e4" title="Get PCART repository root path 获取PCART仓库根目录路径" alt="" coords="123,677,303,703"/>
+<area shape="rect" id="node47" href="$namespacetool.html#ac27269fb0ca8635862c18bfe841deaae" title="Load PCART&#39;s configuration file 加载PCART配置文件" alt="" coords="153,727,273,754"/>
+<area shape="rect" id="node48" href="$namespacetool.html#a924419c52a2a18a8cbef3b0fb9bac5f3" title="Resolve PCART config file path 解析PCART配置文件路径" alt="" coords="117,778,308,805"/>
+<area shape="rect" id="node49" href="$namespacetool.html#a798f243de94474f63d3b1edeb8384a3e" title="Resolve path value loaded from PCART config 解析PCART配置字段中的路径值" alt="" coords="111,829,315,855"/>
+<area shape="rect" id="node50" href="$namespaceworkspace.html#a52f0dcdb1eb2925c1043860032f669d9" title=" " alt="" coords="115,879,310,906"/>
+<area shape="rect" id="node7" href="$namespacetool.html#a06834e8d522d907efbdb98ce689b85db" title="Build subprocess argv for project run command 为被测项目运行命令构造subprocess argv." alt="" coords="401,87,576,114"/>
+<area shape="rect" id="node11" href="$namespaceworkspace.html#aba6396054179aaa393205a76b303d7a6" title="Return runtime artifact paths for the current execution 返回当前执行使用的运行产物路径" alt="" coords="385,189,592,215"/>
+<area shape="rect" id="node12" href="$namespacetool.html#a0c884e031b8683fe57a2fc6e9f321b2b" title="Save PCART report 保存PCART报告" alt="" coords="435,138,543,165"/>
+<area shape="rect" id="node4" href="$namespacecallsite.html#a7f3d1db0a0e705c0b7df71a802144e5f" title="Make callsite record 构造调用点记录" alt="" coords="943,273,1145,299"/>
+<area shape="rect" id="node5" href="$namespacecallsite.html#a10129000122ceacaec2cb26cd4e3a8a5" title="Normalize call text for identity generation 归一化调用文本，用于生成调用点身份" alt="" coords="1193,247,1384,274"/>
+<area shape="rect" id="node6" href="$namespacecallsite.html#a011e3f8ff9cf7205c116ce2eee657af4" title="Normalize source file path to project relative path 将源码路径归一化为项目相对路径" alt="" coords="1195,298,1382,325"/>
+<area shape="rect" id="node8" href="$namespacetool.html#ad5f825eabcfb5ac3830d4c9650bb76e6" title="Normalize project run command 归一化被测项目运行命令" alt="" coords="667,58,875,85"/>
+<area shape="rect" id="node9" href="$namespacetool.html#a9a111bedf50d5fa9bbd67744ca605a9c" title="Resolve console script executable from a virtual environment 从虚拟环境中解析console script可执行文件" alt="" coords="660,109,883,135"/>
+<area shape="rect" id="node10" href="$namespacetool.html#acddd4e80b12bc317097d9b6da7afaa48" title="Resolve Python executable from a virtual environment root 从虚拟环境根目录解析 Python 解释器路径" alt="" coords="664,159,879,186"/>
+<area shape="rect" id="node13" href="$namespacetool.html#a89e3ba62412c41551693e80ced2dc88c" title="Format output 格式化输出" alt="" coords="716,210,827,237"/>
+<area shape="rect" id="node15" href="$namespacepreprocess.html#abebae1853405a150b463cba60b0577ed" title="Code instrumentation for all API calls within a project source file 项目源文件所有API调用代码插桩" alt="" coords="407,727,571,754"/>
+<area shape="rect" id="node28" href="$namespacepreprocess.html#a1be44b4612b83c96456034d7eef3a376" title="Convert the ListComp and DictComp statements to variable assignment statements 将列表推导式listComp和字典推导式Di..." alt="" coords="388,423,589,450"/>
+<area shape="rect" id="node31" href="$namespacepreprocess.html#a422e51d3c4d2044bcb0159a2ebc0df60" title="Convert tabs to spaces in all Python files within a directory 将目录下所有Python文件中的制表符转换为空格" alt="" coords="394,357,583,399"/>
+<area shape="rect" id="node32" href="$namespacepreprocess.html#a4c279837bca66be1c336af00420eb4ad" title="Expand the single&#45;line conditional return statement into a multi&#45;line if&#45;else structure &#160;&#160;展开单行条件retur..." alt="" coords="379,240,598,281"/>
+<area shape="rect" id="node33" href="$namespacepreprocess.html#a79af2a91a7fa51e11b82e40207c48957" title="Get all lib&#45;related import statements 获取所有第三方库相关的import语句" alt="" coords="389,474,588,501"/>
+<area shape="rect" id="node34" href="$namespacetool.html#ae11019ef37390ec657efde69354884aa" title="Extract the .py script filename from a run command 从运行命令中提取.py脚本文件名" alt="" coords="429,525,549,551"/>
+<area shape="rect" id="node35" href="$namespacepreprocess.html#ad272e396d54aa1eb3a41c36c1949323e" title="Code instrumentation for project run file 项目运行文件代码插桩" alt="" coords="394,677,583,703"/>
+<area shape="rect" id="node36" href="$namespacepreprocess.html#ac314c05ac2de819eb7e15c9a091beb5d" title="Save import statement to source file 将import语句保存到源码中" alt="" coords="379,626,598,653"/>
+<area shape="rect" id="node37" href="$namespacepreprocess.html#a4c00e7633e0fd15cfaba6731cf8fe9b6" title="Convert the multi&#45;line parameter calls in the code into a single line to facilitate insertion into di..." alt="" coords="415,306,563,333"/>
+<area shape="rect" id="node38" href="$namespacepreprocess.html#af67fd0a454bad0ef82391bf1d745b87f" title="Save structure information of the project 保存项目的结构信息" alt="" coords="395,575,582,602"/>
+<area shape="rect" id="node40" href="$namespacepreprocess.html#aa6aca43577a6c7675fc40529658b4787" title="Get source script path from PCART repository 获取PCART仓库中的辅助脚本路径" alt="" coords="408,778,569,805"/>
+<area shape="rect" id="node41" href="$namespacepreprocess.html#a786d8e37525e381b79707973cf3509fb" title="Write recordValue.py used by instrumented project files 写入插桩文件共享的recordValue.py." alt="" coords="383,829,594,855"/>
+<area shape="rect" id="node16" href="$namespacepreprocess.html#aaab33bd46f0ae489d21ef62dff750446" title="Count the number of spaces at the beginning of a string 计算字符串的前面有多少个空格" alt="" coords="958,702,1130,729"/>
+<area shape="rect" id="node17" href="$namespacetool.html#ac4d05a17f2f511bda4979dd476894896" title="Split API call string based on parameter passing 根据参数传递拆分API调用字符串" alt="" coords="714,913,829,939"/>
+<area shape="rect" id="node18" href="$namespacetool.html#abd074786b2b2c49fb89912e52b42f1fc" title="Split API call string based on separator &quot;.&quot; 根据&quot;.&quot;拆分API调用字符串" alt="" coords="710,963,833,990"/>
+<area shape="rect" id="node19" href="$namespacepreprocess.html#ae6efc31a5dbea814d20ed8efd321db06" title="Find assignment call statements 获取赋值调用语句" alt="" coords="677,1065,866,1091"/>
+<area shape="rect" id="node20" href="$namespacepreprocess.html#a545a0bfd0673e4d835f285ed1dc4e0b6" title="Resolve the source expression assigned to a receiver alias 还原调用者别名在当前作用域内的赋值来源表达式" alt="" coords="648,761,895,787"/>
+<area shape="rect" id="node21" href="$namespacetool.html#a163a1af85c967f70b1495290735321aa" title="Get AST for code 将代码转化为Ast树" alt="" coords="725,289,818,315"/>
+<area shape="rect" id="node22" href="$namespacegetCall.html#a6671b2b1a28dcf2b92aaf39b9696fae3" title="Extract all API calls from a given .py file 每次传进来一个.py文件，抽取所有的调用API." alt="" coords="685,542,858,569"/>
+<area shape="rect" id="node23" href="$namespacegetCall.html#ad822ec04ad5a7e5ed8e64b816a20e314" title="Restore the conventional API call path in the withitem (including AsyncWith) call form 还原withitemAPI调..." alt="" coords="951,593,1137,619"/>
+<area shape="rect" id="node24" href="$namespacepreprocess.html#af850a797dfc86cb1fb0b3c68ee1840f7" title="Get decorator block start index 获取装饰器块起始行号" alt="" coords="662,695,881,736"/>
+<area shape="rect" id="node25" href="$namespacepreprocess.html#a638e9a6cb8c8f3b7752dc458a3846d9d" title="Determine the instrumentation line for import statements 确定import语句插桩行" alt="" coords="677,593,865,619"/>
+<area shape="rect" id="node26" href="$namespacetool.html#a79b523c932db90445596767f644be48c" title="Split parameter string into list of separated parameters 将参数字符串拆分成单个的参数" alt="" coords="702,811,841,838"/>
+<area shape="rect" id="node27" href="$namespacepreprocess.html#aa4a5e25d5835c88d23f7e5881063ad0d" title="Resolve the visible base&#45;class expression for an inherited self receiver 还原继承场景中self调用者可见的基类表达式" alt="" coords="657,862,886,889"/>
+<area shape="rect" id="node29" href="$namespacepreprocess.html#a45a426d44e2e19441f98e0def6cc2d67" title="Get the local variable in the dictionary comprehension 获取字典推导式中的局部变量" alt="" coords="689,339,854,366"/>
+<area shape="rect" id="node30" href="$namespacepreprocess.html#a863e16849c87ef82b42e6a44e743a245" title="Get the local variable in the list comprehension 获取列表推导式中的局部变量" alt="" coords="690,390,853,417"/>
+<area shape="rect" id="node39" href="$namespacepreprocess.html#ae7e0fb3e9686a37af31d748a4c234ebf" title="Extract decorator API calls 抽取项目中第三方库装饰器调用" alt="" coords="668,491,875,518"/>
+<area shape="rect" id="node43" href="$namespaceworkspace.html#a46da2a5c9f862cc9c976c155bb91dc27" title="Convert project path/name to a filesystem&#45;safe slug 将项目路径或项目名转换为可作为目录名使用的slug." alt="" coords="377,879,600,906"/>
+<area shape="rect" id="node44" href="$namespaceworkspace.html#ac38101f78c013e4d49db5d01b00d33ed" title="Write workspace metadata 写入运行工作区元数据" alt="" coords="393,930,584,957"/>
 </map>

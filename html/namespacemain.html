@@ -70,9 +70,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8d0e05dcf4b34e079f4df96b19e84cf2"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#a8d0e05dcf4b34e079f4df96b19e84cf2">backward</a> (projPath, libName, currentVersion, currentEnv, targetVersion, targetEnv, runCommand, runPath, workspace)</td></tr>
-<tr class="memdesc:a8d0e05dcf4b34e079f4df96b19e84cf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate pkl files and perform detection and repair tasks 生成项目调用API的pkl文件以及执行检测与修复任务  <a href="namespacemain.html#a8d0e05dcf4b34e079f4df96b19e84cf2">More...</a><br /></td></tr>
-<tr class="separator:a8d0e05dcf4b34e079f4df96b19e84cf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4267bbc09b63fab971b487585a51ea7b"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#a4267bbc09b63fab971b487585a51ea7b">backward</a> (projPath, libName, currentVersion, currentEnv, targetVersion, targetEnv, runCommand, runPath, workspace, pcresolveLookup=None)</td></tr>
+<tr class="memdesc:a4267bbc09b63fab971b487585a51ea7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate pkl files and perform detection and repair tasks 生成项目调用API的pkl文件以及执行检测与修复任务  <a href="namespacemain.html#a4267bbc09b63fab971b487585a51ea7b">More...</a><br /></td></tr>
+<tr class="separator:a4267bbc09b63fab971b487585a51ea7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a052341442960b76f576383f354689bc5"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#a052341442960b76f576383f354689bc5">backwardTask</a> (args)</td></tr>
 <tr class="memdesc:a052341442960b76f576383f354689bc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">One process handles one file 一个进程处理一个文件  <a href="namespacemain.html#a052341442960b76f576383f354689bc5">More...</a><br /></td></tr>
 <tr class="separator:a052341442960b76f576383f354689bc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -84,8 +84,8 @@ Functions</h2></td></tr>
 <tr class="separator:a54735b5e5f3ae5ec9c331c9117618719"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a8d0e05dcf4b34e079f4df96b19e84cf2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d0e05dcf4b34e079f4df96b19e84cf2">&#9670;&nbsp;</a></span>backward()</h2>
+<a id="a4267bbc09b63fab971b487585a51ea7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4267bbc09b63fab971b487585a51ea7b">&#9670;&nbsp;</a></span>backward()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -142,7 +142,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>workspace</em>&#160;</td>
+          <td class="paramname"><em>workspace</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>pcresolveLookup</em> = <code>None</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -164,100 +170,110 @@ Functions</h2></td></tr>
     <tr><td class="paramname">runCommand</td><td>The run command of the project / 项目运行命令 </td></tr>
     <tr><td class="paramname">runPath</td><td>The relative path of the run file / 运行文件的相对路径 </td></tr>
     <tr><td class="paramname">workspace</td><td>RunWorkspace object for this execution / 本次执行的运行工作区 </td></tr>
+    <tr><td class="paramname">pcresolveLookup</td><td>Optional pre-built PCResolve lookup table shared with preprocessing </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="main_8py_source.html#l00165">165</a> of file <a class="el" href="main_8py_source.html">main.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="keyword">def </span><a class="code" href="namespacemain.html#a8d0e05dcf4b34e079f4df96b19e84cf2">backward</a>(projPath,libName,currentVersion,currentEnv,targetVersion,targetEnv,runCommand,runPath,workspace):</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    runtimePaths=<a class="code" href="namespaceworkspace.html#aba6396054179aaa393205a76b303d7a6">getRuntimePaths</a>(workspace)</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    copyRoot=runtimePaths[<span class="stringliteral">&#39;copy_root&#39;</span>]</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    dataDir=runtimePaths[<span class="stringliteral">&#39;data_dir&#39;</span>]</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    tempDir=runtimePaths[<span class="stringliteral">&#39;temp_dir&#39;</span>]</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    reportDir=runtimePaths[<span class="stringliteral">&#39;report_dir&#39;</span>]</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    pathObj=Path(<span class="stringliteral">&#39;DF&#39;</span>)</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    pathObj.getPath(projPath)</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    filePath=[it <span class="keywordflow">for</span> it <span class="keywordflow">in</span> pathObj.path <span class="keywordflow">if</span> it.endswith(<span class="stringliteral">&#39;py&#39;</span>)] <span class="comment">#保留项目中的.py文件</span></div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    projName=os.path.basename(projPath)</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    errorLog = os.path.join(reportDir, f<span class="stringliteral">&#39;{projName}_fixed_log.txt&#39;</span>)</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keywordflow">if</span> os.path.exists(errorLog):</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        os.remove(errorLog)</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    </div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="comment">#先在起始版本中生成每个API的pkl</span></div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="comment"># cwd 自动适配：使用 subprocess cwd 参数替代 shell cd</span></div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keywordflow">if</span> runPath <span class="keywordflow">and</span> runPath <span class="keywordflow">not</span> <span class="keywordflow">in</span> runCommand:</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        cwd = os.path.join(copyRoot, projName, runPath)</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        cwd = os.path.join(copyRoot, projName)</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    print(<span class="stringliteral">&#39;Running the project...&#39;</span>)</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    cmd=<a class="code" href="namespacetool.html#a06834e8d522d907efbdb98ce689b85db">buildRunCommand</a>(runCommand,currentEnv)</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    createResult = subprocess.run(</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        cmd, cwd=cwd, capture_output=<span class="keyword">True</span>, text=<span class="keyword">True</span>, encoding=<span class="stringliteral">&#39;utf-8&#39;</span></div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    )</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="keywordflow">if</span> createResult.returncode!=0:</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        print(f<span class="stringliteral">&#39;Failure to generate PKL in current version&#39;</span>)</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        print(createResult.stderr)</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    print(<span class="stringliteral">&quot;Running complete&quot;</span>)</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;     </div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="comment">#生成pkl成功后，将项目恢复成原样，便于之后对其中某个API单独插桩</span></div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    os.makedirs(tempDir,exist_ok=<span class="keyword">True</span>)</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    tempProjPath=os.path.join(tempDir,projName)</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keywordflow">if</span> os.path.exists(tempProjPath):</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        shutil.rmtree(tempProjPath)</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    shutil.move(os.path.join(copyRoot, projName), tempProjPath)</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    shutil.move(os.path.join(copyRoot, f<span class="stringliteral">&#39;bak_{projName}&#39;</span>), os.path.join(copyRoot, projName))</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    shutil.move(tempProjPath, os.path.join(copyRoot, f<span class="stringliteral">&#39;bak_{projName}&#39;</span>))</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; </div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="comment">#这里用进程池同时处理多个任务，但对于torch库可能会报错RuntimeError:CUDA out or memory</span></div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="comment">#对数据库的读写需要加锁</span></div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    coverSet=set()</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    coverSet_path = os.path.join(copyRoot, <span class="stringliteral">&#39;pkl&#39;</span>, <span class="stringliteral">&#39;coverSet&#39;</span>)</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keywordflow">if</span> os.path.exists(coverSet_path):</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        <span class="keyword">with</span> open(coverSet_path, <span class="stringliteral">&#39;r&#39;</span>, encoding=<span class="stringliteral">&#39;utf-8&#39;</span>) <span class="keyword">as</span> fr:</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;            tempLst=fr.readlines()</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        <span class="keywordflow">for</span> it <span class="keywordflow">in</span> tempLst:</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;            it=it.rstrip(<span class="stringliteral">&#39;\n&#39;</span>).replace(<span class="stringliteral">&#39; &#39;</span>,<span class="stringliteral">&#39;&#39;</span>)</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;            coverSet.add(it)  </div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    manager=Manager()</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    lock=manager.Lock() <span class="comment">#创建一个共享锁</span></div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    sharedDict=manager.dict() <span class="comment">#创建一个共享字典</span></div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    tasks=[(projName,libName,file,currentVersion,currentEnv,targetVersion,targetEnv,runCommand,runPath,lock,sharedDict,coverSet,runtimePaths) <span class="keywordflow">for</span> file <span class="keywordflow">in</span> filePath]</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    pool=Pool(processes=1)</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    resultLst=pool.map(backwardTask,tasks)</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    pool.close() <span class="comment">#关闭进程池，使其不再接受新的任务</span></div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    pool.join() <span class="comment">#等待进程池中所有的任务执行完，否则主进程可能继续往下执行提前结束，而导致部分任务没有执行完</span></div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <a class="code" href="namespacetool.html#a0c884e031b8683fe57a2fc6e9f321b2b">save2txt</a>(resultLst, libName, runCommand, os.path.join(reportDir, f<span class="stringliteral">&#39;{projName}.txt&#39;</span>))</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
-<div class="ttc" id="anamespacemain_html_a8d0e05dcf4b34e079f4df96b19e84cf2"><div class="ttname"><a href="namespacemain.html#a8d0e05dcf4b34e079f4df96b19e84cf2">main.backward</a></div><div class="ttdeci">def backward(projPath, libName, currentVersion, currentEnv, targetVersion, targetEnv, runCommand, runPath, workspace)</div><div class="ttdoc">Generate pkl files and perform detection and repair tasks 生成项目调用API的pkl文件以及执行检测与修复任务</div><div class="ttdef"><b>Definition:</b> <a href="main_8py_source.html#l00165">main.py:165</a></div></div>
+<p class="definition">Definition at line <a class="el" href="main_8py_source.html#l00171">171</a> of file <a class="el" href="main_8py_source.html">main.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="keyword">def </span><a class="code" href="namespacemain.html#a4267bbc09b63fab971b487585a51ea7b">backward</a>(projPath,libName,currentVersion,currentEnv,targetVersion,targetEnv,runCommand,runPath,workspace,pcresolveLookup=None):</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    runtimePaths=<a class="code" href="namespaceworkspace.html#aba6396054179aaa393205a76b303d7a6">getRuntimePaths</a>(workspace)</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    copyRoot=runtimePaths[<span class="stringliteral">&#39;copy_root&#39;</span>]</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    dataDir=runtimePaths[<span class="stringliteral">&#39;data_dir&#39;</span>]</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    tempDir=runtimePaths[<span class="stringliteral">&#39;temp_dir&#39;</span>]</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    reportDir=runtimePaths[<span class="stringliteral">&#39;report_dir&#39;</span>]</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    pathObj=Path(<span class="stringliteral">&#39;DF&#39;</span>)</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    pathObj.getPath(projPath)</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    filePath=[it <span class="keywordflow">for</span> it <span class="keywordflow">in</span> pathObj.path <span class="keywordflow">if</span> it.endswith(<span class="stringliteral">&#39;py&#39;</span>)] <span class="comment">#保留项目中的.py文件</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    projName=os.path.basename(projPath)</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    errorLog = os.path.join(reportDir, f<span class="stringliteral">&#39;{projName}_fixed_log.txt&#39;</span>)</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="keywordflow">if</span> os.path.exists(errorLog):</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        os.remove(errorLog)</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    </div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="comment">#先在起始版本中生成每个API的pkl</span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="comment"># cwd 自动适配：使用 subprocess cwd 参数替代 shell cd</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keywordflow">if</span> runPath <span class="keywordflow">and</span> runPath <span class="keywordflow">not</span> <span class="keywordflow">in</span> runCommand:</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        cwd = os.path.join(copyRoot, projName, runPath)</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        cwd = os.path.join(copyRoot, projName)</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    print(<span class="stringliteral">&#39;Running the project...&#39;</span>)</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    cmd=<a class="code" href="namespacetool.html#a06834e8d522d907efbdb98ce689b85db">buildRunCommand</a>(runCommand,currentEnv)</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    createResult = subprocess.run(</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        cmd, cwd=cwd, capture_output=<span class="keyword">True</span>, text=<span class="keyword">True</span>, encoding=<span class="stringliteral">&#39;utf-8&#39;</span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    )</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordflow">if</span> createResult.returncode!=0:</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        print(f<span class="stringliteral">&#39;Failure to generate PKL in current version&#39;</span>)</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        print(createResult.stderr)</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    print(<span class="stringliteral">&quot;Running complete&quot;</span>)</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;     </div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="comment">#生成pkl成功后，将项目恢复成原样，便于之后对其中某个API单独插桩</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    os.makedirs(tempDir,exist_ok=<span class="keyword">True</span>)</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    tempProjPath=os.path.join(tempDir,projName)</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="keywordflow">if</span> os.path.exists(tempProjPath):</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        shutil.rmtree(tempProjPath)</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    shutil.move(os.path.join(copyRoot, projName), tempProjPath)</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    shutil.move(os.path.join(copyRoot, f<span class="stringliteral">&#39;bak_{projName}&#39;</span>), os.path.join(copyRoot, projName))</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    shutil.move(tempProjPath, os.path.join(copyRoot, f<span class="stringliteral">&#39;bak_{projName}&#39;</span>))</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160; </div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160; </div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="comment">#用PCResolve进行全项目API调用识别，结果在所有任务间复用</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keywordflow">if</span> pcresolveLookup <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        pcresolveLookup=<a class="code" href="namespacepcresolveBridge.html#a512bbb00e40320ecbcbf53a312f05f09">buildCallsiteLookup</a>(projPath,libName)</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="comment">#这里用进程池同时处理多个任务，但对于torch库可能会报错RuntimeError:CUDA out or memory</span></div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="comment">#对数据库的读写需要加锁</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    coverSet=set()</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    coverSet_path = os.path.join(copyRoot, <span class="stringliteral">&#39;pkl&#39;</span>, <span class="stringliteral">&#39;coverSet&#39;</span>)</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keywordflow">if</span> os.path.exists(coverSet_path):</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;        <span class="keyword">with</span> open(coverSet_path, <span class="stringliteral">&#39;r&#39;</span>, encoding=<span class="stringliteral">&#39;utf-8&#39;</span>) <span class="keyword">as</span> fr:</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;            tempLst=fr.readlines()</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        <span class="keywordflow">for</span> it <span class="keywordflow">in</span> tempLst:</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;            it=it.rstrip(<span class="stringliteral">&#39;\n&#39;</span>).replace(<span class="stringliteral">&#39; &#39;</span>,<span class="stringliteral">&#39;&#39;</span>)</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;            coverSet.add(it)</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    manager=Manager()</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    lock=manager.Lock() <span class="comment">#创建一个共享锁</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    sharedDict=manager.dict() <span class="comment">#创建一个共享字典</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    tasks=[(projName,libName,file,currentVersion,currentEnv,targetVersion,targetEnv,runCommand,runPath,lock,sharedDict,coverSet,runtimePaths,pcresolveLookup) <span class="keywordflow">for</span> file <span class="keywordflow">in</span> filePath]</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    pool=Pool(processes=1)</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    resultLst=pool.map(backwardTask,tasks)</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    pool.close() <span class="comment">#关闭进程池，使其不再接受新的任务</span></div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    pool.join() <span class="comment">#等待进程池中所有的任务执行完，否则主进程可能继续往下执行提前结束，而导致部分任务没有执行完</span></div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <a class="code" href="namespacetool.html#a0c884e031b8683fe57a2fc6e9f321b2b">save2txt</a>(resultLst, libName, runCommand, os.path.join(reportDir, f<span class="stringliteral">&#39;{projName}.txt&#39;</span>))</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160; </div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
+<div class="ttc" id="anamespacemain_html_a4267bbc09b63fab971b487585a51ea7b"><div class="ttname"><a href="namespacemain.html#a4267bbc09b63fab971b487585a51ea7b">main.backward</a></div><div class="ttdeci">def backward(projPath, libName, currentVersion, currentEnv, targetVersion, targetEnv, runCommand, runPath, workspace, pcresolveLookup=None)</div><div class="ttdoc">Generate pkl files and perform detection and repair tasks 生成项目调用API的pkl文件以及执行检测与修复任务</div><div class="ttdef"><b>Definition:</b> <a href="main_8py_source.html#l00171">main.py:171</a></div></div>
+<div class="ttc" id="anamespacepcresolveBridge_html_a512bbb00e40320ecbcbf53a312f05f09"><div class="ttname"><a href="namespacepcresolveBridge.html#a512bbb00e40320ecbcbf53a312f05f09">pcresolveBridge.buildCallsiteLookup</a></div><div class="ttdeci">def buildCallsiteLookup(projPath, libName)</div><div class="ttdoc">Build a CallsiteRecord lookup table from PCResolve analysis 从PCResolve分析结果构建CallsiteRecord查找表</div><div class="ttdef"><b>Definition:</b> <a href="pcresolveBridge_8py_source.html#l00040">pcresolveBridge.py:40</a></div></div>
 <div class="ttc" id="anamespacetool_html_a06834e8d522d907efbdb98ce689b85db"><div class="ttname"><a href="namespacetool.html#a06834e8d522d907efbdb98ce689b85db">tool.buildRunCommand</a></div><div class="ttdeci">def buildRunCommand(runCommand, envPath)</div><div class="ttdoc">Build subprocess argv for project run command 为被测项目运行命令构造subprocess argv.</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00779">tool.py:779</a></div></div>
 <div class="ttc" id="anamespacetool_html_a0c884e031b8683fe57a2fc6e9f321b2b"><div class="ttname"><a href="namespacetool.html#a0c884e031b8683fe57a2fc6e9f321b2b">tool.save2txt</a></div><div class="ttdeci">def save2txt(lst, libName, runCommand, savePath)</div><div class="ttdoc">Save PCART report 保存PCART报告</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00533">tool.py:533</a></div></div>
 <div class="ttc" id="anamespaceworkspace_html_aba6396054179aaa393205a76b303d7a6"><div class="ttname"><a href="namespaceworkspace.html#aba6396054179aaa393205a76b303d7a6">workspace.getRuntimePaths</a></div><div class="ttdeci">def getRuntimePaths(workspace)</div><div class="ttdoc">Return runtime artifact paths for the current execution 返回当前执行使用的运行产物路径</div><div class="ttdef"><b>Definition:</b> <a href="workspace_8py_source.html#l00207">workspace.py:207</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="namespacemain_a8d0e05dcf4b34e079f4df96b19e84cf2_cgraph.png" border="0" usemap="#anamespacemain_a8d0e05dcf4b34e079f4df96b19e84cf2_cgraph" alt=""/></div>
-<map name="anamespacemain_a8d0e05dcf4b34e079f4df96b19e84cf2_cgraph" id="anamespacemain_a8d0e05dcf4b34e079f4df96b19e84cf2_cgraph">
-<area shape="rect" title="Generate pkl files and perform detection and repair tasks 生成项目调用API的pkl文件以及执行检测与修复任务" alt="" coords="5,157,91,184"/>
-<area shape="rect" href="namespacetool.html#a06834e8d522d907efbdb98ce689b85db" title="Build subprocess argv for project run command 为被测项目运行命令构造subprocess argv." alt="" coords="155,107,329,133"/>
-<area shape="rect" href="namespaceworkspace.html#aba6396054179aaa393205a76b303d7a6" title="Return runtime artifact paths for the current execution 返回当前执行使用的运行产物路径" alt="" coords="139,157,345,184"/>
-<area shape="rect" href="namespacetool.html#a0c884e031b8683fe57a2fc6e9f321b2b" title="Save PCART report 保存PCART报告" alt="" coords="188,208,296,235"/>
-<area shape="rect" href="namespacetool.html#ad5f825eabcfb5ac3830d4c9650bb76e6" title="Normalize project run command 归一化被测项目运行命令" alt="" coords="401,56,609,83"/>
-<area shape="rect" href="namespacetool.html#a9a111bedf50d5fa9bbd67744ca605a9c" title="Resolve console script executable from a virtual environment 从虚拟环境中解析console script可执行文件" alt="" coords="393,107,616,133"/>
-<area shape="rect" href="namespacetool.html#acddd4e80b12bc317097d9b6da7afaa48" title="Resolve Python executable from a virtual environment root 从虚拟环境根目录解析 Python 解释器路径" alt="" coords="397,157,612,184"/>
-<area shape="rect" href="namespacetool.html#ab9a41531acf14c5b655fb3cea3fbffc9" title="Check whether command is Windows py launcher 判断命令是否为Windows py启动器" alt="" coords="695,5,832,32"/>
-<area shape="rect" href="namespacetool.html#aead1b9bf1040d7b731555503ebc46c93" title="Check whether command is a Python executable name/path 判断命令是否为Python解释器名称或路径" alt="" coords="674,56,853,83"/>
-<area shape="rect" href="namespacetool.html#af39825f4655d189d682b08f602ca7784" title="Remove version option after py launcher 去除py启动器后的版本选项" alt="" coords="664,107,863,133"/>
-<area shape="rect" href="namespacetool.html#a89e3ba62412c41551693e80ced2dc88c" title="Format output 格式化输出" alt="" coords="449,208,560,235"/>
+<div class="center"><img src="namespacemain_a4267bbc09b63fab971b487585a51ea7b_cgraph.png" border="0" usemap="#anamespacemain_a4267bbc09b63fab971b487585a51ea7b_cgraph" alt=""/></div>
+<map name="anamespacemain_a4267bbc09b63fab971b487585a51ea7b_cgraph" id="anamespacemain_a4267bbc09b63fab971b487585a51ea7b_cgraph">
+<area shape="rect" title="Generate pkl files and perform detection and repair tasks 生成项目调用API的pkl文件以及执行检测与修复任务" alt="" coords="5,208,91,235"/>
+<area shape="rect" href="namespacepcresolveBridge.html#a512bbb00e40320ecbcbf53a312f05f09" title="Build a CallsiteRecord lookup table from PCResolve analysis 从PCResolve分析结果构建CallsiteRecord查找表" alt="" coords="139,95,351,137"/>
+<area shape="rect" href="namespacetool.html#a06834e8d522d907efbdb98ce689b85db" title="Build subprocess argv for project run command 为被测项目运行命令构造subprocess argv." alt="" coords="157,183,332,209"/>
+<area shape="rect" href="namespaceworkspace.html#aba6396054179aaa393205a76b303d7a6" title="Return runtime artifact paths for the current execution 返回当前执行使用的运行产物路径" alt="" coords="141,233,348,260"/>
+<area shape="rect" href="namespacetool.html#a0c884e031b8683fe57a2fc6e9f321b2b" title="Save PCART report 保存PCART报告" alt="" coords="191,284,299,311"/>
+<area shape="rect" href="namespacecallsite.html#a7f3d1db0a0e705c0b7df71a802144e5f" title="Make callsite record 构造调用点记录" alt="" coords="409,56,611,83"/>
+<area shape="rect" href="namespacecallsite.html#a10129000122ceacaec2cb26cd4e3a8a5" title="Normalize call text for identity generation 归一化调用文本，用于生成调用点身份" alt="" coords="673,5,864,32"/>
+<area shape="rect" href="namespacecallsite.html#a011e3f8ff9cf7205c116ce2eee657af4" title="Normalize source file path to project relative path 将源码路径归一化为项目相对路径" alt="" coords="675,56,862,83"/>
+<area shape="rect" href="namespacetool.html#ad5f825eabcfb5ac3830d4c9650bb76e6" title="Normalize project run command 归一化被测项目运行命令" alt="" coords="406,132,614,159"/>
+<area shape="rect" href="namespacetool.html#a9a111bedf50d5fa9bbd67744ca605a9c" title="Resolve console script executable from a virtual environment 从虚拟环境中解析console script可执行文件" alt="" coords="399,183,621,209"/>
+<area shape="rect" href="namespacetool.html#acddd4e80b12bc317097d9b6da7afaa48" title="Resolve Python executable from a virtual environment root 从虚拟环境根目录解析 Python 解释器路径" alt="" coords="403,233,617,260"/>
+<area shape="rect" href="namespacetool.html#ab9a41531acf14c5b655fb3cea3fbffc9" title="Check whether command is Windows py launcher 判断命令是否为Windows py启动器" alt="" coords="700,107,837,133"/>
+<area shape="rect" href="namespacetool.html#aead1b9bf1040d7b731555503ebc46c93" title="Check whether command is a Python executable name/path 判断命令是否为Python解释器名称或路径" alt="" coords="679,157,858,184"/>
+<area shape="rect" href="namespacetool.html#af39825f4655d189d682b08f602ca7784" title="Remove version option after py launcher 去除py启动器后的版本选项" alt="" coords="669,208,868,235"/>
+<area shape="rect" href="namespacetool.html#a89e3ba62412c41551693e80ced2dc88c" title="Format output 格式化输出" alt="" coords="455,284,565,311"/>
 </map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="namespacemain_a8d0e05dcf4b34e079f4df96b19e84cf2_icgraph.png" border="0" usemap="#anamespacemain_a8d0e05dcf4b34e079f4df96b19e84cf2_icgraph" alt=""/></div>
-<map name="anamespacemain_a8d0e05dcf4b34e079f4df96b19e84cf2_icgraph" id="anamespacemain_a8d0e05dcf4b34e079f4df96b19e84cf2_icgraph">
+<div class="center"><img src="namespacemain_a4267bbc09b63fab971b487585a51ea7b_icgraph.png" border="0" usemap="#anamespacemain_a4267bbc09b63fab971b487585a51ea7b_icgraph" alt=""/></div>
+<map name="anamespacemain_a4267bbc09b63fab971b487585a51ea7b_icgraph" id="anamespacemain_a4267bbc09b63fab971b487585a51ea7b_icgraph">
 <area shape="rect" title="Generate pkl files and perform detection and repair tasks 生成项目调用API的pkl文件以及执行检测与修复任务" alt="" coords="199,5,284,32"/>
 <area shape="rect" href="namespacemain.html#a54735b5e5f3ae5ec9c331c9117618719" title="Run PCART with an isolated workspace 在隔离工作区中运行PCART." alt="" coords="108,5,151,32"/>
 <area shape="rect" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数" alt="" coords="5,5,60,32"/>
@@ -294,127 +310,131 @@ Here is the caller graph for this function:</div>
 <dd>
 (ansDict,fileRelativePath,invokedAPINum) ansDict: 检测和修复结果； fileRelativePath: 被处理的文件；invokedAPINum: 调用的API数量 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="main_8py_source.html#l00040">40</a> of file <a class="el" href="main_8py_source.html">main.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">def </span><a class="code" href="namespacemain.html#a052341442960b76f576383f354689bc5">backwardTask</a>(args):</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    ansDict={} <span class="comment">#保存每个文件处理的情况</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    projName,libName,file,currentVersion,currentEnv,targetVersion,targetEnv,runCommand,runPath,lock,sharedDict,coverSet,runtimePaths=args</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    copyRoot=runtimePaths[<span class="stringliteral">&#39;copy_root&#39;</span>]</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    dataDir=runtimePaths[<span class="stringliteral">&#39;data_dir&#39;</span>]</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    reportDir=runtimePaths[<span class="stringliteral">&#39;report_dir&#39;</span>]</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment"># fileName=file.split(&#39;/&#39;)[-1][0:-3]</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    fileName = os.path.basename(file)[:-3]</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">#step1:将源代码文件映射到Copy目录中</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment"># tempLst=file.split(&#39;/&#39;)</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    normalized_file = file.replace(<span class="stringliteral">&#39;\\&#39;</span>, <span class="stringliteral">&#39;/&#39;</span>)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    tempLst = normalized_file.split(<span class="stringliteral">&#39;/&#39;</span>)</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    pos=tempLst.index(projName)</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    realProjPath=<span class="stringliteral">&#39;/&#39;</span>.join(tempLst[0:pos+1])</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    fileRelativePath=<span class="stringliteral">&#39;/&#39;</span>.join(tempLst[pos:])</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    copyFile = os.path.join(copyRoot, *fileRelativePath.split(<span class="stringliteral">&#39;/&#39;</span>))</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">#step2:先把当前文件中指定的第三方库的API抽取出来</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    callAPIDict,_=<a class="code" href="namespacegetCall.html#a1a5e8458deb9887f9eef4d1d493030a6">getCallFunction</a>(file,libName,realProjPath) <span class="comment">#key是artifact id，value是结构化调用点记录</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    os.makedirs(dataDir, exist_ok=<span class="keyword">True</span>)</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">with</span> open(os.path.join(dataDir, f<span class="stringliteral">&#39;{fileName}_callAPIDict.json&#39;</span>), <span class="stringliteral">&#39;w&#39;</span>, encoding=<span class="stringliteral">&#39;utf-8&#39;</span>) <span class="keyword">as</span> fw:</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        json.dump(callAPIDict, fw, indent=4, ensure_ascii=<span class="keyword">False</span>)</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    root=<span class="keywordtype">None</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    astError=<span class="keywordtype">None</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">try</span>: </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        root=<a class="code" href="namespacetool.html#a163a1af85c967f70b1495290735321aa">getAst</a>(file) <span class="comment">#获取当前文件的AST，便于修复使用</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">except</span> Exception <span class="keyword">as</span> e:</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        astError=e</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    invokedAPINum=len(callAPIDict)</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    errorLog = os.path.join(reportDir, f<span class="stringliteral">&#39;{projName}_fixed_log.txt&#39;</span>)</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">for</span> key,record <span class="keywordflow">in</span> callAPIDict.items():</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        errLst=[] <span class="comment">#记录错误信息</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        ansDict[key]={}</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        callAPI=record[<span class="stringliteral">&#39;call_text&#39;</span>]</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        lineNum=record[<span class="stringliteral">&#39;lineno&#39;</span>]</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        formatAPI=record[<span class="stringliteral">&#39;format_api&#39;</span>]</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        callKey=record[<span class="stringliteral">&#39;id&#39;</span>]</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        ansDict[key][<span class="stringliteral">&#39;Invoked API&#39;</span>]=callAPI</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        ansDict[key][<span class="stringliteral">&#39;Location&#39;</span>]=f<span class="stringliteral">&quot;At Line {lineNum} in {fileRelativePath}&quot;</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">if</span> callKey <span class="keywordflow">not</span> <span class="keywordflow">in</span> coverSet:</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            ansDict[key][<span class="stringliteral">&#39;Coverage&#39;</span>]=<span class="stringliteral">&#39;No&#39;</span> </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        ansDict[key][<span class="stringliteral">&#39;Coverage&#39;</span>]=<span class="stringliteral">&#39;Yes&#39;</span> </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        formatAPI=<a class="code" href="namespacetool.html#a06b0d4848192999bfb9a11895ba277dc">removeParameter</a>(formatAPI)</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="comment">#step3:将项目中的API与库API进行匹配，获得参数定义</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="comment">#首先判断一下这个API是否匹配过，若之前匹配过了，就不用再匹配了</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keyword">with</span> lock:</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            matchDict=<a class="code" href="namespacechangeAnalyze.html#aebabc2a1cf15fbd9b0577c48803ffc20">querySharedDict</a>(callKey,sharedDict) <span class="comment">#当查询操作发生在更新操作之前，可能会查询失败</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">if</span> len(matchDict)&gt;0:</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            currentMatch=matchDict[<span class="stringliteral">&#39;current&#39;</span>]</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            targetMatch=matchDict[<span class="stringliteral">&#39;target&#39;</span>]</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            currentMatch=<a class="code" href="namespacemap.html#a78308f65da57a1b78ac061bddb981715">mapAPI</a>(callAPI,runCommand,runPath,formatAPI,projName,libName,copyFile,currentVersion,currentEnv,lock,errLst,callKey=callKey,runtimePaths=runtimePaths)</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            targetMatch=<a class="code" href="namespacemap.html#a78308f65da57a1b78ac061bddb981715">mapAPI</a>(callAPI,runCommand,runPath,formatAPI,projName,libName,copyFile,targetVersion,targetEnv,lock,errLst,curr=0,callKey=callKey,runtimePaths=runtimePaths)</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <span class="keyword">with</span> lock:</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                <a class="code" href="namespacechangeAnalyze.html#ab652e534b8f6e22225e41e2293677369">updateSharedDict</a>(callKey,currentMatch,targetMatch,sharedDict)<span class="comment">#更新sharedDict</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        ansDict[key][f<span class="stringliteral">&quot;Definition @{currentVersion} &lt;{currentMatch[&#39;matchMethod&#39;]}&gt;&quot;</span>]=str(currentMatch[<span class="stringliteral">&#39;match&#39;</span>])</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        ansDict[key][f<span class="stringliteral">&quot;Definition @{targetVersion} &lt;{targetMatch[&#39;matchMethod&#39;]}&gt;&quot;</span>]=str(targetMatch[<span class="stringliteral">&#39;match&#39;</span>])</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="comment">#step4:变更分析,若不兼容则返回需要修复的操作</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        repairLst=<a class="code" href="namespacechangeAnalyze.html#a3272743b8ad154a66e9d45ab36bca3ec">isCompatible</a>(currentMatch,targetMatch) <span class="comment">#repairLst中每个元素都是tuple</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordflow">if</span> repairLst==<span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            ansDict[key][<span class="stringliteral">&#39;Compatible&#39;</span>]=<span class="stringliteral">&quot;Unknown&quot;</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            <span class="keywordflow">if</span> len(errLst)&gt;0:</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                errorMsg = f<span class="stringliteral">&quot;Error occurred, please check the {projName}_fixed_log.txt&quot;</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                <span class="keyword">with</span> lock:</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                    <a class="code" href="namespacechangeAnalyze.html#a95b4de3015e7ecd62a42e9b7f97ded30">updateErrorLst</a>(errorLog,errLst)</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keywordflow">if</span> len(repairLst)==0: <span class="comment">#若返回修复字典的个数为零，则一定是兼容的</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            ansDict[key][<span class="stringliteral">&#39;Compatible&#39;</span>]=<span class="stringliteral">&#39;Yes&#39;</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <span class="keywordflow">if</span> root <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                ansDict[key][<span class="stringliteral">&#39;Compatible&#39;</span>]=<span class="stringliteral">&#39;Unknown&#39;</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                ansDict[key][<span class="stringliteral">&#39;Repair &lt;Unknown&gt;&#39;</span>]=<span class="stringliteral">&#39;AST parse failed&#39;</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                errLst.append(f<span class="stringliteral">&quot;{callAPI}, AST parse failed in {fileRelativePath}: {astError}\n&quot;</span>)</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                apiWithValue=<a class="code" href="namespacechangeAnalyze.html#afb56fcc8060a6914ae0aa7b73d837a03">addValueForAPI</a>(callAPI,projName,runPath,runCommand,currentEnv,targetEnv,errLst,callKey=callKey,runtimePaths=runtimePaths) <span class="comment">#apiWithValue为空表示添加参数失败</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                fixedAPI,compatibilityLabel,repairStatus=<a class="code" href="namespacerepair.html#a4474fce39da06e080d7eab0050a1e987">repairTask</a>(root,callAPI,apiWithValue,projName,runPath,runCommand,repairLst,targetEnv,errLst,callKey=callKey,runtimePaths=runtimePaths)</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                <span class="keywordflow">if</span> compatibilityLabel==<span class="stringliteral">&#39;Compatible&#39;</span>:</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                    ansDict[key][<span class="stringliteral">&#39;Compatible&#39;</span>]=<span class="stringliteral">&#39;Yes&#39;</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                    <span class="keywordflow">if</span> compatibilityLabel==<span class="stringliteral">&#39;Incompatible&#39;</span>:</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                        ansDict[key][<span class="stringliteral">&#39;Compatible&#39;</span>]=<span class="stringliteral">&#39;No&#39;</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                    <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                        ansDict[key][<span class="stringliteral">&#39;Compatible&#39;</span>]=<span class="stringliteral">&#39;Unknown&#39;</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                    <span class="keywordflow">if</span> repairStatus==<span class="stringliteral">&#39;Successful&#39;</span>:</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                        ansDict[key][<span class="stringliteral">&#39;Repair &lt;Successful&gt;&#39;</span>]=f<span class="stringliteral">&quot;{fixedAPI}&quot;</span></div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                    <span class="keywordflow">elif</span> repairStatus==<span class="stringliteral">&#39;Failed&#39;</span>:</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                        ansDict[key][<span class="stringliteral">&#39;Repair &lt;Failed&gt;&#39;</span>]=f<span class="stringliteral">&quot;{fixedAPI}&quot;</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                    <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                        ansDict[key][<span class="stringliteral">&#39;Repair &lt;Unknown&gt;&#39;</span>]=f<span class="stringliteral">&quot;{fixedAPI}&quot;</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        <span class="keywordflow">if</span> len(errLst)&gt;0:</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;            errorMsg = f<span class="stringliteral">&quot;Error occurred, please check the {projName}_fixed_log.txt&quot;</span></div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;            <span class="keyword">with</span> lock:</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                <a class="code" href="namespacechangeAnalyze.html#a95b4de3015e7ecd62a42e9b7f97ded30">updateErrorLst</a>(errorLog,errLst)</div>
+<p class="definition">Definition at line <a class="el" href="main_8py_source.html#l00041">41</a> of file <a class="el" href="main_8py_source.html">main.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">def </span><a class="code" href="namespacemain.html#a052341442960b76f576383f354689bc5">backwardTask</a>(args):</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    ansDict={} <span class="comment">#保存每个文件处理的情况</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">if</span> len(args)==13:</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        projName,libName,file,currentVersion,currentEnv,targetVersion,targetEnv,runCommand,runPath,lock,sharedDict,coverSet,runtimePaths=args</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        pcresolveLookup=<span class="keywordtype">None</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        projName,libName,file,currentVersion,currentEnv,targetVersion,targetEnv,runCommand,runPath,lock,sharedDict,coverSet,runtimePaths,pcresolveLookup=args</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    copyRoot=runtimePaths[<span class="stringliteral">&#39;copy_root&#39;</span>]</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    dataDir=runtimePaths[<span class="stringliteral">&#39;data_dir&#39;</span>]</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    reportDir=runtimePaths[<span class="stringliteral">&#39;report_dir&#39;</span>]</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment"># fileName=file.split(&#39;/&#39;)[-1][0:-3]</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    fileName = os.path.basename(file)[:-3]</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="comment">#step1:将源代码文件映射到Copy目录中</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment"># tempLst=file.split(&#39;/&#39;)</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    normalized_file = file.replace(<span class="stringliteral">&#39;\\&#39;</span>, <span class="stringliteral">&#39;/&#39;</span>)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    tempLst = normalized_file.split(<span class="stringliteral">&#39;/&#39;</span>)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    pos=tempLst.index(projName)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    realProjPath=<span class="stringliteral">&#39;/&#39;</span>.join(tempLst[0:pos+1])</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    fileRelativePath=<span class="stringliteral">&#39;/&#39;</span>.join(tempLst[pos:])</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    copyFile = os.path.join(copyRoot, *fileRelativePath.split(<span class="stringliteral">&#39;/&#39;</span>))</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="comment">#step2:先把当前文件中指定的第三方库的API抽取出来</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    callAPIDict,_=<a class="code" href="namespacegetCall.html#a6671b2b1a28dcf2b92aaf39b9696fae3">getCallFunction</a>(file,libName,realProjPath,pcresolveLookup=pcresolveLookup) <span class="comment">#key是artifact id，value是结构化调用点记录</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    os.makedirs(dataDir, exist_ok=<span class="keyword">True</span>)</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">with</span> open(os.path.join(dataDir, f<span class="stringliteral">&#39;{fileName}_callAPIDict.json&#39;</span>), <span class="stringliteral">&#39;w&#39;</span>, encoding=<span class="stringliteral">&#39;utf-8&#39;</span>) <span class="keyword">as</span> fw:</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        json.dump(callAPIDict, fw, indent=4, ensure_ascii=<span class="keyword">False</span>)</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    root=<span class="keywordtype">None</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    astError=<span class="keywordtype">None</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">try</span>: </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        root=<a class="code" href="namespacetool.html#a163a1af85c967f70b1495290735321aa">getAst</a>(file) <span class="comment">#获取当前文件的AST，便于修复使用</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">except</span> Exception <span class="keyword">as</span> e:</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        astError=e</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    invokedAPINum=len(callAPIDict)</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    errorLog = os.path.join(reportDir, f<span class="stringliteral">&#39;{projName}_fixed_log.txt&#39;</span>)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">for</span> key,record <span class="keywordflow">in</span> callAPIDict.items():</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        errLst=[] <span class="comment">#记录错误信息</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        ansDict[key]={}</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        callAPI=record[<span class="stringliteral">&#39;call_text&#39;</span>]</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        lineNum=record[<span class="stringliteral">&#39;lineno&#39;</span>]</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        formatAPI=record[<span class="stringliteral">&#39;format_api&#39;</span>]</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        callKey=record[<span class="stringliteral">&#39;id&#39;</span>]</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        ansDict[key][<span class="stringliteral">&#39;Invoked API&#39;</span>]=callAPI</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        ansDict[key][<span class="stringliteral">&#39;Location&#39;</span>]=f<span class="stringliteral">&quot;At Line {lineNum} in {fileRelativePath}&quot;</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordflow">if</span> callKey <span class="keywordflow">not</span> <span class="keywordflow">in</span> coverSet:</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            ansDict[key][<span class="stringliteral">&#39;Coverage&#39;</span>]=<span class="stringliteral">&#39;No&#39;</span> </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        ansDict[key][<span class="stringliteral">&#39;Coverage&#39;</span>]=<span class="stringliteral">&#39;Yes&#39;</span> </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        formatAPI=<a class="code" href="namespacetool.html#a06b0d4848192999bfb9a11895ba277dc">removeParameter</a>(formatAPI)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="comment">#step3:将项目中的API与库API进行匹配，获得参数定义</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="comment">#首先判断一下这个API是否匹配过，若之前匹配过了，就不用再匹配了</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keyword">with</span> lock:</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            matchDict=<a class="code" href="namespacechangeAnalyze.html#aebabc2a1cf15fbd9b0577c48803ffc20">querySharedDict</a>(callKey,sharedDict) <span class="comment">#当查询操作发生在更新操作之前，可能会查询失败</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordflow">if</span> len(matchDict)&gt;0:</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            currentMatch=matchDict[<span class="stringliteral">&#39;current&#39;</span>]</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            targetMatch=matchDict[<span class="stringliteral">&#39;target&#39;</span>]</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            currentMatch=<a class="code" href="namespacemap.html#a78308f65da57a1b78ac061bddb981715">mapAPI</a>(callAPI,runCommand,runPath,formatAPI,projName,libName,copyFile,currentVersion,currentEnv,lock,errLst,callKey=callKey,runtimePaths=runtimePaths)</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            targetMatch=<a class="code" href="namespacemap.html#a78308f65da57a1b78ac061bddb981715">mapAPI</a>(callAPI,runCommand,runPath,formatAPI,projName,libName,copyFile,targetVersion,targetEnv,lock,errLst,curr=0,callKey=callKey,runtimePaths=runtimePaths)</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <span class="keyword">with</span> lock:</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                <a class="code" href="namespacechangeAnalyze.html#ab652e534b8f6e22225e41e2293677369">updateSharedDict</a>(callKey,currentMatch,targetMatch,sharedDict)<span class="comment">#更新sharedDict</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        ansDict[key][f<span class="stringliteral">&quot;Definition @{currentVersion} &lt;{currentMatch[&#39;matchMethod&#39;]}&gt;&quot;</span>]=str(currentMatch[<span class="stringliteral">&#39;match&#39;</span>])</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        ansDict[key][f<span class="stringliteral">&quot;Definition @{targetVersion} &lt;{targetMatch[&#39;matchMethod&#39;]}&gt;&quot;</span>]=str(targetMatch[<span class="stringliteral">&#39;match&#39;</span>])</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="comment">#step4:变更分析,若不兼容则返回需要修复的操作</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        repairLst=<a class="code" href="namespacechangeAnalyze.html#a3272743b8ad154a66e9d45ab36bca3ec">isCompatible</a>(currentMatch,targetMatch) <span class="comment">#repairLst中每个元素都是tuple</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">if</span> repairLst==<span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            ansDict[key][<span class="stringliteral">&#39;Compatible&#39;</span>]=<span class="stringliteral">&quot;Unknown&quot;</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            <span class="keywordflow">if</span> len(errLst)&gt;0:</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                errorMsg = f<span class="stringliteral">&quot;Error occurred, please check the {projName}_fixed_log.txt&quot;</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                <span class="keyword">with</span> lock:</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                    <a class="code" href="namespacechangeAnalyze.html#a95b4de3015e7ecd62a42e9b7f97ded30">updateErrorLst</a>(errorLog,errLst)</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordflow">if</span> len(repairLst)==0: <span class="comment">#若返回修复字典的个数为零，则一定是兼容的</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            ansDict[key][<span class="stringliteral">&#39;Compatible&#39;</span>]=<span class="stringliteral">&#39;Yes&#39;</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            <span class="keywordflow">if</span> root <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                ansDict[key][<span class="stringliteral">&#39;Compatible&#39;</span>]=<span class="stringliteral">&#39;Unknown&#39;</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                ansDict[key][<span class="stringliteral">&#39;Repair &lt;Unknown&gt;&#39;</span>]=<span class="stringliteral">&#39;AST parse failed&#39;</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                errLst.append(f<span class="stringliteral">&quot;{callAPI}, AST parse failed in {fileRelativePath}: {astError}\n&quot;</span>)</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                apiWithValue=<a class="code" href="namespacechangeAnalyze.html#afb56fcc8060a6914ae0aa7b73d837a03">addValueForAPI</a>(callAPI,projName,runPath,runCommand,currentEnv,targetEnv,errLst,callKey=callKey,runtimePaths=runtimePaths) <span class="comment">#apiWithValue为空表示添加参数失败</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                fixedAPI,compatibilityLabel,repairStatus=<a class="code" href="namespacerepair.html#a4474fce39da06e080d7eab0050a1e987">repairTask</a>(root,callAPI,apiWithValue,projName,runPath,runCommand,repairLst,targetEnv,errLst,callKey=callKey,runtimePaths=runtimePaths)</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                <span class="keywordflow">if</span> compatibilityLabel==<span class="stringliteral">&#39;Compatible&#39;</span>:</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                    ansDict[key][<span class="stringliteral">&#39;Compatible&#39;</span>]=<span class="stringliteral">&#39;Yes&#39;</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                    <span class="keywordflow">if</span> compatibilityLabel==<span class="stringliteral">&#39;Incompatible&#39;</span>:</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                        ansDict[key][<span class="stringliteral">&#39;Compatible&#39;</span>]=<span class="stringliteral">&#39;No&#39;</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                        ansDict[key][<span class="stringliteral">&#39;Compatible&#39;</span>]=<span class="stringliteral">&#39;Unknown&#39;</span></div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                    <span class="keywordflow">if</span> repairStatus==<span class="stringliteral">&#39;Successful&#39;</span>:</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                        ansDict[key][<span class="stringliteral">&#39;Repair &lt;Successful&gt;&#39;</span>]=f<span class="stringliteral">&quot;{fixedAPI}&quot;</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                    <span class="keywordflow">elif</span> repairStatus==<span class="stringliteral">&#39;Failed&#39;</span>:</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                        ansDict[key][<span class="stringliteral">&#39;Repair &lt;Failed&gt;&#39;</span>]=f<span class="stringliteral">&quot;{fixedAPI}&quot;</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;                        ansDict[key][<span class="stringliteral">&#39;Repair &lt;Unknown&gt;&#39;</span>]=f<span class="stringliteral">&quot;{fixedAPI}&quot;</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="comment">#将修改操作更新到代码源文件</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="comment"># with open(f&quot;{file.rsplit(&#39;/&#39;,1)[0]}/new_{fileName}.py&quot;,&#39;w&#39;) as fw:</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="comment">#     repairCode=ast.unparse(root)</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="comment">#     fw.write(repairCode+&#39;\n&#39;) </span></div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keywordflow">return</span> ansDict,fileRelativePath,invokedAPINum</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <span class="keywordflow">if</span> len(errLst)&gt;0:</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;            errorMsg = f<span class="stringliteral">&quot;Error occurred, please check the {projName}_fixed_log.txt&quot;</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;            <span class="keyword">with</span> lock:</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                <a class="code" href="namespacechangeAnalyze.html#a95b4de3015e7ecd62a42e9b7f97ded30">updateErrorLst</a>(errorLog,errLst)</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="comment">#将修改操作更新到代码源文件</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="comment"># with open(f&quot;{file.rsplit(&#39;/&#39;,1)[0]}/new_{fileName}.py&quot;,&#39;w&#39;) as fw:</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="comment">#     repairCode=ast.unparse(root)</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="comment">#     fw.write(repairCode+&#39;\n&#39;) </span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordflow">return</span> ansDict,fileRelativePath,invokedAPINum</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
 <div class="ttc" id="anamespacechangeAnalyze_html_a3272743b8ad154a66e9d45ab36bca3ec"><div class="ttname"><a href="namespacechangeAnalyze.html#a3272743b8ad154a66e9d45ab36bca3ec">changeAnalyze.isCompatible</a></div><div class="ttdeci">def isCompatible(current, target)</div><div class="ttdoc">Determine the compatibility of APIs from current and target versions 判断起始版本和目标版本API的兼容性</div><div class="ttdef"><b>Definition:</b> <a href="changeAnalyze_8py_source.html#l00556">changeAnalyze.py:556</a></div></div>
 <div class="ttc" id="anamespacechangeAnalyze_html_a95b4de3015e7ecd62a42e9b7f97ded30"><div class="ttname"><a href="namespacechangeAnalyze.html#a95b4de3015e7ecd62a42e9b7f97ded30">changeAnalyze.updateErrorLst</a></div><div class="ttdeci">def updateErrorLst(errorLog, errorLst)</div><div class="ttdoc">Save error messages 保存错误信息</div><div class="ttdef"><b>Definition:</b> <a href="changeAnalyze_8py_source.html#l00101">changeAnalyze.py:101</a></div></div>
 <div class="ttc" id="anamespacechangeAnalyze_html_ab652e534b8f6e22225e41e2293677369"><div class="ttname"><a href="namespacechangeAnalyze.html#ab652e534b8f6e22225e41e2293677369">changeAnalyze.updateSharedDict</a></div><div class="ttdeci">def updateSharedDict(callAPI, currentDict, targetDict, sharedDict)</div><div class="ttdoc">Update API mapping dictionary: add and revise 更新API映射字典: 添加和修改</div><div class="ttdef"><b>Definition:</b> <a href="changeAnalyze_8py_source.html#l00132">changeAnalyze.py:132</a></div></div>
 <div class="ttc" id="anamespacechangeAnalyze_html_aebabc2a1cf15fbd9b0577c48803ffc20"><div class="ttname"><a href="namespacechangeAnalyze.html#aebabc2a1cf15fbd9b0577c48803ffc20">changeAnalyze.querySharedDict</a></div><div class="ttdeci">def querySharedDict(callAPI, sharedDict)</div><div class="ttdoc">Query API mapping dictionary 查询API映射字典</div><div class="ttdef"><b>Definition:</b> <a href="changeAnalyze_8py_source.html#l00114">changeAnalyze.py:114</a></div></div>
 <div class="ttc" id="anamespacechangeAnalyze_html_afb56fcc8060a6914ae0aa7b73d837a03"><div class="ttname"><a href="namespacechangeAnalyze.html#afb56fcc8060a6914ae0aa7b73d837a03">changeAnalyze.addValueForAPI</a></div><div class="ttdeci">def addValueForAPI(callAPI, projName, runPath, runCommand, currentEnv, targetEnv, errLst, callKey, *runtimePaths)</div><div class="ttdoc">Add values stored by pkl file for API parameters 为API参数添加保存至pkl文件中的值</div><div class="ttdef"><b>Definition:</b> <a href="changeAnalyze_8py_source.html#l00636">changeAnalyze.py:636</a></div></div>
-<div class="ttc" id="anamespacegetCall_html_a1a5e8458deb9887f9eef4d1d493030a6"><div class="ttname"><a href="namespacegetCall.html#a1a5e8458deb9887f9eef4d1d493030a6">getCall.getCallFunction</a></div><div class="ttdeci">def getCallFunction(filePath, libName, projPath=None)</div><div class="ttdoc">Extract all API calls from a given .py file 每次传进来一个.py文件，抽取所有的调用API.</div><div class="ttdef"><b>Definition:</b> <a href="getCall_8py_source.html#l00201">getCall.py:201</a></div></div>
-<div class="ttc" id="anamespacemain_html_a052341442960b76f576383f354689bc5"><div class="ttname"><a href="namespacemain.html#a052341442960b76f576383f354689bc5">main.backwardTask</a></div><div class="ttdeci">def backwardTask(args)</div><div class="ttdoc">One process handles one file 一个进程处理一个文件</div><div class="ttdef"><b>Definition:</b> <a href="main_8py_source.html#l00040">main.py:40</a></div></div>
+<div class="ttc" id="anamespacegetCall_html_a6671b2b1a28dcf2b92aaf39b9696fae3"><div class="ttname"><a href="namespacegetCall.html#a6671b2b1a28dcf2b92aaf39b9696fae3">getCall.getCallFunction</a></div><div class="ttdeci">def getCallFunction(filePath, libName, projPath=None, pcresolveLookup=None)</div><div class="ttdoc">Extract all API calls from a given .py file 每次传进来一个.py文件，抽取所有的调用API.</div><div class="ttdef"><b>Definition:</b> <a href="getCall_8py_source.html#l00205">getCall.py:205</a></div></div>
+<div class="ttc" id="anamespacemain_html_a052341442960b76f576383f354689bc5"><div class="ttname"><a href="namespacemain.html#a052341442960b76f576383f354689bc5">main.backwardTask</a></div><div class="ttdeci">def backwardTask(args)</div><div class="ttdoc">One process handles one file 一个进程处理一个文件</div><div class="ttdef"><b>Definition:</b> <a href="main_8py_source.html#l00041">main.py:41</a></div></div>
 <div class="ttc" id="anamespacemap_html_a78308f65da57a1b78ac061bddb981715"><div class="ttname"><a href="namespacemap.html#a78308f65da57a1b78ac061bddb981715">map.mapAPI</a></div><div class="ttdeci">def mapAPI(callAPI, runCommand, runPath, formatAPI, projName, libName, copyFile, version, virtualEnv, lock, errLst, curr=1, *callKey, runtimePaths)</div><div class="ttdoc">Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API与 ...</div><div class="ttdef"><b>Definition:</b> <a href="map_8py_source.html#l00328">map.py:328</a></div></div>
 <div class="ttc" id="anamespacerepair_html_a4474fce39da06e080d7eab0050a1e987"><div class="ttname"><a href="namespacerepair.html#a4474fce39da06e080d7eab0050a1e987">repair.repairTask</a></div><div class="ttdeci">def repairTask(root, callAPI, apiWithValue, projName, runPath, runCommand, repairLst, virtualEnv, errLst, callKey, *runtimePaths)</div><div class="ttdoc">Task of repairing parameter compatibility issues 参数兼容性问题修复任务</div><div class="ttdef"><b>Definition:</b> <a href="repair_8py_source.html#l00383">repair.py:383</a></div></div>
 <div class="ttc" id="anamespacetool_html_a06b0d4848192999bfb9a11895ba277dc"><div class="ttname"><a href="namespacetool.html#a06b0d4848192999bfb9a11895ba277dc">tool.removeParameter</a></div><div class="ttdeci">def removeParameter(s, flag=0)</div><div class="ttdoc">Remove parameter(s) from API call string 去掉API中的参数部分</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00210">tool.py:210</a></div></div>
@@ -427,7 +447,7 @@ Here is the call graph for this function:</div>
 <area shape="rect" title="One process handles one file 一个进程处理一个文件" alt="" coords="5,740,120,767"/>
 <area shape="rect" href="namespacechangeAnalyze.html#afb56fcc8060a6914ae0aa7b73d837a03" title="Add values stored by pkl file for API parameters 为API参数添加保存至pkl文件中的值" alt="" coords="778,867,1005,894"/>
 <area shape="rect" href="namespacetool.html#a163a1af85c967f70b1495290735321aa" title="Get AST for code 将代码转化为Ast树" alt="" coords="1138,496,1231,523"/>
-<area shape="rect" href="namespacegetCall.html#a1a5e8458deb9887f9eef4d1d493030a6" title="Extract all API calls from a given .py file 每次传进来一个.py文件，抽取所有的调用API." alt="" coords="202,107,375,134"/>
+<area shape="rect" href="namespacegetCall.html#a6671b2b1a28dcf2b92aaf39b9696fae3" title="Extract all API calls from a given .py file 每次传进来一个.py文件，抽取所有的调用API." alt="" coords="202,107,375,134"/>
 <area shape="rect" href="namespacechangeAnalyze.html#a3272743b8ad154a66e9d45ab36bca3ec" title="Determine the compatibility of APIs from current and target versions 判断起始版本和目标版本API的兼容性" alt="" coords="183,259,394,286"/>
 <area shape="rect" href="namespacemap.html#a78308f65da57a1b78ac061bddb981715" title="Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API与 ..." alt="" coords="236,867,341,894"/>
 <area shape="rect" href="namespacetool.html#a06b0d4848192999bfb9a11895ba277dc" title="Remove parameter(s) from API call string 去掉API中的参数部分" alt="" coords="807,715,975,742"/>
@@ -496,78 +516,78 @@ Here is the call graph for this function:</div>
 
 <p>Main function of PCART PCART主函数 </p>
 
-<p class="definition">Definition at line <a class="el" href="main_8py_source.html#l00276">276</a> of file <a class="el" href="main_8py_source.html">main.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;<span class="keyword">def </span><a class="code" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945">main</a>():</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="keywordflow">if</span> len(sys.argv) &lt; 3:</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;       print(<span class="stringliteral">&quot;Usage: python main.py -cfg config.json&quot;</span>)</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;       sys.exit(1)</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160; </div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    config=sys.argv[2]</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    start=time.time()</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160; </div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    <a class="code" href="namespacemain.html#a54735b5e5f3ae5ec9c331c9117618719">run</a>(config)</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160; </div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    end=time.time()</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    print(f<span class="stringliteral">&quot;Total run time={int(end-start)}s&quot;</span>)</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160; </div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160; </div>
-<div class="ttc" id="anamespacemain_html_a54735b5e5f3ae5ec9c331c9117618719"><div class="ttname"><a href="namespacemain.html#a54735b5e5f3ae5ec9c331c9117618719">main.run</a></div><div class="ttdeci">def run(config)</div><div class="ttdoc">Run PCART with an isolated workspace 在隔离工作区中运行PCART.</div><div class="ttdef"><b>Definition:</b> <a href="main_8py_source.html#l00237">main.py:237</a></div></div>
-<div class="ttc" id="anamespacemain_html_af613cea4cba4fb7de8e40896b3368945"><div class="ttname"><a href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945">main.main</a></div><div class="ttdeci">def main()</div><div class="ttdoc">Main function of PCART PCART主函数</div><div class="ttdef"><b>Definition:</b> <a href="main_8py_source.html#l00276">main.py:276</a></div></div>
+<p class="definition">Definition at line <a class="el" href="main_8py_source.html#l00288">288</a> of file <a class="el" href="main_8py_source.html">main.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="keyword">def </span><a class="code" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945">main</a>():</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keywordflow">if</span> len(sys.argv) &lt; 3:</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;       print(<span class="stringliteral">&quot;Usage: python main.py -cfg config.json&quot;</span>)</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;       sys.exit(1)</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160; </div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    config=sys.argv[2]</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    start=time.time()</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160; </div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <a class="code" href="namespacemain.html#a54735b5e5f3ae5ec9c331c9117618719">run</a>(config)</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160; </div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    end=time.time()</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    print(f<span class="stringliteral">&quot;Total run time={int(end-start)}s&quot;</span>)</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160; </div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160; </div>
+<div class="ttc" id="anamespacemain_html_a54735b5e5f3ae5ec9c331c9117618719"><div class="ttname"><a href="namespacemain.html#a54735b5e5f3ae5ec9c331c9117618719">main.run</a></div><div class="ttdeci">def run(config)</div><div class="ttdoc">Run PCART with an isolated workspace 在隔离工作区中运行PCART.</div><div class="ttdef"><b>Definition:</b> <a href="main_8py_source.html#l00247">main.py:247</a></div></div>
+<div class="ttc" id="anamespacemain_html_af613cea4cba4fb7de8e40896b3368945"><div class="ttname"><a href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945">main.main</a></div><div class="ttdeci">def main()</div><div class="ttdoc">Main function of PCART PCART主函数</div><div class="ttdef"><b>Definition:</b> <a href="main_8py_source.html#l00288">main.py:288</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacemain_af613cea4cba4fb7de8e40896b3368945_cgraph.png" border="0" usemap="#anamespacemain_af613cea4cba4fb7de8e40896b3368945_cgraph" alt=""/></div>
 <map name="anamespacemain_af613cea4cba4fb7de8e40896b3368945_cgraph" id="anamespacemain_af613cea4cba4fb7de8e40896b3368945_cgraph">
-<area shape="rect" title="Main function of PCART PCART主函数" alt="" coords="5,1064,60,1091"/>
-<area shape="rect" href="namespacemain.html#a54735b5e5f3ae5ec9c331c9117618719" title="Run PCART with an isolated workspace 在隔离工作区中运行PCART." alt="" coords="108,1064,151,1091"/>
-<area shape="rect" href="namespacemain.html#a8d0e05dcf4b34e079f4df96b19e84cf2" title="Generate pkl files and perform detection and repair tasks 生成项目调用API的pkl文件以及执行检测与修复任务" alt="" coords="273,196,358,223"/>
-<area shape="rect" href="namespacepreprocess.html#a820f22e7f645d6238fa530f1219389fe" title="Code processing 代码预处理" alt="" coords="226,744,405,771"/>
-<area shape="rect" href="namespaceworkspace.html#a9360d1de3db40b2a88a9d941c4e6d3c7" title="Create an isolated workspace for one PCART run command 为一次PCART运行命令创建隔离工作区" alt="" coords="199,963,432,989"/>
-<area shape="rect" href="namespaceworkspace.html#a39fae6e30ae356b4e47690160ea2d5d9" title="Export internal report files to user&#45;visible report directory 将工作区内部报告导出到用户可见报告目录" alt="" coords="212,1013,419,1040"/>
-<area shape="rect" href="namespaceworkspace.html#a0021e3b7235fc99d47ec6abf492a12e4" title="Get PCART repository root path 获取PCART仓库根目录路径" alt="" coords="225,1064,405,1091"/>
-<area shape="rect" href="namespacetool.html#ac27269fb0ca8635862c18bfe841deaae" title="Load PCART&#39;s configuration file 加载PCART配置文件" alt="" coords="255,1115,375,1141"/>
-<area shape="rect" href="namespacetool.html#a924419c52a2a18a8cbef3b0fb9bac5f3" title="Resolve PCART config file path 解析PCART配置文件路径" alt="" coords="220,1165,411,1192"/>
-<area shape="rect" href="namespacetool.html#a798f243de94474f63d3b1edeb8384a3e" title="Resolve path value loaded from PCART config 解析PCART配置字段中的路径值" alt="" coords="213,1216,417,1243"/>
-<area shape="rect" href="namespaceworkspace.html#a52f0dcdb1eb2925c1043860032f669d9" title=" " alt="" coords="218,1267,413,1293"/>
-<area shape="rect" href="namespacetool.html#a06834e8d522d907efbdb98ce689b85db" title="Build subprocess argv for project run command 为被测项目运行命令构造subprocess argv." alt="" coords="504,132,679,159"/>
-<area shape="rect" href="namespaceworkspace.html#aba6396054179aaa393205a76b303d7a6" title="Return runtime artifact paths for the current execution 返回当前执行使用的运行产物路径" alt="" coords="488,233,695,260"/>
-<area shape="rect" href="namespacetool.html#a0c884e031b8683fe57a2fc6e9f321b2b" title="Save PCART report 保存PCART报告" alt="" coords="537,31,645,57"/>
-<area shape="rect" href="namespacetool.html#ad5f825eabcfb5ac3830d4c9650bb76e6" title="Normalize project run command 归一化被测项目运行命令" alt="" coords="770,107,978,133"/>
-<area shape="rect" href="namespacetool.html#a9a111bedf50d5fa9bbd67744ca605a9c" title="Resolve console script executable from a virtual environment 从虚拟环境中解析console script可执行文件" alt="" coords="763,157,985,184"/>
-<area shape="rect" href="namespacetool.html#acddd4e80b12bc317097d9b6da7afaa48" title="Resolve Python executable from a virtual environment root 从虚拟环境根目录解析 Python 解释器路径" alt="" coords="767,56,981,83"/>
-<area shape="rect" href="namespacetool.html#ab9a41531acf14c5b655fb3cea3fbffc9" title="Check whether command is Windows py launcher 判断命令是否为Windows py启动器" alt="" coords="1070,81,1207,108"/>
-<area shape="rect" href="namespacetool.html#aead1b9bf1040d7b731555503ebc46c93" title="Check whether command is a Python executable name/path 判断命令是否为Python解释器名称或路径" alt="" coords="1049,132,1228,159"/>
-<area shape="rect" href="namespacetool.html#a89e3ba62412c41551693e80ced2dc88c" title="Format output 格式化输出" alt="" coords="819,5,929,32"/>
-<area shape="rect" href="namespacepreprocess.html#a66e56d747edac1867251b521065bab72" title="Code instrumentation for all API calls within a project source file 项目源文件所有API调用代码插桩" alt="" coords="509,664,673,691"/>
-<area shape="rect" href="namespacepreprocess.html#a1be44b4612b83c96456034d7eef3a376" title="Convert the ListComp and DictComp statements to variable assignment statements 将列表推导式listComp和字典推导式Di..." alt="" coords="491,461,692,488"/>
-<area shape="rect" href="namespacepreprocess.html#a422e51d3c4d2044bcb0159a2ebc0df60" title="Convert tabs to spaces in all Python files within a directory 将目录下所有Python文件中的制表符转换为空格" alt="" coords="497,934,686,975"/>
-<area shape="rect" href="namespacepreprocess.html#a4c279837bca66be1c336af00420eb4ad" title="Expand the single&#45;line conditional return statement into a multi&#45;line if&#45;else structure &#160;&#160;展开单行条件retur..." alt="" coords="482,766,701,807"/>
-<area shape="rect" href="namespacepreprocess.html#a79af2a91a7fa51e11b82e40207c48957" title="Get all lib&#45;related import statements 获取所有第三方库相关的import语句" alt="" coords="492,1000,691,1027"/>
-<area shape="rect" href="namespacetool.html#ae11019ef37390ec657efde69354884aa" title="Extract the .py script filename from a run command 从运行命令中提取.py脚本文件名" alt="" coords="531,1051,651,1077"/>
-<area shape="rect" href="namespacepreprocess.html#ad272e396d54aa1eb3a41c36c1949323e" title="Code instrumentation for project run file 项目运行文件代码插桩" alt="" coords="497,832,686,859"/>
-<area shape="rect" href="namespacepreprocess.html#ac314c05ac2de819eb7e15c9a091beb5d" title="Save import statement to source file 将import语句保存到源码中" alt="" coords="482,309,701,336"/>
-<area shape="rect" href="namespacepreprocess.html#a4c00e7633e0fd15cfaba6731cf8fe9b6" title="Convert the multi&#45;line parameter calls in the code into a single line to facilitate insertion into di..." alt="" coords="517,715,665,741"/>
-<area shape="rect" href="namespacepreprocess.html#af67fd0a454bad0ef82391bf1d745b87f" title="Save structure information of the project 保存项目的结构信息" alt="" coords="498,411,685,437"/>
-<area shape="rect" href="namespacepreprocess.html#aa6aca43577a6c7675fc40529658b4787" title="Get source script path from PCART repository 获取PCART仓库中的辅助脚本路径" alt="" coords="511,360,672,387"/>
-<area shape="rect" href="namespacepreprocess.html#a786d8e37525e381b79707973cf3509fb" title="Write recordValue.py used by instrumented project files 写入插桩文件共享的recordValue.py." alt="" coords="486,883,697,909"/>
-<area shape="rect" href="namespacepreprocess.html#aaab33bd46f0ae489d21ef62dff750446" title="Count the number of spaces at the beginning of a string 计算字符串的前面有多少个空格" alt="" coords="1053,723,1225,749"/>
-<area shape="rect" href="namespacetool.html#ac4d05a17f2f511bda4979dd476894896" title="Split API call string based on parameter passing 根据参数传递拆分API调用字符串" alt="" coords="817,563,931,589"/>
-<area shape="rect" href="namespacetool.html#abd074786b2b2c49fb89912e52b42f1fc" title="Split API call string based on separator &quot;.&quot; 根据&quot;.&quot;拆分API调用字符串" alt="" coords="813,613,935,640"/>
-<area shape="rect" href="namespacepreprocess.html#ae6efc31a5dbea814d20ed8efd321db06" title="Find assignment call statements 获取赋值调用语句" alt="" coords="779,664,969,691"/>
-<area shape="rect" href="namespacepreprocess.html#a545a0bfd0673e4d835f285ed1dc4e0b6" title="Resolve the source expression assigned to a receiver alias 还原调用者别名在当前作用域内的赋值来源表达式" alt="" coords="751,781,997,808"/>
-<area shape="rect" href="namespacetool.html#a163a1af85c967f70b1495290735321aa" title="Get AST for code 将代码转化为Ast树" alt="" coords="827,984,921,1011"/>
-<area shape="rect" href="namespacegetCall.html#a1a5e8458deb9887f9eef4d1d493030a6" title="Extract all API calls from a given .py file 每次传进来一个.py文件，抽取所有的调用API." alt="" coords="787,411,961,437"/>
-<area shape="rect" href="namespacegetCall.html#ad822ec04ad5a7e5ed8e64b816a20e314" title="Restore the conventional API call path in the withitem (including AsyncWith) call form 还原withitemAPI调..." alt="" coords="1045,461,1232,488"/>
-<area shape="rect" href="namespacepreprocess.html#af850a797dfc86cb1fb0b3c68ee1840f7" title="Get decorator block start index 获取装饰器块起始行号" alt="" coords="765,715,983,757"/>
-<area shape="rect" href="namespacepreprocess.html#a638e9a6cb8c8f3b7752dc458a3846d9d" title="Determine the instrumentation line for import statements 确定import语句插桩行" alt="" coords="780,1035,968,1061"/>
-<area shape="rect" href="namespacetool.html#a79b523c932db90445596767f644be48c" title="Split parameter string into list of separated parameters 将参数字符串拆分成单个的参数" alt="" coords="805,883,943,909"/>
-<area shape="rect" href="namespacepreprocess.html#aa4a5e25d5835c88d23f7e5881063ad0d" title="Resolve the visible base&#45;class expression for an inherited self receiver 还原继承场景中self调用者可见的基类表达式" alt="" coords="759,933,989,960"/>
-<area shape="rect" href="namespacepreprocess.html#a45a426d44e2e19441f98e0def6cc2d67" title="Get the local variable in the dictionary comprehension 获取字典推导式中的局部变量" alt="" coords="791,360,957,387"/>
-<area shape="rect" href="namespacepreprocess.html#a863e16849c87ef82b42e6a44e743a245" title="Get the local variable in the list comprehension 获取列表推导式中的局部变量" alt="" coords="793,309,955,336"/>
-<area shape="rect" href="namespacepreprocess.html#ae7e0fb3e9686a37af31d748a4c234ebf" title="Extract decorator API calls 抽取项目中第三方库装饰器调用" alt="" coords="771,208,977,235"/>
-<area shape="rect" href="namespacepreprocess.html#aba37de1d85915cdded208175b9ff6b26" title="Save assignment statement with constant values 保存常量赋值语句" alt="" coords="759,259,989,285"/>
-<area shape="rect" href="namespaceworkspace.html#a46da2a5c9f862cc9c976c155bb91dc27" title="Convert project path/name to a filesystem&#45;safe slug 将项目路径或项目名转换为可作为目录名使用的slug." alt="" coords="480,1152,703,1179"/>
-<area shape="rect" href="namespaceworkspace.html#ac38101f78c013e4d49db5d01b00d33ed" title="Write workspace metadata 写入运行工作区元数据" alt="" coords="496,1101,687,1128"/>
+<area shape="rect" title="Main function of PCART PCART主函数" alt="" coords="5,646,60,673"/>
+<area shape="rect" href="namespacemain.html#a54735b5e5f3ae5ec9c331c9117618719" title="Run PCART with an isolated workspace 在隔离工作区中运行PCART." alt="" coords="108,646,151,673"/>
+<area shape="rect" href="namespacemain.html#a4267bbc09b63fab971b487585a51ea7b" title="Generate pkl files and perform detection and repair tasks 生成项目调用API的pkl文件以及执行检测与修复任务" alt="" coords="273,149,358,175"/>
+<area shape="rect" href="namespacepcresolveBridge.html#a512bbb00e40320ecbcbf53a312f05f09" title="Build a CallsiteRecord lookup table from PCResolve analysis 从PCResolve分析结果构建CallsiteRecord查找表" alt="" coords="485,32,697,73"/>
+<area shape="rect" href="namespacepreprocess.html#a2eec1d8b2c398e66364228c1ad0c6ff9" title="Code processing 代码预处理" alt="" coords="226,519,405,546"/>
+<area shape="rect" href="namespaceworkspace.html#a9360d1de3db40b2a88a9d941c4e6d3c7" title="Create an isolated workspace for one PCART run command 为一次PCART运行命令创建隔离工作区" alt="" coords="199,570,432,597"/>
+<area shape="rect" href="namespaceworkspace.html#a39fae6e30ae356b4e47690160ea2d5d9" title="Export internal report files to user&#45;visible report directory 将工作区内部报告导出到用户可见报告目录" alt="" coords="212,621,419,647"/>
+<area shape="rect" href="namespaceworkspace.html#a0021e3b7235fc99d47ec6abf492a12e4" title="Get PCART repository root path 获取PCART仓库根目录路径" alt="" coords="225,671,405,698"/>
+<area shape="rect" href="namespacetool.html#ac27269fb0ca8635862c18bfe841deaae" title="Load PCART&#39;s configuration file 加载PCART配置文件" alt="" coords="255,722,375,749"/>
+<area shape="rect" href="namespacetool.html#a924419c52a2a18a8cbef3b0fb9bac5f3" title="Resolve PCART config file path 解析PCART配置文件路径" alt="" coords="220,773,411,799"/>
+<area shape="rect" href="namespacetool.html#a798f243de94474f63d3b1edeb8384a3e" title="Resolve path value loaded from PCART config 解析PCART配置字段中的路径值" alt="" coords="213,823,417,850"/>
+<area shape="rect" href="namespaceworkspace.html#a52f0dcdb1eb2925c1043860032f669d9" title=" " alt="" coords="218,874,413,901"/>
+<area shape="rect" href="namespacetool.html#a06834e8d522d907efbdb98ce689b85db" title="Build subprocess argv for project run command 为被测项目运行命令构造subprocess argv." alt="" coords="504,98,679,125"/>
+<area shape="rect" href="namespaceworkspace.html#aba6396054179aaa393205a76b303d7a6" title="Return runtime artifact paths for the current execution 返回当前执行使用的运行产物路径" alt="" coords="488,199,695,226"/>
+<area shape="rect" href="namespacetool.html#a0c884e031b8683fe57a2fc6e9f321b2b" title="Save PCART report 保存PCART报告" alt="" coords="537,149,645,175"/>
+<area shape="rect" href="namespacecallsite.html#a7f3d1db0a0e705c0b7df71a802144e5f" title="Make callsite record 构造调用点记录" alt="" coords="1045,199,1248,226"/>
+<area shape="rect" href="namespacecallsite.html#a10129000122ceacaec2cb26cd4e3a8a5" title="Normalize call text for identity generation 归一化调用文本，用于生成调用点身份" alt="" coords="1296,174,1487,201"/>
+<area shape="rect" href="namespacecallsite.html#a011e3f8ff9cf7205c116ce2eee657af4" title="Normalize source file path to project relative path 将源码路径归一化为项目相对路径" alt="" coords="1298,225,1485,251"/>
+<area shape="rect" href="namespacetool.html#ad5f825eabcfb5ac3830d4c9650bb76e6" title="Normalize project run command 归一化被测项目运行命令" alt="" coords="770,149,978,175"/>
+<area shape="rect" href="namespacetool.html#a9a111bedf50d5fa9bbd67744ca605a9c" title="Resolve console script executable from a virtual environment 从虚拟环境中解析console script可执行文件" alt="" coords="763,47,985,74"/>
+<area shape="rect" href="namespacetool.html#acddd4e80b12bc317097d9b6da7afaa48" title="Resolve Python executable from a virtual environment root 从虚拟环境根目录解析 Python 解释器路径" alt="" coords="767,98,981,125"/>
+<area shape="rect" href="namespacetool.html#a89e3ba62412c41551693e80ced2dc88c" title="Format output 格式化输出" alt="" coords="819,199,929,226"/>
+<area shape="rect" href="namespacepreprocess.html#abebae1853405a150b463cba60b0577ed" title="Code instrumentation for all API calls within a project source file 项目源文件所有API调用代码插桩" alt="" coords="509,738,673,765"/>
+<area shape="rect" href="namespacepreprocess.html#a1be44b4612b83c96456034d7eef3a376" title="Convert the ListComp and DictComp statements to variable assignment statements 将列表推导式listComp和字典推导式Di..." alt="" coords="491,250,692,277"/>
+<area shape="rect" href="namespacepreprocess.html#a422e51d3c4d2044bcb0159a2ebc0df60" title="Convert tabs to spaces in all Python files within a directory 将目录下所有Python文件中的制表符转换为空格" alt="" coords="497,352,686,393"/>
+<area shape="rect" href="namespacepreprocess.html#a4c279837bca66be1c336af00420eb4ad" title="Expand the single&#45;line conditional return statement into a multi&#45;line if&#45;else structure &#160;&#160;展开单行条件retur..." alt="" coords="482,571,701,612"/>
+<area shape="rect" href="namespacepreprocess.html#a79af2a91a7fa51e11b82e40207c48957" title="Get all lib&#45;related import statements 获取所有第三方库相关的import语句" alt="" coords="492,469,691,495"/>
+<area shape="rect" href="namespacetool.html#ae11019ef37390ec657efde69354884aa" title="Extract the .py script filename from a run command 从运行命令中提取.py脚本文件名" alt="" coords="531,519,651,546"/>
+<area shape="rect" href="namespacepreprocess.html#ad272e396d54aa1eb3a41c36c1949323e" title="Code instrumentation for project run file 项目运行文件代码插桩" alt="" coords="497,687,686,714"/>
+<area shape="rect" href="namespacepreprocess.html#ac314c05ac2de819eb7e15c9a091beb5d" title="Save import statement to source file 将import语句保存到源码中" alt="" coords="482,637,701,663"/>
+<area shape="rect" href="namespacepreprocess.html#a4c00e7633e0fd15cfaba6731cf8fe9b6" title="Convert the multi&#45;line parameter calls in the code into a single line to facilitate insertion into di..." alt="" coords="517,418,665,445"/>
+<area shape="rect" href="namespacepreprocess.html#af67fd0a454bad0ef82391bf1d745b87f" title="Save structure information of the project 保存项目的结构信息" alt="" coords="498,301,685,327"/>
+<area shape="rect" href="namespacepreprocess.html#aa6aca43577a6c7675fc40529658b4787" title="Get source script path from PCART repository 获取PCART仓库中的辅助脚本路径" alt="" coords="511,789,672,815"/>
+<area shape="rect" href="namespacepreprocess.html#a786d8e37525e381b79707973cf3509fb" title="Write recordValue.py used by instrumented project files 写入插桩文件共享的recordValue.py." alt="" coords="486,839,697,866"/>
+<area shape="rect" href="namespacepreprocess.html#aaab33bd46f0ae489d21ef62dff750446" title="Count the number of spaces at the beginning of a string 计算字符串的前面有多少个空格" alt="" coords="1061,570,1233,597"/>
+<area shape="rect" href="namespacetool.html#ac4d05a17f2f511bda4979dd476894896" title="Split API call string based on parameter passing 根据参数传递拆分API调用字符串" alt="" coords="817,679,931,706"/>
+<area shape="rect" href="namespacetool.html#abd074786b2b2c49fb89912e52b42f1fc" title="Split API call string based on separator &quot;.&quot; 根据&quot;.&quot;拆分API调用字符串" alt="" coords="813,781,935,807"/>
+<area shape="rect" href="namespacepreprocess.html#ae6efc31a5dbea814d20ed8efd321db06" title="Find assignment call statements 获取赋值调用语句" alt="" coords="779,730,969,757"/>
+<area shape="rect" href="namespacepreprocess.html#a545a0bfd0673e4d835f285ed1dc4e0b6" title="Resolve the source expression assigned to a receiver alias 还原调用者别名在当前作用域内的赋值来源表达式" alt="" coords="751,882,997,909"/>
+<area shape="rect" href="namespacetool.html#a163a1af85c967f70b1495290735321aa" title="Get AST for code 将代码转化为Ast树" alt="" coords="827,461,921,487"/>
+<area shape="rect" href="namespacegetCall.html#a6671b2b1a28dcf2b92aaf39b9696fae3" title="Extract all API calls from a given .py file 每次传进来一个.py文件，抽取所有的调用API." alt="" coords="787,402,961,429"/>
+<area shape="rect" href="namespacegetCall.html#ad822ec04ad5a7e5ed8e64b816a20e314" title="Restore the conventional API call path in the withitem (including AsyncWith) call form 还原withitemAPI调..." alt="" coords="1053,726,1240,753"/>
+<area shape="rect" href="namespacepreprocess.html#af850a797dfc86cb1fb0b3c68ee1840f7" title="Get decorator block start index 获取装饰器块起始行号" alt="" coords="765,563,983,604"/>
+<area shape="rect" href="namespacepreprocess.html#a638e9a6cb8c8f3b7752dc458a3846d9d" title="Determine the instrumentation line for import statements 确定import语句插桩行" alt="" coords="780,511,968,538"/>
+<area shape="rect" href="namespacetool.html#a79b523c932db90445596767f644be48c" title="Split parameter string into list of separated parameters 将参数字符串拆分成单个的参数" alt="" coords="805,933,943,959"/>
+<area shape="rect" href="namespacepreprocess.html#aa4a5e25d5835c88d23f7e5881063ad0d" title="Resolve the visible base&#45;class expression for an inherited self receiver 还原继承场景中self调用者可见的基类表达式" alt="" coords="759,983,989,1010"/>
+<area shape="rect" href="namespacepreprocess.html#a45a426d44e2e19441f98e0def6cc2d67" title="Get the local variable in the dictionary comprehension 获取字典推导式中的局部变量" alt="" coords="791,301,957,327"/>
+<area shape="rect" href="namespacepreprocess.html#a863e16849c87ef82b42e6a44e743a245" title="Get the local variable in the list comprehension 获取列表推导式中的局部变量" alt="" coords="793,250,955,277"/>
+<area shape="rect" href="namespaceworkspace.html#a46da2a5c9f862cc9c976c155bb91dc27" title="Convert project path/name to a filesystem&#45;safe slug 将项目路径或项目名转换为可作为目录名使用的slug." alt="" coords="480,890,703,917"/>
+<area shape="rect" href="namespaceworkspace.html#ac38101f78c013e4d49db5d01b00d33ed" title="Write workspace metadata 写入运行工作区元数据" alt="" coords="496,941,687,967"/>
 </map>
 </div>
 
@@ -599,45 +619,47 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>RunWorkspace object for this execution </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="main_8py_source.html#l00237">237</a> of file <a class="el" href="main_8py_source.html">main.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="keyword">def </span><a class="code" href="namespacemain.html#a54735b5e5f3ae5ec9c331c9117618719">run</a>(config):</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    repoRoot=<a class="code" href="namespaceworkspace.html#a0021e3b7235fc99d47ec6abf492a12e4">getRepoRoot</a>()</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    configPath=<a class="code" href="namespacetool.html#a924419c52a2a18a8cbef3b0fb9bac5f3">resolveConfigFilePath</a>(config,repoRoot)</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="comment">#加载配置</span></div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    projPath,runCommand,runPath,libName,currentVersion,targetVersion,currentEnv,targetEnv=<a class="code" href="namespacetool.html#ac27269fb0ca8635862c18bfe841deaae">loadConfig</a>(configPath)</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    projPath=<a class="code" href="namespacetool.html#a798f243de94474f63d3b1edeb8384a3e">resolveConfigValuePath</a>(repoRoot,projPath)</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    currentEnv=<a class="code" href="namespacetool.html#a798f243de94474f63d3b1edeb8384a3e">resolveConfigValuePath</a>(repoRoot,currentEnv)</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    targetEnv=<a class="code" href="namespacetool.html#a798f243de94474f63d3b1edeb8384a3e">resolveConfigValuePath</a>(repoRoot,targetEnv)</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160; </div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    workspace=<a class="code" href="namespaceworkspace.html#a9360d1de3db40b2a88a9d941c4e6d3c7">createRunWorkspace</a>(</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        repoRoot,</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        projPath,</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        runCommand,</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        runPath,</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        libName,</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        currentVersion,</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        targetVersion,</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        currentEnv,</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        targetEnv,</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    )</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    print(f<span class="stringliteral">&quot;Run workspace: {workspace.workspace_root}&quot;</span>)</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    print(<span class="stringliteral">&quot;Code preprocessing...&quot;</span>)</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160; </div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keyword">with</span> <a class="code" href="namespaceworkspace.html#a52f0dcdb1eb2925c1043860032f669d9">workspaceCwd</a>(workspace.workspace_root):</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        <span class="comment">#首先对代码进行预处理</span></div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        <a class="code" href="namespacepreprocess.html#a820f22e7f645d6238fa530f1219389fe">codeProcess</a>(projPath,runCommand,runPath,libName,workspace=workspace)</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        print(<span class="stringliteral">&quot;Code preprocess complete&quot;</span>)</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160; </div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        <span class="comment">#执行主逻辑</span></div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        <a class="code" href="namespacemain.html#a8d0e05dcf4b34e079f4df96b19e84cf2">backward</a>(projPath,libName,currentVersion,currentEnv,targetVersion,targetEnv,runCommand,runPath,workspace=workspace)</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160; </div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <a class="code" href="namespaceworkspace.html#a39fae6e30ae356b4e47690160ea2d5d9">exportRunReport</a>(workspace)</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    print(f<span class="stringliteral">&quot;Report output: {workspace.report_root}&quot;</span>)</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <span class="keywordflow">return</span> workspace</div>
+<p class="definition">Definition at line <a class="el" href="main_8py_source.html#l00247">247</a> of file <a class="el" href="main_8py_source.html">main.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="keyword">def </span><a class="code" href="namespacemain.html#a54735b5e5f3ae5ec9c331c9117618719">run</a>(config):</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    repoRoot=<a class="code" href="namespaceworkspace.html#a0021e3b7235fc99d47ec6abf492a12e4">getRepoRoot</a>()</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    configPath=<a class="code" href="namespacetool.html#a924419c52a2a18a8cbef3b0fb9bac5f3">resolveConfigFilePath</a>(config,repoRoot)</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160; </div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="comment">#加载配置</span></div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    projPath,runCommand,runPath,libName,currentVersion,targetVersion,currentEnv,targetEnv=<a class="code" href="namespacetool.html#ac27269fb0ca8635862c18bfe841deaae">loadConfig</a>(configPath)</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    projPath=<a class="code" href="namespacetool.html#a798f243de94474f63d3b1edeb8384a3e">resolveConfigValuePath</a>(repoRoot,projPath)</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    currentEnv=<a class="code" href="namespacetool.html#a798f243de94474f63d3b1edeb8384a3e">resolveConfigValuePath</a>(repoRoot,currentEnv)</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    targetEnv=<a class="code" href="namespacetool.html#a798f243de94474f63d3b1edeb8384a3e">resolveConfigValuePath</a>(repoRoot,targetEnv)</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    workspace=<a class="code" href="namespaceworkspace.html#a9360d1de3db40b2a88a9d941c4e6d3c7">createRunWorkspace</a>(</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        repoRoot,</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        projPath,</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        runCommand,</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        runPath,</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        libName,</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        currentVersion,</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        targetVersion,</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        currentEnv,</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        targetEnv,</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    )</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    print(f<span class="stringliteral">&quot;Run workspace: {workspace.workspace_root}&quot;</span>)</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    print(<span class="stringliteral">&quot;Code preprocessing...&quot;</span>)</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160; </div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    pcresolveLookup=<a class="code" href="namespacepcresolveBridge.html#a512bbb00e40320ecbcbf53a312f05f09">buildCallsiteLookup</a>(projPath,libName)</div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160; </div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; </div>
-<div class="ttc" id="anamespacepreprocess_html_a820f22e7f645d6238fa530f1219389fe"><div class="ttname"><a href="namespacepreprocess.html#a820f22e7f645d6238fa530f1219389fe">preprocess.codeProcess</a></div><div class="ttdeci">def codeProcess(projPath, runCommand, runPath, libName, workspace)</div><div class="ttdoc">Code processing 代码预处理</div><div class="ttdef"><b>Definition:</b> <a href="preprocess_8py_source.html#l01060">preprocess.py:1060</a></div></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="keyword">with</span> <a class="code" href="namespaceworkspace.html#a52f0dcdb1eb2925c1043860032f669d9">workspaceCwd</a>(workspace.workspace_root):</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        <span class="comment">#首先对代码进行预处理</span></div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;        <a class="code" href="namespacepreprocess.html#a2eec1d8b2c398e66364228c1ad0c6ff9">codeProcess</a>(projPath,runCommand,runPath,libName,workspace=workspace,pcresolveLookup=pcresolveLookup)</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;        print(<span class="stringliteral">&quot;Code preprocess complete&quot;</span>)</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160; </div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        <span class="comment">#执行主逻辑</span></div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        <a class="code" href="namespacemain.html#a4267bbc09b63fab971b487585a51ea7b">backward</a>(projPath,libName,currentVersion,currentEnv,targetVersion,targetEnv,runCommand,runPath,workspace=workspace,pcresolveLookup=pcresolveLookup)</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160; </div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <a class="code" href="namespaceworkspace.html#a39fae6e30ae356b4e47690160ea2d5d9">exportRunReport</a>(workspace)</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    print(f<span class="stringliteral">&quot;Report output: {workspace.report_root}&quot;</span>)</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keywordflow">return</span> workspace</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160; </div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160; </div>
+<div class="ttc" id="anamespacepreprocess_html_a2eec1d8b2c398e66364228c1ad0c6ff9"><div class="ttname"><a href="namespacepreprocess.html#a2eec1d8b2c398e66364228c1ad0c6ff9">preprocess.codeProcess</a></div><div class="ttdeci">def codeProcess(projPath, runCommand, runPath, libName, workspace, pcresolveLookup=None)</div><div class="ttdoc">Code processing 代码预处理</div><div class="ttdef"><b>Definition:</b> <a href="preprocess_8py_source.html#l01065">preprocess.py:1065</a></div></div>
 <div class="ttc" id="anamespacetool_html_a798f243de94474f63d3b1edeb8384a3e"><div class="ttname"><a href="namespacetool.html#a798f243de94474f63d3b1edeb8384a3e">tool.resolveConfigValuePath</a></div><div class="ttdeci">def resolveConfigValuePath(repoRoot, path)</div><div class="ttdoc">Resolve path value loaded from PCART config 解析PCART配置字段中的路径值</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00657">tool.py:657</a></div></div>
 <div class="ttc" id="anamespacetool_html_a924419c52a2a18a8cbef3b0fb9bac5f3"><div class="ttname"><a href="namespacetool.html#a924419c52a2a18a8cbef3b0fb9bac5f3">tool.resolveConfigFilePath</a></div><div class="ttdeci">def resolveConfigFilePath(config, repoRoot)</div><div class="ttdoc">Resolve PCART config file path 解析PCART配置文件路径</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00643">tool.py:643</a></div></div>
 <div class="ttc" id="anamespacetool_html_ac27269fb0ca8635862c18bfe841deaae"><div class="ttname"><a href="namespacetool.html#ac27269fb0ca8635862c18bfe841deaae">tool.loadConfig</a></div><div class="ttdeci">def loadConfig(configPath)</div><div class="ttdoc">Load PCART's configuration file 加载PCART配置文件</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00627">tool.py:627</a></div></div>
@@ -650,56 +672,56 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacemain_a54735b5e5f3ae5ec9c331c9117618719_cgraph.png" border="0" usemap="#anamespacemain_a54735b5e5f3ae5ec9c331c9117618719_cgraph" alt=""/></div>
 <map name="anamespacemain_a54735b5e5f3ae5ec9c331c9117618719_cgraph" id="anamespacemain_a54735b5e5f3ae5ec9c331c9117618719_cgraph">
-<area shape="rect" title="Run PCART with an isolated workspace 在隔离工作区中运行PCART." alt="" coords="5,1064,48,1091"/>
-<area shape="rect" href="namespacemain.html#a8d0e05dcf4b34e079f4df96b19e84cf2" title="Generate pkl files and perform detection and repair tasks 生成项目调用API的pkl文件以及执行检测与修复任务" alt="" coords="170,196,255,223"/>
-<area shape="rect" href="namespacepreprocess.html#a820f22e7f645d6238fa530f1219389fe" title="Code processing 代码预处理" alt="" coords="123,744,302,771"/>
-<area shape="rect" href="namespaceworkspace.html#a9360d1de3db40b2a88a9d941c4e6d3c7" title="Create an isolated workspace for one PCART run command 为一次PCART运行命令创建隔离工作区" alt="" coords="96,963,329,989"/>
-<area shape="rect" href="namespaceworkspace.html#a39fae6e30ae356b4e47690160ea2d5d9" title="Export internal report files to user&#45;visible report directory 将工作区内部报告导出到用户可见报告目录" alt="" coords="109,1013,316,1040"/>
-<area shape="rect" href="namespaceworkspace.html#a0021e3b7235fc99d47ec6abf492a12e4" title="Get PCART repository root path 获取PCART仓库根目录路径" alt="" coords="123,1064,303,1091"/>
-<area shape="rect" href="namespacetool.html#ac27269fb0ca8635862c18bfe841deaae" title="Load PCART&#39;s configuration file 加载PCART配置文件" alt="" coords="153,1115,273,1141"/>
-<area shape="rect" href="namespacetool.html#a924419c52a2a18a8cbef3b0fb9bac5f3" title="Resolve PCART config file path 解析PCART配置文件路径" alt="" coords="117,1165,308,1192"/>
-<area shape="rect" href="namespacetool.html#a798f243de94474f63d3b1edeb8384a3e" title="Resolve path value loaded from PCART config 解析PCART配置字段中的路径值" alt="" coords="111,1216,315,1243"/>
-<area shape="rect" href="namespaceworkspace.html#a52f0dcdb1eb2925c1043860032f669d9" title=" " alt="" coords="115,1267,310,1293"/>
-<area shape="rect" href="namespacetool.html#a06834e8d522d907efbdb98ce689b85db" title="Build subprocess argv for project run command 为被测项目运行命令构造subprocess argv." alt="" coords="401,132,576,159"/>
-<area shape="rect" href="namespaceworkspace.html#aba6396054179aaa393205a76b303d7a6" title="Return runtime artifact paths for the current execution 返回当前执行使用的运行产物路径" alt="" coords="385,233,592,260"/>
-<area shape="rect" href="namespacetool.html#a0c884e031b8683fe57a2fc6e9f321b2b" title="Save PCART report 保存PCART报告" alt="" coords="435,31,543,57"/>
-<area shape="rect" href="namespacetool.html#ad5f825eabcfb5ac3830d4c9650bb76e6" title="Normalize project run command 归一化被测项目运行命令" alt="" coords="667,107,875,133"/>
-<area shape="rect" href="namespacetool.html#a9a111bedf50d5fa9bbd67744ca605a9c" title="Resolve console script executable from a virtual environment 从虚拟环境中解析console script可执行文件" alt="" coords="660,157,883,184"/>
-<area shape="rect" href="namespacetool.html#acddd4e80b12bc317097d9b6da7afaa48" title="Resolve Python executable from a virtual environment root 从虚拟环境根目录解析 Python 解释器路径" alt="" coords="664,56,879,83"/>
-<area shape="rect" href="namespacetool.html#ab9a41531acf14c5b655fb3cea3fbffc9" title="Check whether command is Windows py launcher 判断命令是否为Windows py启动器" alt="" coords="973,56,1111,83"/>
-<area shape="rect" href="namespacetool.html#aead1b9bf1040d7b731555503ebc46c93" title="Check whether command is a Python executable name/path 判断命令是否为Python解释器名称或路径" alt="" coords="953,107,1131,133"/>
-<area shape="rect" href="namespacetool.html#af39825f4655d189d682b08f602ca7784" title="Remove version option after py launcher 去除py启动器后的版本选项" alt="" coords="943,157,1141,184"/>
-<area shape="rect" href="namespacetool.html#a89e3ba62412c41551693e80ced2dc88c" title="Format output 格式化输出" alt="" coords="716,5,827,32"/>
-<area shape="rect" href="namespacepreprocess.html#a66e56d747edac1867251b521065bab72" title="Code instrumentation for all API calls within a project source file 项目源文件所有API调用代码插桩" alt="" coords="407,664,571,691"/>
-<area shape="rect" href="namespacepreprocess.html#a1be44b4612b83c96456034d7eef3a376" title="Convert the ListComp and DictComp statements to variable assignment statements 将列表推导式listComp和字典推导式Di..." alt="" coords="388,461,589,488"/>
-<area shape="rect" href="namespacepreprocess.html#a422e51d3c4d2044bcb0159a2ebc0df60" title="Convert tabs to spaces in all Python files within a directory 将目录下所有Python文件中的制表符转换为空格" alt="" coords="394,934,583,975"/>
-<area shape="rect" href="namespacepreprocess.html#a4c279837bca66be1c336af00420eb4ad" title="Expand the single&#45;line conditional return statement into a multi&#45;line if&#45;else structure &#160;&#160;展开单行条件retur..." alt="" coords="379,766,598,807"/>
-<area shape="rect" href="namespacepreprocess.html#a79af2a91a7fa51e11b82e40207c48957" title="Get all lib&#45;related import statements 获取所有第三方库相关的import语句" alt="" coords="389,1000,588,1027"/>
-<area shape="rect" href="namespacetool.html#ae11019ef37390ec657efde69354884aa" title="Extract the .py script filename from a run command 从运行命令中提取.py脚本文件名" alt="" coords="429,1051,549,1077"/>
-<area shape="rect" href="namespacepreprocess.html#ad272e396d54aa1eb3a41c36c1949323e" title="Code instrumentation for project run file 项目运行文件代码插桩" alt="" coords="394,832,583,859"/>
-<area shape="rect" href="namespacepreprocess.html#ac314c05ac2de819eb7e15c9a091beb5d" title="Save import statement to source file 将import语句保存到源码中" alt="" coords="379,309,598,336"/>
-<area shape="rect" href="namespacepreprocess.html#a4c00e7633e0fd15cfaba6731cf8fe9b6" title="Convert the multi&#45;line parameter calls in the code into a single line to facilitate insertion into di..." alt="" coords="415,715,563,741"/>
-<area shape="rect" href="namespacepreprocess.html#af67fd0a454bad0ef82391bf1d745b87f" title="Save structure information of the project 保存项目的结构信息" alt="" coords="395,411,582,437"/>
-<area shape="rect" href="namespacepreprocess.html#aa6aca43577a6c7675fc40529658b4787" title="Get source script path from PCART repository 获取PCART仓库中的辅助脚本路径" alt="" coords="408,360,569,387"/>
-<area shape="rect" href="namespacepreprocess.html#a786d8e37525e381b79707973cf3509fb" title="Write recordValue.py used by instrumented project files 写入插桩文件共享的recordValue.py." alt="" coords="383,883,594,909"/>
-<area shape="rect" href="namespacepreprocess.html#aaab33bd46f0ae489d21ef62dff750446" title="Count the number of spaces at the beginning of a string 计算字符串的前面有多少个空格" alt="" coords="956,723,1128,749"/>
-<area shape="rect" href="namespacetool.html#ac4d05a17f2f511bda4979dd476894896" title="Split API call string based on parameter passing 根据参数传递拆分API调用字符串" alt="" coords="714,563,829,589"/>
-<area shape="rect" href="namespacetool.html#abd074786b2b2c49fb89912e52b42f1fc" title="Split API call string based on separator &quot;.&quot; 根据&quot;.&quot;拆分API调用字符串" alt="" coords="710,613,833,640"/>
-<area shape="rect" href="namespacepreprocess.html#ae6efc31a5dbea814d20ed8efd321db06" title="Find assignment call statements 获取赋值调用语句" alt="" coords="677,664,866,691"/>
-<area shape="rect" href="namespacepreprocess.html#a545a0bfd0673e4d835f285ed1dc4e0b6" title="Resolve the source expression assigned to a receiver alias 还原调用者别名在当前作用域内的赋值来源表达式" alt="" coords="648,781,895,808"/>
-<area shape="rect" href="namespacetool.html#a163a1af85c967f70b1495290735321aa" title="Get AST for code 将代码转化为Ast树" alt="" coords="725,984,818,1011"/>
-<area shape="rect" href="namespacegetCall.html#a1a5e8458deb9887f9eef4d1d493030a6" title="Extract all API calls from a given .py file 每次传进来一个.py文件，抽取所有的调用API." alt="" coords="685,411,858,437"/>
-<area shape="rect" href="namespacegetCall.html#ad822ec04ad5a7e5ed8e64b816a20e314" title="Restore the conventional API call path in the withitem (including AsyncWith) call form 还原withitemAPI调..." alt="" coords="949,461,1135,488"/>
-<area shape="rect" href="namespacepreprocess.html#af850a797dfc86cb1fb0b3c68ee1840f7" title="Get decorator block start index 获取装饰器块起始行号" alt="" coords="662,715,881,757"/>
-<area shape="rect" href="namespacepreprocess.html#a638e9a6cb8c8f3b7752dc458a3846d9d" title="Determine the instrumentation line for import statements 确定import语句插桩行" alt="" coords="677,1035,865,1061"/>
-<area shape="rect" href="namespacetool.html#a79b523c932db90445596767f644be48c" title="Split parameter string into list of separated parameters 将参数字符串拆分成单个的参数" alt="" coords="702,883,841,909"/>
-<area shape="rect" href="namespacepreprocess.html#aa4a5e25d5835c88d23f7e5881063ad0d" title="Resolve the visible base&#45;class expression for an inherited self receiver 还原继承场景中self调用者可见的基类表达式" alt="" coords="657,933,886,960"/>
-<area shape="rect" href="namespacepreprocess.html#a45a426d44e2e19441f98e0def6cc2d67" title="Get the local variable in the dictionary comprehension 获取字典推导式中的局部变量" alt="" coords="689,360,854,387"/>
-<area shape="rect" href="namespacepreprocess.html#a863e16849c87ef82b42e6a44e743a245" title="Get the local variable in the list comprehension 获取列表推导式中的局部变量" alt="" coords="690,309,853,336"/>
-<area shape="rect" href="namespacepreprocess.html#ae7e0fb3e9686a37af31d748a4c234ebf" title="Extract decorator API calls 抽取项目中第三方库装饰器调用" alt="" coords="668,208,875,235"/>
-<area shape="rect" href="namespacepreprocess.html#aba37de1d85915cdded208175b9ff6b26" title="Save assignment statement with constant values 保存常量赋值语句" alt="" coords="657,259,886,285"/>
-<area shape="rect" href="namespaceworkspace.html#a46da2a5c9f862cc9c976c155bb91dc27" title="Convert project path/name to a filesystem&#45;safe slug 将项目路径或项目名转换为可作为目录名使用的slug." alt="" coords="377,1152,600,1179"/>
-<area shape="rect" href="namespaceworkspace.html#ac38101f78c013e4d49db5d01b00d33ed" title="Write workspace metadata 写入运行工作区元数据" alt="" coords="393,1101,584,1128"/>
+<area shape="rect" title="Run PCART with an isolated workspace 在隔离工作区中运行PCART." alt="" coords="5,651,48,678"/>
+<area shape="rect" href="namespacemain.html#a4267bbc09b63fab971b487585a51ea7b" title="Generate pkl files and perform detection and repair tasks 生成项目调用API的pkl文件以及执行检测与修复任务" alt="" coords="170,138,255,165"/>
+<area shape="rect" href="namespacepcresolveBridge.html#a512bbb00e40320ecbcbf53a312f05f09" title="Build a CallsiteRecord lookup table from PCResolve analysis 从PCResolve分析结果构建CallsiteRecord查找表" alt="" coords="383,21,595,63"/>
+<area shape="rect" href="namespacepreprocess.html#a2eec1d8b2c398e66364228c1ad0c6ff9" title="Code processing 代码预处理" alt="" coords="123,525,302,551"/>
+<area shape="rect" href="namespaceworkspace.html#a9360d1de3db40b2a88a9d941c4e6d3c7" title="Create an isolated workspace for one PCART run command 为一次PCART运行命令创建隔离工作区" alt="" coords="96,575,329,602"/>
+<area shape="rect" href="namespaceworkspace.html#a39fae6e30ae356b4e47690160ea2d5d9" title="Export internal report files to user&#45;visible report directory 将工作区内部报告导出到用户可见报告目录" alt="" coords="109,626,316,653"/>
+<area shape="rect" href="namespaceworkspace.html#a0021e3b7235fc99d47ec6abf492a12e4" title="Get PCART repository root path 获取PCART仓库根目录路径" alt="" coords="123,677,303,703"/>
+<area shape="rect" href="namespacetool.html#ac27269fb0ca8635862c18bfe841deaae" title="Load PCART&#39;s configuration file 加载PCART配置文件" alt="" coords="153,727,273,754"/>
+<area shape="rect" href="namespacetool.html#a924419c52a2a18a8cbef3b0fb9bac5f3" title="Resolve PCART config file path 解析PCART配置文件路径" alt="" coords="117,778,308,805"/>
+<area shape="rect" href="namespacetool.html#a798f243de94474f63d3b1edeb8384a3e" title="Resolve path value loaded from PCART config 解析PCART配置字段中的路径值" alt="" coords="111,829,315,855"/>
+<area shape="rect" href="namespaceworkspace.html#a52f0dcdb1eb2925c1043860032f669d9" title=" " alt="" coords="115,879,310,906"/>
+<area shape="rect" href="namespacetool.html#a06834e8d522d907efbdb98ce689b85db" title="Build subprocess argv for project run command 为被测项目运行命令构造subprocess argv." alt="" coords="401,87,576,114"/>
+<area shape="rect" href="namespaceworkspace.html#aba6396054179aaa393205a76b303d7a6" title="Return runtime artifact paths for the current execution 返回当前执行使用的运行产物路径" alt="" coords="385,189,592,215"/>
+<area shape="rect" href="namespacetool.html#a0c884e031b8683fe57a2fc6e9f321b2b" title="Save PCART report 保存PCART报告" alt="" coords="435,138,543,165"/>
+<area shape="rect" href="namespacecallsite.html#a7f3d1db0a0e705c0b7df71a802144e5f" title="Make callsite record 构造调用点记录" alt="" coords="943,273,1145,299"/>
+<area shape="rect" href="namespacecallsite.html#a10129000122ceacaec2cb26cd4e3a8a5" title="Normalize call text for identity generation 归一化调用文本，用于生成调用点身份" alt="" coords="1193,247,1384,274"/>
+<area shape="rect" href="namespacecallsite.html#a011e3f8ff9cf7205c116ce2eee657af4" title="Normalize source file path to project relative path 将源码路径归一化为项目相对路径" alt="" coords="1195,298,1382,325"/>
+<area shape="rect" href="namespacetool.html#ad5f825eabcfb5ac3830d4c9650bb76e6" title="Normalize project run command 归一化被测项目运行命令" alt="" coords="667,58,875,85"/>
+<area shape="rect" href="namespacetool.html#a9a111bedf50d5fa9bbd67744ca605a9c" title="Resolve console script executable from a virtual environment 从虚拟环境中解析console script可执行文件" alt="" coords="660,109,883,135"/>
+<area shape="rect" href="namespacetool.html#acddd4e80b12bc317097d9b6da7afaa48" title="Resolve Python executable from a virtual environment root 从虚拟环境根目录解析 Python 解释器路径" alt="" coords="664,159,879,186"/>
+<area shape="rect" href="namespacetool.html#a89e3ba62412c41551693e80ced2dc88c" title="Format output 格式化输出" alt="" coords="716,210,827,237"/>
+<area shape="rect" href="namespacepreprocess.html#abebae1853405a150b463cba60b0577ed" title="Code instrumentation for all API calls within a project source file 项目源文件所有API调用代码插桩" alt="" coords="407,727,571,754"/>
+<area shape="rect" href="namespacepreprocess.html#a1be44b4612b83c96456034d7eef3a376" title="Convert the ListComp and DictComp statements to variable assignment statements 将列表推导式listComp和字典推导式Di..." alt="" coords="388,423,589,450"/>
+<area shape="rect" href="namespacepreprocess.html#a422e51d3c4d2044bcb0159a2ebc0df60" title="Convert tabs to spaces in all Python files within a directory 将目录下所有Python文件中的制表符转换为空格" alt="" coords="394,357,583,399"/>
+<area shape="rect" href="namespacepreprocess.html#a4c279837bca66be1c336af00420eb4ad" title="Expand the single&#45;line conditional return statement into a multi&#45;line if&#45;else structure &#160;&#160;展开单行条件retur..." alt="" coords="379,240,598,281"/>
+<area shape="rect" href="namespacepreprocess.html#a79af2a91a7fa51e11b82e40207c48957" title="Get all lib&#45;related import statements 获取所有第三方库相关的import语句" alt="" coords="389,474,588,501"/>
+<area shape="rect" href="namespacetool.html#ae11019ef37390ec657efde69354884aa" title="Extract the .py script filename from a run command 从运行命令中提取.py脚本文件名" alt="" coords="429,525,549,551"/>
+<area shape="rect" href="namespacepreprocess.html#ad272e396d54aa1eb3a41c36c1949323e" title="Code instrumentation for project run file 项目运行文件代码插桩" alt="" coords="394,677,583,703"/>
+<area shape="rect" href="namespacepreprocess.html#ac314c05ac2de819eb7e15c9a091beb5d" title="Save import statement to source file 将import语句保存到源码中" alt="" coords="379,626,598,653"/>
+<area shape="rect" href="namespacepreprocess.html#a4c00e7633e0fd15cfaba6731cf8fe9b6" title="Convert the multi&#45;line parameter calls in the code into a single line to facilitate insertion into di..." alt="" coords="415,306,563,333"/>
+<area shape="rect" href="namespacepreprocess.html#af67fd0a454bad0ef82391bf1d745b87f" title="Save structure information of the project 保存项目的结构信息" alt="" coords="395,575,582,602"/>
+<area shape="rect" href="namespacepreprocess.html#aa6aca43577a6c7675fc40529658b4787" title="Get source script path from PCART repository 获取PCART仓库中的辅助脚本路径" alt="" coords="408,778,569,805"/>
+<area shape="rect" href="namespacepreprocess.html#a786d8e37525e381b79707973cf3509fb" title="Write recordValue.py used by instrumented project files 写入插桩文件共享的recordValue.py." alt="" coords="383,829,594,855"/>
+<area shape="rect" href="namespacepreprocess.html#aaab33bd46f0ae489d21ef62dff750446" title="Count the number of spaces at the beginning of a string 计算字符串的前面有多少个空格" alt="" coords="958,702,1130,729"/>
+<area shape="rect" href="namespacetool.html#ac4d05a17f2f511bda4979dd476894896" title="Split API call string based on parameter passing 根据参数传递拆分API调用字符串" alt="" coords="714,913,829,939"/>
+<area shape="rect" href="namespacetool.html#abd074786b2b2c49fb89912e52b42f1fc" title="Split API call string based on separator &quot;.&quot; 根据&quot;.&quot;拆分API调用字符串" alt="" coords="710,963,833,990"/>
+<area shape="rect" href="namespacepreprocess.html#ae6efc31a5dbea814d20ed8efd321db06" title="Find assignment call statements 获取赋值调用语句" alt="" coords="677,1065,866,1091"/>
+<area shape="rect" href="namespacepreprocess.html#a545a0bfd0673e4d835f285ed1dc4e0b6" title="Resolve the source expression assigned to a receiver alias 还原调用者别名在当前作用域内的赋值来源表达式" alt="" coords="648,761,895,787"/>
+<area shape="rect" href="namespacetool.html#a163a1af85c967f70b1495290735321aa" title="Get AST for code 将代码转化为Ast树" alt="" coords="725,289,818,315"/>
+<area shape="rect" href="namespacegetCall.html#a6671b2b1a28dcf2b92aaf39b9696fae3" title="Extract all API calls from a given .py file 每次传进来一个.py文件，抽取所有的调用API." alt="" coords="685,542,858,569"/>
+<area shape="rect" href="namespacegetCall.html#ad822ec04ad5a7e5ed8e64b816a20e314" title="Restore the conventional API call path in the withitem (including AsyncWith) call form 还原withitemAPI调..." alt="" coords="951,593,1137,619"/>
+<area shape="rect" href="namespacepreprocess.html#af850a797dfc86cb1fb0b3c68ee1840f7" title="Get decorator block start index 获取装饰器块起始行号" alt="" coords="662,695,881,736"/>
+<area shape="rect" href="namespacepreprocess.html#a638e9a6cb8c8f3b7752dc458a3846d9d" title="Determine the instrumentation line for import statements 确定import语句插桩行" alt="" coords="677,593,865,619"/>
+<area shape="rect" href="namespacetool.html#a79b523c932db90445596767f644be48c" title="Split parameter string into list of separated parameters 将参数字符串拆分成单个的参数" alt="" coords="702,811,841,838"/>
+<area shape="rect" href="namespacepreprocess.html#aa4a5e25d5835c88d23f7e5881063ad0d" title="Resolve the visible base&#45;class expression for an inherited self receiver 还原继承场景中self调用者可见的基类表达式" alt="" coords="657,862,886,889"/>
+<area shape="rect" href="namespacepreprocess.html#a45a426d44e2e19441f98e0def6cc2d67" title="Get the local variable in the dictionary comprehension 获取字典推导式中的局部变量" alt="" coords="689,339,854,366"/>
+<area shape="rect" href="namespacepreprocess.html#a863e16849c87ef82b42e6a44e743a245" title="Get the local variable in the list comprehension 获取列表推导式中的局部变量" alt="" coords="690,390,853,417"/>
+<area shape="rect" href="namespacepreprocess.html#ae7e0fb3e9686a37af31d748a4c234ebf" title="Extract decorator API calls 抽取项目中第三方库装饰器调用" alt="" coords="668,491,875,518"/>
+<area shape="rect" href="namespaceworkspace.html#a46da2a5c9f862cc9c976c155bb91dc27" title="Convert project path/name to a filesystem&#45;safe slug 将项目路径或项目名转换为可作为目录名使用的slug." alt="" coords="377,879,600,906"/>
+<area shape="rect" href="namespaceworkspace.html#ac38101f78c013e4d49db5d01b00d33ed" title="Write workspace metadata 写入运行工作区元数据" alt="" coords="393,930,584,957"/>
 </map>
 </div>
 <div class="dynheader">

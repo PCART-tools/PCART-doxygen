@@ -2,7 +2,7 @@
 <area shape="rect" id="node1" title="One process handles one file 一个进程处理一个文件" alt="" coords="5,740,120,767"/>
 <area shape="rect" id="node2" href="$namespacechangeAnalyze.html#afb56fcc8060a6914ae0aa7b73d837a03" title="Add values stored by pkl file for API parameters 为API参数添加保存至pkl文件中的值" alt="" coords="778,867,1005,894"/>
 <area shape="rect" id="node7" href="$namespacetool.html#a163a1af85c967f70b1495290735321aa" title="Get AST for code 将代码转化为Ast树" alt="" coords="1138,496,1231,523"/>
-<area shape="rect" id="node8" href="$namespacegetCall.html#a1a5e8458deb9887f9eef4d1d493030a6" title="Extract all API calls from a given .py file 每次传进来一个.py文件，抽取所有的调用API." alt="" coords="202,107,375,134"/>
+<area shape="rect" id="node8" href="$namespacegetCall.html#a6671b2b1a28dcf2b92aaf39b9696fae3" title="Extract all API calls from a given .py file 每次传进来一个.py文件，抽取所有的调用API." alt="" coords="202,107,375,134"/>
 <area shape="rect" id="node15" href="$namespacechangeAnalyze.html#a3272743b8ad154a66e9d45ab36bca3ec" title="Determine the compatibility of APIs from current and target versions 判断起始版本和目标版本API的兼容性" alt="" coords="183,259,394,286"/>
 <area shape="rect" id="node21" href="$namespacemap.html#a78308f65da57a1b78ac061bddb981715" title="Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API与 ..." alt="" coords="236,867,341,894"/>
 <area shape="rect" id="node39" href="$namespacetool.html#a06b0d4848192999bfb9a11895ba277dc" title="Remove parameter(s) from API call string 去掉API中的参数部分" alt="" coords="807,715,975,742"/>

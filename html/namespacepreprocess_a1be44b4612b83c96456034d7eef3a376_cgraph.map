@@ -1,7 +1,7 @@
 <map id="convertLocalVar" name="convertLocalVar">
 <area shape="rect" id="node1" title="Convert the ListComp and DictComp statements to variable assignment statements 将列表推导式listComp和字典推导式Di..." alt="" coords="5,107,132,133"/>
 <area shape="rect" id="node2" href="$namespacepreprocess.html#aaab33bd46f0ae489d21ef62dff750446" title="Count the number of spaces at the beginning of a string 计算字符串的前面有多少个空格" alt="" coords="218,31,315,57"/>
-<area shape="rect" id="node3" href="$namespacegetCall.html#a1a5e8458deb9887f9eef4d1d493030a6" title="Extract all API calls from a given .py file 每次传进来一个.py文件，抽取所有的调用API." alt="" coords="180,81,353,108"/>
+<area shape="rect" id="node3" href="$namespacegetCall.html#a6671b2b1a28dcf2b92aaf39b9696fae3" title="Extract all API calls from a given .py file 每次传进来一个.py文件，抽取所有的调用API." alt="" coords="180,81,353,108"/>
 <area shape="rect" id="node10" href="$namespacepreprocess.html#a45a426d44e2e19441f98e0def6cc2d67" title="Get the local variable in the dictionary comprehension 获取字典推导式中的局部变量" alt="" coords="221,132,312,159"/>
 <area shape="rect" id="node11" href="$namespacepreprocess.html#a863e16849c87ef82b42e6a44e743a245" title="Get the local variable in the list comprehension 获取列表推导式中的局部变量" alt="" coords="223,183,310,209"/>
 <area shape="rect" id="node4" href="$namespacegetCall.html#a3686a0013578a483d50cde8c495798ab" title="Extract method calls in a custom class inherited from a lib class 获取从库API继承的自定义类中的库API方法调用" alt="" coords="433,5,572,32"/>

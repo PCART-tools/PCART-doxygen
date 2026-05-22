@@ -73,6 +73,12 @@ $(function() {
 <p><a href="https://github.com/PCART-tools/PCART/wiki">Documentation</a> · <a href="https://github.com/PCART-tools/PCART/wiki/Configuration-Guide">Configuration Guide</a> · <a href="https://github.com/PCART-tools/PCART/wiki/How-It-Works">How It Works</a> · <a href="https://github.com/PCART-tools/PCART/wiki/Examples">Examples</a> · <a href="https://pcart-tools.github.io/PCART-doxygen/html">API Docs</a> </p>
 <p><br  />
 </p>
+<h2>News</h2>
+<ul>
+<li><b>2026-05-22</b> — Experimental <a href="https://github.com/PCART-tools/PCResolve">PCResolve</a> integration: cross-file symbol-tracing replaces single-file string-matching for API call identification. Opt-in via <code>pcresolve&gt;=1.0.3</code>; falls back to existing extraction when not installed.</li>
+</ul>
+<p><br  />
+</p>
 <h2>What is PCART?</h2>
 <p>PCART is an automated tool designed to detect and repair Python API parameter compatibility issues. It is the first to achieve a fully automated process (end-to-end) that includes <code>API extraction</code>, <code>code instrumentation</code>, <code>mapping</code>, <code>compatibility analysis</code>, and <code>repair and validation</code>. PCART specializes in addressing API compatibility issues arising from parameter <code>addition</code>, <code>removal</code>, <code>renaming</code>, <code>reordering</code>, and the <code>conversion of positional parameters to keyword parameters</code>.</p>
 <h2>Quick Start</h2>
@@ -167,7 +173,9 @@ $(function() {
 <div class="line">  pages={723-753},</div>
 <div class="line">  doi={10.1109/TSE.2025.3646150}</div>
 <div class="line">}</div>
-</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- fragment --><h2>License</h2>
+<p>PCART is licensed under the GNU Affero General Public License v3.0. See <a href="./LICENSE">LICENSE</a> for details. </p>
+</div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

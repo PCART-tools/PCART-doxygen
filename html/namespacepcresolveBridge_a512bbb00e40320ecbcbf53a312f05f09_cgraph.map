@@ -1,0 +1,6 @@
+<map id="buildCallsiteLookup" name="buildCallsiteLookup">
+<area shape="rect" id="node1" title="Build a CallsiteRecord lookup table from PCResolve analysis 从PCResolve分析结果构建CallsiteRecord查找表" alt="" coords="5,31,155,57"/>
+<area shape="rect" id="node2" href="$namespacecallsite.html#a7f3d1db0a0e705c0b7df71a802144e5f" title="Make callsite record 构造调用点记录" alt="" coords="203,31,405,57"/>
+<area shape="rect" id="node3" href="$namespacecallsite.html#a10129000122ceacaec2cb26cd4e3a8a5" title="Normalize call text for identity generation 归一化调用文本，用于生成调用点身份" alt="" coords="453,5,644,32"/>
+<area shape="rect" id="node4" href="$namespacecallsite.html#a011e3f8ff9cf7205c116ce2eee657af4" title="Normalize source file path to project relative path 将源码路径归一化为项目相对路径" alt="" coords="455,56,642,83"/>
+</map>
