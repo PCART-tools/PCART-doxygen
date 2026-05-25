@@ -85,18 +85,18 @@ $(function() {
 <p>Create the required environments and configuration file, then run:</p>
 <div class="fragment"><div class="line">python main.py -cfg your_config.json</div>
 </div><!-- fragment --><p>For environment setup, configuration fields, and platform-specific examples, see the <a href="https://github.com/PCART-tools/PCART/wiki/Quick-Start">Quick Start</a> and <a href="https://github.com/PCART-tools/PCART/wiki/Configuration-Guide">Configuration Guide</a>.</p>
-<h2>Three-Environment Architecture</h2>
+<h2>Runtime Environments</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Environment   </th><th class="markdownTableHeadNone">Purpose   </th><th class="markdownTableHeadNone">Requirements    </th></tr>
+<th class="markdownTableHeadNone">Environment   </th><th class="markdownTableHeadNone">Role   </th><th class="markdownTableHeadNone">Requirements    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">PCART   </td><td class="markdownTableBodyNone">Runs the PCART tool itself   </td><td class="markdownTableBodyNone">Python 3.9 + dill    </td></tr>
+<td class="markdownTableBodyNone">Tool environment   </td><td class="markdownTableBodyNone">Runs PCART itself   </td><td class="markdownTableBodyNone">Python 3.9 + dill    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">currentEnv   </td><td class="markdownTableBodyNone">Dynamic API signature mapping for current library version   </td><td class="markdownTableBodyNone">Python 3.x + current library version + requirements.txt + dill    </td></tr>
+<td class="markdownTableBodyNone">currentEnv   </td><td class="markdownTableBodyNone">Runs the project with the current library version for API mapping and baseline checks   </td><td class="markdownTableBodyNone">Python 3.x + current library version + project requirements + dill    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">targetEnv   </td><td class="markdownTableBodyNone">Dynamic API signature mapping and post-repair validation for target library version   </td><td class="markdownTableBodyNone">Python 3.x + target library version + requirements.txt + dill   </td></tr>
+<td class="markdownTableBodyNone">targetEnv   </td><td class="markdownTableBodyNone">Runs the project with the target library version for API mapping and repair validation   </td><td class="markdownTableBodyNone">Python 3.x + target library version + project requirements + dill   </td></tr>
 </table>
-<p><code>currentEnv</code> and <code>targetEnv</code> should point to environment root directories (not the Python executable path). PCART auto-detects the interpreter and supports multiple <code>runCommand</code> formats (<code>python</code>, <code>python3</code>, <code>py -X.Y</code>, <code>python -m</code>, console scripts). See the <a href="https://github.com/PCART-tools/PCART/wiki/Configuration-Guide">Configuration Guide</a> for details.</p>
+<p>Only <code>currentEnv</code> and <code>targetEnv</code> are configuration fields. They should point to environment root directories (not the Python executable path). The tool environment is the Python environment used to run <code><a class="el" href="main_8py.html" title="PCART&#39;s main function entry">main.py</a></code>. PCART auto-detects the interpreter and supports multiple <code>runCommand</code> formats (<code>python</code>, <code>python3</code>, <code>py -X.Y</code>, <code>python -m</code>, console scripts). See the <a href="https://github.com/PCART-tools/PCART/wiki/Configuration-Guide">Configuration Guide</a> for details.</p>
 <h2>Supported Parameter Change Types</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -162,7 +162,7 @@ $(function() {
 <li><a href="https://pcart-tools.github.io/PCART-doxygen/html">Doxygen API Docs</a> - Generated code documentation</li>
 </ul>
 <h2>Citation</h2>
-<p>If you use PCART in your work, please cite:</p>
+<p>If PCART supports your research or development work, please cite the following publication:</p>
 <div class="fragment"><div class="line">@article{PCART_TSE2025,</div>
 <div class="line">  author={Zhang, Shuai and Xiao, Guanping and Wang, Jun and Lei, Huashan and He, Gangqiang and Liu, Yepang and Zheng, Zheng},</div>
 <div class="line">  journal={IEEE Transactions on Software Engineering},</div>
