@@ -70,97 +70,22 @@ $(function() {
 <p align="center"></p>
 <p>Automated Repair of Python API Parameter Compatibility Issues </p>
 <p align="center"></p>
-<p><a href="https://github.com/PCART-tools/PCART/wiki">Documentation</a> · <a href="https://github.com/PCART-tools/PCART/wiki/Configuration-Guide">Configuration Guide</a> · <a href="https://github.com/PCART-tools/PCART/wiki/How-It-Works">How It Works</a> · <a href="https://github.com/PCART-tools/PCART/wiki/Examples">Examples</a> · <a href="https://pcart-tools.github.io/PCART-doxygen/html">API Docs</a> </p>
+<p><a href="https://github.com/PCART-tools/PCART/wiki">Documentation</a> · <a href="https://github.com/PCART-tools/PCART/wiki/Configuration-Guide">Configuration Guide</a> · <a href="https://github.com/PCART-tools/PCART/wiki/How-It-Works">How It Works</a> · <a href="https://github.com/PCART-tools/PCART/wiki/Examples">Examples</a> · <a href="https://pcart-tools.github.io/PCART-doxygen/html">API Docs</a> · <a href="https://github.com/PCART-tools/PCBench">PCBench</a> </p>
 <p><br  />
 </p>
 <h2>News</h2>
 <ul>
-<li><b>2026-05-22</b> — Experimental <a href="https://github.com/PCART-tools/PCResolve">PCResolve</a> integration: cross-file symbol-tracing replaces single-file string-matching for API call identification. Opt-in via <code>pcresolve&gt;=1.0.3</code>; falls back to existing extraction when not installed.</li>
+<li><b>2026-05-22</b> - Experimental <a href="https://github.com/PCART-tools/PCResolve">PCResolve</a> integration: cross-file symbol-tracing replaces single-file string-matching for API call identification. Opt-in via <code>pcresolve&gt;=1.0.3</code>; falls back to existing extraction when not installed.</li>
 </ul>
 <p><br  />
 </p>
 <h2>What is PCART?</h2>
-<p>PCART is an automated tool designed to detect and repair Python API parameter compatibility issues. It is the first to achieve a fully automated process (end-to-end) that includes <code>API extraction</code>, <code>code instrumentation</code>, <code>mapping</code>, <code>compatibility analysis</code>, and <code>repair and validation</code>. PCART specializes in addressing API compatibility issues arising from parameter <code>addition</code>, <code>removal</code>, <code>renaming</code>, <code>reordering</code>, and the <code>conversion of positional parameters to keyword parameters</code>.</p>
+<p>PCART is an automated tool for detecting and repairing Python API parameter compatibility issues caused by library upgrades.</p>
+<p>It supports common parameter compatibility changes, including addition, deletion, renaming, reordering, replacement, positional/keyword conversion, and partial type-change analysis. Default-value changes are not currently implemented.</p>
 <h2>Quick Start</h2>
-<p>Create the required environments and configuration file, then run:</p>
 <div class="fragment"><div class="line">python main.py -cfg your_config.json</div>
-</div><!-- fragment --><p>For environment setup, configuration fields, and platform-specific examples, see the <a href="https://github.com/PCART-tools/PCART/wiki/Quick-Start">Quick Start</a> and <a href="https://github.com/PCART-tools/PCART/wiki/Configuration-Guide">Configuration Guide</a>.</p>
-<h2>Runtime Environments</h2>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Environment   </th><th class="markdownTableHeadNone">Role   </th><th class="markdownTableHeadNone">Requirements    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Tool environment   </td><td class="markdownTableBodyNone">Runs PCART itself   </td><td class="markdownTableBodyNone">Python 3.9 + dill    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">currentEnv   </td><td class="markdownTableBodyNone">Runs the project with the current library version for API mapping and baseline checks   </td><td class="markdownTableBodyNone">Python 3.x + current library version + project requirements + dill    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">targetEnv   </td><td class="markdownTableBodyNone">Runs the project with the target library version for API mapping and repair validation   </td><td class="markdownTableBodyNone">Python 3.x + target library version + project requirements + dill   </td></tr>
-</table>
-<p>Only <code>currentEnv</code> and <code>targetEnv</code> are configuration fields. They should point to environment root directories (not the Python executable path). The tool environment is the Python environment used to run <code><a class="el" href="main_8py.html" title="PCART&#39;s main function entry">main.py</a></code>. PCART auto-detects the interpreter and supports multiple <code>runCommand</code> formats (<code>python</code>, <code>python3</code>, <code>py -X.Y</code>, <code>python -m</code>, console scripts). See the <a href="https://github.com/PCART-tools/PCART/wiki/Configuration-Guide">Configuration Guide</a> for details.</p>
-<h2>Supported Parameter Change Types</h2>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Dictionary Key   </th><th class="markdownTableHeadNone">Type Name   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Support    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>delete</code>   </td><td class="markdownTableBodyNone">Deletion   </td><td class="markdownTableBodyNone">Parameter removed   </td><td class="markdownTableBodyNone">✅ Full    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><code>typeChange</code>   </td><td class="markdownTableBodyNone">Type Change   </td><td class="markdownTableBodyNone">Parameter type altered   </td><td class="markdownTableBodyNone">⚠️ Partial    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>rename</code>   </td><td class="markdownTableBodyNone">Renaming   </td><td class="markdownTableBodyNone">Parameter name changed   </td><td class="markdownTableBodyNone">✅ Full    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><code>posChange</code>   </td><td class="markdownTableBodyNone">Position Change   </td><td class="markdownTableBodyNone">Parameter position altered   </td><td class="markdownTableBodyNone">✅ Full    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>replace</code>   </td><td class="markdownTableBodyNone">Replacement   </td><td class="markdownTableBodyNone">Parameter replaced at same position   </td><td class="markdownTableBodyNone">✅ Full    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><code>pos2key</code>   </td><td class="markdownTableBodyNone">Positional to Keyword   </td><td class="markdownTableBodyNone">Positional-only changed to keyword-only   </td><td class="markdownTableBodyNone">✅ Full    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>addPos</code>   </td><td class="markdownTableBodyNone">Add Positional   </td><td class="markdownTableBodyNone">New positional parameter added   </td><td class="markdownTableBodyNone">✅ Full    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><code>addKey</code>   </td><td class="markdownTableBodyNone">Add Keyword   </td><td class="markdownTableBodyNone">New keyword parameter added   </td><td class="markdownTableBodyNone">✅ Full    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>key2pos</code>   </td><td class="markdownTableBodyNone">Keyword to Positional   </td><td class="markdownTableBodyNone">Keyword changed to positional   </td><td class="markdownTableBodyNone">✅ Full    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><code>value</code>   </td><td class="markdownTableBodyNone">Default Value Change   </td><td class="markdownTableBodyNone">Parameter default value changed   </td><td class="markdownTableBodyNone">❌ Not implemented   </td></tr>
-</table>
-<p><b>Total: 10 parameter change types</b></p>
-<blockquote class="doxtable">
-<p>⚠️ <b>Note</b>: <code>typeChange</code> only checks if the old type is identical to or a subset of the new type for complex annotations (Union/Optional/|). </p>
-</blockquote>
-<h2>Evaluation</h2>
-<ul>
-<li><a href="https://github.com/PCART-tools/PCBench">PCBench</a> - Benchmark for Python API Parameter Compatibility Issues</li>
-<li><a href="https://github.com/PCART-tools/PCART-evaluation">PCART Evaluation Results</a></li>
-</ul>
-<h2>Project Structure</h2>
-<ul>
-<li><code><a class="el" href="LibApi_8py.html">API/LibApi.py</a></code> - Library API handling</li>
-<li><code><a class="el" href="changeAnalyze_8py.html">Change/changeAnalyze.py</a></code> - API compatibility analysis (<code>isCompatible</code>, <code>addValueForAPI</code>)</li>
-<li><code>Configure/</code> - Configuration files</li>
-<li><code>Example/</code> - Example projects for testing PCART</li>
-<li><code>Extract/</code> - API extraction (<code><a class="el" href="getCall_8py.html">getCall.py</a></code>, <code><a class="el" href="getDef_8py.html">getDef.py</a></code>, <code><a class="el" href="extractCall_8py.html">extractCall.py</a></code>, <code><a class="el" href="extractDef_8py.html">extractDef.py</a></code>)</li>
-<li><code>LibAPIExtraction/</code> - Pre-extracted library API definitions</li>
-<li><code><a class="el" href="loadData_8py.html">Load/loadData.py</a></code> - Data loading</li>
-<li><code>Map/</code> - API mapping (<code><a class="el" href="map_8py.html">map.py</a></code>, <code><a class="el" href="fuzzyMatch_8py.html">fuzzyMatch.py</a></code>)</li>
-<li><code><a class="el" href="getPath_8py.html">Path/getPath.py</a></code> - Path handling</li>
-<li><code><a class="el" href="preprocess_8py.html">Preprocess/preprocess.py</a></code> - Code preprocessing</li>
-<li><code><a class="el" href="repair_8py.html">Repair/repair.py</a></code> - Compatibility issue repair and validation</li>
-<li><code>Report/</code> - Repair reports</li>
-<li><code>Script/</code> - Runtime helper scripts (<code>addValueForAPI.py</code>, <code>codeUtils.py</code>, <code>dynamicMatch.py</code>, <code>recordValue.py</code>, <code>verifySingle.py</code>)</li>
-<li><code><a class="el" href="tool_8py.html">Tool/tool.py</a></code> - Utility functions</li>
-<li><code><a class="el" href="callsite_8py.html">Tool/callsite.py</a></code> - Structured callsite identity (<code>CallsiteIdentity</code>, <code>CallsiteRecord</code>)</li>
-<li><code><a class="el" href="workspace_8py.html">Tool/workspace.py</a></code> - Isolated run workspace management (<code>RunWorkspace</code>)</li>
-<li><code><a class="el" href="main_8py.html" title="PCART&#39;s main function entry">main.py</a></code> - Entry point</li>
-<li><code><a class="el" href="extractLibAPI_8py.html" title="Extract library Python APIs 提取库的Python API定义">extractLibAPI.py</a></code> - Library API extraction script</li>
-</ul>
-<h2>Documentation</h2>
-<ul>
-<li><a href="https://github.com/PCART-tools/PCART/wiki">PCART Wiki</a> - Tutorials, troubleshooting, and advanced usage</li>
-<li><a href="https://github.com/PCART-tools/PCART/wiki/How-It-Works">How It Works</a> - Pipeline, pkl lifecycle, matching strategy</li>
-<li><a href="https://github.com/PCART-tools/PCART/wiki/Configuration-Guide">Configuration Guide</a> - Complete configuration reference (including runCommand formats)</li>
-<li><a href="https://github.com/PCART-tools/PCART/wiki/Examples">Examples</a> - Example projects and configuration files</li>
-<li><a href="https://github.com/PCART-tools/PCART/wiki/Troubleshooting">Troubleshooting</a> - Common setup and runtime issues</li>
-<li><a href="https://pcart-tools.github.io/PCART-doxygen/html">Doxygen API Docs</a> - Generated code documentation</li>
-</ul>
+</div><!-- fragment --><p>PCART uses one tool environment and two configured project environments: <code>currentEnv</code> and <code>targetEnv</code>.</p>
+<p>See the <a href="https://github.com/PCART-tools/PCART/wiki/Quick-Start">Quick Start</a> and <a href="https://github.com/PCART-tools/PCART/wiki/Configuration-Guide">Configuration Guide</a> for setup details.</p>
 <h2>Citation</h2>
 <p>If PCART supports your research or development work, please cite the following publication:</p>
 <div class="fragment"><div class="line">@article{PCART_TSE2025,</div>
