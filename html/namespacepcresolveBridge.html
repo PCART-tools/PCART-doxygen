@@ -79,7 +79,7 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Bridge PCResolve analysis results into PCART CallsiteRecord format. </p>
-<p>Converts PCResolve's cross-file ProjectAnalysis output into PCART's CallsiteRecord dictionaries, matching the return format of Extract/getCall.getCallFunction(). Supports libName filtering, caching by (projPath, libName), and graceful degradation when PCResolve is not installed. 将PCResolve的跨文件ProjectAnalysis结果转换为PCART的CallsiteRecord字典， 匹配Extract/getCall.<a class="el" href="namespacegetCall.html#a6671b2b1a28dcf2b92aaf39b9696fae3" title="Extract all API calls from a given .py file 每次传进来一个.py文件，抽取所有的调用API.">getCallFunction()</a>的返回格式。支持libName过滤、 按(projPath, libName)缓存，以及PCResolve未安装时的静默降级。 </p>
+<p>Converts PCResolve's cross-file ProjectAnalysis output into PCART's CallsiteRecord dictionaries, matching the return format of Extract/getCall.getCallFunction(). Supports libName filtering, two-layer caching (raw analysis + per-lib lookup), and graceful degradation when PCResolve is not installed. 将PCResolve的跨文件ProjectAnalysis结果转换为PCART的CallsiteRecord字典， 匹配Extract/getCall.<a class="el" href="namespacegetCall.html#a6671b2b1a28dcf2b92aaf39b9696fae3" title="Extract all API calls from a given .py file 每次传进来一个.py文件，抽取所有的调用API.">getCallFunction()</a>的返回格式。支持libName过滤、 双层缓存（原始分析+按库查找），以及PCResolve未安装时的静默降级。 </p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a512bbb00e40320ecbcbf53a312f05f09"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a512bbb00e40320ecbcbf53a312f05f09">&#9670;&nbsp;</a></span>buildCallsiteLookup()</h2>
@@ -120,7 +120,7 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="pcresolveBridge_8py_source.html#l00040">40</a> of file <a class="el" href="pcresolveBridge_8py_source.html">pcresolveBridge.py</a>.</p>
 <div class="fragment"><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">def </span><a class="code" href="namespacepcresolveBridge.html#a512bbb00e40320ecbcbf53a312f05f09">buildCallsiteLookup</a>(projPath, libName):</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">global</span> _lookupCache</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">global</span> _analysisCache, _lookupCache</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    cacheKey = (projPath, libName)</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">if</span> cacheKey <span class="keywordflow">in</span> _lookupCache:</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">return</span> _lookupCache[cacheKey]</div>
@@ -129,36 +129,56 @@ Functions</h2></td></tr>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        _lookupCache[cacheKey] = {}</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">return</span> _lookupCache[cacheKey]</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        result = _pcresolveAnalyze(projPath)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">except</span> Exception:</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        _lookupCache[cacheKey] = {}</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">return</span> _lookupCache[cacheKey]</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    lookup = {}</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">for</span> call <span class="keywordflow">in</span> result.all_api_calls:</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">if</span> <span class="keywordflow">not</span> _matchesLibname(call, libName):</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        record = _convertApiCall(call, projPath)</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        filePath = call.file_path</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">if</span> filePath <span class="keywordflow">not</span> <span class="keywordflow">in</span> lookup:</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            lookup[filePath] = {}</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        lookup[filePath][record[<span class="stringliteral">&#39;id&#39;</span>]] = record</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment"># Two-layer cache: raw analysis (projPath) → filtered lookup (projPath, libName)</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment"># 双层缓存：原始分析（projPath）→ 过滤查找（projPath, libName）</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">if</span> projPath <span class="keywordflow">in</span> _analysisCache:</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        result = _analysisCache[projPath]</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            result = _pcresolveAnalyze(projPath, scope_model=<span class="stringliteral">&quot;v2&quot;</span>)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">except</span> Exception:</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            _analysisCache[projPath] = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            _lookupCache[cacheKey] = {}</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keywordflow">return</span> _lookupCache[cacheKey]</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        _analysisCache[projPath] = result</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">if</span> result <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        _lookupCache[cacheKey] = {}</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">return</span> _lookupCache[cacheKey]</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="comment"># Sort by source position within each file, matching getCallFunction ordering</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="comment"># 在每个文件内按源码位置排序，与getCallFunction排序一致</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">for</span> filePath <span class="keywordflow">in</span> lookup:</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        lookup[filePath] = dict(sorted(</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            lookup[filePath].items(),</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            key=<span class="keyword">lambda</span> kv: (kv[1][<span class="stringliteral">&#39;lineno&#39;</span>], kv[1][<span class="stringliteral">&#39;col_offset&#39;</span>]),</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        ))</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    _lookupCache[cacheKey] = lookup</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">return</span> lookup</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="comment"># Seed empty entries for every file PCResolve analyzed, so that</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="comment"># &quot;0 target calls&quot; is distinguishable from &quot;not analyzed&quot; in</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="comment"># getCallFunction — avoids falling back to the old extractor for</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="comment"># files that PCResolve already determined have no target library calls.</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="comment"># 为所有已分析的文件初始化空记录，&quot;0调用&quot;与&quot;未分析&quot;可由getCallFunction</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="comment"># 区分——避免对PCResolve已判无目标库调用的文件回退到旧提取器。</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    lookup = {}</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">for</span> fileResult <span class="keywordflow">in</span> result.files:</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        lookup[fileResult.file_path] = {}</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">for</span> call <span class="keywordflow">in</span> result.all_api_calls:</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">if</span> <span class="keywordflow">not</span> _matchesLibname(call, libName):</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        record = _convertApiCall(call, projPath)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        key = call.file_path</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">if</span> key <span class="keywordflow">not</span> <span class="keywordflow">in</span> lookup:</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            lookup[key] = {}</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        lookup[key][record[<span class="stringliteral">&#39;id&#39;</span>]] = record</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment"># Sort by source position within each file, matching getCallFunction ordering</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="comment"># 在每个文件内按源码位置排序，与getCallFunction排序一致</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">for</span> filePath <span class="keywordflow">in</span> lookup:</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        lookup[filePath] = dict(sorted(</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            lookup[filePath].items(),</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            key=<span class="keyword">lambda</span> kv: (kv[1][<span class="stringliteral">&#39;lineno&#39;</span>], kv[1][<span class="stringliteral">&#39;col_offset&#39;</span>]),</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        ))</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    _lookupCache[cacheKey] = lookup</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">return</span> lookup</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
 <div class="ttc" id="anamespacepcresolveBridge_html_a512bbb00e40320ecbcbf53a312f05f09"><div class="ttname"><a href="namespacepcresolveBridge.html#a512bbb00e40320ecbcbf53a312f05f09">pcresolveBridge.buildCallsiteLookup</a></div><div class="ttdeci">def buildCallsiteLookup(projPath, libName)</div><div class="ttdoc">Build a CallsiteRecord lookup table from PCResolve analysis 从PCResolve分析结果构建CallsiteRecord查找表</div><div class="ttdef"><b>Definition:</b> <a href="pcresolveBridge_8py_source.html#l00040">pcresolveBridge.py:40</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
