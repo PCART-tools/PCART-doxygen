@@ -70,16 +70,16 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a4f0d4271912d3b1669689d06cec9acc3"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceextractLibAPI.html#a4f0d4271912d3b1669689d06cec9acc3">getLibAPI</a> (version, sourceCodePath)</td></tr>
-<tr class="memdesc:a4f0d4271912d3b1669689d06cec9acc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract API definitions for a given library version 抽取给定库版本的API定义  <a href="namespaceextractLibAPI.html#a4f0d4271912d3b1669689d06cec9acc3">More...</a><br /></td></tr>
-<tr class="separator:a4f0d4271912d3b1669689d06cec9acc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac282d6cbb5ddd38eb5a05509552311f0"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceextractLibAPI.html#ac282d6cbb5ddd38eb5a05509552311f0">getLibAPI</a> (version, libName, sourceCodePath)</td></tr>
+<tr class="memdesc:ac282d6cbb5ddd38eb5a05509552311f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract API definitions for a given library version 抽取给定库版本的API定义  <a href="namespaceextractLibAPI.html#ac282d6cbb5ddd38eb5a05509552311f0">More...</a><br /></td></tr>
+<tr class="separator:ac282d6cbb5ddd38eb5a05509552311f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73fb40d31f2dd874c84d240a454c787b"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceextractLibAPI.html#a73fb40d31f2dd874c84d240a454c787b">main</a> ()</td></tr>
 <tr class="memdesc:a73fb40d31f2dd874c84d240a454c787b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main function of extracting lib API definitions 抽取库API定义主函数  <a href="namespaceextractLibAPI.html#a73fb40d31f2dd874c84d240a454c787b">More...</a><br /></td></tr>
 <tr class="separator:a73fb40d31f2dd874c84d240a454c787b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a4f0d4271912d3b1669689d06cec9acc3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f0d4271912d3b1669689d06cec9acc3">&#9670;&nbsp;</a></span>getLibAPI()</h2>
+<a id="ac282d6cbb5ddd38eb5a05509552311f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac282d6cbb5ddd38eb5a05509552311f0">&#9670;&nbsp;</a></span>getLibAPI()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -89,6 +89,12 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname"><em>version</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>libName</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -108,39 +114,41 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">version</td><td>A specific library version </td></tr>
+    <tr><td class="paramname">libName</td><td>The configured public library name </td></tr>
     <tr><td class="paramname">sourceCodePath</td><td>The source code path of the library </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="extractLibAPI_8py_source.html#l00024">24</a> of file <a class="el" href="extractLibAPI_8py_source.html">extractLibAPI.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceextractLibAPI.html#a4f0d4271912d3b1669689d06cec9acc3">getLibAPI</a>(version, sourceCodePath):</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    libName=os.path.basename(sourceCodePath)</div>
+<p class="definition">Definition at line <a class="el" href="extractLibAPI_8py_source.html#l00025">25</a> of file <a class="el" href="extractLibAPI_8py_source.html">extractLibAPI.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceextractLibAPI.html#ac282d6cbb5ddd38eb5a05509552311f0">getLibAPI</a>(version, libName, sourceCodePath):</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="namespacegetDef.html#ad6f70c11131f697c5bce20d6ef27608d">getDefFunction</a>((libName, version, sourceCodePath))</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="ttc" id="anamespaceextractLibAPI_html_a4f0d4271912d3b1669689d06cec9acc3"><div class="ttname"><a href="namespaceextractLibAPI.html#a4f0d4271912d3b1669689d06cec9acc3">extractLibAPI.getLibAPI</a></div><div class="ttdeci">def getLibAPI(version, sourceCodePath)</div><div class="ttdoc">Extract API definitions for a given library version 抽取给定库版本的API定义</div><div class="ttdef"><b>Definition:</b> <a href="extractLibAPI_8py_source.html#l00024">extractLibAPI.py:24</a></div></div>
-<div class="ttc" id="anamespacegetDef_html_ad6f70c11131f697c5bce20d6ef27608d"><div class="ttname"><a href="namespacegetDef.html#ad6f70c11131f697c5bce20d6ef27608d">getDef.getDefFunction</a></div><div class="ttdeci">def getDefFunction(args)</div><div class="ttdoc">Extract all lib API definitions from a specified version 抽取给定版本的库API定义</div><div class="ttdef"><b>Definition:</b> <a href="getDef_8py_source.html#l00277">getDef.py:277</a></div></div>
+<div class="ttc" id="anamespaceextractLibAPI_html_ac282d6cbb5ddd38eb5a05509552311f0"><div class="ttname"><a href="namespaceextractLibAPI.html#ac282d6cbb5ddd38eb5a05509552311f0">extractLibAPI.getLibAPI</a></div><div class="ttdeci">def getLibAPI(version, libName, sourceCodePath)</div><div class="ttdoc">Extract API definitions for a given library version 抽取给定库版本的API定义</div><div class="ttdef"><b>Definition:</b> <a href="extractLibAPI_8py_source.html#l00025">extractLibAPI.py:25</a></div></div>
+<div class="ttc" id="anamespacegetDef_html_ad6f70c11131f697c5bce20d6ef27608d"><div class="ttname"><a href="namespacegetDef.html#ad6f70c11131f697c5bce20d6ef27608d">getDef.getDefFunction</a></div><div class="ttdeci">def getDefFunction(args)</div><div class="ttdoc">Extract all lib API definitions from a specified version 抽取给定版本的库API定义</div><div class="ttdef"><b>Definition:</b> <a href="getDef_8py_source.html#l00319">getDef.py:319</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="namespaceextractLibAPI_a4f0d4271912d3b1669689d06cec9acc3_cgraph.png" border="0" usemap="#anamespaceextractLibAPI_a4f0d4271912d3b1669689d06cec9acc3_cgraph" alt=""/></div>
-<map name="anamespaceextractLibAPI_a4f0d4271912d3b1669689d06cec9acc3_cgraph" id="anamespaceextractLibAPI_a4f0d4271912d3b1669689d06cec9acc3_cgraph">
-<area shape="rect" title="Extract API definitions for a given library version 抽取给定库版本的API定义" alt="" coords="5,31,88,57"/>
-<area shape="rect" href="namespacegetDef.html#ad6f70c11131f697c5bce20d6ef27608d" title="Extract all lib API definitions from a specified version 抽取给定版本的库API定义" alt="" coords="136,31,304,57"/>
-<area shape="rect" href="namespacegetDef.html#a05246d5cb347cca492448cfc1f45be77" title="Extract all assign node from a .py file&#39;s AST 通过AST获取.py文件的Assign语句" alt="" coords="352,5,485,32"/>
-<area shape="rect" href="namespacegetDef.html#ae4b9d54a594ab6bbeed1c617a15cbb4a" title="Extract all lib API definitions from a source file 抽取库源码API定义任务" alt="" coords="370,56,467,83"/>
-<area shape="rect" href="namespacegetDef.html#a3f3b88c223a5bfa2254c656418dc9910" title="Extract class method definitions from a give class." alt="" coords="533,31,659,57"/>
-<area shape="rect" href="namespacegetDef.html#a2b7a86e5e82c89da0c05d0a2659bd1c1" title="Shorten the API path based on init.py and import alias 通过解析__init__.py和import别名,把源码中的部分API路径缩短" alt="" coords="707,56,853,83"/>
-<area shape="rect" href="namespacetool.html#a163a1af85c967f70b1495290735321aa" title="Get AST for code 将代码转化为Ast树" alt="" coords="901,56,995,83"/>
+<div class="center"><img src="namespaceextractLibAPI_ac282d6cbb5ddd38eb5a05509552311f0_cgraph.png" border="0" usemap="#anamespaceextractLibAPI_ac282d6cbb5ddd38eb5a05509552311f0_cgraph" alt=""/></div>
+<map name="anamespaceextractLibAPI_ac282d6cbb5ddd38eb5a05509552311f0_cgraph" id="anamespaceextractLibAPI_ac282d6cbb5ddd38eb5a05509552311f0_cgraph">
+<area shape="rect" title="Extract API definitions for a given library version 抽取给定库版本的API定义" alt="" coords="5,56,88,83"/>
+<area shape="rect" href="namespacegetDef.html#ad6f70c11131f697c5bce20d6ef27608d" title="Extract all lib API definitions from a specified version 抽取给定版本的库API定义" alt="" coords="136,56,304,83"/>
+<area shape="rect" href="namespacegetDef.html#a05246d5cb347cca492448cfc1f45be77" title="Extract all assign node from a .py file&#39;s AST 通过AST获取.py文件的Assign语句" alt="" coords="361,5,494,32"/>
+<area shape="rect" href="namespacegetDef.html#ab8ced6f033f0b6ecc42c4d2710161ac3" title="Extract all lib API definitions from a source file 抽取库源码API定义任务" alt="" coords="379,56,476,83"/>
+<area shape="rect" href="namespacegetDef.html#a1910dc3d1a27e1e75655c6089e0fc93f" title="Write one lib API line and its public alias if needed 写出一行库API，并按需写出公开路径别名" alt="" coords="352,107,503,133"/>
+<area shape="rect" href="namespacegetDef.html#a6cfb746b743347ceb9f985908789e0c8" title="Extract class method definitions from a give class." alt="" coords="582,5,707,32"/>
+<area shape="rect" href="namespacegetDef.html#a9635f8db70c56416fee07e9d28c6bbbe" title="Shorten the API path based on init.py and import alias 通过解析__init__.py和import别名,把源码中的部分API路径缩短" alt="" coords="787,31,933,57"/>
+<area shape="rect" href="namespacetool.html#a163a1af85c967f70b1495290735321aa" title="Get AST for code 将代码转化为Ast树" alt="" coords="981,31,1075,57"/>
+<area shape="rect" href="namespacegetDef.html#aee955cbb7b6b4e386f8a5a948b865461" title="Return a public alias line for source&#45;root API lines 为源码根路径API行生成公开路径别名" alt="" coords="551,107,739,133"/>
 </map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="namespaceextractLibAPI_a4f0d4271912d3b1669689d06cec9acc3_icgraph.png" border="0" usemap="#anamespaceextractLibAPI_a4f0d4271912d3b1669689d06cec9acc3_icgraph" alt=""/></div>
-<map name="anamespaceextractLibAPI_a4f0d4271912d3b1669689d06cec9acc3_icgraph" id="anamespaceextractLibAPI_a4f0d4271912d3b1669689d06cec9acc3_icgraph">
+<div class="center"><img src="namespaceextractLibAPI_ac282d6cbb5ddd38eb5a05509552311f0_icgraph.png" border="0" usemap="#anamespaceextractLibAPI_ac282d6cbb5ddd38eb5a05509552311f0_icgraph" alt=""/></div>
+<map name="anamespaceextractLibAPI_ac282d6cbb5ddd38eb5a05509552311f0_icgraph" id="anamespaceextractLibAPI_ac282d6cbb5ddd38eb5a05509552311f0_icgraph">
 <area shape="rect" title="Extract API definitions for a given library version 抽取给定库版本的API定义" alt="" coords="108,5,191,32"/>
 <area shape="rect" href="namespaceextractLibAPI.html#a73fb40d31f2dd874c84d240a454c787b" title="Main function of extracting lib API definitions 抽取库API定义主函数" alt="" coords="5,5,60,32"/>
 </map>
@@ -174,33 +182,38 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    config=sys.argv[2]</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">#加载配置</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    currentVersion, targetVersion, currentSourceCodePath, targetSourceCodePath = <a class="code" href="namespacetool.html#a2321662f4efa237a44d89603ddb2ba1d">getSourceCodePath</a>(config)</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;   </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">#抽取起始版本API定义</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    print(currentVersion, currentSourceCodePath)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="namespaceextractLibAPI.html#a4f0d4271912d3b1669689d06cec9acc3">getLibAPI</a>(currentVersion, currentSourceCodePath)</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">#抽取目标版本API定义 </span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    print(targetVersion, targetSourceCodePath)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="namespaceextractLibAPI.html#a4f0d4271912d3b1669689d06cec9acc3">getLibAPI</a>(targetVersion, targetSourceCodePath) </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">with</span> open(f<span class="stringliteral">&quot;Configure/{config}&quot;</span>,<span class="stringliteral">&#39;r&#39;</span>,encoding=<span class="stringliteral">&#39;UTF-8&#39;</span>) <span class="keyword">as</span> fr:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        libName=json.load(fr)[<span class="stringliteral">&#39;libName&#39;</span>]</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    currentVersion, targetVersion, currentSourceCodePath, targetSourceCodePath = <a class="code" href="namespacetool.html#a2321662f4efa237a44d89603ddb2ba1d">getSourceCodePath</a>(config)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;   </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">#抽取起始版本API定义</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    print(currentVersion, currentSourceCodePath)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="namespaceextractLibAPI.html#ac282d6cbb5ddd38eb5a05509552311f0">getLibAPI</a>(currentVersion, libName, currentSourceCodePath)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">#抽取目标版本API定义 </span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    print(targetVersion, targetSourceCodePath)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="namespaceextractLibAPI.html#ac282d6cbb5ddd38eb5a05509552311f0">getLibAPI</a>(targetVersion, libName, targetSourceCodePath)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
 <div class="ttc" id="anamespaceextractLibAPI_html_a73fb40d31f2dd874c84d240a454c787b"><div class="ttname"><a href="namespaceextractLibAPI.html#a73fb40d31f2dd874c84d240a454c787b">extractLibAPI.main</a></div><div class="ttdeci">def main()</div><div class="ttdoc">Main function of extracting lib API definitions 抽取库API定义主函数</div><div class="ttdef"><b>Definition:</b> <a href="extractLibAPI_8py_source.html#l00032">extractLibAPI.py:32</a></div></div>
-<div class="ttc" id="anamespacetool_html_a2321662f4efa237a44d89603ddb2ba1d"><div class="ttname"><a href="namespacetool.html#a2321662f4efa237a44d89603ddb2ba1d">tool.getSourceCodePath</a></div><div class="ttdeci">def getSourceCodePath(configPath)</div><div class="ttdoc">Get source code path of the lib 获取库源码路径</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00866">tool.py:866</a></div></div>
+<div class="ttc" id="anamespacetool_html_a2321662f4efa237a44d89603ddb2ba1d"><div class="ttname"><a href="namespacetool.html#a2321662f4efa237a44d89603ddb2ba1d">tool.getSourceCodePath</a></div><div class="ttdeci">def getSourceCodePath(configPath)</div><div class="ttdoc">Get source code path of the lib 获取库源码路径</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00886">tool.py:886</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespaceextractLibAPI_a73fb40d31f2dd874c84d240a454c787b_cgraph.png" border="0" usemap="#anamespaceextractLibAPI_a73fb40d31f2dd874c84d240a454c787b_cgraph" alt=""/></div>
 <map name="anamespaceextractLibAPI_a73fb40d31f2dd874c84d240a454c787b_cgraph" id="anamespaceextractLibAPI_a73fb40d31f2dd874c84d240a454c787b_cgraph">
-<area shape="rect" title="Main function of extracting lib API definitions 抽取库API定义主函数" alt="" coords="5,56,60,83"/>
-<area shape="rect" href="namespaceextractLibAPI.html#a4f0d4271912d3b1669689d06cec9acc3" title="Extract API definitions for a given library version 抽取给定库版本的API定义" alt="" coords="155,31,238,57"/>
-<area shape="rect" href="namespacetool.html#a2321662f4efa237a44d89603ddb2ba1d" title="Get source code path of the lib 获取库源码路径" alt="" coords="108,81,285,108"/>
-<area shape="rect" href="namespacegetDef.html#ad6f70c11131f697c5bce20d6ef27608d" title="Extract all lib API definitions from a specified version 抽取给定版本的库API定义" alt="" coords="333,31,501,57"/>
-<area shape="rect" href="namespacegetDef.html#a05246d5cb347cca492448cfc1f45be77" title="Extract all assign node from a .py file&#39;s AST 通过AST获取.py文件的Assign语句" alt="" coords="549,5,683,32"/>
-<area shape="rect" href="namespacegetDef.html#ae4b9d54a594ab6bbeed1c617a15cbb4a" title="Extract all lib API definitions from a source file 抽取库源码API定义任务" alt="" coords="567,56,665,83"/>
-<area shape="rect" href="namespacegetDef.html#a3f3b88c223a5bfa2254c656418dc9910" title="Extract class method definitions from a give class." alt="" coords="731,31,856,57"/>
-<area shape="rect" href="namespacegetDef.html#a2b7a86e5e82c89da0c05d0a2659bd1c1" title="Shorten the API path based on init.py and import alias 通过解析__init__.py和import别名,把源码中的部分API路径缩短" alt="" coords="904,56,1051,83"/>
-<area shape="rect" href="namespacetool.html#a163a1af85c967f70b1495290735321aa" title="Get AST for code 将代码转化为Ast树" alt="" coords="1099,56,1192,83"/>
-<area shape="rect" href="namespacetool.html#af97e9e63a1ae8577bbe8865743d57b21" title="Get Python interpreter path 获取Python解释器路径" alt="" coords="348,81,487,108"/>
+<area shape="rect" title="Main function of extracting lib API definitions 抽取库API定义主函数" alt="" coords="5,95,60,121"/>
+<area shape="rect" href="namespaceextractLibAPI.html#ac282d6cbb5ddd38eb5a05509552311f0" title="Extract API definitions for a given library version 抽取给定库版本的API定义" alt="" coords="155,63,238,89"/>
+<area shape="rect" href="namespacetool.html#a2321662f4efa237a44d89603ddb2ba1d" title="Get source code path of the lib 获取库源码路径" alt="" coords="108,120,285,147"/>
+<area shape="rect" href="namespacegetDef.html#ad6f70c11131f697c5bce20d6ef27608d" title="Extract all lib API definitions from a specified version 抽取给定版本的库API定义" alt="" coords="361,60,529,87"/>
+<area shape="rect" href="namespacegetDef.html#a05246d5cb347cca492448cfc1f45be77" title="Extract all assign node from a .py file&#39;s AST 通过AST获取.py文件的Assign语句" alt="" coords="613,5,746,32"/>
+<area shape="rect" href="namespacegetDef.html#ab8ced6f033f0b6ecc42c4d2710161ac3" title="Extract all lib API definitions from a source file 抽取库源码API定义任务" alt="" coords="631,56,728,83"/>
+<area shape="rect" href="namespacegetDef.html#a1910dc3d1a27e1e75655c6089e0fc93f" title="Write one lib API line and its public alias if needed 写出一行库API，并按需写出公开路径别名" alt="" coords="604,107,755,133"/>
+<area shape="rect" href="namespacegetDef.html#a6cfb746b743347ceb9f985908789e0c8" title="Extract class method definitions from a give class." alt="" coords="834,5,959,32"/>
+<area shape="rect" href="namespacegetDef.html#a9635f8db70c56416fee07e9d28c6bbbe" title="Shorten the API path based on init.py and import alias 通过解析__init__.py和import别名,把源码中的部分API路径缩短" alt="" coords="1039,31,1185,57"/>
+<area shape="rect" href="namespacetool.html#a163a1af85c967f70b1495290735321aa" title="Get AST for code 将代码转化为Ast树" alt="" coords="1233,31,1327,57"/>
+<area shape="rect" href="namespacegetDef.html#aee955cbb7b6b4e386f8a5a948b865461" title="Return a public alias line for source&#45;root API lines 为源码根路径API行生成公开路径别名" alt="" coords="803,107,991,133"/>
+<area shape="rect" href="namespacetool.html#a2d4cc637e96018fc37642a78f93f7620" title="Resolve the source package directory for a library in a virtual environment 从虚拟环境中解析库源码目录" alt="" coords="333,132,556,159"/>
+<area shape="rect" href="namespacetool.html#af97e9e63a1ae8577bbe8865743d57b21" title="Get Python interpreter path 获取Python解释器路径" alt="" coords="610,157,749,184"/>
 </map>
 </div>
 

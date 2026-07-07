@@ -1,0 +1,4 @@
+<map id="resolveLibSourceCodePath" name="resolveLibSourceCodePath">
+<area shape="rect" id="node1" title="Resolve the source package directory for a library in a virtual environment 从虚拟环境中解析库源码目录" alt="" coords="5,5,200,32"/>
+<area shape="rect" id="node2" href="$namespacetool.html#af97e9e63a1ae8577bbe8865743d57b21" title="Get Python interpreter path 获取Python解释器路径" alt="" coords="248,5,359,32"/>
+</map>

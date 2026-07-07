@@ -1,0 +1,4 @@
+<map id="writeApiLine" name="writeApiLine">
+<area shape="rect" id="node1" title="Write one lib API line and its public alias if needed 写出一行库API，并按需写出公开路径别名" alt="" coords="5,5,108,32"/>
+<area shape="rect" id="node2" href="$namespacegetDef.html#aee955cbb7b6b4e386f8a5a948b865461" title="Return a public alias line for source&#45;root API lines 为源码根路径API行生成公开路径别名" alt="" coords="156,5,297,32"/>
+</map>

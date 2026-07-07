@@ -1,0 +1,11 @@
+<map id="getLibAPI" name="getLibAPI">
+<area shape="rect" id="node1" title="Extract API definitions for a given library version 抽取给定库版本的API定义" alt="" coords="5,56,88,83"/>
+<area shape="rect" id="node2" href="$namespacegetDef.html#ad6f70c11131f697c5bce20d6ef27608d" title="Extract all lib API definitions from a specified version 抽取给定版本的库API定义" alt="" coords="136,56,304,83"/>
+<area shape="rect" id="node3" href="$namespacegetDef.html#a05246d5cb347cca492448cfc1f45be77" title="Extract all assign node from a .py file&#39;s AST 通过AST获取.py文件的Assign语句" alt="" coords="361,5,494,32"/>
+<area shape="rect" id="node4" href="$namespacegetDef.html#ab8ced6f033f0b6ecc42c4d2710161ac3" title="Extract all lib API definitions from a source file 抽取库源码API定义任务" alt="" coords="379,56,476,83"/>
+<area shape="rect" id="node8" href="$namespacegetDef.html#a1910dc3d1a27e1e75655c6089e0fc93f" title="Write one lib API line and its public alias if needed 写出一行库API，并按需写出公开路径别名" alt="" coords="352,107,503,133"/>
+<area shape="rect" id="node5" href="$namespacegetDef.html#a6cfb746b743347ceb9f985908789e0c8" title="Extract class method definitions from a give class." alt="" coords="582,5,707,32"/>
+<area shape="rect" id="node6" href="$namespacegetDef.html#a9635f8db70c56416fee07e9d28c6bbbe" title="Shorten the API path based on init.py and import alias 通过解析__init__.py和import别名,把源码中的部分API路径缩短" alt="" coords="787,31,933,57"/>
+<area shape="rect" id="node7" href="$namespacetool.html#a163a1af85c967f70b1495290735321aa" title="Get AST for code 将代码转化为Ast树" alt="" coords="981,31,1075,57"/>
+<area shape="rect" id="node9" href="$namespacegetDef.html#aee955cbb7b6b4e386f8a5a948b865461" title="Return a public alias line for source&#45;root API lines 为源码根路径API行生成公开路径别名" alt="" coords="551,107,739,133"/>
+</map>

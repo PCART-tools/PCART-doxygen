@@ -1,0 +1,8 @@
+<map id="shortenPath" name="shortenPath">
+<area shape="rect" id="node1" title="Shorten the API path based on init.py and import alias 通过解析__init__.py和import别名,把源码中的部分API路径缩短" alt="" coords="815,31,913,57"/>
+<area shape="rect" id="node2" href="$namespacegetDef.html#a6cfb746b743347ceb9f985908789e0c8" title="Extract class method definitions from a give class." alt="" coords="688,5,767,32"/>
+<area shape="rect" id="node3" href="$namespacegetDef.html#ab8ced6f033f0b6ecc42c4d2710161ac3" title="Extract all lib API definitions from a source file 抽取库源码API定义任务" alt="" coords="589,31,640,57"/>
+<area shape="rect" id="node4" href="$namespacegetDef.html#ad6f70c11131f697c5bce20d6ef27608d" title="Extract all lib API definitions from a specified version 抽取给定版本的库API定义" alt="" coords="420,31,541,57"/>
+<area shape="rect" id="node5" href="$namespaceextractLibAPI.html#ac282d6cbb5ddd38eb5a05509552311f0" title="Extract API definitions for a given library version 抽取给定库版本的API定义" alt="" coords="199,31,372,57"/>
+<area shape="rect" id="node6" href="$namespaceextractLibAPI.html#a73fb40d31f2dd874c84d240a454c787b" title="Main function of extracting lib API definitions 抽取库API定义主函数" alt="" coords="5,31,151,57"/>
+</map>

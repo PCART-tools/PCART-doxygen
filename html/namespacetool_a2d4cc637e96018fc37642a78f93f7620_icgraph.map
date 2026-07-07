@@ -1,0 +1,5 @@
+<map id="resolveLibSourceCodePath" name="resolveLibSourceCodePath">
+<area shape="rect" id="node1" title="Resolve the source package directory for a library in a virtual environment 从虚拟环境中解析库源码目录" alt="" coords="395,5,589,32"/>
+<area shape="rect" id="node2" href="$namespacetool.html#a2321662f4efa237a44d89603ddb2ba1d" title="Get source code path of the lib 获取库源码路径" alt="" coords="199,5,347,32"/>
+<area shape="rect" id="node3" href="$namespaceextractLibAPI.html#a73fb40d31f2dd874c84d240a454c787b" title="Main function of extracting lib API definitions 抽取库API定义主函数" alt="" coords="5,5,151,32"/>
+</map>

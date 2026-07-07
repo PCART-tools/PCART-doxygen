@@ -1,4 +1,5 @@
 <map id="getSourceCodePath" name="getSourceCodePath">
 <area shape="rect" id="node1" title="Get source code path of the lib 获取库源码路径" alt="" coords="5,5,153,32"/>
-<area shape="rect" id="node2" href="$namespacetool.html#af97e9e63a1ae8577bbe8865743d57b21" title="Get Python interpreter path 获取Python解释器路径" alt="" coords="201,5,312,32"/>
+<area shape="rect" id="node2" href="$namespacetool.html#a2d4cc637e96018fc37642a78f93f7620" title="Resolve the source package directory for a library in a virtual environment 从虚拟环境中解析库源码目录" alt="" coords="201,5,396,32"/>
+<area shape="rect" id="node3" href="$namespacetool.html#af97e9e63a1ae8577bbe8865743d57b21" title="Get Python interpreter path 获取Python解释器路径" alt="" coords="444,5,555,32"/>
 </map>

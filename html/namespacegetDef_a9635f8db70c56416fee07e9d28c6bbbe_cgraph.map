@@ -1,0 +1,4 @@
+<map id="shortenPath" name="shortenPath">
+<area shape="rect" id="node1" title="Shorten the API path based on init.py and import alias 通过解析__init__.py和import别名,把源码中的部分API路径缩短" alt="" coords="5,5,104,32"/>
+<area shape="rect" id="node2" href="$namespacetool.html#a163a1af85c967f70b1495290735321aa" title="Get AST for code 将代码转化为Ast树" alt="" coords="152,5,245,32"/>
+</map>
