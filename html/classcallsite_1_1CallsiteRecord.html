@@ -22,7 +22,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PCART
+   &#160;<span id="projectnumber">v1.4</span>
    </div>
+   <div id="projectbrief">Automated Repair of Python API Parameter Compatibility Issues</div>
   </td>
  </tr>
  </tbody>
@@ -111,27 +113,11 @@ Public Member Functions</h2></td></tr>
 <p>Convert callsite record to dictionary 将调用点记录转换为字典 </p><dl class="section return"><dt>Returns</dt><dd>dict representation of the callsite record </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="callsite_8py_source.html#l00123">123</a> of file <a class="el" href="callsite_8py_source.html">callsite.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keyword">def </span>toDict(self):</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordflow">return</span> {</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            <span class="stringliteral">&#39;id&#39;</span>: self.artifact_id,</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            <span class="stringliteral">&#39;artifact_hash&#39;</span>: self.identity.artifactHash(),</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            <span class="stringliteral">&#39;rel_path&#39;</span>: self.identity.rel_path,</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            <span class="stringliteral">&#39;lineno&#39;</span>: self.identity.lineno,</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            <span class="stringliteral">&#39;col_offset&#39;</span>: self.identity.col_offset,</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            <span class="stringliteral">&#39;end_lineno&#39;</span>: self.identity.end_lineno,</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            <span class="stringliteral">&#39;end_col_offset&#39;</span>: self.identity.end_col_offset,</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            <span class="stringliteral">&#39;call_text&#39;</span>: self.identity.call_text,</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            <span class="stringliteral">&#39;normalized_call&#39;</span>: self.identity.normalized_call,</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            <span class="stringliteral">&#39;format_api&#39;</span>: self.format_api,</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;            <span class="stringliteral">&#39;parameters&#39;</span>: self.parameters,</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        }</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/nuaa/Projects/PCART-doxygen/PCART/Tool/<a class="el" href="callsite_8py_source.html">callsite.py</a></li>
+<li><a class="el" href="callsite_8py_source.html">callsite.py</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

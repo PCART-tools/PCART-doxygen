@@ -1,4 +1,0 @@
-<map id="getLibAPI" name="getLibAPI">
-<area shape="rect" id="node1" title="Extract API definitions for a given library version 抽取给定库版本的API定义" alt="" coords="108,5,191,32"/>
-<area shape="rect" id="node2" href="$namespaceextractLibAPI.html#a73fb40d31f2dd874c84d240a454c787b" title="Main function of extracting lib API definitions 抽取库API定义主函数" alt="" coords="5,5,60,32"/>
-</map>

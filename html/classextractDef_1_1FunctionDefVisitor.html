@@ -22,7 +22,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PCART
+   &#160;<span id="projectnumber">v1.4</span>
    </div>
+   <div id="projectbrief">Automated Repair of Python API Parameter Compatibility Issues</div>
   </td>
  </tr>
  </tbody>
@@ -78,12 +80,14 @@ $(function() {
 <div class="dynheader">
 Inheritance diagram for FunctionDefVisitor:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classextractDef_1_1FunctionDefVisitor__inherit__graph.svg" width="154" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classextractDef_1_1FunctionDefVisitor__inherit__graph.svg" width="154" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for FunctionDefVisitor:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classextractDef_1_1FunctionDefVisitor__coll__graph.svg" width="154" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classextractDef_1_1FunctionDefVisitor__coll__graph.svg" width="154" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -123,10 +127,7 @@ Public Member Functions</h2></td></tr>
 <p>Initialize the function definition node container 初始化函数定义节点容器 </p>
 
 <p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00025">25</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">def </span>__init__(self):</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        self._defNodes=[]</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -150,10 +151,7 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>list of AST FunctionDef nodes </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00031">31</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">def </span>functionNodes(self):</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">return</span> self._defNodes</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="ab06eb583349e9f32f7ebc6957e3fd417"></a>
@@ -192,16 +190,11 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00038">38</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">def </span>visit_FunctionDef(self, node):</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        self._defNodes.append(node)</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/nuaa/Projects/PCART-doxygen/PCART/Extract/<a class="el" href="extractDef_8py_source.html">extractDef.py</a></li>
+<li><a class="el" href="extractDef_8py_source.html">extractDef.py</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

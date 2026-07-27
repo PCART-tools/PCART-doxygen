@@ -22,7 +22,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PCART
+   &#160;<span id="projectnumber">v1.4</span>
    </div>
+   <div id="projectbrief">Automated Repair of Python API Parameter Compatibility Issues</div>
   </td>
  </tr>
  </tbody>
@@ -138,21 +140,7 @@ Public Attributes</h2></td></tr>
 <p>Initialize the API fields 初始化API字段 </p>
 
 <p class="definition">Definition at line <a class="el" href="LibApi_8py_source.html#l00083">83</a> of file <a class="el" href="LibApi_8py_source.html">LibApi.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">def </span>__init__(self):</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        self.full_item=<span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        self.name=<span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        self.parameters=[]</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        self.parameters_string=<span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        self.rType=<span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        self.version=<span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -192,10 +180,7 @@ Public Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>True if both API objects have the same parameter string </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="LibApi_8py_source.html#l00115">115</a> of file <a class="el" href="LibApi_8py_source.html">LibApi.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keyword">def </span>__eq__(self,other):</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordflow">return</span> self.parameters_string==other.parameters_string</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="a3195ea87162f33a34d0079931a8194ca"></a>
@@ -218,10 +203,7 @@ Public Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Hash value of the API parameter string </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="LibApi_8py_source.html#l00106">106</a> of file <a class="el" href="LibApi_8py_source.html">LibApi.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keyword">def </span>__hash__(self):</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordflow">return</span> hash(self.parameters_string)</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="a9a47563093dfc5ba12274b66e368920c"></a>
@@ -244,12 +226,7 @@ Public Attributes</h2></td></tr>
 <p>When printing an instance, prints the full API string instead of the default object representation. 当打印一个类的时候，不会打印object，而是打印指定的字符串，即self.full_item </p><dl class="section return"><dt>Returns</dt><dd>Full API string </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="LibApi_8py_source.html#l00124">124</a> of file <a class="el" href="LibApi_8py_source.html">LibApi.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keyword">def </span>__repr__(self):</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="keywordflow">return</span> self.full_item</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -362,7 +339,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/nuaa/Projects/PCART-doxygen/PCART/API/<a class="el" href="LibApi_8py_source.html">LibApi.py</a></li>
+<li><a class="el" href="LibApi_8py_source.html">LibApi.py</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

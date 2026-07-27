@@ -22,7 +22,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PCART
+   &#160;<span id="projectnumber">v1.4</span>
    </div>
+   <div id="projectbrief">Automated Repair of Python API Parameter Compatibility Issues</div>
   </td>
  </tr>
  </tbody>
@@ -138,27 +140,7 @@ Public Attributes</h2></td></tr>
 <p>The constructor 构造函数 </p>
 
 <p class="definition">Definition at line <a class="el" href="LibApi_8py_source.html#l00028">28</a> of file <a class="el" href="LibApi_8py_source.html">LibApi.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">def </span>__init__(self):</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        self.fullItem=<span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        self.name=<span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        self.position=<span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        self.value=<span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        self.type=<span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        self.star_position=-1  <span class="comment">#记录&#39;*&#39;的位置,便于拆分位置参数和关键字参数</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -198,10 +180,7 @@ Public Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>True if the parameter names are equal </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="LibApi_8py_source.html#l00064">64</a> of file <a class="el" href="LibApi_8py_source.html">LibApi.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">def </span>__eq__(self,other):</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">return</span> self.fullItem==other.fullItem</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;   </div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="a3195ea87162f33a34d0079931a8194ca"></a>
@@ -224,10 +203,7 @@ Public Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Hash value of the parameter name </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="LibApi_8py_source.html#l00057">57</a> of file <a class="el" href="LibApi_8py_source.html">LibApi.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">def </span>__hash__(self):</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">return</span> hash(self.fullItem)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;   </div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="a9a47563093dfc5ba12274b66e368920c"></a>
@@ -250,12 +226,7 @@ Public Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Original parameter string </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="LibApi_8py_source.html#l00070">70</a> of file <a class="el" href="LibApi_8py_source.html">LibApi.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">def </span>__repr__(self):</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">return</span> self.fullItem</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -368,7 +339,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/nuaa/Projects/PCART-doxygen/PCART/API/<a class="el" href="LibApi_8py_source.html">LibApi.py</a></li>
+<li><a class="el" href="LibApi_8py_source.html">LibApi.py</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

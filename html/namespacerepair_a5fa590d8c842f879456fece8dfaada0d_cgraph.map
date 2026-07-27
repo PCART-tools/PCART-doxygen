@@ -1,7 +1,0 @@
-<map id="validateByRun" name="validateByRun">
-<area shape="rect" id="node1" title="Dynamic validation 动态验证" alt="" coords="5,31,123,57"/>
-<area shape="rect" id="node2" href="$namespacetool.html#a738ffb440e1ecdd990c95702ed30da31" title="Normalize file name 给文件取名字" alt="" coords="211,5,345,32"/>
-<area shape="rect" id="node5" href="$namespacetool.html#acddd4e80b12bc317097d9b6da7afaa48" title="Resolve Python executable from a virtual environment root 从虚拟环境根目录解析 Python 解释器路径" alt="" coords="171,56,385,83"/>
-<area shape="rect" id="node3" href="$namespacetool.html#adb980fd487d69797992c72e9b8c73326" title="Return artifact hash from an artifact id 从运行产物id中提取hash." alt="" coords="692,5,845,32"/>
-<area shape="rect" id="node4" href="$namespacetool.html#a3d830c5894b1bc76beb533d6aa2d55f3" title="Shorten artifact file name while preserving full hash 缩短运行产物文件名并保留完整hash." alt="" coords="433,31,644,57"/>
-</map>

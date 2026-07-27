@@ -22,7 +22,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PCART
+   &#160;<span id="projectnumber">v1.4</span>
    </div>
+   <div id="projectbrief">Automated Repair of Python API Parameter Compatibility Issues</div>
   </td>
  </tr>
  </tbody>
@@ -113,18 +115,11 @@ Public Member Functions</h2></td></tr>
 <p>Return stable artifact hash for a callsite 返回调用点稳定运行产物hash. </p>
 
 <p class="definition">Definition at line <a class="el" href="callsite_8py_source.html#l00072">72</a> of file <a class="el" href="callsite_8py_source.html">callsite.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">def </span>artifactHash(self):</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        payload = json.dumps(</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            self.artifactPayload(),</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            sort_keys=<span class="keyword">True</span>,</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            separators=(<span class="stringliteral">&#39;,&#39;</span>, <span class="stringliteral">&#39;:&#39;</span>),</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        ).encode(<span class="stringliteral">&#39;utf-8&#39;</span>)</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">return</span> hashlib.sha256(payload).hexdigest()</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-</div><!-- fragment --><div class="dynheader">
+<div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcallsite_1_1CallsiteIdentity_add59ebac4797ef0dd5379aa261b008c2_cgraph.svg" width="282" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcallsite_1_1CallsiteIdentity_add59ebac4797ef0dd5379aa261b008c2_cgraph.svg" width="282" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 
 </div>
@@ -148,20 +143,7 @@ Here is the call graph for this function:</div>
 <p>Return stable readable artifact id for a callsite 返回调用点稳定可读运行产物id. </p>
 
 <p class="definition">Definition at line <a class="el" href="callsite_8py_source.html#l00082">82</a> of file <a class="el" href="callsite_8py_source.html">callsite.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keyword">def </span>artifactId(self):</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        MAX_REL = 64   <span class="comment"># max slug length for relative path</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        MAX_CALL = 48  <span class="comment"># max slug length for call name</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="comment"># slugify relative path</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        rel_slug = re.sub(<span class="stringliteral">r&#39;[^0-9A-Za-z]+&#39;</span>, <span class="stringliteral">&#39;_&#39;</span>, str(self.rel_path)).strip(<span class="stringliteral">&#39;_&#39;</span>).lower()</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        rel_slug = re.sub(<span class="stringliteral">r&#39;_+&#39;</span>, <span class="stringliteral">&#39;_&#39;</span>, rel_slug)[:MAX_REL].strip(<span class="stringliteral">&#39;_&#39;</span>) <span class="keywordflow">or</span> <span class="stringliteral">&#39;source&#39;</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="comment"># slugify call name (everything before the first &#39;(&#39;)</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        call_name = str(self.normalized_call).split(<span class="stringliteral">&#39;(&#39;</span>, 1)[0]</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        call_slug = re.sub(<span class="stringliteral">r&#39;[^0-9A-Za-z]+&#39;</span>, <span class="stringliteral">&#39;_&#39;</span>, call_name).strip(<span class="stringliteral">&#39;_&#39;</span>).lower()</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        call_slug = re.sub(<span class="stringliteral">r&#39;_+&#39;</span>, <span class="stringliteral">&#39;_&#39;</span>, call_slug)[:MAX_CALL].strip(<span class="stringliteral">&#39;_&#39;</span>) <span class="keywordflow">or</span> <span class="stringliteral">&#39;call&#39;</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">return</span> f<span class="stringliteral">&#39;{rel_slug}__L{self.lineno}C{self.col_offset}__{call_slug}__{self.artifactHash()}&#39;</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="a925ffec679ca873733c0af3aea66662a"></a>
@@ -190,26 +172,17 @@ Here is the call graph for this function:</div>
 <p>Return the payload used to generate artifact id 返回用于生成运行产物id的数据 </p>
 
 <p class="definition">Definition at line <a class="el" href="callsite_8py_source.html#l00060">60</a> of file <a class="el" href="callsite_8py_source.html">callsite.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">def </span>artifactPayload(self):</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">return</span> {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="stringliteral">&#39;rel_path&#39;</span>: self.rel_path,</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="stringliteral">&#39;lineno&#39;</span>: self.lineno,</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="stringliteral">&#39;col_offset&#39;</span>: self.col_offset,</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="stringliteral">&#39;end_lineno&#39;</span>: self.end_lineno,</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="stringliteral">&#39;end_col_offset&#39;</span>: self.end_col_offset,</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="stringliteral">&#39;normalized_call&#39;</span>: self.normalized_call,</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        }</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-</div><!-- fragment --><div class="dynheader">
+<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classcallsite_1_1CallsiteIdentity_a925ffec679ca873733c0af3aea66662a_icgraph.svg" width="282" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classcallsite_1_1CallsiteIdentity_a925ffec679ca873733c0af3aea66662a_icgraph.svg" width="282" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/nuaa/Projects/PCART-doxygen/PCART/Tool/<a class="el" href="callsite_8py_source.html">callsite.py</a></li>
+<li><a class="el" href="callsite_8py_source.html">callsite.py</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

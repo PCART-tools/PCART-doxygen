@@ -1,6 +1,0 @@
-<map id="addDictSingle" name="addDictSingle">
-<area shape="rect" id="node1" title="Code instrumentation for a single API call within a source file 源文件单个API调用代码插桩" alt="" coords="556,5,668,32"/>
-<area shape="rect" id="node2" href="$namespacemap.html#ad69df3164e43211b92bd1edcb1c7db9b" title="Dynamic mapping of API signatures API签名动态匹配" alt="" coords="357,5,508,32"/>
-<area shape="rect" id="node3" href="$namespacemap.html#a5f1be2d0cbe3184aaf86a65cf54e00de" title="Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API与 ..." alt="" coords="204,5,309,32"/>
-<area shape="rect" id="node4" href="$namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件" alt="" coords="5,5,156,32"/>
-</map>

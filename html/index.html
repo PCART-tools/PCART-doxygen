@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PCART: Main Page</title>
+<title>PCART: PCART API Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PCART
+   &#160;<span id="projectnumber">v1.4</span>
    </div>
+   <div id="projectbrief">Automated Repair of Python API Parameter Compatibility Issues</div>
   </td>
  </tr>
  </tbody>
@@ -60,11 +62,36 @@ $(function() {
 </iframe>
 </div>
 
-<div class="header">
+<div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">PCART Documentation</div>  </div>
+<div class="title">PCART API Reference </div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><p><a class="anchor" id="md_mainpage"></a> PCART is an automated tool for detecting and repairing Python API parameter compatibility issues caused by library upgrades.</p>
+<p>This site provides the developer and source-code reference for PCART. For installation, configuration, and usage instructions, see the PCART user documentation.</p>
+<h1>Documentation</h1>
+<ul>
+<li><a href="https://github.com/PCART-tools/PCART">PCART on GitHub</a></li>
+<li><a href="https://github.com/PCART-tools/PCART/wiki">User Documentation</a></li>
+<li><a href="https://github.com/PCART-tools/PCART/wiki/Configuration-Guide">Configuration Guide</a></li>
+<li><a href="https://github.com/PCART-tools/PCART/wiki/How-It-Works">How It Works</a></li>
+<li><a href="https://github.com/PCART-tools/PCART/wiki/Examples">Examples</a></li>
+<li><a href="https://github.com/PCART-tools/PCBench">PCBench</a></li>
+</ul>
+<h1>Developer Reference</h1>
+<ul>
+<li><a href="namespaces.html">Packages</a></li>
+<li><a href="annotated.html">Classes</a></li>
+<li><a href="files.html">Files</a></li>
+</ul>
+<h1>Core Entry Points</h1>
+<ul>
+<li><code><a class="el" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945" title="Main function of PCART PCART主函数">main.main()</a></code> — command-line entry point</li>
+<li><code><a class="el" href="namespacemain.html#a54735b5e5f3ae5ec9c331c9117618719" title="Run PCART with an isolated workspace 在隔离工作区中运行PCART.">main.run()</a></code> — PCART execution orchestration</li>
+<li><code><a class="el" href="namespacemain.html#a4267bbc09b63fab971b487585a51ea7b" title="Generate pkl files and perform detection and repair tasks 生成项目调用API的pkl文件以及执行检测与修复任务">main.backward()</a></code> — detection and repair workflow</li>
+</ul>
+<p>PCART is part of the <a href="https://github.com/PCART-tools">PCART-tools</a> toolchain. </p>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

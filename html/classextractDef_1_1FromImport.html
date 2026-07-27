@@ -22,7 +22,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PCART
+   &#160;<span id="projectnumber">v1.4</span>
    </div>
+   <div id="projectbrief">Automated Repair of Python API Parameter Compatibility Issues</div>
   </td>
  </tr>
  </tbody>
@@ -78,12 +80,14 @@ $(function() {
 <div class="dynheader">
 Inheritance diagram for FromImport:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classextractDef_1_1FromImport__inherit__graph.svg" width="110" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classextractDef_1_1FromImport__inherit__graph.svg" width="110" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for FromImport:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classextractDef_1_1FromImport__coll__graph.svg" width="110" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classextractDef_1_1FromImport__coll__graph.svg" width="110" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -139,11 +143,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00051">51</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">def </span>__init__(self, currentLevel):</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        self._importDict={}</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        self._currentLevel=currentLevel</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -167,10 +167,7 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>dict mapping module+name to alias or name </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00060">60</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">def </span>importDict(self):</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">return</span> self._importDict</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="ad168dceb9bac7d34f2731494492f961b"></a>
@@ -209,33 +206,11 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00067">67</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">def </span>visit_ImportFrom(self, node):</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">if</span> node.module <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            module=node.module</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordflow">if</span> node.level==0:<span class="comment">#若是绝对导入，需考虑层级</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                tempLst=module.split(<span class="stringliteral">&#39;.&#39;</span>)</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <span class="keywordflow">if</span> len(tempLst)==1:</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                    module=<span class="stringliteral">&#39;&#39;</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                <span class="keywordflow">elif</span> self._currentLevel <span class="keywordflow">in</span> tempLst:</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                    index=tempLst.index(self._currentLevel)</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                    module=<span class="stringliteral">&#39;.&#39;</span>.join(tempLst[index+1:])</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            lst=[{<span class="stringliteral">&#39;name&#39;</span>:name.name,<span class="stringliteral">&#39;alias&#39;</span>:name.asname} <span class="keywordflow">for</span> name <span class="keywordflow">in</span> node.names] <span class="comment">#可能会import个多个,from A import a,b,c </span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordflow">for</span> dic <span class="keywordflow">in</span> lst: <span class="comment">#lst中每个元素都是字典</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                key=module+<span class="stringliteral">&#39;.&#39;</span>+dic[<span class="stringliteral">&#39;name&#39;</span>] <span class="comment">#dic[&#39;name&#39;]可能是*</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                key=key.lstrip(<span class="stringliteral">&#39;.&#39;</span>)</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <span class="keywordflow">if</span> dic[<span class="stringliteral">&#39;alias&#39;</span>]:</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                    self._importDict[key]=dic[<span class="stringliteral">&#39;alias&#39;</span>]</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                    self._importDict[key]=dic[<span class="stringliteral">&#39;name&#39;</span>]</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/nuaa/Projects/PCART-doxygen/PCART/Extract/<a class="el" href="extractDef_8py_source.html">extractDef.py</a></li>
+<li><a class="el" href="extractDef_8py_source.html">extractDef.py</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

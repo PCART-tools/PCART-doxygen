@@ -3,10 +3,10 @@ var indexSectionsWithContent =
   0: "_abcdefghiklmnopqrstuvw",
   1: "acdfgipruw",
   2: "cefglmprtw",
-  3: "cefglmprtw",
+  3: "cefglmprstw",
   4: "_abcdefghilmnopqrstuvw",
   5: "adfknoprstv",
-  6: "clrs"
+  6: "clprs"
 };
 
 var indexSectionNames =

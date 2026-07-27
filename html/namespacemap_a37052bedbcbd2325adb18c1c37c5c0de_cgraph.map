@@ -1,7 +1,0 @@
-<map id="saveDynamicMatchSnapshot" name="saveDynamicMatchSnapshot">
-<area shape="rect" id="node1" title="Save dynamic match result snapshot 保存动态匹配结果快照" alt="" coords="5,56,216,83"/>
-<area shape="rect" id="node2" href="$namespacetool.html#a20bc93e221ebb2031fe42bb294aa09a9" title="Return readable artifact display name 返回可读运行产物展示名" alt="" coords="448,5,656,32"/>
-<area shape="rect" id="node3" href="$namespacetool.html#adb980fd487d69797992c72e9b8c73326" title="Return artifact hash from an artifact id 从运行产物id中提取hash." alt="" coords="705,81,859,108"/>
-<area shape="rect" id="node4" href="$namespacetool.html#a738ffb440e1ecdd990c95702ed30da31" title="Normalize file name 给文件取名字" alt="" coords="264,107,399,133"/>
-<area shape="rect" id="node5" href="$namespacetool.html#a3d830c5894b1bc76beb533d6aa2d55f3" title="Shorten artifact file name while preserving full hash 缩短运行产物文件名并保留完整hash." alt="" coords="447,157,657,184"/>
-</map>
