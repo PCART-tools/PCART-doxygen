@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fuzzymatch_252',['fuzzyMatch',['../namespacefuzzyMatch.html',1,'']]]
+  ['fuzzymatch_244',['fuzzyMatch',['../namespacefuzzyMatch.html',1,'']]]
 ];
