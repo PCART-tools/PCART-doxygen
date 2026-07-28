@@ -21,10 +21,4 @@ For installation, configuration, and usage instructions, see the PCART user docu
 - [Classes](annotated.html)
 - [Files](files.html)
 
-## Core Entry Points
-
-- `main.main()` — command-line entry point
-- `main.run()` — PCART execution orchestration
-- `main.backward()` — detection and repair workflow
-
 PCART is part of the [PCART-tools](https://github.com/PCART-tools) toolchain.

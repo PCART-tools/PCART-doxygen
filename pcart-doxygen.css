@@ -1,0 +1,14 @@
+#projectlogo {
+    width: 84px;
+    min-width: 84px;
+    padding: 0 8px 0 4px;
+    vertical-align: middle;
+}
+
+#projectlogo img {
+    display: block;
+    width: 78px;
+    height: auto;
+    max-width: none;
+    max-height: none;
+}
