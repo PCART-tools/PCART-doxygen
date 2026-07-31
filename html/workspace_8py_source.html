@@ -252,8 +252,29 @@ $(function() {
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;            shutil.copytree(source,target)</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        <span class="keywordflow">else</span>:</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;            shutil.copy2(source,target)</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160; </div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160; </div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
+<div class="line"><a name="l00264"></a><span class="lineno"><a class="line" href="namespaceworkspace.html#a3743387f562da648eb4ea46b20ddaabc">  264</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespaceworkspace.html#a3743387f562da648eb4ea46b20ddaabc">cleanupRunWorkspace</a>(workspace):</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    runsRoot=os.path.realpath(</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        os.path.join(workspace.repo_root,<span class="stringliteral">&#39;PCARTRuns&#39;</span>,<span class="stringliteral">&#39;runs&#39;</span>)</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    )</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    runRoot=os.path.realpath(workspace.run_root)</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    normalizedRunsRoot=os.path.normcase(os.path.normpath(runsRoot))</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    normalizedParent=os.path.normcase(</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        os.path.normpath(os.path.dirname(runRoot))</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    )</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; </div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="keywordflow">if</span> normalizedParent!=normalizedRunsRoot:</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;        <span class="keywordflow">raise</span> ValueError(</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;            f<span class="stringliteral">&#39;Refuse to remove workspace outside PCARTRuns/runs: {runRoot}&#39;</span></div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;        )</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160; </div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="keywordflow">if</span> os.path.isdir(runRoot):</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        shutil.rmtree(runRoot)</div>
 <div class="ttc" id="aclassworkspace_1_1RunWorkspace_html"><div class="ttname"><a href="classworkspace_1_1RunWorkspace.html">workspace.RunWorkspace</a></div><div class="ttdoc">Run workspace path object PCART单次运行的工作区路径对象</div><div class="ttdef"><b>Definition:</b> <a href="workspace_8py_source.html#l00033">workspace.py:33</a></div></div>
 <div class="ttc" id="anamespaceworkspace_html_a0021e3b7235fc99d47ec6abf492a12e4"><div class="ttname"><a href="namespaceworkspace.html#a0021e3b7235fc99d47ec6abf492a12e4">workspace.getRepoRoot</a></div><div class="ttdeci">def getRepoRoot()</div><div class="ttdoc">Get PCART repository root path 获取PCART仓库根目录路径</div><div class="ttdef"><b>Definition:</b> <a href="workspace_8py_source.html#l00052">workspace.py:52</a></div></div>
+<div class="ttc" id="anamespaceworkspace_html_a3743387f562da648eb4ea46b20ddaabc"><div class="ttname"><a href="namespaceworkspace.html#a3743387f562da648eb4ea46b20ddaabc">workspace.cleanupRunWorkspace</a></div><div class="ttdeci">def cleanupRunWorkspace(workspace)</div><div class="ttdoc">Remove one completed PCART run workspace 删除一次已完成的PCART运行工作区</div><div class="ttdef"><b>Definition:</b> <a href="workspace_8py_source.html#l00264">workspace.py:264</a></div></div>
 <div class="ttc" id="anamespaceworkspace_html_a39fae6e30ae356b4e47690160ea2d5d9"><div class="ttname"><a href="namespaceworkspace.html#a39fae6e30ae356b4e47690160ea2d5d9">workspace.exportRunReport</a></div><div class="ttdeci">def exportRunReport(workspace)</div><div class="ttdoc">Export internal report files to user-visible report directory 将工作区内部报告导出到用户可见报告目录</div><div class="ttdef"><b>Definition:</b> <a href="workspace_8py_source.html#l00239">workspace.py:239</a></div></div>
 <div class="ttc" id="anamespaceworkspace_html_a46da2a5c9f862cc9c976c155bb91dc27"><div class="ttname"><a href="namespaceworkspace.html#a46da2a5c9f862cc9c976c155bb91dc27">workspace.slugifyProjectName</a></div><div class="ttdeci">def slugifyProjectName(projPath)</div><div class="ttdoc">Convert project path/name to a filesystem-safe slug 将项目路径或项目名转换为可作为目录名使用的slug.</div><div class="ttdef"><b>Definition:</b> <a href="workspace_8py_source.html#l00061">workspace.py:61</a></div></div>
 <div class="ttc" id="anamespaceworkspace_html_a52f0dcdb1eb2925c1043860032f669d9"><div class="ttname"><a href="namespaceworkspace.html#a52f0dcdb1eb2925c1043860032f669d9">workspace.workspaceCwd</a></div><div class="ttdeci">def workspaceCwd(path)</div><div class="ttdef"><b>Definition:</b> <a href="workspace_8py_source.html#l00225">workspace.py:225</a></div></div>

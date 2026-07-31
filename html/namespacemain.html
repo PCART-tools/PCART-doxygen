@@ -83,9 +83,9 @@ Functions</h2></td></tr>
 <tr class="memitem:af613cea4cba4fb7de8e40896b3368945"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945">main</a> ()</td></tr>
 <tr class="memdesc:af613cea4cba4fb7de8e40896b3368945"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main function of PCART PCART主函数  <a href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945">More...</a><br /></td></tr>
 <tr class="separator:af613cea4cba4fb7de8e40896b3368945"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54735b5e5f3ae5ec9c331c9117618719"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#a54735b5e5f3ae5ec9c331c9117618719">run</a> (config)</td></tr>
-<tr class="memdesc:a54735b5e5f3ae5ec9c331c9117618719"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run PCART with an isolated workspace 在隔离工作区中运行PCART.  <a href="namespacemain.html#a54735b5e5f3ae5ec9c331c9117618719">More...</a><br /></td></tr>
-<tr class="separator:a54735b5e5f3ae5ec9c331c9117618719"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2dd38981b6166face1603927a8486760"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#a2dd38981b6166face1603927a8486760">run</a> (config, cleanWorkspace=False)</td></tr>
+<tr class="memdesc:a2dd38981b6166face1603927a8486760"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run PCART with an isolated workspace 在隔离工作区中运行PCART.  <a href="namespacemain.html#a2dd38981b6166face1603927a8486760">More...</a><br /></td></tr>
+<tr class="separator:a2dd38981b6166face1603927a8486760"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a4267bbc09b63fab971b487585a51ea7b"></a>
@@ -247,7 +247,7 @@ Here is the call graph for this function:</div>
 
 <p>Main function of PCART PCART主函数 </p>
 
-<p class="definition">Definition at line <a class="el" href="main_8py_source.html#l00285">285</a> of file <a class="el" href="main_8py_source.html">main.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8py_source.html#l00290">290</a> of file <a class="el" href="main_8py_source.html">main.py</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -257,8 +257,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a54735b5e5f3ae5ec9c331c9117618719"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a54735b5e5f3ae5ec9c331c9117618719">&#9670;&nbsp;</a></span>run()</h2>
+<a id="a2dd38981b6166face1603927a8486760"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2dd38981b6166face1603927a8486760">&#9670;&nbsp;</a></span>run()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -267,8 +267,18 @@ Here is the call graph for this function:</div>
           <td class="memname">def main.run </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>config</em></td><td>)</td>
+          <td class="paramname"><em>config</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>cleanWorkspace</em> = <code>False</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -278,22 +288,23 @@ Here is the call graph for this function:</div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">config</td><td>The config file path or config file name under Configure </td></tr>
+    <tr><td class="paramname">cleanWorkspace</td><td>Whether to remove a successful run workspace </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>RunWorkspace object for this execution </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="main_8py_source.html#l00244">244</a> of file <a class="el" href="main_8py_source.html">main.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8py_source.html#l00246">246</a> of file <a class="el" href="main_8py_source.html">main.py</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacemain_a54735b5e5f3ae5ec9c331c9117618719_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacemain_a2dd38981b6166face1603927a8486760_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacemain_a54735b5e5f3ae5ec9c331c9117618719_icgraph.svg" width="156" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacemain_a2dd38981b6166face1603927a8486760_icgraph.svg" width="156" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
