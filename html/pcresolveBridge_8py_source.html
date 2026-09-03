@@ -103,7 +103,7 @@ $(function() {
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        result = _analysisCache[projPath]</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">else</span>:</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            result = _pcresolveAnalyze(projPath, scope_model=<span class="stringliteral">&quot;v2&quot;</span>)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            result = _pcresolveAnalyze(projPath)</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">except</span> Exception:</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            _analysisCache[projPath] = <span class="keywordtype">None</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            _lookupCache[cacheKey] = {}</div>
