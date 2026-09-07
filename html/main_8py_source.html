@@ -84,7 +84,7 @@ $(function() {
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">import</span> shutil</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">import</span> subprocess</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">from</span> <a class="code" href="namespacePath_1_1getPath.html">Path.getPath</a> <span class="keyword">import</span> *</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">from</span> Map.map <span class="keyword">import</span> mapAPI</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">from</span> Map.map <span class="keyword">import</span> mapAPI,fuzzymatch</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Manager</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">from</span> Extract.getCall <span class="keyword">import</span> getCallFunction</div>
@@ -165,194 +165,223 @@ $(function() {
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        ansDict[key][f<span class="stringliteral">&quot;Definition @{targetVersion} &lt;{targetMatch[&#39;matchMethod&#39;]}&gt;&quot;</span>]=str(targetMatch[<span class="stringliteral">&#39;match&#39;</span>])</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        </div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="comment">#step4:变更分析,若不兼容则返回需要修复的操作</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        repairLst=<a class="code" href="namespacechangeAnalyze.html#a3272743b8ad154a66e9d45ab36bca3ec">isCompatible</a>(currentMatch,targetMatch) <span class="comment">#repairLst中每个元素都是tuple</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordflow">if</span> repairLst==<span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            ansDict[key][<span class="stringliteral">&#39;Compatible&#39;</span>]=<span class="stringliteral">&quot;Unknown&quot;</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            <span class="keywordflow">if</span> len(errLst)&gt;0:</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                errorMsg = f<span class="stringliteral">&quot;Error occurred, please check the {projName}_fixed_log.txt&quot;</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                <span class="keyword">with</span> lock:</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                    <a class="code" href="namespacechangeAnalyze.html#a95b4de3015e7ecd62a42e9b7f97ded30">updateErrorLst</a>(errorLog,errLst)</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        </div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keywordflow">if</span> len(repairLst)==0: <span class="comment">#若返回修复字典的个数为零，则一定是兼容的</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            ansDict[key][<span class="stringliteral">&#39;Compatible&#39;</span>]=<span class="stringliteral">&#39;Yes&#39;</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            <span class="keywordflow">if</span> root <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                ansDict[key][<span class="stringliteral">&#39;Compatible&#39;</span>]=<span class="stringliteral">&#39;Unknown&#39;</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                ansDict[key][<span class="stringliteral">&#39;Repair &lt;Unknown&gt;&#39;</span>]=<span class="stringliteral">&#39;AST parse failed&#39;</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                errLst.append(f<span class="stringliteral">&quot;{callAPI}, AST parse failed in {fileRelativePath}: {astError}\n&quot;</span>)</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                apiWithValue=<a class="code" href="namespacechangeAnalyze.html#afb56fcc8060a6914ae0aa7b73d837a03">addValueForAPI</a>(callAPI,projName,runPath,runCommand,currentEnv,targetEnv,errLst,callKey=callKey,runtimePaths=runtimePaths) <span class="comment">#apiWithValue为空表示添加参数失败</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                fixedAPI,compatibilityLabel,repairStatus=<a class="code" href="namespacerepair.html#a4474fce39da06e080d7eab0050a1e987">repairTask</a>(root,callAPI,apiWithValue,projName,runPath,runCommand,repairLst,targetEnv,errLst,callKey=callKey,runtimePaths=runtimePaths)</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                <span class="keywordflow">if</span> compatibilityLabel==<span class="stringliteral">&#39;Compatible&#39;</span>:</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                    ansDict[key][<span class="stringliteral">&#39;Compatible&#39;</span>]=<span class="stringliteral">&#39;Yes&#39;</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                    <span class="keywordflow">if</span> compatibilityLabel==<span class="stringliteral">&#39;Incompatible&#39;</span>:</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                        ansDict[key][<span class="stringliteral">&#39;Compatible&#39;</span>]=<span class="stringliteral">&#39;No&#39;</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                    <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                        ansDict[key][<span class="stringliteral">&#39;Compatible&#39;</span>]=<span class="stringliteral">&#39;Unknown&#39;</span></div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                    <span class="keywordflow">if</span> repairStatus==<span class="stringliteral">&#39;Successful&#39;</span>:</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                        ansDict[key][<span class="stringliteral">&#39;Repair &lt;Successful&gt;&#39;</span>]=f<span class="stringliteral">&quot;{fixedAPI}&quot;</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                    <span class="keywordflow">elif</span> repairStatus==<span class="stringliteral">&#39;Failed&#39;</span>:</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                        ansDict[key][<span class="stringliteral">&#39;Repair &lt;Failed&gt;&#39;</span>]=f<span class="stringliteral">&quot;{fixedAPI}&quot;</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                    <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                        ansDict[key][<span class="stringliteral">&#39;Repair &lt;Unknown&gt;&#39;</span>]=f<span class="stringliteral">&quot;{fixedAPI}&quot;</span></div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        <span class="keywordflow">if</span> len(errLst)&gt;0:</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            errorMsg = f<span class="stringliteral">&quot;Error occurred, please check the {projName}_fixed_log.txt&quot;</span></div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;            <span class="keyword">with</span> lock:</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                <a class="code" href="namespacechangeAnalyze.html#a95b4de3015e7ecd62a42e9b7f97ded30">updateErrorLst</a>(errorLog,errLst)</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="comment">#将修改操作更新到代码源文件</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="comment"># with open(f&quot;{file.rsplit(&#39;/&#39;,1)[0]}/new_{fileName}.py&quot;,&#39;w&#39;) as fw:</span></div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="comment">#     repairCode=ast.unparse(root)</span></div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="comment">#     fw.write(repairCode+&#39;\n&#39;) </span></div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordflow">return</span> ansDict,fileRelativePath,invokedAPINum</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
-<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="namespacemain.html#a4267bbc09b63fab971b487585a51ea7b">  168</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespacemain.html#a4267bbc09b63fab971b487585a51ea7b">backward</a>(projPath,libName,currentVersion,currentEnv,targetVersion,targetEnv,runCommand,runPath,workspace,pcresolveLookup=None):</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    runtimePaths=<a class="code" href="namespaceworkspace.html#aba6396054179aaa393205a76b303d7a6">getRuntimePaths</a>(workspace)</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    copyRoot=runtimePaths[<span class="stringliteral">&#39;copy_root&#39;</span>]</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    dataDir=runtimePaths[<span class="stringliteral">&#39;data_dir&#39;</span>]</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    tempDir=runtimePaths[<span class="stringliteral">&#39;temp_dir&#39;</span>]</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    reportDir=runtimePaths[<span class="stringliteral">&#39;report_dir&#39;</span>]</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    pathObj=Path(<span class="stringliteral">&#39;DF&#39;</span>)</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    pathObj.getPath(projPath)</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    filePath=[it <span class="keywordflow">for</span> it <span class="keywordflow">in</span> pathObj.path <span class="keywordflow">if</span> it.endswith(<span class="stringliteral">&#39;py&#39;</span>)] <span class="comment">#保留项目中的.py文件</span></div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    projName=os.path.basename(projPath)</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    errorLog = os.path.join(reportDir, f<span class="stringliteral">&#39;{projName}_fixed_log.txt&#39;</span>)</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keywordflow">if</span> os.path.exists(errorLog):</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        os.remove(errorLog)</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    </div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="comment">#先在起始版本中生成每个API的pkl</span></div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="comment"># cwd 自动适配：使用 subprocess cwd 参数替代 shell cd</span></div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keywordflow">if</span> runPath <span class="keywordflow">and</span> runPath <span class="keywordflow">not</span> <span class="keywordflow">in</span> runCommand:</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        cwd = os.path.join(copyRoot, projName, runPath)</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        cwd = os.path.join(copyRoot, projName)</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    print(<span class="stringliteral">&#39;Running the project...&#39;</span>)</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    cmd=<a class="code" href="namespacetool.html#a06834e8d522d907efbdb98ce689b85db">buildRunCommand</a>(runCommand,currentEnv)</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    createResult = subprocess.run(</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        cmd, cwd=cwd, capture_output=<span class="keyword">True</span>, text=<span class="keyword">True</span>, encoding=<span class="stringliteral">&#39;utf-8&#39;</span></div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    )</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keywordflow">if</span> createResult.returncode!=0:</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        print(f<span class="stringliteral">&#39;Failure to generate PKL in current version&#39;</span>)</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        print(createResult.stderr)</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">False</span></div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    print(<span class="stringliteral">&quot;Running complete&quot;</span>)</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;     </div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="comment">#生成pkl成功后，将项目恢复成原样，便于之后对其中某个API单独插桩</span></div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    os.makedirs(tempDir,exist_ok=<span class="keyword">True</span>)</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    tempProjPath=os.path.join(tempDir,projName)</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keywordflow">if</span> os.path.exists(tempProjPath):</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        shutil.rmtree(tempProjPath)</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    shutil.move(os.path.join(copyRoot, projName), tempProjPath)</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    shutil.move(os.path.join(copyRoot, f<span class="stringliteral">&#39;bak_{projName}&#39;</span>), os.path.join(copyRoot, projName))</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    shutil.move(tempProjPath, os.path.join(copyRoot, f<span class="stringliteral">&#39;bak_{projName}&#39;</span>))</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <span class="comment">#用PCResolve进行全项目API调用识别，结果在所有任务间复用</span></div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keywordflow">if</span> pcresolveLookup <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        pcresolveLookup=<a class="code" href="namespacepcresolveBridge.html#a512bbb00e40320ecbcbf53a312f05f09">buildCallsiteLookup</a>(projPath,libName)</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160; </div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="comment">#这里用进程池同时处理多个任务，但对于torch库可能会报错RuntimeError:CUDA out or memory</span></div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="comment">#对数据库的读写需要加锁</span></div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    coverSet=set()</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    coverSet_path = os.path.join(copyRoot, <span class="stringliteral">&#39;pkl&#39;</span>, <span class="stringliteral">&#39;coverSet&#39;</span>)</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="keywordflow">if</span> os.path.exists(coverSet_path):</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        <span class="keyword">with</span> open(coverSet_path, <span class="stringliteral">&#39;r&#39;</span>, encoding=<span class="stringliteral">&#39;utf-8&#39;</span>) <span class="keyword">as</span> fr:</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;            tempLst=fr.readlines()</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        <span class="keywordflow">for</span> it <span class="keywordflow">in</span> tempLst:</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;            it=it.rstrip(<span class="stringliteral">&#39;\n&#39;</span>).replace(<span class="stringliteral">&#39; &#39;</span>,<span class="stringliteral">&#39;&#39;</span>)</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;            coverSet.add(it)</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    manager=Manager()</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    lock=manager.Lock() <span class="comment">#创建一个共享锁</span></div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    sharedDict=manager.dict() <span class="comment">#创建一个共享字典</span></div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    tasks=[(projName,libName,file,currentVersion,currentEnv,targetVersion,targetEnv,runCommand,runPath,lock,sharedDict,coverSet,runtimePaths,pcresolveLookup) <span class="keywordflow">for</span> file <span class="keywordflow">in</span> filePath]</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    pool=Pool(processes=1)</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    resultLst=pool.map(backwardTask,tasks)</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    pool.close() <span class="comment">#关闭进程池，使其不再接受新的任务</span></div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    pool.join() <span class="comment">#等待进程池中所有的任务执行完，否则主进程可能继续往下执行提前结束，而导致部分任务没有执行完</span></div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <a class="code" href="namespacetool.html#a0c884e031b8683fe57a2fc6e9f321b2b">save2txt</a>(resultLst, libName, runCommand, os.path.join(reportDir, f<span class="stringliteral">&#39;{projName}.txt&#39;</span>))</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">True</span></div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160; </div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160; </div>
-<div class="line"><a name="l00246"></a><span class="lineno"><a class="line" href="namespacemain.html#a2dd38981b6166face1603927a8486760">  246</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespacemain.html#a2dd38981b6166face1603927a8486760">run</a>(config,cleanWorkspace=False):</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    repoRoot=<a class="code" href="namespaceworkspace.html#a0021e3b7235fc99d47ec6abf492a12e4">getRepoRoot</a>()</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    configPath=<a class="code" href="namespacetool.html#a924419c52a2a18a8cbef3b0fb9bac5f3">resolveConfigFilePath</a>(config,repoRoot)</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160; </div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="comment">#加载配置</span></div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    projPath,runCommand,runPath,libName,currentVersion,targetVersion,currentEnv,targetEnv=<a class="code" href="namespacetool.html#ac27269fb0ca8635862c18bfe841deaae">loadConfig</a>(configPath)</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    projPath=<a class="code" href="namespacetool.html#a798f243de94474f63d3b1edeb8384a3e">resolveConfigValuePath</a>(repoRoot,projPath)</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    currentEnv=<a class="code" href="namespacetool.html#a798f243de94474f63d3b1edeb8384a3e">resolveConfigValuePath</a>(repoRoot,currentEnv)</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    targetEnv=<a class="code" href="namespacetool.html#a798f243de94474f63d3b1edeb8384a3e">resolveConfigValuePath</a>(repoRoot,targetEnv)</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160; </div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    workspace=<a class="code" href="namespaceworkspace.html#a9360d1de3db40b2a88a9d941c4e6d3c7">createRunWorkspace</a>(</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        repoRoot,</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        projPath,</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        runCommand,</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        runPath,</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        libName,</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        currentVersion,</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        targetVersion,</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        currentEnv,</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        targetEnv,</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    )</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    print(f<span class="stringliteral">&quot;Run workspace: {workspace.workspace_root}&quot;</span>)</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    print(<span class="stringliteral">&quot;Code preprocessing...&quot;</span>)</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160; </div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    pcresolveLookup=<a class="code" href="namespacepcresolveBridge.html#a512bbb00e40320ecbcbf53a312f05f09">buildCallsiteLookup</a>(projPath,libName)</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160; </div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="keyword">with</span> <a class="code" href="namespaceworkspace.html#a52f0dcdb1eb2925c1043860032f669d9">workspaceCwd</a>(workspace.workspace_root):</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        <span class="comment">#首先对代码进行预处理</span></div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        <a class="code" href="namespacepreprocess.html#a2eec1d8b2c398e66364228c1ad0c6ff9">codeProcess</a>(projPath,runCommand,runPath,libName,workspace=workspace,pcresolveLookup=pcresolveLookup)</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;        print(<span class="stringliteral">&quot;Code preprocess complete&quot;</span>)</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160; </div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;        <span class="comment">#执行主逻辑</span></div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        succeeded=<a class="code" href="namespacemain.html#a4267bbc09b63fab971b487585a51ea7b">backward</a>(projPath,libName,currentVersion,currentEnv,targetVersion,targetEnv,runCommand,runPath,workspace=workspace,pcresolveLookup=pcresolveLookup)</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160; </div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <a class="code" href="namespaceworkspace.html#a39fae6e30ae356b4e47690160ea2d5d9">exportRunReport</a>(workspace)</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    print(f<span class="stringliteral">&quot;Report output: {workspace.report_root}&quot;</span>)</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="keywordflow">if</span> cleanWorkspace <span class="keywordflow">and</span> succeeded:</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        <a class="code" href="namespaceworkspace.html#a3743387f562da648eb4ea46b20ddaabc">cleanupRunWorkspace</a>(workspace)</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        print(f<span class="stringliteral">&quot;Run workspace removed: {workspace.run_root}&quot;</span>)</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="keywordflow">return</span> workspace</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160; </div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160; </div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160; </div>
-<div class="line"><a name="l00290"></a><span class="lineno"><a class="line" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945">  290</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945">main</a>():</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    parser=argparse.ArgumentParser(</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        description=<span class="stringliteral">&#39;Python API compatibility analysis and repair tool&#39;</span></div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    )</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    parser.add_argument(</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        <span class="stringliteral">&#39;-cfg&#39;</span>,</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        dest=<span class="stringliteral">&#39;config&#39;</span>,</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;        required=<span class="keyword">True</span>,</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        help=<span class="stringliteral">&#39;Configuration file path or file name under Configure&#39;</span>,</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    )</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    parser.add_argument(</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        <span class="stringliteral">&#39;--clean-workspace&#39;</span>,</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        action=<span class="stringliteral">&#39;store_true&#39;</span>,</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        help=<span class="stringliteral">&#39;Remove the run workspace after successful report export&#39;</span>,</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    )</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    args=parser.parse_args()</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160; </div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    start=time.time()</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        currentMethod=currentMatch.get(<span class="stringliteral">&#39;matchMethod&#39;</span>)</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        targetMethod=targetMatch.get(<span class="stringliteral">&#39;matchMethod&#39;</span>)</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordflow">if</span> {currentMethod,targetMethod}=={<span class="stringliteral">&#39;dynamic&#39;</span>,<span class="stringliteral">&#39;static&#39;</span>}:</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            <span class="keywordflow">if</span> currentMethod==<span class="stringliteral">&#39;dynamic&#39;</span>:</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                dynamicMatchInfo=currentMatch</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                staticMatchInfo=targetMatch</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                dynamicVersion=currentVersion</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                dynamicIsCurrent=<span class="keyword">True</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                dynamicMatchInfo=targetMatch</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                staticMatchInfo=currentMatch</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                dynamicVersion=targetVersion</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                dynamicIsCurrent=<span class="keyword">False</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            dynamicStaticMatch=<a class="code" href="namespacemap.html#ad057ce6744be1ed77c3482ef8872eba1">fuzzymatch</a>(formatAPI,libName,dynamicVersion,0)</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            staticCandidates=staticMatchInfo.get(<span class="stringliteral">&#39;match&#39;</span>,{})</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            qualifiedName=dynamicMatchInfo.get(<span class="stringliteral">&#39;qualifiedName&#39;</span>)</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            <span class="keywordflow">if</span> isinstance(qualifiedName,str) <span class="keywordflow">and</span> isinstance(dynamicStaticMatch,dict) <span class="keywordflow">and</span> isinstance(staticCandidates,dict) \</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                    <span class="keywordflow">and</span> qualifiedName <span class="keywordflow">in</span> dynamicStaticMatch <span class="keywordflow">and</span> qualifiedName <span class="keywordflow">in</span> staticCandidates:</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                dynamicStaticCompare={<span class="stringliteral">&#39;match&#39;</span>:{qualifiedName:list(dynamicStaticMatch[qualifiedName])}}</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                staticCompare={<span class="stringliteral">&#39;match&#39;</span>:{qualifiedName:list(staticCandidates[qualifiedName])}}</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                <span class="keywordflow">if</span> dynamicIsCurrent:</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                    repairLst=<a class="code" href="namespacechangeAnalyze.html#a3272743b8ad154a66e9d45ab36bca3ec">isCompatible</a>(dynamicStaticCompare,staticCompare)</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                    repairLst=<a class="code" href="namespacechangeAnalyze.html#a3272743b8ad154a66e9d45ab36bca3ec">isCompatible</a>(staticCompare,dynamicStaticCompare)</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                repairLst=<span class="keywordtype">None</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;            repairLst=<a class="code" href="namespacechangeAnalyze.html#a3272743b8ad154a66e9d45ab36bca3ec">isCompatible</a>(currentMatch,targetMatch) <span class="comment">#repairLst中每个元素都是tuple</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <span class="keywordflow">if</span> repairLst==<span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            ansDict[key][<span class="stringliteral">&#39;Compatible&#39;</span>]=<span class="stringliteral">&quot;Unknown&quot;</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            <span class="keywordflow">if</span> len(errLst)&gt;0:</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                errorMsg = f<span class="stringliteral">&quot;Error occurred, please check the {projName}_fixed_log.txt&quot;</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                <span class="keyword">with</span> lock:</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;                    <a class="code" href="namespacechangeAnalyze.html#a95b4de3015e7ecd62a42e9b7f97ded30">updateErrorLst</a>(errorLog,errLst)</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <span class="keywordflow">if</span> len(repairLst)==0: <span class="comment">#若返回修复字典的个数为零，则一定是兼容的</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;            ansDict[key][<span class="stringliteral">&#39;Compatible&#39;</span>]=<span class="stringliteral">&#39;Yes&#39;</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            <span class="keywordflow">if</span> root <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                ansDict[key][<span class="stringliteral">&#39;Compatible&#39;</span>]=<span class="stringliteral">&#39;Unknown&#39;</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                ansDict[key][<span class="stringliteral">&#39;Repair &lt;Unknown&gt;&#39;</span>]=<span class="stringliteral">&#39;AST parse failed&#39;</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                errLst.append(f<span class="stringliteral">&quot;{callAPI}, AST parse failed in {fileRelativePath}: {astError}\n&quot;</span>)</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;            <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                apiWithValue=<a class="code" href="namespacechangeAnalyze.html#afb56fcc8060a6914ae0aa7b73d837a03">addValueForAPI</a>(callAPI,projName,runPath,runCommand,currentEnv,targetEnv,errLst,callKey=callKey,runtimePaths=runtimePaths) <span class="comment">#apiWithValue为空表示添加参数失败</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                fixedAPI,compatibilityLabel,repairStatus=<a class="code" href="namespacerepair.html#a4474fce39da06e080d7eab0050a1e987">repairTask</a>(root,callAPI,apiWithValue,projName,runPath,runCommand,repairLst,targetEnv,errLst,callKey=callKey,runtimePaths=runtimePaths)</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                <span class="keywordflow">if</span> compatibilityLabel==<span class="stringliteral">&#39;Compatible&#39;</span>:</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                    ansDict[key][<span class="stringliteral">&#39;Compatible&#39;</span>]=<span class="stringliteral">&#39;Yes&#39;</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                    <span class="keywordflow">if</span> compatibilityLabel==<span class="stringliteral">&#39;Incompatible&#39;</span>:</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                        ansDict[key][<span class="stringliteral">&#39;Compatible&#39;</span>]=<span class="stringliteral">&#39;No&#39;</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                        ansDict[key][<span class="stringliteral">&#39;Compatible&#39;</span>]=<span class="stringliteral">&#39;Unknown&#39;</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                    <span class="keywordflow">if</span> repairStatus==<span class="stringliteral">&#39;Successful&#39;</span>:</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                        ansDict[key][<span class="stringliteral">&#39;Repair &lt;Successful&gt;&#39;</span>]=f<span class="stringliteral">&quot;{fixedAPI}&quot;</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                    <span class="keywordflow">elif</span> repairStatus==<span class="stringliteral">&#39;Failed&#39;</span>:</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                        ansDict[key][<span class="stringliteral">&#39;Repair &lt;Failed&gt;&#39;</span>]=f<span class="stringliteral">&quot;{fixedAPI}&quot;</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                        ansDict[key][<span class="stringliteral">&#39;Repair &lt;Unknown&gt;&#39;</span>]=f<span class="stringliteral">&quot;{fixedAPI}&quot;</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <span class="keywordflow">if</span> len(errLst)&gt;0:</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;            errorMsg = f<span class="stringliteral">&quot;Error occurred, please check the {projName}_fixed_log.txt&quot;</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;            <span class="keyword">with</span> lock:</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                <a class="code" href="namespacechangeAnalyze.html#a95b4de3015e7ecd62a42e9b7f97ded30">updateErrorLst</a>(errorLog,errLst)</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="comment">#将修改操作更新到代码源文件</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="comment"># with open(f&quot;{file.rsplit(&#39;/&#39;,1)[0]}/new_{fileName}.py&quot;,&#39;w&#39;) as fw:</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="comment">#     repairCode=ast.unparse(root)</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="comment">#     fw.write(repairCode+&#39;\n&#39;) </span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keywordflow">return</span> ansDict,fileRelativePath,invokedAPINum</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
+<div class="line"><a name="l00197"></a><span class="lineno"><a class="line" href="namespacemain.html#a4267bbc09b63fab971b487585a51ea7b">  197</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespacemain.html#a4267bbc09b63fab971b487585a51ea7b">backward</a>(projPath,libName,currentVersion,currentEnv,targetVersion,targetEnv,runCommand,runPath,workspace,pcresolveLookup=None):</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    runtimePaths=<a class="code" href="namespaceworkspace.html#aba6396054179aaa393205a76b303d7a6">getRuntimePaths</a>(workspace)</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    copyRoot=runtimePaths[<span class="stringliteral">&#39;copy_root&#39;</span>]</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    dataDir=runtimePaths[<span class="stringliteral">&#39;data_dir&#39;</span>]</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    tempDir=runtimePaths[<span class="stringliteral">&#39;temp_dir&#39;</span>]</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    reportDir=runtimePaths[<span class="stringliteral">&#39;report_dir&#39;</span>]</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    pathObj=Path(<span class="stringliteral">&#39;DF&#39;</span>)</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    pathObj.getPath(projPath)</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    filePath=[it <span class="keywordflow">for</span> it <span class="keywordflow">in</span> pathObj.path <span class="keywordflow">if</span> it.endswith(<span class="stringliteral">&#39;py&#39;</span>)] <span class="comment">#保留项目中的.py文件</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    projName=os.path.basename(projPath)</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    errorLog = os.path.join(reportDir, f<span class="stringliteral">&#39;{projName}_fixed_log.txt&#39;</span>)</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="keywordflow">if</span> os.path.exists(errorLog):</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        os.remove(errorLog)</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    </div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="comment">#先在起始版本中生成每个API的pkl</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="comment"># cwd 自动适配：使用 subprocess cwd 参数替代 shell cd</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keywordflow">if</span> runPath <span class="keywordflow">and</span> runPath <span class="keywordflow">not</span> <span class="keywordflow">in</span> runCommand:</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        cwd = os.path.join(copyRoot, projName, runPath)</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        cwd = os.path.join(copyRoot, projName)</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    print(<span class="stringliteral">&#39;Running the project...&#39;</span>)</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    cmd=<a class="code" href="namespacetool.html#a06834e8d522d907efbdb98ce689b85db">buildRunCommand</a>(runCommand,currentEnv)</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    createResult = subprocess.run(</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        cmd, cwd=cwd, capture_output=<span class="keyword">True</span>, text=<span class="keyword">True</span>, encoding=<span class="stringliteral">&#39;utf-8&#39;</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    )</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="keywordflow">if</span> createResult.returncode!=0:</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        print(f<span class="stringliteral">&#39;Failure to generate PKL in current version&#39;</span>)</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        print(createResult.stderr)</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">False</span></div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    print(<span class="stringliteral">&quot;Running complete&quot;</span>)</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;     </div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="comment">#生成pkl成功后，将项目恢复成原样，便于之后对其中某个API单独插桩</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    os.makedirs(tempDir,exist_ok=<span class="keyword">True</span>)</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    tempProjPath=os.path.join(tempDir,projName)</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="keywordflow">if</span> os.path.exists(tempProjPath):</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        shutil.rmtree(tempProjPath)</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    shutil.move(os.path.join(copyRoot, projName), tempProjPath)</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    shutil.move(os.path.join(copyRoot, f<span class="stringliteral">&#39;bak_{projName}&#39;</span>), os.path.join(copyRoot, projName))</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    shutil.move(tempProjPath, os.path.join(copyRoot, f<span class="stringliteral">&#39;bak_{projName}&#39;</span>))</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160; </div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <span class="comment">#用PCResolve进行全项目API调用识别，结果在所有任务间复用</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <span class="keywordflow">if</span> pcresolveLookup <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        pcresolveLookup=<a class="code" href="namespacepcresolveBridge.html#a512bbb00e40320ecbcbf53a312f05f09">buildCallsiteLookup</a>(projPath,libName)</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160; </div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <span class="comment">#这里用进程池同时处理多个任务，但对于torch库可能会报错RuntimeError:CUDA out or memory</span></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <span class="comment">#对数据库的读写需要加锁</span></div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    coverSet=set()</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    coverSet_path = os.path.join(copyRoot, <span class="stringliteral">&#39;pkl&#39;</span>, <span class="stringliteral">&#39;coverSet&#39;</span>)</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <span class="keywordflow">if</span> os.path.exists(coverSet_path):</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        <span class="keyword">with</span> open(coverSet_path, <span class="stringliteral">&#39;r&#39;</span>, encoding=<span class="stringliteral">&#39;utf-8&#39;</span>) <span class="keyword">as</span> fr:</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;            tempLst=fr.readlines()</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        <span class="keywordflow">for</span> it <span class="keywordflow">in</span> tempLst:</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;            it=it.rstrip(<span class="stringliteral">&#39;\n&#39;</span>).replace(<span class="stringliteral">&#39; &#39;</span>,<span class="stringliteral">&#39;&#39;</span>)</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;            coverSet.add(it)</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    manager=Manager()</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    lock=manager.Lock() <span class="comment">#创建一个共享锁</span></div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    sharedDict=manager.dict() <span class="comment">#创建一个共享字典</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    tasks=[(projName,libName,file,currentVersion,currentEnv,targetVersion,targetEnv,runCommand,runPath,lock,sharedDict,coverSet,runtimePaths,pcresolveLookup) <span class="keywordflow">for</span> file <span class="keywordflow">in</span> filePath]</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    pool=Pool(processes=1)</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    resultLst=pool.map(backwardTask,tasks)</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    pool.close() <span class="comment">#关闭进程池，使其不再接受新的任务</span></div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    pool.join() <span class="comment">#等待进程池中所有的任务执行完，否则主进程可能继续往下执行提前结束，而导致部分任务没有执行完</span></div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <a class="code" href="namespacetool.html#a0c884e031b8683fe57a2fc6e9f321b2b">save2txt</a>(resultLst, libName, runCommand, os.path.join(reportDir, f<span class="stringliteral">&#39;{projName}.txt&#39;</span>))</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">True</span></div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160; </div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160; </div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160; </div>
+<div class="line"><a name="l00275"></a><span class="lineno"><a class="line" href="namespacemain.html#a2dd38981b6166face1603927a8486760">  275</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespacemain.html#a2dd38981b6166face1603927a8486760">run</a>(config,cleanWorkspace=False):</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    repoRoot=<a class="code" href="namespaceworkspace.html#a0021e3b7235fc99d47ec6abf492a12e4">getRepoRoot</a>()</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    configPath=<a class="code" href="namespacetool.html#a924419c52a2a18a8cbef3b0fb9bac5f3">resolveConfigFilePath</a>(config,repoRoot)</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160; </div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="comment">#加载配置</span></div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    projPath,runCommand,runPath,libName,currentVersion,targetVersion,currentEnv,targetEnv=<a class="code" href="namespacetool.html#ac27269fb0ca8635862c18bfe841deaae">loadConfig</a>(configPath)</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    projPath=<a class="code" href="namespacetool.html#a798f243de94474f63d3b1edeb8384a3e">resolveConfigValuePath</a>(repoRoot,projPath)</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    currentEnv=<a class="code" href="namespacetool.html#a798f243de94474f63d3b1edeb8384a3e">resolveConfigValuePath</a>(repoRoot,currentEnv)</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    targetEnv=<a class="code" href="namespacetool.html#a798f243de94474f63d3b1edeb8384a3e">resolveConfigValuePath</a>(repoRoot,targetEnv)</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160; </div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    workspace=<a class="code" href="namespaceworkspace.html#a9360d1de3db40b2a88a9d941c4e6d3c7">createRunWorkspace</a>(</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        repoRoot,</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        projPath,</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        runCommand,</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        runPath,</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        libName,</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        currentVersion,</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        targetVersion,</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        currentEnv,</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        targetEnv,</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    )</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    print(f<span class="stringliteral">&quot;Run workspace: {workspace.workspace_root}&quot;</span>)</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    print(<span class="stringliteral">&quot;Code preprocessing...&quot;</span>)</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160; </div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    pcresolveLookup=<a class="code" href="namespacepcresolveBridge.html#a512bbb00e40320ecbcbf53a312f05f09">buildCallsiteLookup</a>(projPath,libName)</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160; </div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <span class="keyword">with</span> <a class="code" href="namespaceworkspace.html#a52f0dcdb1eb2925c1043860032f669d9">workspaceCwd</a>(workspace.workspace_root):</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        <span class="comment">#首先对代码进行预处理</span></div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        <a class="code" href="namespacepreprocess.html#a2eec1d8b2c398e66364228c1ad0c6ff9">codeProcess</a>(projPath,runCommand,runPath,libName,workspace=workspace,pcresolveLookup=pcresolveLookup)</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        print(<span class="stringliteral">&quot;Code preprocess complete&quot;</span>)</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160; </div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        <span class="comment">#执行主逻辑</span></div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        succeeded=<a class="code" href="namespacemain.html#a4267bbc09b63fab971b487585a51ea7b">backward</a>(projPath,libName,currentVersion,currentEnv,targetVersion,targetEnv,runCommand,runPath,workspace=workspace,pcresolveLookup=pcresolveLookup)</div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160; </div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <a class="code" href="namespacemain.html#a2dd38981b6166face1603927a8486760">run</a>(args.config,cleanWorkspace=args.clean_workspace)</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160; </div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    end=time.time()</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    print(f<span class="stringliteral">&quot;Total run time={int(end-start)}s&quot;</span>)</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160; </div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160; </div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;<span class="keywordflow">if</span> __name__==<span class="stringliteral">&#39;__main__&#39;</span>:</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    <a class="code" href="namespacemain.html">main</a>()</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <a class="code" href="namespaceworkspace.html#a39fae6e30ae356b4e47690160ea2d5d9">exportRunReport</a>(workspace)</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    print(f<span class="stringliteral">&quot;Report output: {workspace.report_root}&quot;</span>)</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    <span class="keywordflow">if</span> cleanWorkspace <span class="keywordflow">and</span> succeeded:</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        <a class="code" href="namespaceworkspace.html#a3743387f562da648eb4ea46b20ddaabc">cleanupRunWorkspace</a>(workspace)</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        print(f<span class="stringliteral">&quot;Run workspace removed: {workspace.run_root}&quot;</span>)</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="keywordflow">return</span> workspace</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160; </div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160; </div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160; </div>
+<div class="line"><a name="l00319"></a><span class="lineno"><a class="line" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945">  319</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945">main</a>():</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    parser=argparse.ArgumentParser(</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;        description=<span class="stringliteral">&#39;Python API compatibility analysis and repair tool&#39;</span></div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    )</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    parser.add_argument(</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;        <span class="stringliteral">&#39;-cfg&#39;</span>,</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        dest=<span class="stringliteral">&#39;config&#39;</span>,</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        required=<span class="keyword">True</span>,</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        help=<span class="stringliteral">&#39;Configuration file path or file name under Configure&#39;</span>,</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    )</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    parser.add_argument(</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        <span class="stringliteral">&#39;--clean-workspace&#39;</span>,</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        action=<span class="stringliteral">&#39;store_true&#39;</span>,</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        help=<span class="stringliteral">&#39;Remove the run workspace after successful report export&#39;</span>,</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    )</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    args=parser.parse_args()</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160; </div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    start=time.time()</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160; </div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <a class="code" href="namespacemain.html#a2dd38981b6166face1603927a8486760">run</a>(args.config,cleanWorkspace=args.clean_workspace)</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160; </div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    end=time.time()</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    print(f<span class="stringliteral">&quot;Total run time={int(end-start)}s&quot;</span>)</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160; </div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160; </div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;<span class="keywordflow">if</span> __name__==<span class="stringliteral">&#39;__main__&#39;</span>:</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    <a class="code" href="namespacemain.html">main</a>()</div>
 <div class="ttc" id="anamespacePath_1_1getPath_html"><div class="ttname"><a href="namespacePath_1_1getPath.html">getPath</a></div></div>
 <div class="ttc" id="anamespacechangeAnalyze_html_a3272743b8ad154a66e9d45ab36bca3ec"><div class="ttname"><a href="namespacechangeAnalyze.html#a3272743b8ad154a66e9d45ab36bca3ec">changeAnalyze.isCompatible</a></div><div class="ttdeci">def isCompatible(current, target)</div><div class="ttdoc">Determine the compatibility of APIs from current and target versions 判断起始版本和目标版本API的兼容性</div><div class="ttdef"><b>Definition:</b> <a href="changeAnalyze_8py_source.html#l00556">changeAnalyze.py:556</a></div></div>
 <div class="ttc" id="anamespacechangeAnalyze_html_a95b4de3015e7ecd62a42e9b7f97ded30"><div class="ttname"><a href="namespacechangeAnalyze.html#a95b4de3015e7ecd62a42e9b7f97ded30">changeAnalyze.updateErrorLst</a></div><div class="ttdeci">def updateErrorLst(errorLog, errorLst)</div><div class="ttdoc">Save error messages 保存错误信息</div><div class="ttdef"><b>Definition:</b> <a href="changeAnalyze_8py_source.html#l00101">changeAnalyze.py:101</a></div></div>
@@ -362,20 +391,21 @@ $(function() {
 <div class="ttc" id="anamespacegetCall_html_a6671b2b1a28dcf2b92aaf39b9696fae3"><div class="ttname"><a href="namespacegetCall.html#a6671b2b1a28dcf2b92aaf39b9696fae3">getCall.getCallFunction</a></div><div class="ttdeci">def getCallFunction(filePath, libName, projPath=None, pcresolveLookup=None)</div><div class="ttdoc">Extract all API calls from a given .py file 每次传进来一个.py文件，抽取所有的调用API.</div><div class="ttdef"><b>Definition:</b> <a href="getCall_8py_source.html#l00205">getCall.py:205</a></div></div>
 <div class="ttc" id="anamespacemain_html"><div class="ttname"><a href="namespacemain.html">main</a></div><div class="ttdef"><b>Definition:</b> <a href="main_8py_source.html#l00001">main.py:1</a></div></div>
 <div class="ttc" id="anamespacemain_html_a052341442960b76f576383f354689bc5"><div class="ttname"><a href="namespacemain.html#a052341442960b76f576383f354689bc5">main.backwardTask</a></div><div class="ttdeci">def backwardTask(args)</div><div class="ttdoc">One process handles one file 一个进程处理一个文件</div><div class="ttdef"><b>Definition:</b> <a href="main_8py_source.html#l00038">main.py:38</a></div></div>
-<div class="ttc" id="anamespacemain_html_a2dd38981b6166face1603927a8486760"><div class="ttname"><a href="namespacemain.html#a2dd38981b6166face1603927a8486760">main.run</a></div><div class="ttdeci">def run(config, cleanWorkspace=False)</div><div class="ttdoc">Run PCART with an isolated workspace 在隔离工作区中运行PCART.</div><div class="ttdef"><b>Definition:</b> <a href="main_8py_source.html#l00246">main.py:246</a></div></div>
-<div class="ttc" id="anamespacemain_html_a4267bbc09b63fab971b487585a51ea7b"><div class="ttname"><a href="namespacemain.html#a4267bbc09b63fab971b487585a51ea7b">main.backward</a></div><div class="ttdeci">def backward(projPath, libName, currentVersion, currentEnv, targetVersion, targetEnv, runCommand, runPath, workspace, pcresolveLookup=None)</div><div class="ttdoc">Generate pkl files and perform detection and repair tasks 生成项目调用API的pkl文件以及执行检测与修复任务</div><div class="ttdef"><b>Definition:</b> <a href="main_8py_source.html#l00168">main.py:168</a></div></div>
-<div class="ttc" id="anamespacemain_html_af613cea4cba4fb7de8e40896b3368945"><div class="ttname"><a href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945">main.main</a></div><div class="ttdeci">def main()</div><div class="ttdoc">Main function of PCART PCART主函数</div><div class="ttdef"><b>Definition:</b> <a href="main_8py_source.html#l00290">main.py:290</a></div></div>
+<div class="ttc" id="anamespacemain_html_a2dd38981b6166face1603927a8486760"><div class="ttname"><a href="namespacemain.html#a2dd38981b6166face1603927a8486760">main.run</a></div><div class="ttdeci">def run(config, cleanWorkspace=False)</div><div class="ttdoc">Run PCART with an isolated workspace 在隔离工作区中运行PCART.</div><div class="ttdef"><b>Definition:</b> <a href="main_8py_source.html#l00275">main.py:275</a></div></div>
+<div class="ttc" id="anamespacemain_html_a4267bbc09b63fab971b487585a51ea7b"><div class="ttname"><a href="namespacemain.html#a4267bbc09b63fab971b487585a51ea7b">main.backward</a></div><div class="ttdeci">def backward(projPath, libName, currentVersion, currentEnv, targetVersion, targetEnv, runCommand, runPath, workspace, pcresolveLookup=None)</div><div class="ttdoc">Generate pkl files and perform detection and repair tasks 生成项目调用API的pkl文件以及执行检测与修复任务</div><div class="ttdef"><b>Definition:</b> <a href="main_8py_source.html#l00197">main.py:197</a></div></div>
+<div class="ttc" id="anamespacemain_html_af613cea4cba4fb7de8e40896b3368945"><div class="ttname"><a href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945">main.main</a></div><div class="ttdeci">def main()</div><div class="ttdoc">Main function of PCART PCART主函数</div><div class="ttdef"><b>Definition:</b> <a href="main_8py_source.html#l00319">main.py:319</a></div></div>
 <div class="ttc" id="anamespacemap_html_a78308f65da57a1b78ac061bddb981715"><div class="ttname"><a href="namespacemap.html#a78308f65da57a1b78ac061bddb981715">map.mapAPI</a></div><div class="ttdeci">def mapAPI(callAPI, runCommand, runPath, formatAPI, projName, libName, copyFile, version, virtualEnv, lock, errLst, curr=1, *callKey, runtimePaths)</div><div class="ttdoc">Construct the mapping between the invoked API and the lib API to obtain its signature 建立invoked API与 ...</div><div class="ttdef"><b>Definition:</b> <a href="map_8py_source.html#l00328">map.py:328</a></div></div>
+<div class="ttc" id="anamespacemap_html_ad057ce6744be1ed77c3482ef8872eba1"><div class="ttname"><a href="namespacemap.html#ad057ce6744be1ed77c3482ef8872eba1">map.fuzzymatch</a></div><div class="ttdeci">def fuzzymatch(formatAPI, libName, version, builtinFlag)</div><div class="ttdoc">Static mapping of API signatures API签名静态匹配</div><div class="ttdef"><b>Definition:</b> <a href="map_8py_source.html#l00057">map.py:57</a></div></div>
 <div class="ttc" id="anamespacepcresolveBridge_html_a512bbb00e40320ecbcbf53a312f05f09"><div class="ttname"><a href="namespacepcresolveBridge.html#a512bbb00e40320ecbcbf53a312f05f09">pcresolveBridge.buildCallsiteLookup</a></div><div class="ttdeci">def buildCallsiteLookup(projPath, libName)</div><div class="ttdoc">Build a CallsiteRecord lookup table from PCResolve analysis 从PCResolve分析结果构建CallsiteRecord查找表</div><div class="ttdef"><b>Definition:</b> <a href="pcresolveBridge_8py_source.html#l00040">pcresolveBridge.py:40</a></div></div>
 <div class="ttc" id="anamespacepreprocess_html_a2eec1d8b2c398e66364228c1ad0c6ff9"><div class="ttname"><a href="namespacepreprocess.html#a2eec1d8b2c398e66364228c1ad0c6ff9">preprocess.codeProcess</a></div><div class="ttdeci">def codeProcess(projPath, runCommand, runPath, libName, workspace, pcresolveLookup=None)</div><div class="ttdoc">Code processing 代码预处理</div><div class="ttdef"><b>Definition:</b> <a href="preprocess_8py_source.html#l01135">preprocess.py:1135</a></div></div>
 <div class="ttc" id="anamespacerepair_html_a4474fce39da06e080d7eab0050a1e987"><div class="ttname"><a href="namespacerepair.html#a4474fce39da06e080d7eab0050a1e987">repair.repairTask</a></div><div class="ttdeci">def repairTask(root, callAPI, apiWithValue, projName, runPath, runCommand, repairLst, virtualEnv, errLst, callKey, *runtimePaths)</div><div class="ttdoc">Task of repairing parameter compatibility issues 参数兼容性问题修复任务</div><div class="ttdef"><b>Definition:</b> <a href="repair_8py_source.html#l00383">repair.py:383</a></div></div>
-<div class="ttc" id="anamespacetool_html_a06834e8d522d907efbdb98ce689b85db"><div class="ttname"><a href="namespacetool.html#a06834e8d522d907efbdb98ce689b85db">tool.buildRunCommand</a></div><div class="ttdeci">def buildRunCommand(runCommand, envPath)</div><div class="ttdoc">Build subprocess argv for project run command 为被测项目运行命令构造subprocess argv.</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00779">tool.py:779</a></div></div>
+<div class="ttc" id="anamespacetool_html_a06834e8d522d907efbdb98ce689b85db"><div class="ttname"><a href="namespacetool.html#a06834e8d522d907efbdb98ce689b85db">tool.buildRunCommand</a></div><div class="ttdeci">def buildRunCommand(runCommand, envPath)</div><div class="ttdoc">Build subprocess argv for project run command 为被测项目运行命令构造subprocess argv.</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00769">tool.py:769</a></div></div>
 <div class="ttc" id="anamespacetool_html_a06b0d4848192999bfb9a11895ba277dc"><div class="ttname"><a href="namespacetool.html#a06b0d4848192999bfb9a11895ba277dc">tool.removeParameter</a></div><div class="ttdeci">def removeParameter(s, flag=0)</div><div class="ttdoc">Remove parameter(s) from API call string 去掉API中的参数部分</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00210">tool.py:210</a></div></div>
-<div class="ttc" id="anamespacetool_html_a0c884e031b8683fe57a2fc6e9f321b2b"><div class="ttname"><a href="namespacetool.html#a0c884e031b8683fe57a2fc6e9f321b2b">tool.save2txt</a></div><div class="ttdeci">def save2txt(lst, libName, runCommand, savePath)</div><div class="ttdoc">Save PCART report 保存PCART报告</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00533">tool.py:533</a></div></div>
+<div class="ttc" id="anamespacetool_html_a0c884e031b8683fe57a2fc6e9f321b2b"><div class="ttname"><a href="namespacetool.html#a0c884e031b8683fe57a2fc6e9f321b2b">tool.save2txt</a></div><div class="ttdeci">def save2txt(lst, libName, runCommand, savePath)</div><div class="ttdoc">Save PCART report 保存PCART报告</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00523">tool.py:523</a></div></div>
 <div class="ttc" id="anamespacetool_html_a163a1af85c967f70b1495290735321aa"><div class="ttname"><a href="namespacetool.html#a163a1af85c967f70b1495290735321aa">tool.getAst</a></div><div class="ttdeci">def getAst(filePath, strFlag=0)</div><div class="ttdoc">Get AST for code 将代码转化为Ast树</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00173">tool.py:173</a></div></div>
-<div class="ttc" id="anamespacetool_html_a798f243de94474f63d3b1edeb8384a3e"><div class="ttname"><a href="namespacetool.html#a798f243de94474f63d3b1edeb8384a3e">tool.resolveConfigValuePath</a></div><div class="ttdeci">def resolveConfigValuePath(repoRoot, path)</div><div class="ttdoc">Resolve path value loaded from PCART config 解析PCART配置字段中的路径值</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00657">tool.py:657</a></div></div>
-<div class="ttc" id="anamespacetool_html_a924419c52a2a18a8cbef3b0fb9bac5f3"><div class="ttname"><a href="namespacetool.html#a924419c52a2a18a8cbef3b0fb9bac5f3">tool.resolveConfigFilePath</a></div><div class="ttdeci">def resolveConfigFilePath(config, repoRoot)</div><div class="ttdoc">Resolve PCART config file path 解析PCART配置文件路径</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00643">tool.py:643</a></div></div>
-<div class="ttc" id="anamespacetool_html_ac27269fb0ca8635862c18bfe841deaae"><div class="ttname"><a href="namespacetool.html#ac27269fb0ca8635862c18bfe841deaae">tool.loadConfig</a></div><div class="ttdeci">def loadConfig(configPath)</div><div class="ttdoc">Load PCART's configuration file 加载PCART配置文件</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00627">tool.py:627</a></div></div>
+<div class="ttc" id="anamespacetool_html_a798f243de94474f63d3b1edeb8384a3e"><div class="ttname"><a href="namespacetool.html#a798f243de94474f63d3b1edeb8384a3e">tool.resolveConfigValuePath</a></div><div class="ttdeci">def resolveConfigValuePath(repoRoot, path)</div><div class="ttdoc">Resolve path value loaded from PCART config 解析PCART配置字段中的路径值</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00647">tool.py:647</a></div></div>
+<div class="ttc" id="anamespacetool_html_a924419c52a2a18a8cbef3b0fb9bac5f3"><div class="ttname"><a href="namespacetool.html#a924419c52a2a18a8cbef3b0fb9bac5f3">tool.resolveConfigFilePath</a></div><div class="ttdeci">def resolveConfigFilePath(config, repoRoot)</div><div class="ttdoc">Resolve PCART config file path 解析PCART配置文件路径</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00633">tool.py:633</a></div></div>
+<div class="ttc" id="anamespacetool_html_ac27269fb0ca8635862c18bfe841deaae"><div class="ttname"><a href="namespacetool.html#ac27269fb0ca8635862c18bfe841deaae">tool.loadConfig</a></div><div class="ttdeci">def loadConfig(configPath)</div><div class="ttdoc">Load PCART's configuration file 加载PCART配置文件</div><div class="ttdef"><b>Definition:</b> <a href="tool_8py_source.html#l00617">tool.py:617</a></div></div>
 <div class="ttc" id="anamespaceworkspace_html_a0021e3b7235fc99d47ec6abf492a12e4"><div class="ttname"><a href="namespaceworkspace.html#a0021e3b7235fc99d47ec6abf492a12e4">workspace.getRepoRoot</a></div><div class="ttdeci">def getRepoRoot()</div><div class="ttdoc">Get PCART repository root path 获取PCART仓库根目录路径</div><div class="ttdef"><b>Definition:</b> <a href="workspace_8py_source.html#l00052">workspace.py:52</a></div></div>
 <div class="ttc" id="anamespaceworkspace_html_a3743387f562da648eb4ea46b20ddaabc"><div class="ttname"><a href="namespaceworkspace.html#a3743387f562da648eb4ea46b20ddaabc">workspace.cleanupRunWorkspace</a></div><div class="ttdeci">def cleanupRunWorkspace(workspace)</div><div class="ttdoc">Remove one completed PCART run workspace 删除一次已完成的PCART运行工作区</div><div class="ttdef"><b>Definition:</b> <a href="workspace_8py_source.html#l00264">workspace.py:264</a></div></div>
 <div class="ttc" id="anamespaceworkspace_html_a39fae6e30ae356b4e47690160ea2d5d9"><div class="ttname"><a href="namespaceworkspace.html#a39fae6e30ae356b4e47690160ea2d5d9">workspace.exportRunReport</a></div><div class="ttdeci">def exportRunReport(workspace)</div><div class="ttdoc">Export internal report files to user-visible report directory 将工作区内部报告导出到用户可见报告目录</div><div class="ttdef"><b>Definition:</b> <a href="workspace_8py_source.html#l00239">workspace.py:239</a></div></div>

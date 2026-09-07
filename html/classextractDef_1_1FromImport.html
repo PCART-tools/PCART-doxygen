@@ -100,6 +100,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3bf5d7f1fa537a7005110c07600d0707"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextractDef_1_1FromImport.html#a3bf5d7f1fa537a7005110c07600d0707">importDict</a> (self)</td></tr>
 <tr class="memdesc:a3bf5d7f1fa537a7005110c07600d0707"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the import dictionary 返回导入字典  <a href="classextractDef_1_1FromImport.html#a3bf5d7f1fa537a7005110c07600d0707">More...</a><br /></td></tr>
 <tr class="separator:a3bf5d7f1fa537a7005110c07600d0707"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af768e12bf57f16d4efc8bf059fd9c51a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextractDef_1_1FromImport.html#af768e12bf57f16d4efc8bf059fd9c51a">visit_AsyncFunctionDef</a> (self, node)</td></tr>
+<tr class="separator:af768e12bf57f16d4efc8bf059fd9c51a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac004cd3b8798917b0e47dadcac50112e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextractDef_1_1FromImport.html#ac004cd3b8798917b0e47dadcac50112e">visit_ClassDef</a> (self, node)</td></tr>
+<tr class="separator:ac004cd3b8798917b0e47dadcac50112e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab06eb583349e9f32f7ebc6957e3fd417"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextractDef_1_1FromImport.html#ab06eb583349e9f32f7ebc6957e3fd417">visit_FunctionDef</a> (self, node)</td></tr>
+<tr class="separator:ab06eb583349e9f32f7ebc6957e3fd417"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad168dceb9bac7d34f2731494492f961b"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classextractDef_1_1FromImport.html#ad168dceb9bac7d34f2731494492f961b">visit_ImportFrom</a> (self, node)</td></tr>
 <tr class="memdesc:ad168dceb9bac7d34f2731494492f961b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visit an ImportFrom node and resolve relative imports 访问ImportFrom节点，解析相对导入  <a href="classextractDef_1_1FromImport.html#ad168dceb9bac7d34f2731494492f961b">More...</a><br /></td></tr>
 <tr class="separator:ad168dceb9bac7d34f2731494492f961b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -144,7 +150,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00051">51</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00061">61</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
 
 </div>
 </div>
@@ -168,7 +174,97 @@ Public Member Functions</h2></td></tr>
 <p>Return the import dictionary 返回导入字典 </p>
 <dl class="section return"><dt>Returns</dt><dd>dict mapping module+name to alias or name </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00060">60</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00070">70</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
+
+</div>
+</div>
+<a id="af768e12bf57f16d4efc8bf059fd9c51a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af768e12bf57f16d4efc8bf059fd9c51a">&#9670;&nbsp;</a></span>visit_AsyncFunctionDef()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def visit_AsyncFunctionDef </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>node</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00052">52</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
+
+</div>
+</div>
+<a id="ac004cd3b8798917b0e47dadcac50112e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac004cd3b8798917b0e47dadcac50112e">&#9670;&nbsp;</a></span>visit_ClassDef()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def visit_ClassDef </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>node</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00055">55</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
+
+</div>
+</div>
+<a id="ab06eb583349e9f32f7ebc6957e3fd417"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab06eb583349e9f32f7ebc6957e3fd417">&#9670;&nbsp;</a></span>visit_FunctionDef()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def visit_FunctionDef </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>node</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00049">49</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
 
 </div>
 </div>
@@ -207,7 +303,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00067">67</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="extractDef_8py_source.html#l00077">77</a> of file <a class="el" href="extractDef_8py_source.html">extractDef.py</a>.</p>
 
 </div>
 </div>
