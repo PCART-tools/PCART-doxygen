@@ -126,9 +126,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ae11019ef37390ec657efde69354884aa"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetool.html#ae11019ef37390ec657efde69354884aa">getRunFile</a> (runCommand)</td></tr>
 <tr class="memdesc:ae11019ef37390ec657efde69354884aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract the .py script filename from a run command 从运行命令中提取.py脚本文件名  <a href="namespacetool.html#ae11019ef37390ec657efde69354884aa">More...</a><br /></td></tr>
 <tr class="separator:ae11019ef37390ec657efde69354884aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2321662f4efa237a44d89603ddb2ba1d"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetool.html#a2321662f4efa237a44d89603ddb2ba1d">getSourceCodePath</a> (configPath)</td></tr>
-<tr class="memdesc:a2321662f4efa237a44d89603ddb2ba1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get source code path of the lib 获取库源码路径  <a href="namespacetool.html#a2321662f4efa237a44d89603ddb2ba1d">More...</a><br /></td></tr>
-<tr class="separator:a2321662f4efa237a44d89603ddb2ba1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a0b1bafb746ee2c4ff6dedacb3cfb86"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetool.html#a5a0b1bafb746ee2c4ff6dedacb3cfb86">getSourceCodePath</a> (configPath, repoRoot=None)</td></tr>
+<tr class="memdesc:a5a0b1bafb746ee2c4ff6dedacb3cfb86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get source code path of the lib 获取库源码路径  <a href="namespacetool.html#a5a0b1bafb746ee2c4ff6dedacb3cfb86">More...</a><br /></td></tr>
+<tr class="separator:a5a0b1bafb746ee2c4ff6dedacb3cfb86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5cc61c9c0a7f6f85176b0d98dfb8dd1b"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetool.html#a5cc61c9c0a7f6f85176b0d98dfb8dd1b">getVersionLst</a> (libPath)</td></tr>
 <tr class="memdesc:a5cc61c9c0a7f6f85176b0d98dfb8dd1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get all version numbers from a library package directory 给定库的路径，获得该库的所有版本号  <a href="namespacetool.html#a5cc61c9c0a7f6f85176b0d98dfb8dd1b">More...</a><br /></td></tr>
 <tr class="separator:a5cc61c9c0a7f6f85176b0d98dfb8dd1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -716,8 +716,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a2321662f4efa237a44d89603ddb2ba1d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2321662f4efa237a44d89603ddb2ba1d">&#9670;&nbsp;</a></span>getSourceCodePath()</h2>
+<a id="a5a0b1bafb746ee2c4ff6dedacb3cfb86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a0b1bafb746ee2c4ff6dedacb3cfb86">&#9670;&nbsp;</a></span>getSourceCodePath()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -726,8 +726,18 @@ Here is the caller graph for this function:</div>
           <td class="memname">def tool.getSourceCodePath </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>configPath</em></td><td>)</td>
+          <td class="paramname"><em>configPath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>repoRoot</em> = <code>None</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -736,23 +746,24 @@ Here is the caller graph for this function:</div>
 <p>f"/dataset/zhang/anaconda3/envs/3d/lib/{pythonxx.xx}/" + f"site-packages/{torch}"</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">configPath</td><td>PCART's configuration file </td></tr>
+    <tr><td class="paramname">configPath</td><td>PCART configuration path or file name under Configure </td></tr>
+    <tr><td class="paramname">repoRoot</td><td>Optional PCART repository root used to resolve relative paths </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>(currentVersion, targetVersion, currentSourceCodePath, targetSourceCodePath) Tuple of current version, target version, virtual environment paths of current version and target version </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="tool_8py_source.html#l00874">874</a> of file <a class="el" href="tool_8py_source.html">tool.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tool_8py_source.html#l00875">875</a> of file <a class="el" href="tool_8py_source.html">tool.py</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacetool_a2321662f4efa237a44d89603ddb2ba1d_cgraph.svg" width="560" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacetool_a5a0b1bafb746ee2c4ff6dedacb3cfb86_cgraph.svg" width="560" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacetool_a2321662f4efa237a44d89603ddb2ba1d_icgraph.svg" width="352" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacetool_a5a0b1bafb746ee2c4ff6dedacb3cfb86_icgraph.svg" width="352" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -1056,7 +1067,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacetool_a924419c52a2a18a8cbef3b0fb9bac5f3_icgraph.svg" width="442" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacetool_a924419c52a2a18a8cbef3b0fb9bac5f3_icgraph.svg" width="563" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -1102,7 +1113,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacetool_a798f243de94474f63d3b1edeb8384a3e_icgraph.svg" width="454" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacetool_a798f243de94474f63d3b1edeb8384a3e_icgraph.svg" width="575" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
