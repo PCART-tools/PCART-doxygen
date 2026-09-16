@@ -118,9 +118,16 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Apply non-overlapping edits using UTF-8 byte offsets from the original AST 根据原始AST的UTF-8字节位置应用不重叠的修复 </p>
-<p>Unsafe edits are skipped and logged; a syntax-invalid file is not emitted. 不安全的修复跳过并记录日志，合并后语法无效的文件不输出。 </p><dl class="section return"><dt>Returns</dt><dd>(modifiedBytes,errorList) </dd></dl>
+<p>Unsafe edits are skipped and logged; a syntax-invalid file is not emitted. 不安全的修复跳过并记录日志，合并后语法无效的文件不输出。 </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sourceBytes</td><td>Original UTF-8 source file bytes, optionally with BOM </td></tr>
+    <tr><td class="paramname">edits</td><td>List of edit dictionaries for this source file </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>(modifiedBytes,errorList) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="patch_8py_source.html#l00053">53</a> of file <a class="el" href="patch_8py_source.html">patch.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="patch_8py_source.html#l00058">58</a> of file <a class="el" href="patch_8py_source.html">patch.py</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -163,9 +170,17 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Collect one unambiguous repair result with its original source span 收集唯一修复表达式及其原始源码范围 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">record</td><td>Structured callsite record with original call text and source span </td></tr>
+    <tr><td class="paramname">fixedAPI</td><td>Fixed API call expression returned by repairTask </td></tr>
+    <tr><td class="paramname">repairStatus</td><td>Repair status: Successful, Unknown, or Failed </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd>An edit dictionary, or None for ambiguous/empty/unchanged results </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="patch_8py_source.html#l00026">26</a> of file <a class="el" href="patch_8py_source.html">patch.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="patch_8py_source.html#l00029">29</a> of file <a class="el" href="patch_8py_source.html">patch.py</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -214,9 +229,18 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Write independent category patches and a Successful-only project copy 写出三类独立补丁及仅含Successful修复的项目副本 </p>
-<p>Every category is compared with the original project, not another category. 各类别均与原项目比较，不在其他类别补丁上叠加。 </p><dl class="section return"><dt>Returns</dt><dd>Error messages to append to the existing repair log </dd></dl>
+<p>Every category is compared with the original project, not another category. 各类别均与原项目比较，不在其他类别补丁上叠加。 </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">projPath</td><td>Original project root path </td></tr>
+    <tr><td class="paramname">projName</td><td>Project directory name used in fixed_project output </td></tr>
+    <tr><td class="paramname">edits</td><td>List of collected edit dictionaries from all project files </td></tr>
+    <tr><td class="paramname">reportDir</td><td>Internal report directory for the current run command </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error messages to append to the existing repair log </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="patch_8py_source.html#l00129">129</a> of file <a class="el" href="patch_8py_source.html">patch.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="patch_8py_source.html#l00138">138</a> of file <a class="el" href="patch_8py_source.html">patch.py</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
