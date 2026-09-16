@@ -87,9 +87,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a3743387f562da648eb4ea46b20ddaabc"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceworkspace.html#a3743387f562da648eb4ea46b20ddaabc">cleanupRunWorkspace</a> (workspace)</td></tr>
 <tr class="memdesc:a3743387f562da648eb4ea46b20ddaabc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove one completed PCART run workspace 删除一次已完成的PCART运行工作区  <a href="namespaceworkspace.html#a3743387f562da648eb4ea46b20ddaabc">More...</a><br /></td></tr>
 <tr class="separator:a3743387f562da648eb4ea46b20ddaabc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9360d1de3db40b2a88a9d941c4e6d3c7"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceworkspace.html#a9360d1de3db40b2a88a9d941c4e6d3c7">createRunWorkspace</a> (repoRoot, projPath, runCommand, runPath, libName, currentVersion, targetVersion, currentEnv, targetEnv, commandId='cmd-001', timestamp=None)</td></tr>
-<tr class="memdesc:a9360d1de3db40b2a88a9d941c4e6d3c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an isolated workspace for one PCART run command 为一次PCART运行命令创建隔离工作区  <a href="namespaceworkspace.html#a9360d1de3db40b2a88a9d941c4e6d3c7">More...</a><br /></td></tr>
-<tr class="separator:a9360d1de3db40b2a88a9d941c4e6d3c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a906405cb0a9bb7e80f550f95ba9405b4"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceworkspace.html#a906405cb0a9bb7e80f550f95ba9405b4">createRunWorkspace</a> (repoRoot, projPath, runCommand, runPath, libName, currentVersion, targetVersion, currentEnv, targetEnv, commandId='cmd-001', timestamp=None, writePatch=False)</td></tr>
+<tr class="memdesc:a906405cb0a9bb7e80f550f95ba9405b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an isolated workspace for one PCART run command 为一次PCART运行命令创建隔离工作区  <a href="namespaceworkspace.html#a906405cb0a9bb7e80f550f95ba9405b4">More...</a><br /></td></tr>
+<tr class="separator:a906405cb0a9bb7e80f550f95ba9405b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39fae6e30ae356b4e47690160ea2d5d9"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceworkspace.html#a39fae6e30ae356b4e47690160ea2d5d9">exportRunReport</a> (workspace)</td></tr>
 <tr class="memdesc:a39fae6e30ae356b4e47690160ea2d5d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Export internal report files to user-visible report directory 将工作区内部报告导出到用户可见报告目录  <a href="namespaceworkspace.html#a39fae6e30ae356b4e47690160ea2d5d9">More...</a><br /></td></tr>
 <tr class="separator:a39fae6e30ae356b4e47690160ea2d5d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -110,7 +110,7 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Run workspace helpers for isolating PCART execution artifacts. </p>
-<p>Provides <a class="el" href="namespaceworkspace.html#a9360d1de3db40b2a88a9d941c4e6d3c7" title="Create an isolated workspace for one PCART run command 为一次PCART运行命令创建隔离工作区">createRunWorkspace()</a> to create isolated run directories under PCARTRuns/runs/ with unique run_id and command_id, <a class="el" href="namespaceworkspace.html#a39fae6e30ae356b4e47690160ea2d5d9" title="Export internal report files to user-visible report directory 将工作区内部报告导出到用户可见报告目录">exportRunReport()</a> to export internal reports to Report/runs/, and <a class="el" href="namespaceworkspace.html#a52f0dcdb1eb2925c1043860032f669d9">workspaceCwd()</a> for temporary working directory switching. Each workspace contains Copy/, Dynamic/, data/, temp/, Report/ subdirectories and a metadata.json snapshot. 提供createRunWorkspace()在PCARTRuns/runs/下创建带唯一run_id和command_id的 隔离运行目录，exportRunReport()导出内部报告到Report/runs/，workspaceCwd() 用于临时切换工作目录。每个工作区包含Copy/、Dynamic/、data/、temp/、Report/ 子目录和metadata.json快照。</p>
+<p>Provides <a class="el" href="namespaceworkspace.html#a906405cb0a9bb7e80f550f95ba9405b4" title="Create an isolated workspace for one PCART run command 为一次PCART运行命令创建隔离工作区">createRunWorkspace()</a> to create isolated run directories under PCARTRuns/runs/ with unique run_id and command_id, <a class="el" href="namespaceworkspace.html#a39fae6e30ae356b4e47690160ea2d5d9" title="Export internal report files to user-visible report directory 将工作区内部报告导出到用户可见报告目录">exportRunReport()</a> to export internal reports to Report/runs/, and <a class="el" href="namespaceworkspace.html#a52f0dcdb1eb2925c1043860032f669d9">workspaceCwd()</a> for temporary working directory switching. Each workspace contains Copy/, Dynamic/, data/, temp/, Report/ subdirectories and a metadata.json snapshot. 提供createRunWorkspace()在PCARTRuns/runs/下创建带唯一run_id和command_id的 隔离运行目录，exportRunReport()导出内部报告到Report/runs/，workspaceCwd() 用于临时切换工作目录。每个工作区包含Copy/、Dynamic/、data/、temp/、Report/ 子目录和metadata.json快照。</p>
 <p>提供PCART运行工作区的创建、编号、元数据记录和报告导出能力 </p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a3743387f562da648eb4ea46b20ddaabc"></a>
@@ -139,7 +139,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="workspace_8py_source.html#l00264">264</a> of file <a class="el" href="workspace_8py_source.html">workspace.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="workspace_8py_source.html#l00267">267</a> of file <a class="el" href="workspace_8py_source.html">workspace.py</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -149,8 +149,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a9360d1de3db40b2a88a9d941c4e6d3c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9360d1de3db40b2a88a9d941c4e6d3c7">&#9670;&nbsp;</a></span>createRunWorkspace()</h2>
+<a id="a906405cb0a9bb7e80f550f95ba9405b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a906405cb0a9bb7e80f550f95ba9405b4">&#9670;&nbsp;</a></span>createRunWorkspace()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -219,7 +219,13 @@ Here is the caller graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>timestamp</em> = <code>None</code>&#160;</td>
+          <td class="paramname"><em>timestamp</em> = <code>None</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>writePatch</em> = <code>False</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -244,22 +250,23 @@ Here is the caller graph for this function:</div>
     <tr><td class="paramname">targetEnv</td><td>The virtual environment for target library version </td></tr>
     <tr><td class="paramname">commandId</td><td>The command id under this run, default cmd-001 </td></tr>
     <tr><td class="paramname">timestamp</td><td>Optional timestamp, mainly used by tests </td></tr>
+    <tr><td class="paramname">writePatch</td><td>Whether patch output is enabled, recorded in metadata </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classworkspace_1_1RunWorkspace.html" title="Run workspace path object PCART单次运行的工作区路径对象">RunWorkspace</a> object </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="workspace_8py_source.html#l00113">113</a> of file <a class="el" href="workspace_8py_source.html">workspace.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="workspace_8py_source.html#l00114">114</a> of file <a class="el" href="workspace_8py_source.html">workspace.py</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceworkspace_a9360d1de3db40b2a88a9d941c4e6d3c7_cgraph.svg" width="367" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceworkspace_a906405cb0a9bb7e80f550f95ba9405b4_cgraph.svg" width="367" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceworkspace_a9360d1de3db40b2a88a9d941c4e6d3c7_icgraph.svg" width="438" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceworkspace_a906405cb0a9bb7e80f550f95ba9405b4_icgraph.svg" width="438" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -290,7 +297,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="workspace_8py_source.html#l00239">239</a> of file <a class="el" href="workspace_8py_source.html">workspace.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="workspace_8py_source.html#l00242">242</a> of file <a class="el" href="workspace_8py_source.html">workspace.py</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -353,7 +360,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Dict of Copy/Dynamic/data/temp/Report roots </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="workspace_8py_source.html#l00207">207</a> of file <a class="el" href="workspace_8py_source.html">workspace.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="workspace_8py_source.html#l00210">210</a> of file <a class="el" href="workspace_8py_source.html">workspace.py</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -414,7 +421,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="workspace_8py_source.html#l00225">225</a> of file <a class="el" href="workspace_8py_source.html">workspace.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="workspace_8py_source.html#l00228">228</a> of file <a class="el" href="workspace_8py_source.html">workspace.py</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -460,7 +467,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="workspace_8py_source.html#l00192">192</a> of file <a class="el" href="workspace_8py_source.html">workspace.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="workspace_8py_source.html#l00195">195</a> of file <a class="el" href="workspace_8py_source.html">workspace.py</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">

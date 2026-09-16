@@ -74,22 +74,22 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a4267bbc09b63fab971b487585a51ea7b"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#a4267bbc09b63fab971b487585a51ea7b">backward</a> (projPath, libName, currentVersion, currentEnv, targetVersion, targetEnv, runCommand, runPath, workspace, pcresolveLookup=None)</td></tr>
-<tr class="memdesc:a4267bbc09b63fab971b487585a51ea7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate pkl files and perform detection and repair tasks 生成项目调用API的pkl文件以及执行检测与修复任务  <a href="namespacemain.html#a4267bbc09b63fab971b487585a51ea7b">More...</a><br /></td></tr>
-<tr class="separator:a4267bbc09b63fab971b487585a51ea7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a117f59f18632263e3053f809a3e770ac"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#a117f59f18632263e3053f809a3e770ac">backward</a> (projPath, libName, currentVersion, currentEnv, targetVersion, targetEnv, runCommand, runPath, workspace, pcresolveLookup=None, writePatch=False)</td></tr>
+<tr class="memdesc:a117f59f18632263e3053f809a3e770ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate pkl files and perform detection and repair tasks 生成项目调用API的pkl文件以及执行检测与修复任务  <a href="namespacemain.html#a117f59f18632263e3053f809a3e770ac">More...</a><br /></td></tr>
+<tr class="separator:a117f59f18632263e3053f809a3e770ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a052341442960b76f576383f354689bc5"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#a052341442960b76f576383f354689bc5">backwardTask</a> (args)</td></tr>
 <tr class="memdesc:a052341442960b76f576383f354689bc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">One process handles one file 一个进程处理一个文件  <a href="namespacemain.html#a052341442960b76f576383f354689bc5">More...</a><br /></td></tr>
 <tr class="separator:a052341442960b76f576383f354689bc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af613cea4cba4fb7de8e40896b3368945"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945">main</a> ()</td></tr>
 <tr class="memdesc:af613cea4cba4fb7de8e40896b3368945"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main function of PCART PCART主函数  <a href="namespacemain.html#af613cea4cba4fb7de8e40896b3368945">More...</a><br /></td></tr>
 <tr class="separator:af613cea4cba4fb7de8e40896b3368945"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2dd38981b6166face1603927a8486760"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#a2dd38981b6166face1603927a8486760">run</a> (config, cleanWorkspace=False)</td></tr>
-<tr class="memdesc:a2dd38981b6166face1603927a8486760"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run PCART with an isolated workspace 在隔离工作区中运行PCART.  <a href="namespacemain.html#a2dd38981b6166face1603927a8486760">More...</a><br /></td></tr>
-<tr class="separator:a2dd38981b6166face1603927a8486760"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cdf2998b85c28e512bc9ac70bc857e3"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#a6cdf2998b85c28e512bc9ac70bc857e3">run</a> (config, cleanWorkspace=False, writePatch=False)</td></tr>
+<tr class="memdesc:a6cdf2998b85c28e512bc9ac70bc857e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run PCART with an isolated workspace 在隔离工作区中运行PCART.  <a href="namespacemain.html#a6cdf2998b85c28e512bc9ac70bc857e3">More...</a><br /></td></tr>
+<tr class="separator:a6cdf2998b85c28e512bc9ac70bc857e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a4267bbc09b63fab971b487585a51ea7b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4267bbc09b63fab971b487585a51ea7b">&#9670;&nbsp;</a></span>backward()</h2>
+<a id="a117f59f18632263e3053f809a3e770ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a117f59f18632263e3053f809a3e770ac">&#9670;&nbsp;</a></span>backward()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -152,7 +152,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>pcresolveLookup</em> = <code>None</code>&#160;</td>
+          <td class="paramname"><em>pcresolveLookup</em> = <code>None</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>writePatch</em> = <code>False</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -175,21 +181,22 @@ Functions</h2></td></tr>
     <tr><td class="paramname">runPath</td><td>The relative path of the run file / 运行文件的相对路径 </td></tr>
     <tr><td class="paramname">workspace</td><td>RunWorkspace object for this execution / 本次执行的运行工作区 </td></tr>
     <tr><td class="paramname">pcresolveLookup</td><td>Optional pre-built PCResolve lookup table shared with preprocessing </td></tr>
+    <tr><td class="paramname">writePatch</td><td>Whether to generate patches and a repaired project copy </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="main_8py_source.html#l00200">200</a> of file <a class="el" href="main_8py_source.html">main.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8py_source.html#l00209">209</a> of file <a class="el" href="main_8py_source.html">main.py</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacemain_a4267bbc09b63fab971b487585a51ea7b_cgraph.svg" width="100%" height="537"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacemain_a117f59f18632263e3053f809a3e770ac_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacemain_a4267bbc09b63fab971b487585a51ea7b_icgraph.svg" width="290" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacemain_a117f59f18632263e3053f809a3e770ac_icgraph.svg" width="290" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -218,9 +225,9 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>(ansDict,fileRelativePath,invokedAPINum) ansDict: detection and repair results; fileRelativePath: the file being processed; invokedAPINum: number of invoked APIs </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>(ansDict,fileRelativePath,invokedAPINum,patchEdits) ansDict: detection and repair results; fileRelativePath: the file being processed; invokedAPINum: number of invoked APIs; patchEdits: independent source edits for optional patch output </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="main_8py_source.html#l00038">38</a> of file <a class="el" href="main_8py_source.html">main.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8py_source.html#l00040">40</a> of file <a class="el" href="main_8py_source.html">main.py</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -247,7 +254,7 @@ Here is the call graph for this function:</div>
 
 <p>Main function of PCART PCART主函数 </p>
 
-<p class="definition">Definition at line <a class="el" href="main_8py_source.html#l00322">322</a> of file <a class="el" href="main_8py_source.html">main.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8py_source.html#l00338">338</a> of file <a class="el" href="main_8py_source.html">main.py</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -257,8 +264,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a2dd38981b6166face1603927a8486760"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2dd38981b6166face1603927a8486760">&#9670;&nbsp;</a></span>run()</h2>
+<a id="a6cdf2998b85c28e512bc9ac70bc857e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cdf2998b85c28e512bc9ac70bc857e3">&#9670;&nbsp;</a></span>run()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -273,7 +280,13 @@ Here is the call graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>cleanWorkspace</em> = <code>False</code>&#160;</td>
+          <td class="paramname"><em>cleanWorkspace</em> = <code>False</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>writePatch</em> = <code>False</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -289,22 +302,23 @@ Here is the call graph for this function:</div>
   <table class="params">
     <tr><td class="paramname">config</td><td>The config file path or config file name under Configure </td></tr>
     <tr><td class="paramname">cleanWorkspace</td><td>Whether to remove a successful run workspace </td></tr>
+    <tr><td class="paramname">writePatch</td><td>Whether to generate patches and a repaired project copy </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>RunWorkspace object for this execution </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="main_8py_source.html#l00278">278</a> of file <a class="el" href="main_8py_source.html">main.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8py_source.html#l00293">293</a> of file <a class="el" href="main_8py_source.html">main.py</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacemain_a2dd38981b6166face1603927a8486760_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacemain_a6cdf2998b85c28e512bc9ac70bc857e3_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacemain_a2dd38981b6166face1603927a8486760_icgraph.svg" width="156" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacemain_a6cdf2998b85c28e512bc9ac70bc857e3_icgraph.svg" width="156" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 

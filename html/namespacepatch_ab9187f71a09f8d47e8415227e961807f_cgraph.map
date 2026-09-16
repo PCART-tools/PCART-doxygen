@@ -1,0 +1,4 @@
+<map id="writeRepairArtifacts" name="writeRepairArtifacts">
+<area shape="rect" id="node1" title="Write independent category patches and a Successful&#45;only project copy 写出三类独立补丁及仅含Successful修复的项目副本" alt="" coords="5,5,157,32"/>
+<area shape="rect" id="node2" href="$namespacepatch.html#ac105df731d89030cb57f2db337b3491d" title="Apply non&#45;overlapping edits using UTF&#45;8 byte offsets from the original AST 根据原始AST的UTF&#45;8字节位置应用不重叠的修复" alt="" coords="205,5,296,32"/>
+</map>
