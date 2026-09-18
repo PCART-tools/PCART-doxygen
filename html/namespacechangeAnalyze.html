@@ -90,6 +90,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a0e521f7261a83511bc8e4742e2647d64"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechangeAnalyze.html#a0e521f7261a83511bc8e4742e2647d64">analyzeCompatibility</a> (oldPara, newPara)</td></tr>
 <tr class="memdesc:a0e521f7261a83511bc8e4742e2647d64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Analyze the compatibility of two APIs 判断两个重载API是否兼容  <a href="namespacechangeAnalyze.html#a0e521f7261a83511bc8e4742e2647d64">More...</a><br /></td></tr>
 <tr class="separator:a0e521f7261a83511bc8e4742e2647d64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11ec6da1d7db3c88dbd23d6a6c5a6dae"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechangeAnalyze.html#a11ec6da1d7db3c88dbd23d6a6c5a6dae">analyzeMatchCompatibility</a> (current, target, *formatAPI, libName, currentVersion, targetVersion)</td></tr>
+<tr class="memdesc:a11ec6da1d7db3c88dbd23d6a6c5a6dae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Analyze compatibility after selecting comparable matching results 选择可比较的匹配结果，再分析版本间兼容性  <a href="namespacechangeAnalyze.html#a11ec6da1d7db3c88dbd23d6a6c5a6dae">More...</a><br /></td></tr>
+<tr class="separator:a11ec6da1d7db3c88dbd23d6a6c5a6dae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca1a0247c24c805f11d8e151232c6c9d"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechangeAnalyze.html#aca1a0247c24c805f11d8e151232c6c9d">findDiffer</a> (oldPara, newPara)</td></tr>
 <tr class="memdesc:aca1a0247c24c805f11d8e151232c6c9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine difference of two parameters 输入两个api参数部分，判断参数部分有何不同  <a href="namespacechangeAnalyze.html#aca1a0247c24c805f11d8e151232c6c9d">More...</a><br /></td></tr>
 <tr class="separator:aca1a0247c24c805f11d8e151232c6c9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -202,7 +205,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>lst[0] The API call string with added parameter values (load from pkl file) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="changeAnalyze_8py_source.html#l00636">636</a> of file <a class="el" href="changeAnalyze_8py_source.html">changeAnalyze.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="changeAnalyze_8py_source.html#l00682">682</a> of file <a class="el" href="changeAnalyze_8py_source.html">changeAnalyze.py</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -255,7 +258,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True/False Compatible or not </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="changeAnalyze_8py_source.html#l00493">493</a> of file <a class="el" href="changeAnalyze_8py_source.html">changeAnalyze.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="changeAnalyze_8py_source.html#l00494">494</a> of file <a class="el" href="changeAnalyze_8py_source.html">changeAnalyze.py</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -265,7 +268,87 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacechangeAnalyze_a0e521f7261a83511bc8e4742e2647d64_icgraph.svg" width="527" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacechangeAnalyze_a0e521f7261a83511bc8e4742e2647d64_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a11ec6da1d7db3c88dbd23d6a6c5a6dae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11ec6da1d7db3c88dbd23d6a6c5a6dae">&#9670;&nbsp;</a></span>analyzeMatchCompatibility()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def changeAnalyze.analyzeMatchCompatibility </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>current</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">*&#160;</td>
+          <td class="paramname"><em>formatAPI</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>libName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>currentVersion</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>targetVersion</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Analyze compatibility after selecting comparable matching results 选择可比较的匹配结果，再分析版本间兼容性 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">current</td><td>Original matching result from the current version </td></tr>
+    <tr><td class="paramname">target</td><td>Original matching result from the target version </td></tr>
+    <tr><td class="paramname">formatAPI</td><td>Resolved call path with parameters removed </td></tr>
+    <tr><td class="paramname">libName</td><td>Library name used for static matching </td></tr>
+    <tr><td class="paramname">currentVersion</td><td>Current library version </td></tr>
+    <tr><td class="paramname">targetVersion</td><td>Target library version </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>None if unknown, [] if compatible, or repair candidates </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="changeAnalyze_8py_source.html#l00634">634</a> of file <a class="el" href="changeAnalyze_8py_source.html">changeAnalyze.py</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacechangeAnalyze_a11ec6da1d7db3c88dbd23d6a6c5a6dae_cgraph.svg" width="100%" height="480"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacechangeAnalyze_a11ec6da1d7db3c88dbd23d6a6c5a6dae_icgraph.svg" width="411" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -307,7 +390,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>ansDict The dictionary of parameter changes for each parameter </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="changeAnalyze_8py_source.html#l00302">302</a> of file <a class="el" href="changeAnalyze_8py_source.html">changeAnalyze.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="changeAnalyze_8py_source.html#l00303">303</a> of file <a class="el" href="changeAnalyze_8py_source.html">changeAnalyze.py</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -317,7 +400,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacechangeAnalyze_aca1a0247c24c805f11d8e151232c6c9d_icgraph.svg" width="448" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacechangeAnalyze_aca1a0247c24c805f11d8e151232c6c9d_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -360,7 +443,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>tempLst1/2 The repair operation dictionary if incompatible </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="changeAnalyze_8py_source.html#l00556">556</a> of file <a class="el" href="changeAnalyze_8py_source.html">changeAnalyze.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="changeAnalyze_8py_source.html#l00557">557</a> of file <a class="el" href="changeAnalyze_8py_source.html">changeAnalyze.py</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -370,7 +453,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacechangeAnalyze_a3272743b8ad154a66e9d45ab36bca3ec_icgraph.svg" width="318" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacechangeAnalyze_a3272743b8ad154a66e9d45ab36bca3ec_icgraph.svg" width="567" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -414,7 +497,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>newType Return newType if type difference exists or return False </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="changeAnalyze_8py_source.html#l00162">162</a> of file <a class="el" href="changeAnalyze_8py_source.html">changeAnalyze.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="changeAnalyze_8py_source.html#l00163">163</a> of file <a class="el" href="changeAnalyze_8py_source.html">changeAnalyze.py</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -455,7 +538,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>(posParameters, keyParameters) Tuple of positional and keyword parameter lists </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="changeAnalyze_8py_source.html#l00228">228</a> of file <a class="el" href="changeAnalyze_8py_source.html">changeAnalyze.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="changeAnalyze_8py_source.html#l00229">229</a> of file <a class="el" href="changeAnalyze_8py_source.html">changeAnalyze.py</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -507,7 +590,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>ansDict The query result </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="changeAnalyze_8py_source.html#l00114">114</a> of file <a class="el" href="changeAnalyze_8py_source.html">changeAnalyze.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="changeAnalyze_8py_source.html#l00115">115</a> of file <a class="el" href="changeAnalyze_8py_source.html">changeAnalyze.py</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -554,7 +637,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="changeAnalyze_8py_source.html#l00101">101</a> of file <a class="el" href="changeAnalyze_8py_source.html">changeAnalyze.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="changeAnalyze_8py_source.html#l00102">102</a> of file <a class="el" href="changeAnalyze_8py_source.html">changeAnalyze.py</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -614,7 +697,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="changeAnalyze_8py_source.html#l00132">132</a> of file <a class="el" href="changeAnalyze_8py_source.html">changeAnalyze.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="changeAnalyze_8py_source.html#l00133">133</a> of file <a class="el" href="changeAnalyze_8py_source.html">changeAnalyze.py</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">

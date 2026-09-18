@@ -1,4 +1,5 @@
 <map id="isCompatible" name="isCompatible">
-<area shape="rect" id="node1" title="Determine the compatibility of APIs from current and target versions 判断起始版本和目标版本API的兼容性" alt="" coords="204,5,312,32"/>
-<area shape="rect" id="node2" href="$namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件" alt="" coords="5,5,156,32"/>
+<area shape="rect" id="node1" title="Determine the compatibility of APIs from current and target versions 判断起始版本和目标版本API的兼容性" alt="" coords="453,5,561,32"/>
+<area shape="rect" id="node2" href="$namespacechangeAnalyze.html#a11ec6da1d7db3c88dbd23d6a6c5a6dae" title="Analyze compatibility after selecting comparable matching results 选择可比较的匹配结果，再分析版本间兼容性" alt="" coords="204,5,405,32"/>
+<area shape="rect" id="node3" href="$namespacemain.html#a052341442960b76f576383f354689bc5" title="One process handles one file 一个进程处理一个文件" alt="" coords="5,5,156,32"/>
 </map>
