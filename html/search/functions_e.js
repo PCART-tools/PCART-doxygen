@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['para2obj_394',['para2Obj',['../namespacechangeAnalyze.html#a9b577b97754fdc8097f5837944e9b010',1,'changeAnalyze']]],
-  ['path_395',['path',['../classgetPath_1_1Path.html#a06b69f95c6aed3f443a7609ddda5e206',1,'getPath::Path']]],
-  ['prefix_396',['prefix',['../classextractDef_1_1Def2format.html#a719c2ea0f34378d0becd5b327f31b6e9',1,'extractDef::Def2format']]]
+  ['para2obj_395',['para2Obj',['../namespacechangeAnalyze.html#a9b577b97754fdc8097f5837944e9b010',1,'changeAnalyze']]],
+  ['parselibrarysource_396',['parseLibrarySource',['../namespacegetDef.html#a685a4a09e134cab045b3639605ed9414',1,'getDef']]],
+  ['path_397',['path',['../classgetPath_1_1Path.html#a06b69f95c6aed3f443a7609ddda5e206',1,'getPath::Path']]],
+  ['prefix_398',['prefix',['../classextractDef_1_1Def2format.html#a719c2ea0f34378d0becd5b327f31b6e9',1,'extractDef::Def2format']]]
 ];
