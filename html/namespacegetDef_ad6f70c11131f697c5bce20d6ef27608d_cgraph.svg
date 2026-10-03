@@ -67,7 +67,7 @@ var sectionId = 'dynsection-5';
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="namespacegetDef.html#a05246d5cb347cca492448cfc1f45be77" target="_top" xlink:title="Extract all assign node from a .py file&#39;s AST 通过AST获取.py文件的Assign语句">
+<g id="a_node2"><a xlink:href="namespacegetDef.html#aa409d167c3947a2bd0fb04a5a120cf6f" target="_top" xlink:title="Extract all assign node from a .py file&#39;s AST 通过AST获取.py文件的Assign语句">
 <polygon fill="white" stroke="black" points="133,-228.5 133,-247.5 198,-247.5 198,-228.5 133,-228.5"/>
 <text text-anchor="middle" x="165.5" y="-235.5" font-family="Helvetica,sans-Serif" font-size="10.00">getAssign</text>
 </a>
@@ -97,17 +97,17 @@ var sectionId = 'dynsection-5';
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="namespacegetDef.html#a685a4a09e134cab045b3639605ed9414" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="613,-114.5 613,-133.5 723,-133.5 723,-114.5 613,-114.5"/>
-<text text-anchor="middle" x="668" y="-121.5" font-family="Helvetica,sans-Serif" font-size="10.00">parseLibrarySource</text>
+<g id="a_node4"><a xlink:href="namespacegetDef.html#a685a4a09e134cab045b3639605ed9414" target="_top" xlink:title="Parse library source with supported legacy syntax in the Python 3.9 runtime 在Python 3....">
+<polygon fill="white" stroke="black" points="613,-133.5 613,-152.5 723,-152.5 723,-133.5 613,-133.5"/>
+<text text-anchor="middle" x="668" y="-140.5" font-family="Helvetica,sans-Serif" font-size="10.00">parseLibrarySource</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node4 -->
 <g id="edge4" class="edge">
 <title>Node1&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M91.3,-162C140.51,-162 221.89,-162 292,-162 292,-162 292,-162 425.5,-162 493.65,-162 571.33,-147.05 619.76,-135.9"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="620.7,-139.28 629.64,-133.59 619.1,-132.46 620.7,-139.28"/>
+<path fill="none" stroke="midnightblue" d="M91.3,-162C140.51,-162 221.89,-162 292,-162 292,-162 292,-162 425.5,-162 485.77,-162 554.24,-156.05 602.84,-150.8"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="603.35,-154.27 612.9,-149.7 602.58,-147.31 603.35,-154.27"/>
 </g>
 <!-- Node5 -->
 <g id="node5" class="node">
@@ -124,32 +124,32 @@ var sectionId = 'dynsection-5';
 <path fill="none" stroke="midnightblue" d="M66.25,-152.46C85.68,-143.07 115.51,-128.67 137.2,-118.19"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="138.76,-121.32 146.24,-113.82 135.71,-115.02 138.76,-121.32"/>
 </g>
-<!-- Node10 -->
-<g id="node10" class="node">
-<title>Node10</title>
-<g id="a_node10"><a xlink:href="namespacegetDef.html#a1910dc3d1a27e1e75655c6089e0fc93f" target="_top" xlink:title="Write one lib API line and its public alias if needed 写出一行库API，并按需写出公开路径别名">
+<!-- Node9 -->
+<g id="node9" class="node">
+<title>Node9</title>
+<g id="a_node9"><a xlink:href="namespacegetDef.html#a1910dc3d1a27e1e75655c6089e0fc93f" target="_top" xlink:title="Write one lib API line and its public alias if needed 写出一行库API，并按需写出公开路径别名">
 <polygon fill="white" stroke="black" points="127,-19.5 127,-38.5 204,-38.5 204,-19.5 127,-19.5"/>
 <text text-anchor="middle" x="165.5" y="-26.5" font-family="Helvetica,sans-Serif" font-size="10.00">writeApiLine</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node10 -->
-<g id="edge13" class="edge">
-<title>Node1&#45;&gt;Node10</title>
+<!-- Node1&#45;&gt;Node9 -->
+<g id="edge12" class="edge">
+<title>Node1&#45;&gt;Node9</title>
 <path fill="none" stroke="midnightblue" d="M54.99,-152.43C74.71,-130.21 123.85,-74.81 149.06,-46.4"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="151.75,-48.64 155.77,-38.84 146.52,-43.99 151.75,-48.64"/>
 </g>
 <!-- Node3&#45;&gt;Node4 -->
 <g id="edge3" class="edge">
 <title>Node3&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M467.01,-197.53C498.04,-194.72 541.11,-188.72 577,-176 602.06,-167.12 628.08,-151.24 645.66,-139.36"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="647.8,-142.13 654.03,-133.57 643.82,-136.38 647.8,-142.13"/>
+<path fill="none" stroke="midnightblue" d="M467.1,-195.62C497.79,-191.86 540.4,-185.51 577,-176 596.79,-170.86 618.32,-163.05 635.36,-156.32"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="636.85,-159.49 644.82,-152.51 634.24,-152.99 636.85,-159.49"/>
 </g>
 <!-- Node5&#45;&gt;Node4 -->
-<g id="edge12" class="edge">
+<g id="edge11" class="edge">
 <title>Node5&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M184.62,-106.08C199.49,-106.95 221.11,-108.15 240,-109 368.58,-114.76 519.02,-119.6 602.62,-122.12"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="602.63,-125.63 612.73,-122.43 602.84,-118.63 602.63,-125.63"/>
+<path fill="none" stroke="midnightblue" d="M184.61,-106.37C251.64,-111.46 487.69,-129.39 602.86,-138.13"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="602.71,-141.63 612.95,-138.9 603.24,-134.65 602.71,-141.63"/>
 </g>
 <!-- Node6 -->
 <g id="node6" class="node">
@@ -166,18 +166,18 @@ var sectionId = 'dynsection-5';
 <path fill="none" stroke="midnightblue" d="M184.57,-103.66C224.15,-100.74 319.56,-93.68 377.12,-89.43"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="377.7,-92.9 387.41,-88.67 377.18,-85.92 377.7,-92.9"/>
 </g>
-<!-- Node9 -->
-<g id="node9" class="node">
-<title>Node9</title>
-<g id="a_node9"><a xlink:href="namespacegetDef.html#a810ac355c3375b2d7e5ce5ae2d338ace" target="_top" xlink:title="Extract class method definitions from a give class.">
+<!-- Node8 -->
+<g id="node8" class="node">
+<title>Node8</title>
+<g id="a_node8"><a xlink:href="namespacegetDef.html#a810ac355c3375b2d7e5ce5ae2d338ace" target="_top" xlink:title="Extract class method definitions from a give class.">
 <polygon fill="white" stroke="black" points="263.5,-38.5 263.5,-57.5 322.5,-57.5 322.5,-38.5 263.5,-38.5"/>
 <text text-anchor="middle" x="293" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">getClass</text>
 </a>
 </g>
 </g>
-<!-- Node5&#45;&gt;Node9 -->
-<g id="edge10" class="edge">
-<title>Node5&#45;&gt;Node9</title>
+<!-- Node5&#45;&gt;Node8 -->
+<g id="edge9" class="edge">
+<title>Node5&#45;&gt;Node8</title>
 <path fill="none" stroke="midnightblue" d="M184.75,-96.71C204.82,-87.59 237.42,-72.79 261.42,-61.89"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="263.13,-64.96 270.79,-57.63 260.24,-58.58 263.13,-64.96"/>
 </g>
@@ -197,44 +197,29 @@ var sectionId = 'dynsection-5';
 <polygon fill="midnightblue" stroke="midnightblue" points="492.73,-89.5 502.73,-86 492.73,-82.5 492.73,-89.5"/>
 </g>
 <!-- Node7&#45;&gt;Node4 -->
-<g id="edge9" class="edge">
-<title>Node7&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M572.8,-95.59C588.76,-100.4 608.31,-106.3 625.45,-111.47"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="624.63,-114.88 635.22,-114.41 626.65,-108.18 624.63,-114.88"/>
-</g>
-<!-- Node8 -->
-<g id="node8" class="node">
-<title>Node8</title>
-<g id="a_node8"><a xlink:href="namespacetool.html#a163a1af85c967f70b1495290735321aa" target="_top" xlink:title="Get AST for code 将代码转化为Ast树">
-<polygon fill="white" stroke="black" points="633,-76.5 633,-95.5 703,-95.5 703,-76.5 633,-76.5"/>
-<text text-anchor="middle" x="668" y="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00">tool.getAst</text>
-</a>
-</g>
-</g>
-<!-- Node7&#45;&gt;Node8 -->
 <g id="edge8" class="edge">
-<title>Node7&#45;&gt;Node8</title>
-<path fill="none" stroke="midnightblue" d="M577.11,-86C591.29,-86 607.71,-86 622.6,-86"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="622.62,-89.5 632.62,-86 622.62,-82.5 622.62,-89.5"/>
+<title>Node7&#45;&gt;Node4</title>
+<path fill="none" stroke="midnightblue" d="M562.09,-95.54C582.44,-104.75 613.47,-118.78 636.51,-129.21"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="635.29,-132.5 645.84,-133.43 638.17,-126.12 635.29,-132.5"/>
 </g>
-<!-- Node9&#45;&gt;Node6 -->
-<g id="edge11" class="edge">
-<title>Node9&#45;&gt;Node6</title>
+<!-- Node8&#45;&gt;Node6 -->
+<g id="edge10" class="edge">
+<title>Node8&#45;&gt;Node6</title>
 <path fill="none" stroke="midnightblue" d="M322.74,-56.43C339.87,-61.46 361.94,-67.94 381.05,-73.54"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="380.15,-76.93 390.73,-76.38 382.12,-70.21 380.15,-76.93"/>
 </g>
-<!-- Node11 -->
-<g id="node11" class="node">
-<title>Node11</title>
-<g id="a_node11"><a xlink:href="namespacegetDef.html#aee955cbb7b6b4e386f8a5a948b865461" target="_top" xlink:title="Return a public alias line for source&#45;root API lines 为源码根路径API行生成公开路径别名">
+<!-- Node10 -->
+<g id="node10" class="node">
+<title>Node10</title>
+<g id="a_node10"><a xlink:href="namespacegetDef.html#aee955cbb7b6b4e386f8a5a948b865461" target="_top" xlink:title="Return a public alias line for source&#45;root API lines 为源码根路径API行生成公开路径别名">
 <polygon fill="white" stroke="black" points="240,-0.5 240,-19.5 346,-19.5 346,-0.5 240,-0.5"/>
 <text text-anchor="middle" x="293" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">getPublicAliasLine</text>
 </a>
 </g>
 </g>
-<!-- Node10&#45;&gt;Node11 -->
-<g id="edge14" class="edge">
-<title>Node10&#45;&gt;Node11</title>
+<!-- Node9&#45;&gt;Node10 -->
+<g id="edge13" class="edge">
+<title>Node9&#45;&gt;Node10</title>
 <path fill="none" stroke="midnightblue" d="M204.15,-23.3C212.34,-22.06 221.2,-20.72 230.05,-19.38"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="230.62,-22.83 239.99,-17.87 229.57,-15.91 230.62,-22.83"/>
 </g>

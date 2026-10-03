@@ -1,5 +1,5 @@
 <map id="parseLibrarySource" name="parseLibrarySource">
-<area shape="rect" id="node1" title=" " alt="" coords="1123,68,1269,95"/>
+<area shape="rect" id="node1" title="Parse library source with supported legacy syntax in the Python 3.9 runtime 在Python 3...." alt="" coords="1123,68,1269,95"/>
 <area shape="rect" id="node2" href="$namespacegetDef.html#ad6f70c11131f697c5bce20d6ef27608d" title="Extract all lib API definitions from a specified version 抽取给定版本的库API定义" alt="" coords="420,43,541,69"/>
 <area shape="rect" id="node5" href="$namespacegetDef.html#a6f1db28dcc0111f8e94227cadd8ec0b9" title="Build the re&#45;export mapping of library API definitions 构建库API定义的重导出映射" alt="" coords="815,43,928,69"/>
 <area shape="rect" id="node6" href="$namespacegetDef.html#a9635f8db70c56416fee07e9d28c6bbbe" title="Shorten the API path based on init.py and import alias 通过解析__init__.py和import别名,把源码中的部分API路径缩短" alt="" coords="976,93,1075,120"/>
