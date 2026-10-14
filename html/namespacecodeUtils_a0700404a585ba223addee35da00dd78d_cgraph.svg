@@ -12,7 +12,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title="Normalize file name 给文件取名字">
+<g id="a_node1"><a xlink:title="Normalize and sanitize file name 规范化并清理文件名">
 <polygon fill="#bfbfbf" stroke="black" points="0,-19.5 0,-38.5 79,-38.5 79,-19.5 0,-19.5"/>
 <text text-anchor="middle" x="39.5" y="-26.5" font-family="Helvetica,sans-Serif" font-size="10.00">getFileName</text>
 </a>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="namespacetool.html#adb980fd487d69797992c72e9b8c73326" target="_top" xlink:title="Return artifact hash from an artifact id 从运行产物id中提取hash.">
+<g id="a_node2"><a xlink:href="namespacecodeUtils.html#a3ffc1e37a2c196888a66f4102d10177e" target="_top" xlink:title="Return artifact hash from an artifact id 从运行产物id中提取hash.">
 <polygon fill="white" stroke="black" points="287,-19.5 287,-38.5 380,-38.5 380,-19.5 287,-19.5"/>
 <text text-anchor="middle" x="333.5" y="-26.5" font-family="Helvetica,sans-Serif" font-size="10.00">getArtifactHash</text>
 </a>
@@ -36,7 +36,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="namespacetool.html#a3d830c5894b1bc76beb533d6aa2d55f3" target="_top" xlink:title="Shorten artifact file name while preserving full hash 缩短运行产物文件名并保留完整hash.">
+<g id="a_node3"><a xlink:href="namespacecodeUtils.html#a29f9e9641bd81329e58162146d178d07" target="_top" xlink:title="Shorten artifact file name while preserving full hash 缩短运行产物文件名并保留完整hash.">
 <polygon fill="white" stroke="black" points="115,-0.5 115,-19.5 251,-19.5 251,-0.5 115,-0.5"/>
 <text text-anchor="middle" x="183" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">shortenArtifactFileName</text>
 </a>

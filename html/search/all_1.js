@@ -11,8 +11,9 @@ var searchData=
   ['api_12',['Api',['../classLibApi_1_1Api.html',1,'LibApi']]],
   ['apiobj_13',['APIOBJ',['../classLibApi_1_1APIOBJ.html',1,'LibApi']]],
   ['applyedits_14',['applyEdits',['../namespacepatch.html#ac105df731d89030cb57f2db337b3491d',1,'patch']]],
-  ['artifacthash_15',['artifactHash',['../classcallsite_1_1CallsiteIdentity.html#add59ebac4797ef0dd5379aa261b008c2',1,'callsite::CallsiteIdentity']]],
-  ['artifactid_16',['artifactId',['../classcallsite_1_1CallsiteIdentity.html#a951f52c11e00aff922cecb68ad0028ba',1,'callsite::CallsiteIdentity']]],
-  ['artifactpayload_17',['artifactPayload',['../classcallsite_1_1CallsiteIdentity.html#a925ffec679ca873733c0af3aea66662a',1,'callsite::CallsiteIdentity']]],
-  ['assignvisitor_18',['AssignVisitor',['../classextractDef_1_1AssignVisitor.html',1,'extractDef']]]
+  ['artifact_5fhash_5fpattern_15',['ARTIFACT_HASH_PATTERN',['../namespacecodeUtils.html#a384c647872d2d0b64f7abe4d88a88c23',1,'codeUtils']]],
+  ['artifacthash_16',['artifactHash',['../classcallsite_1_1CallsiteIdentity.html#add59ebac4797ef0dd5379aa261b008c2',1,'callsite::CallsiteIdentity']]],
+  ['artifactid_17',['artifactId',['../classcallsite_1_1CallsiteIdentity.html#a951f52c11e00aff922cecb68ad0028ba',1,'callsite::CallsiteIdentity']]],
+  ['artifactpayload_18',['artifactPayload',['../classcallsite_1_1CallsiteIdentity.html#a925ffec679ca873733c0af3aea66662a',1,'callsite::CallsiteIdentity']]],
+  ['assignvisitor_19',['AssignVisitor',['../classextractDef_1_1AssignVisitor.html',1,'extractDef']]]
 ];

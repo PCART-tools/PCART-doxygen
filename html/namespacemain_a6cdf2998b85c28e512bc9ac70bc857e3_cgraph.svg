@@ -697,32 +697,32 @@ var sectionId = 'dynsection-4';
 <!-- Node25 -->
 <g id="node25" class="node">
 <title>Node25</title>
-<g id="a_node25"><a xlink:href="namespacetool.html#ac4d05a17f2f511bda4979dd476894896" target="_top" xlink:title="Split API call string based on parameter passing 根据参数传递拆分API调用字符串">
-<polygon fill="white" stroke="black" points="538.5,-76.5 538.5,-95.5 624.5,-95.5 624.5,-76.5 538.5,-76.5"/>
-<text text-anchor="middle" x="581.5" y="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00">tool.departAPI</text>
+<g id="a_node25"><a xlink:href="namespacecodeUtils.html#ab27785a63d2aaab79151cbcc1b950284" target="_top" xlink:title="Split API call string based on parameter passing 根据参数传递拆分API调用字符串">
+<polygon fill="white" stroke="black" points="525,-76.5 525,-95.5 638,-95.5 638,-76.5 525,-76.5"/>
+<text text-anchor="middle" x="581.5" y="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00">codeUtils.departAPI</text>
 </a>
 </g>
 </g>
 <!-- Node23&#45;&gt;Node25 -->
 <g id="edge25" class="edge">
 <title>Node23&#45;&gt;Node25</title>
-<path fill="none" stroke="midnightblue" d="M431.26,-320.72C439.42,-317.68 447.02,-313.28 453,-307 515.85,-240.93 425.44,-170.39 489,-105 499.29,-94.41 513.83,-88.95 528.29,-86.31"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="528.83,-89.77 538.24,-84.9 527.85,-82.84 528.83,-89.77"/>
+<path fill="none" stroke="midnightblue" d="M431.26,-320.72C439.42,-317.68 447.02,-313.28 453,-307 515.85,-240.93 425.44,-170.39 489,-105 496.12,-97.67 505.28,-92.8 515.04,-89.62"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="516.19,-92.93 524.95,-86.97 514.39,-86.17 516.19,-92.93"/>
 </g>
 <!-- Node26 -->
 <g id="node26" class="node">
 <title>Node26</title>
-<g id="a_node26"><a xlink:href="namespacetool.html#abd074786b2b2c49fb89912e52b42f1fc" target="_top" xlink:title="Split API call string based on separator &quot;.&quot; 根据&quot;.&quot;拆分API调用字符串">
-<polygon fill="white" stroke="black" points="535.5,-38.5 535.5,-57.5 627.5,-57.5 627.5,-38.5 535.5,-38.5"/>
-<text text-anchor="middle" x="581.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">tool.departAPI2</text>
+<g id="a_node26"><a xlink:href="namespacecodeUtils.html#a0b8ba8bf77b43cd5cb61f4dac02c1fb0" target="_top" xlink:title="Split API call string based on separator &quot;.&quot; 根据&quot;.&quot;拆分API调用字符串">
+<polygon fill="white" stroke="black" points="522,-38.5 522,-57.5 641,-57.5 641,-38.5 522,-38.5"/>
+<text text-anchor="middle" x="581.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">codeUtils.departAPI2</text>
 </a>
 </g>
 </g>
 <!-- Node23&#45;&gt;Node26 -->
 <g id="edge26" class="edge">
 <title>Node23&#45;&gt;Node26</title>
-<path fill="none" stroke="midnightblue" d="M431.41,-320.87C439.55,-317.8 447.11,-313.36 453,-307 526.26,-227.84 414.89,-145.37 489,-67 498.42,-57.04 511.58,-51.59 524.99,-48.75"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="525.95,-52.14 535.24,-47.06 524.8,-45.23 525.95,-52.14"/>
+<path fill="none" stroke="midnightblue" d="M431.41,-320.87C439.55,-317.8 447.11,-313.36 453,-307 526.26,-227.84 414.89,-145.37 489,-67 495.39,-60.25 503.49,-55.57 512.24,-52.37"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="513.35,-55.68 521.92,-49.45 511.33,-48.98 513.35,-55.68"/>
 </g>
 <!-- Node27 -->
 <g id="node27" class="node">
@@ -833,17 +833,17 @@ var sectionId = 'dynsection-4';
 <!-- Node36 -->
 <g id="node36" class="node">
 <title>Node36</title>
-<g id="a_node36"><a xlink:href="namespacetool.html#a79b523c932db90445596767f644be48c" target="_top" xlink:title="Split parameter string into list of separated parameters 将参数字符串拆分成单个的参数">
-<polygon fill="white" stroke="black" points="529.5,-114.5 529.5,-133.5 633.5,-133.5 633.5,-114.5 529.5,-114.5"/>
-<text text-anchor="middle" x="581.5" y="-121.5" font-family="Helvetica,sans-Serif" font-size="10.00">tool.getParameter</text>
+<g id="a_node36"><a xlink:href="namespacecodeUtils.html#a4e46f3456fe3b2b6261143086d072284" target="_top" xlink:title="Split parameter string into list of separated parameters 将参数字符串拆分成单个的参数">
+<polygon fill="white" stroke="black" points="516,-114.5 516,-133.5 647,-133.5 647,-114.5 516,-114.5"/>
+<text text-anchor="middle" x="581.5" y="-121.5" font-family="Helvetica,sans-Serif" font-size="10.00">codeUtils.getParameter</text>
 </a>
 </g>
 </g>
 <!-- Node23&#45;&gt;Node36 -->
 <g id="edge38" class="edge">
 <title>Node23&#45;&gt;Node36</title>
-<path fill="none" stroke="midnightblue" d="M431.03,-320.5C439.22,-317.49 446.9,-313.16 453,-307 505.22,-254.3 436.48,-196.4 489,-144 497.28,-135.74 508.13,-130.54 519.45,-127.34"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="520.52,-130.68 529.47,-125.01 518.94,-123.86 520.52,-130.68"/>
+<path fill="none" stroke="midnightblue" d="M431.03,-320.5C439.22,-317.49 446.9,-313.16 453,-307 505.22,-254.3 436.48,-196.4 489,-144 493.95,-139.06 499.82,-135.22 506.16,-132.24"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="507.71,-135.39 515.73,-128.47 505.14,-128.88 507.71,-135.39"/>
 </g>
 <!-- Node37 -->
 <g id="node37" class="node">

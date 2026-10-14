@@ -46,7 +46,7 @@ if (edges && edges.length) {
         </defs>
 
 <script type="text/javascript">
-var viewWidth = 642;
+var viewWidth = 649;
 var viewHeight = 66;
 var sectionId = 'dynsection-0';
 </script>
@@ -54,7 +54,7 @@ var sectionId = 'dynsection-0';
 <svg id="graph" class="graph">
 <g id="viewport">
 <title>addValueForAPI</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-62 638,-62 638,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-62 645,-62 645,4 -4,4"/>
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
@@ -67,17 +67,17 @@ var sectionId = 'dynsection-0';
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="namespacetool.html#a738ffb440e1ecdd990c95702ed30da31" target="_top" xlink:title="Normalize file name 给文件取名字">
-<polygon fill="white" stroke="black" points="158,-38.5 158,-57.5 259,-57.5 259,-38.5 158,-38.5"/>
-<text text-anchor="middle" x="208.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">tool.getFileName</text>
+<g id="a_node2"><a xlink:href="namespacecodeUtils.html#a0700404a585ba223addee35da00dd78d" target="_top" xlink:title="Normalize and sanitize file name 规范化并清理文件名">
+<polygon fill="white" stroke="black" points="144.5,-38.5 144.5,-57.5 272.5,-57.5 272.5,-38.5 144.5,-38.5"/>
+<text text-anchor="middle" x="208.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">codeUtils.getFileName</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge1" class="edge">
 <title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M92.14,-34.34C109.42,-36.39 129.42,-38.76 147.86,-40.94"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="147.58,-44.43 157.92,-42.13 148.4,-37.48 147.58,-44.43"/>
+<path fill="none" stroke="midnightblue" d="M92.14,-34.34C105.19,-35.89 119.79,-37.62 134.1,-39.31"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="134.1,-42.84 144.44,-40.54 134.92,-35.88 134.1,-42.84"/>
 </g>
 <!-- Node5 -->
 <g id="node5" class="node">
@@ -97,38 +97,39 @@ var sectionId = 'dynsection-0';
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="namespacetool.html#adb980fd487d69797992c72e9b8c73326" target="_top" xlink:title="Return artifact hash from an artifact id 从运行产物id中提取hash.">
-<polygon fill="white" stroke="black" points="519,-38.5 519,-57.5 634,-57.5 634,-38.5 519,-38.5"/>
-<text text-anchor="middle" x="576.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">tool.getArtifactHash</text>
+<g id="a_node3"><a xlink:href="namespacecodeUtils.html#a3ffc1e37a2c196888a66f4102d10177e" target="_top" xlink:title="Return artifact hash from an artifact id 从运行产物id中提取hash.">
+<polygon fill="white" stroke="black" points="499,-38.5 499,-57.5 641,-57.5 641,-38.5 499,-38.5"/>
+<text text-anchor="middle" x="570" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">codeUtils.getArtifactHash</text>
 </a>
 </g>
 </g>
 <!-- Node2&#45;&gt;Node3 -->
 <g id="edge2" class="edge">
 <title>Node2&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M259.24,-48C323.79,-48 436.65,-48 508.64,-48"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="508.96,-51.5 518.96,-48 508.96,-44.5 508.96,-51.5"/>
+<path fill="none" stroke="midnightblue" d="M272.74,-49.94C289.71,-50.38 308.05,-50.78 325,-51 386.33,-51.8 401.67,-51.87 463,-51 471.34,-50.88 480.04,-50.71 488.72,-50.51"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="488.96,-54.01 498.87,-50.26 488.79,-47.01 488.96,-54.01"/>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="namespacetool.html#a3d830c5894b1bc76beb533d6aa2d55f3" target="_top" xlink:title="Shorten artifact file name while preserving full hash 缩短运行产物文件名并保留完整hash.">
-<polygon fill="white" stroke="black" points="325,-19.5 325,-38.5 483,-38.5 483,-19.5 325,-19.5"/>
-<text text-anchor="middle" x="404" y="-26.5" font-family="Helvetica,sans-Serif" font-size="10.00">tool.shortenArtifactFileName</text>
+<g id="a_node4"><a xlink:href="namespacecodeUtils.html#a29f9e9641bd81329e58162146d178d07" target="_top" xlink:title="Shorten artifact file name while preserving full hash 缩短运行产物文件名并保留完整hash.">
+<polygon fill="white" stroke="black" points="325,-11 325,-41 463,-41 463,-11 325,-11"/>
+<text text-anchor="start" x="333" y="-29" font-family="Helvetica,sans-Serif" font-size="10.00">codeUtils.shortenArtifact</text>
+<text text-anchor="middle" x="394" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">FileName</text>
 </a>
 </g>
 </g>
 <!-- Node2&#45;&gt;Node4 -->
 <g id="edge3" class="edge">
 <title>Node2&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M259.08,-43.13C276.15,-41.46 295.81,-39.53 315.01,-37.64"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="315.38,-41.12 324.99,-36.66 314.69,-34.15 315.38,-41.12"/>
+<path fill="none" stroke="midnightblue" d="M272.65,-40.43C286.16,-38.81 300.6,-37.08 314.61,-35.4"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="315.2,-38.85 324.72,-34.19 314.37,-31.9 315.2,-38.85"/>
 </g>
 <!-- Node4&#45;&gt;Node3 -->
 <g id="edge4" class="edge">
 <title>Node4&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M483.26,-37.72C491.73,-38.66 500.28,-39.62 508.6,-40.54"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="508.27,-44.03 518.59,-41.66 509.04,-37.07 508.27,-44.03"/>
+<path fill="none" stroke="midnightblue" d="M463.27,-34.63C471.69,-35.7 480.35,-36.79 488.92,-37.88"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="488.56,-41.36 498.92,-39.14 489.44,-34.41 488.56,-41.36"/>
 </g>
 </g>
 </svg>

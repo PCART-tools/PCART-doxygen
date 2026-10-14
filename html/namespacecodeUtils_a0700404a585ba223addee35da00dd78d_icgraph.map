@@ -1,5 +1,5 @@
 <map id="getFileName" name="getFileName">
-<area shape="rect" id="node1" title="Normalize file name 给文件取名字" alt="" coords="969,81,1075,108"/>
+<area shape="rect" id="node1" title="Normalize and sanitize file name 规范化并清理文件名" alt="" coords="969,81,1075,108"/>
 <area shape="rect" id="node2" href="$namespacechangeAnalyze.html#afb56fcc8060a6914ae0aa7b73d837a03" title="Add values stored by pkl file for API parameters 为API参数添加保存至pkl文件中的值" alt="" coords="204,5,431,32"/>
 <area shape="rect" id="node4" href="$namespacemap.html#ad42b1c51153bfcc30c38bf31ca669197" title="Dynamic mapping of API signatures API签名动态匹配" alt="" coords="479,81,629,108"/>
 <area shape="rect" id="node6" href="$namespacemap.html#a48baa0d5e1698250bfa361d952ae7637" title="Check whether a callsite candidate manifest records pkl save failure 检查调用点候选清单是否记录了pkl保存失败" alt="" coords="697,81,902,108"/>
