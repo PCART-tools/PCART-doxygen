@@ -93,9 +93,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a11ec6da1d7db3c88dbd23d6a6c5a6dae"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechangeAnalyze.html#a11ec6da1d7db3c88dbd23d6a6c5a6dae">analyzeMatchCompatibility</a> (current, target, *formatAPI, libName, currentVersion, targetVersion)</td></tr>
 <tr class="memdesc:a11ec6da1d7db3c88dbd23d6a6c5a6dae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Analyze compatibility after selecting comparable matching results 选择可比较的匹配结果，再分析版本间兼容性  <a href="namespacechangeAnalyze.html#a11ec6da1d7db3c88dbd23d6a6c5a6dae">More...</a><br /></td></tr>
 <tr class="separator:a11ec6da1d7db3c88dbd23d6a6c5a6dae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca1a0247c24c805f11d8e151232c6c9d"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechangeAnalyze.html#aca1a0247c24c805f11d8e151232c6c9d">findDiffer</a> (oldPara, newPara)</td></tr>
-<tr class="memdesc:aca1a0247c24c805f11d8e151232c6c9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine difference of two parameters 输入两个api参数部分，判断参数部分有何不同  <a href="namespacechangeAnalyze.html#aca1a0247c24c805f11d8e151232c6c9d">More...</a><br /></td></tr>
-<tr class="separator:aca1a0247c24c805f11d8e151232c6c9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea6fd55f8d77138e7dbafbbde88f1809"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechangeAnalyze.html#aea6fd55f8d77138e7dbafbbde88f1809">findDiffer</a> (oldPara, newPara, *includeValue=False)</td></tr>
+<tr class="memdesc:aea6fd55f8d77138e7dbafbbde88f1809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine difference of two parameters 输入两个api参数部分，判断参数部分有何不同  <a href="namespacechangeAnalyze.html#aea6fd55f8d77138e7dbafbbde88f1809">More...</a><br /></td></tr>
+<tr class="separator:aea6fd55f8d77138e7dbafbbde88f1809"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3272743b8ad154a66e9d45ab36bca3ec"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechangeAnalyze.html#a3272743b8ad154a66e9d45ab36bca3ec">isCompatible</a> (current, target)</td></tr>
 <tr class="memdesc:a3272743b8ad154a66e9d45ab36bca3ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine the compatibility of APIs from current and target versions 判断起始版本和目标版本API的兼容性  <a href="namespacechangeAnalyze.html#a3272743b8ad154a66e9d45ab36bca3ec">More...</a><br /></td></tr>
 <tr class="separator:a3272743b8ad154a66e9d45ab36bca3ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -118,7 +118,7 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Analyze API parameter changes and compatibility. </p>
-<p>Compares API signatures between library versions to detect 10 parameter change types (addition, removal, renaming, reordering, type change, pos↔key conversion). Core functions: <a class="el" href="namespacechangeAnalyze.html#a3272743b8ad154a66e9d45ab36bca3ec" title="Determine the compatibility of APIs from current and target versions 判断起始版本和目标版本API的兼容性">isCompatible()</a>, <a class="el" href="namespacechangeAnalyze.html#aca1a0247c24c805f11d8e151232c6c9d" title="Determine difference of two parameters 输入两个api参数部分，判断参数部分有何不同">findDiffer()</a>, <a class="el" href="namespacechangeAnalyze.html#afb56fcc8060a6914ae0aa7b73d837a03" title="Add values stored by pkl file for API parameters 为API参数添加保存至pkl文件中的值">addValueForAPI()</a>. 比较库版本间API签名，检测10种参数变更类型（新增、删除、重命名、重排序、 类型变更、位置↔关键字转换）。核心函数：isCompatible()、findDiffer()、addValueForAPI()。 </p>
+<p>Compares API signatures between library versions to detect 10 parameter change types (addition, removal, renaming, reordering, type change, pos↔key conversion). Core functions: <a class="el" href="namespacechangeAnalyze.html#a3272743b8ad154a66e9d45ab36bca3ec" title="Determine the compatibility of APIs from current and target versions 判断起始版本和目标版本API的兼容性">isCompatible()</a>, <a class="el" href="namespacechangeAnalyze.html#aea6fd55f8d77138e7dbafbbde88f1809" title="Determine difference of two parameters 输入两个api参数部分，判断参数部分有何不同">findDiffer()</a>, <a class="el" href="namespacechangeAnalyze.html#afb56fcc8060a6914ae0aa7b73d837a03" title="Add values stored by pkl file for API parameters 为API参数添加保存至pkl文件中的值">addValueForAPI()</a>. 比较库版本间API签名，检测10种参数变更类型（新增、删除、重命名、重排序、 类型变更、位置↔关键字转换）。核心函数：isCompatible()、findDiffer()、addValueForAPI()。 </p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="afb56fcc8060a6914ae0aa7b73d837a03"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afb56fcc8060a6914ae0aa7b73d837a03">&#9670;&nbsp;</a></span>addValueForAPI()</h2>
@@ -205,7 +205,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>lst[0] The API call string with added parameter values (load from pkl file) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="changeAnalyze_8py_source.html#l00682">682</a> of file <a class="el" href="changeAnalyze_8py_source.html">changeAnalyze.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="changeAnalyze_8py_source.html#l00697">697</a> of file <a class="el" href="changeAnalyze_8py_source.html">changeAnalyze.py</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -258,7 +258,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True/False Compatible or not </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="changeAnalyze_8py_source.html#l00494">494</a> of file <a class="el" href="changeAnalyze_8py_source.html">changeAnalyze.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="changeAnalyze_8py_source.html#l00509">509</a> of file <a class="el" href="changeAnalyze_8py_source.html">changeAnalyze.py</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -338,7 +338,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>None if unknown, [] if compatible, or repair candidates </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="changeAnalyze_8py_source.html#l00634">634</a> of file <a class="el" href="changeAnalyze_8py_source.html">changeAnalyze.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="changeAnalyze_8py_source.html#l00649">649</a> of file <a class="el" href="changeAnalyze_8py_source.html">changeAnalyze.py</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -354,8 +354,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="aca1a0247c24c805f11d8e151232c6c9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca1a0247c24c805f11d8e151232c6c9d">&#9670;&nbsp;</a></span>findDiffer()</h2>
+<a id="aea6fd55f8d77138e7dbafbbde88f1809"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea6fd55f8d77138e7dbafbbde88f1809">&#9670;&nbsp;</a></span>findDiffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -370,7 +370,13 @@ Here is the caller graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>newPara</em>&#160;</td>
+          <td class="paramname"><em>newPara</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">*&#160;</td>
+          <td class="paramname"><em>includeValue</em> = <code>False</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -385,22 +391,23 @@ Here is the caller graph for this function:</div>
   <table class="params">
     <tr><td class="paramname">oldPara</td><td>The old parameter from current version </td></tr>
     <tr><td class="paramname">newPara</td><td>The new parameter from target version </td></tr>
+    <tr><td class="paramname">includeValue</td><td>Whether to include default value changes in the result (disabled by default) </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>ansDict The dictionary of parameter changes for each parameter </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="changeAnalyze_8py_source.html#l00303">303</a> of file <a class="el" href="changeAnalyze_8py_source.html">changeAnalyze.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="changeAnalyze_8py_source.html#l00304">304</a> of file <a class="el" href="changeAnalyze_8py_source.html">changeAnalyze.py</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacechangeAnalyze_aca1a0247c24c805f11d8e151232c6c9d_cgraph.svg" width="463" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacechangeAnalyze_aea6fd55f8d77138e7dbafbbde88f1809_cgraph.svg" width="463" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacechangeAnalyze_aca1a0247c24c805f11d8e151232c6c9d_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacechangeAnalyze_aea6fd55f8d77138e7dbafbbde88f1809_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -443,7 +450,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>tempLst1/2 The repair operation dictionary if incompatible </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="changeAnalyze_8py_source.html#l00557">557</a> of file <a class="el" href="changeAnalyze_8py_source.html">changeAnalyze.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="changeAnalyze_8py_source.html#l00572">572</a> of file <a class="el" href="changeAnalyze_8py_source.html">changeAnalyze.py</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
